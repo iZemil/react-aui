@@ -116,14 +116,14 @@ export enum EButton {
 	Ghost = 'GHOST',
 }
 
-interface IProps extends IStButton {
+export interface IButtonProps extends IStButton {
 	type?: 'button' | 'submit' | 'reset';
 	children: React.ReactNode;
 	className?: string;
 	onClick?: () => void;
 }
 
-export function Button({ children, onClick, type, ...rest }: IProps) {
+export function Button({ children, onClick, type, ...rest }: IButtonProps) {
 	return (
 		<Styled.$ type={type ?? 'button'} onClick={onClick} {...rest}>
 			{children}
