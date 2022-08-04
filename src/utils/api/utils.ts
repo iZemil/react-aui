@@ -2,24 +2,22 @@ import { BaseQueryFn, FetchArgs, FetchBaseQueryError, fetchBaseQuery } from '@re
 import { Mutex } from 'async-mutex';
 
 import { logout, setCredentials } from './authSlice';
-import { SERVER_URL } from './consts';
 
-const getApiRequestUrl = (endpoint: string) => `${SERVER_URL}/api${endpoint}`;
-export const baseQuery = (url: string) =>
+export const baseQuery = (baseUrl: string) =>
 	fetchBaseQuery({
-		baseUrl: getApiRequestUrl(url),
+		baseUrl,
 		credentials: 'include',
 	});
 
 // https://github.com/DirtyHairy/async-mutex
 const mutex = new Mutex();
 export const baseQueryWithReauth =
-	(url: string): BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> =>
+	(baseUrl: string): BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> =>
 	async (args, api, extraOptions) => {
 		// wait until the mutex is available without locking it
 		await mutex.waitForUnlock();
 
-		let result = await baseQuery(url)(args, api, extraOptions);
+		let result = await baseQuery(baseUrl)(args, api, extraOptions);
 
 		if (result.error && result.error.status === 401) {
 			// checking whether the mutex is locked
@@ -32,7 +30,7 @@ export const baseQueryWithReauth =
 						api.dispatch(setCredentials({ userId: (refreshResult.data as { id: string }).id }));
 
 						// retry the initial query
-						result = await baseQuery(url)(args, api, extraOptions);
+						result = await baseQuery(baseUrl)(args, api, extraOptions);
 					} else {
 						api.dispatch(logout());
 					}
@@ -44,7 +42,7 @@ export const baseQueryWithReauth =
 				// wait until the mutex is available without locking it
 				await mutex.waitForUnlock();
 
-				result = await baseQuery(url)(args, api, extraOptions);
+				result = await baseQuery(baseUrl)(args, api, extraOptions);
 			}
 		}
 
