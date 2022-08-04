@@ -20,3 +20,4 @@ export * from './Sider';
 export * from './Tabs';
 export * from './TextArea';
 export * from './icons';
+export * from './Snackbars';

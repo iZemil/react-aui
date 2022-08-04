@@ -30,3 +30,5 @@ export interface IColors {
 	Bg: string;
 	BgWrapper: string;
 }
+
+export * from './themeSlice';
