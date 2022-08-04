@@ -1,7 +1,7 @@
 import { Button, EButton } from './index';
 
 export default {
-	title: 'Buttons',
+	title: 'Button title',
 	component: Button,
 };
 

@@ -4,8 +4,6 @@ import { normalize } from 'styled-normalize';
 
 import { EThemeMode } from '../theme';
 
-import './global.css';
-
 export const GlobalStyles = createGlobalStyle`
     ${normalize}
 
