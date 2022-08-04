@@ -21,4 +21,20 @@ const themes = [
 	},
 ];
 
+export const parameters = {
+	backgrounds: {
+		default: 'DARK',
+		values: [
+			{
+				name: 'DARK',
+				value: '#202020',
+			},
+			{
+				name: 'LIGHT',
+				value: '#ffffff',
+			},
+		],
+	},
+};
+
 addDecorator(withThemesProvider(themes), ThemeProvider);
