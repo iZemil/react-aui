@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { BORDER, ESize, PADDINGS, color, disabledCss } from '../../styles';
-import { ITheme } from '../../theme';
+import { ITheme } from '../../styles/theme';
 
 export interface IStButton {
 	kind?: EButton;

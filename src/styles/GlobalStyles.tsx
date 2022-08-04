@@ -2,7 +2,7 @@ import { color } from '.';
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-import { EThemeMode } from '../theme';
+import { EThemeMode } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
     ${normalize}

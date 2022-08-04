@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
-import { ITheme } from '../theme';
+import { ITheme } from './theme';
 
 // GOOD: https://dev.to/j3nnning/theme-setup-with-styled-components-functional-programming-4i5p
 export const color =

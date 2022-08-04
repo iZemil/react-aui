@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components';
 import { copyBuffer, wait } from '../../utils';
 import { Icons } from '../icons';
 import { color } from '../../styles';
-import { ITheme } from '../../theme';
+import { ITheme } from '../../styles/theme';
 
 import Styled from './Styled';
 
