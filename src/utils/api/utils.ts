@@ -1,4 +1,4 @@
-import { BaseQueryFn, FetchArgs, FetchBaseQueryError, fetchBaseQuery, createApi } from '@reduxjs/toolkit/query';
+import { BaseQueryFn, FetchArgs, FetchBaseQueryError, fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { Mutex } from 'async-mutex';
 
 import { logout, setCredentials } from './authSlice';
@@ -50,13 +50,3 @@ export const baseQueryWithReauth =
 
 		return result;
 	};
-
-export const mainApi = (tagTypes: string[]) =>
-	createApi({
-		baseQuery: baseQueryWithReauth(''),
-		endpoints: () => ({}),
-		reducerPath: 'mainApi',
-		tagTypes,
-	});
-
-export const withController = (controller: string) => (path: string) => `${controller}/${path}`;
