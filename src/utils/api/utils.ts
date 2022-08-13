@@ -25,7 +25,7 @@ export const baseQueryWithReauth =
 				const release = await mutex.acquire();
 				try {
 					// try to get a new token
-					const refreshResult = await baseQuery('/auth')('/refresh-token', api, extraOptions);
+					const refreshResult = await baseQuery(baseUrl)('/auth/refresh-token', api, extraOptions);
 					if (refreshResult.data) {
 						api.dispatch(setCredentials({ userId: (refreshResult.data as { id: string }).id }));
 
