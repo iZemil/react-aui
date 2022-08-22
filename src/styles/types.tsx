@@ -15,7 +15,7 @@ declare module 'styled-components' {
 	}
 }
 
-interface IAUIColors {
+export interface IAUIColors {
 	main: string;
 	white: string;
 	black: string;
@@ -33,7 +33,7 @@ interface IAUIColors {
 export type TPaddings = Record<TSize, number>;
 
 export interface IAUI {
-	mode?: EThemeMode;
+	mode: EThemeMode;
 	colors: IAUIColors;
 	borderRadius: number;
 	paddings: TPaddings;

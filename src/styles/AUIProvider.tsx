@@ -5,18 +5,27 @@ import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { GlobalStyles, SnackbarsProvider } from '../components';
 
 import { defaultTheme } from './consts';
-import { IAUI } from './types';
+import { EThemeMode, IAUI, IAUIColors, TPaddings } from './types';
 
 interface IAUIProviderProps {
-	theme?: IAUI;
+	theme?: Partial<
+		{ borderRadius: number; mode: EThemeMode } & { colors: Partial<IAUIColors> } & { paddings: Partial<TPaddings> }
+	>;
 	children: React.ReactNode;
 }
 
-export const AUIProvider = ({ children, theme = defaultTheme }: IAUIProviderProps) => {
+export const AUIProvider = ({ children, theme = {} }: IAUIProviderProps) => {
+	// TODO: may work incorect without redux-persist
 	const lsTheme = useSelector((state: { aui: DefaultTheme }) => state.aui);
+	const auiTheme: IAUI = {
+		mode: lsTheme.mode ?? theme.mode ?? defaultTheme.mode,
+		borderRadius: theme.borderRadius ?? defaultTheme.borderRadius,
+		colors: { ...defaultTheme.colors, ...theme.colors },
+		paddings: { ...defaultTheme.paddings, ...theme.paddings },
+	};
 
 	return (
-		<ThemeProvider theme={{ ...theme, ...lsTheme }}>
+		<ThemeProvider theme={auiTheme}>
 			<>
 				{children}
 

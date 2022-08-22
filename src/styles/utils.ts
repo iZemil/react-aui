@@ -20,7 +20,7 @@ export const disabledCss = (extraCss = '') => `
     ${extraCss}
 `;
 
-export const inputLabelCss = (props: any) => `
+export const inputLabelCss = (props: { theme: IAUI }) => `
     color: ${color('grey')(props)};
     font-weight: 500;
     text-transform: uppercase;
