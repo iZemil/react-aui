@@ -1,7 +1,8 @@
+import * as React from 'react';
 import styled from 'styled-components';
 
+import { padding } from '../../styles';
 import { BackButton } from '../BackButton';
-import { PADDINGS } from '../../styles';
 
 export const MENU_HEAD_BAR_HEIGH = 60;
 
@@ -15,7 +16,7 @@ export const Page = styled.div<{ withoutMenu?: boolean }>`
 
 export const PageContent = styled.div`
 	margin: 0 auto;
-	padding: 0 ${PADDINGS.Medium};
+	padding: 0 ${padding('medium')};
 	max-width: 720px;
 	height: 100%;
 	width: 100%;
@@ -31,8 +32,8 @@ const StyledPageTitle = {
 	$: styled.h1`
 		display: flex;
 		align-items: center;
-		padding: ${PADDINGS.Medium} 0;
-		gap: ${PADDINGS.Medium};
+		padding: ${padding('medium')} 0;
+		gap: ${padding('medium')};
 	`,
 	Children: {
 		$: styled.div`

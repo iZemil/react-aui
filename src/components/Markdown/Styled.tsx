@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS, inputLabelCss } from '../../styles';
+import { inputLabelCss, padding } from '../../styles';
 
 const Styled = {
 	$: styled.div`
@@ -35,9 +35,9 @@ const Styled = {
 		ol {
 			display: flex;
 			flex-direction: column;
-			gap: ${PADDINGS.Small};
-			margin: ${PADDINGS.Medium} 0;
-			padding-left: ${PADDINGS.Big};
+			gap: ${padding('small')};
+			margin: ${padding('medium')} 0;
+			padding-left: ${padding('large')};
 		}
 
 		/* CHECKBOXES */
@@ -45,8 +45,8 @@ const Styled = {
 			li.task-list-item {
 				display: flex;
 				align-items: center;
-				gap: ${PADDINGS.Medium};
-				margin-left: -${PADDINGS.Big};
+				gap: ${padding('medium')};
+				margin-left: -${padding('large')};
 			}
 		}
 	`,

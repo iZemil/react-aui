@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
+import { padding } from '../../styles';
 import { Icons } from '../icons';
-import { PADDINGS } from '../../styles';
 
 const Styled = {
 	$: styled.button<{ $active: boolean }>`
@@ -9,7 +9,7 @@ const Styled = {
 		border: 0;
 		padding: 0;
 		margin: 0;
-		padding: ${PADDINGS.Medium};
+		padding: ${padding('medium')};
 		outline: 0;
 		border-radius: 100px;
 		cursor: pointer;

@@ -18,4 +18,9 @@ export const defaultTheme: IAUI = {
 		wrapper: '#000000c9',
 	},
 	borderRadius: 4,
+	paddings: {
+		small: 5,
+		medium: 10,
+		large: 20,
+	},
 };

@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
-import { IAUI } from './types';
+import { IAUI, TPaddings, TSize } from './types';
 
 // GOOD: https://dev.to/j3nnning/theme-setup-with-styled-components-functional-programming-4i5p
 export const color =
@@ -28,4 +28,21 @@ export const inputLabelCss = (props: any) => `
     cursor: default;
 `;
 
-export const borderRadius = (props: { theme: IAUI }) => `${props.theme.borderRadius}px`;
+const toPx = (value: number): string => `${value}px`;
+
+export const borderRadius = (props: { theme: IAUI }): string => `${toPx(props.theme.borderRadius)}`;
+
+export const padding =
+	(size: TSize) =>
+	(props: { theme: IAUI }): string =>
+		`${toPx(props.theme.paddings[size])}`;
+
+export const selectPaddings = (props: { theme: IAUI }): Record<TSize, string> => {
+	const paddings: TPaddings = props.theme.paddings;
+
+	return {
+		small: toPx(paddings.small),
+		medium: toPx(paddings.medium),
+		large: toPx(paddings.large),
+	};
+};

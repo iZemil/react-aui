@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS } from '../../styles';
+import { padding } from '../../styles';
 
 const Styled = {
 	$: styled.div``,
@@ -12,7 +12,7 @@ const Styled = {
 		Tools: {
 			$: styled.div`
 				display: flex;
-				gap: ${PADDINGS.Medium};
+				gap: ${padding('medium')};
 			`,
 		},
 	},

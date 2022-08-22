@@ -1,7 +1,7 @@
 import DP from 'react-datepicker';
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color, inputLabelCss } from '../../styles';
+import { borderRadius, color, inputLabelCss, padding } from '../../styles';
 
 const Styled = {
 	$: styled(DP)`
@@ -85,10 +85,10 @@ const Styled = {
 					border: 1px solid transparent;
 					border-radius: ${borderRadius};
 					position: relative;
-					padding: ${PADDINGS.Small} 0;
+					padding: ${padding('small')} 0;
 					display: flex;
 					align-items: center;
-					gap: ${PADDINGS.Small};
+					gap: ${padding('small')};
 					font-size: 14px;
 				}
 
@@ -136,7 +136,7 @@ const Styled = {
 	},
 	Label: {
 		$: styled.div`
-			margin-bottom: ${PADDINGS.Small};
+			margin-bottom: ${padding('small')};
 			${inputLabelCss}
 		`,
 	},

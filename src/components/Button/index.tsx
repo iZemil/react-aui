@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color as colorFn, disabledCss } from '../../styles';
+import { borderRadius, color as colorFn, disabledCss, padding, selectPaddings } from '../../styles';
 
 import { IButtonProps, ISButtonProps } from './types';
 
@@ -11,7 +11,7 @@ const S = {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: ${PADDINGS.Medium};
+		gap: ${padding('medium')};
 		border-radius: ${borderRadius};
 		outline: 0;
 		transition: background-color 0.3s, color 0.3s, opacity 0.3s;
@@ -71,19 +71,20 @@ const S = {
 
 		${(props) => {
 			const { size } = props;
+			const paddings = selectPaddings(props);
 
 			const small = `
-				padding: ${PADDINGS.Small} ${PADDINGS.Medium};
+				padding: ${paddings.small} ${paddings.medium};
 				font-size: 14px;
 			`;
 
 			const medium = `
-				padding: ${PADDINGS.Medium};
+				padding: ${paddings.medium};
 				font-size: 16px;
 			`;
 
 			const large = `
-				padding: ${PADDINGS.Medium} ${PADDINGS.Big};
+				padding: ${paddings.medium} ${paddings.large};
 				font-size: 18px;
 			`;
 

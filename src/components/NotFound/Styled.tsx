@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color } from '../../styles';
+import { borderRadius, color, padding } from '../../styles';
 import { Link } from '../Link';
 
 const Styled = {
@@ -9,7 +9,7 @@ const Styled = {
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		gap: ${PADDINGS.Big};
+		gap: ${padding('large')};
 		flex: 1;
 	`,
 	Title: {
@@ -22,7 +22,7 @@ const Styled = {
 			font-size: 18px;
 			border-radius: ${borderRadius};
 			border: 2px solid;
-			padding: ${PADDINGS.Medium} ${PADDINGS.Big};
+			padding: ${padding('medium')} ${padding('large')};
 		`,
 	},
 	Svg: {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color, disabledCss } from '../../styles';
+import { borderRadius, color, disabledCss, padding } from '../../styles';
 
 export interface IStyledProps {
 	$disabled?: boolean;
@@ -11,7 +11,7 @@ const Styled = {
 		cursor: pointer;
 		display: flex;
 		align-items: center;
-		padding: ${PADDINGS.Small};
+		padding: ${padding('small')};
 		border-radius: ${borderRadius};
 
 		${({ $disabled }) =>

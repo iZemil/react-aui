@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color } from '../../styles';
+import { borderRadius, color, padding } from '../../styles';
 
 export interface IStProps {
 	position?: 'right' | 'top';
@@ -25,8 +25,8 @@ const Styled = {
 		$: styled.div<IStProps>`
 			position: absolute;
 			background: ${color('bg')};
-			padding: ${PADDINGS.Small};
-			top: 32px;
+			padding: ${padding('small')};
+			top: 40px;
 			border-radius: ${borderRadius};
 			z-index: 9;
 			border: 1px solid ${color('grey')};
@@ -35,10 +35,12 @@ const Styled = {
 			flex-direction: column;
 			gap: 10px;
 
-			${({ position }) => {
+			${(props) => {
+				const { position } = props;
+
 				if (position === 'right') {
 					return `
-						left: -${PADDINGS.Small};
+						left: 0;
 					`;
 				}
 
@@ -50,7 +52,7 @@ const Styled = {
 				}
 
 				return `
-					right: -${PADDINGS.Small};
+					right: -${padding('small')(props)};
 				`;
 			}}
 		`,

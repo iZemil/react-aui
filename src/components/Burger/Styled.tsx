@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { PADDINGS, color } from '../../styles';
+import { color, padding } from '../../styles';
 
 const Styled = {
 	$: styled.button`
 		width: 2.5rem;
 		height: 2.5rem;
-		padding: ${PADDINGS.Small};
+		padding: ${padding('small')};
 		border-radius: 50%;
 		background-color: rgba(0, 0, 0, 0);
 		outline: none !important;

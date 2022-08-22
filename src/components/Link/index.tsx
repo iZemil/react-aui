@@ -1,7 +1,7 @@
 import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { PADDINGS, color } from '../../styles';
+import { color, padding } from '../../styles';
 
 export const Link = styled(RouterLink)`
 	color: ${color('main')};
@@ -13,6 +13,6 @@ export const Link = styled(RouterLink)`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: ${PADDINGS.Small};
+	gap: ${padding('small')};
 	width: fit-content;
 `;

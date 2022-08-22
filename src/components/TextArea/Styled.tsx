@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color, inputLabelCss } from '../../styles';
+import { borderRadius, color, inputLabelCss, padding } from '../../styles';
 
 export type IStTextArea = React.DetailedHTMLProps<
 	React.TextareaHTMLAttributes<HTMLTextAreaElement>,
@@ -14,7 +14,7 @@ export const StTextArea = styled.textarea<IStTextArea>`
 	color: ${color('white')};
 	border: 1px solid ${color('grey')};
 	border-radius: ${borderRadius};
-	padding: ${PADDINGS.Medium};
+	padding: ${padding('medium')};
 	resize: vertical;
 `;
 

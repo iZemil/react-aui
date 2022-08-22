@@ -1,36 +1,40 @@
 import { SIZES } from './consts';
 
-declare module 'styled-components' {
-	export interface DefaultTheme extends IAUI {
-		empty?: never;
-	}
-}
+type ValueOf<T> = T[keyof T];
+
+export type TSize = ValueOf<typeof SIZES>;
 
 export enum EThemeMode {
 	DARK = 'DARK',
 	LIGHT = 'LIGHT',
 }
 
-export interface IAUIColors {
+declare module 'styled-components' {
+	export interface DefaultTheme extends IAUI {
+		empty?: never;
+	}
+}
+
+interface IAUIColors {
 	main: string;
+	white: string;
+	black: string;
+
 	red: string;
 	green: string;
 	blue: string;
 	orange: string;
-	white: string;
-	black: string;
 	grey: string;
 
 	bg: string;
 	wrapper: string;
 }
 
-type ValueOf<T> = T[keyof T];
-
-export type TSize = ValueOf<typeof SIZES>;
+export type TPaddings = Record<TSize, number>;
 
 export interface IAUI {
 	mode?: EThemeMode;
 	colors: IAUIColors;
 	borderRadius: number;
+	paddings: TPaddings;
 }

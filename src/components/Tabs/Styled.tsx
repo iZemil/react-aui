@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color, inputLabelCss } from '../../styles';
+import { borderRadius, color, inputLabelCss, padding } from '../../styles';
 
 const Styled = {
 	$: styled.div`
 		display: flex;
 		flex-direction: column;
-		gap: ${PADDINGS.Small};
+		gap: ${padding('small')};
 	`,
 	Title: {
 		$: styled.div`
@@ -32,7 +32,7 @@ const Styled = {
 		`,
 		Item: {
 			$: styled.div<{ active?: boolean }>`
-				padding: ${PADDINGS.Medium} ${PADDINGS.Big};
+				padding: ${padding('medium')} ${padding('large')};
 				color: ${color('grey')};
 				border-radius: ${borderRadius};
 				cursor: pointer;
@@ -50,7 +50,7 @@ const Styled = {
 		$: styled.div`
 			border: 2px solid ${color('bg')};
 			border-radius: ${borderRadius};
-			padding: ${PADDINGS.Medium};
+			padding: ${padding('medium')};
 		`,
 	},
 };

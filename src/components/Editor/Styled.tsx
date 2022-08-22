@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color, inputLabelCss } from '../../styles';
+import { borderRadius, color, inputLabelCss, padding } from '../../styles';
 import { Button } from '../Button';
 
 const Styled = {
@@ -14,7 +14,7 @@ const Styled = {
 		$: styled.div`
 			display: flex;
 			flex-direction: column;
-			gap: ${PADDINGS.Medium};
+			gap: ${padding('medium')};
 			width: 100%;
 			height: 100%;
 			display: flex;

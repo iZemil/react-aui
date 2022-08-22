@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS, color } from '../../styles';
+import { color, padding } from '../../styles';
 import { Button } from '../Button';
 
 const Styled = {
@@ -28,8 +28,8 @@ const Styled = {
 			font-size: 14px;
 			color: ${color('green')};
 			flex: 1;
-			gap: ${PADDINGS.Small};
-			padding: ${PADDINGS.Small};
+			gap: ${padding('small')};
+			padding: ${padding('small')};
 		`,
 	},
 };

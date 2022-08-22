@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PADDINGS, borderRadius, color, disabledCss, inputLabelCss } from '../../styles';
+import { borderRadius, color, disabledCss, inputLabelCss, padding } from '../../styles';
 
 export interface IStInput
 	extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
@@ -11,7 +11,7 @@ const Styled = {
 	$: styled.label`
 		display: flex;
 		flex-direction: column;
-		gap: ${PADDINGS.Small};
+		gap: ${padding('small')};
 	`,
 	Label: {
 		$: styled.div<{ error?: string }>`
