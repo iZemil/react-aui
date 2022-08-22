@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
+import { PADDINGS, borderRadius, color, inputLabelCss } from '../../styles';
 import { Button } from '../Button';
-import { BORDER, PADDINGS, color, inputLabelCss } from '../../styles';
 
 const Styled = {
 	$: styled.div`
@@ -27,7 +27,7 @@ const Styled = {
 			border: 0;
 			padding: 0;
 			resize: none;
-			border-radius: ${BORDER.radius};
+			border-radius: ${borderRadius};
 			background: transparent;
 			outline: none;
 			line-height: 1.4;
@@ -42,7 +42,7 @@ const Styled = {
 		`,
 		Btn: {
 			$: styled(Button)`
-				color: ${color('White')};
+				color: ${color('white')};
 			`,
 		},
 	},

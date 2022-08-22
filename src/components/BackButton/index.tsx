@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useNavigate } from 'react-router';
 
 import { Icons } from '../icons';
@@ -13,7 +14,7 @@ export function BackButton(props: IBackButtonProps) {
 
 	return (
 		<StBackButton
-			icon
+			circle
 			onClick={() => {
 				navigate(-1);
 			}}

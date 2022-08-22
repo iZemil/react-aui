@@ -1,6 +1,7 @@
 import { Toaster } from 'react-hot-toast';
+import * as React from 'react';
 
-import Styled from './Styled';
+import S from './Styled';
 
 interface IProps {
 	message: string;
@@ -10,11 +11,11 @@ interface IProps {
 // Пока нет четкого понимания дизайна: подобное пока используется искать "Snack."
 export const SnackActions = ({ message, tools }: IProps) => {
 	return (
-		<Styled.Actions.$>
-			<Styled.Actions.Message.$>{message}</Styled.Actions.Message.$>
+		<S.Actions.$>
+			<S.Actions.Message.$>{message}</S.Actions.Message.$>
 
-			<Styled.Actions.Tools.$>{tools}</Styled.Actions.Tools.$>
-		</Styled.Actions.$>
+			<S.Actions.Tools.$>{tools}</S.Actions.Tools.$>
+		</S.Actions.$>
 	);
 };
 

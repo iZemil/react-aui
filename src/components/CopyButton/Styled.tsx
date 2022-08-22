@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { Button } from '../Button';
 import { PADDINGS, color } from '../../styles';
+import { Button } from '../Button';
 
 const Styled = {
 	$: styled(Button)<{ withChildren: boolean; isShort: boolean }>`
@@ -10,7 +10,7 @@ const Styled = {
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
-		color: ${color('Grey')};
+		color: ${color('grey')};
 		background: transparent;
 		padding: 0;
 	`,
@@ -26,7 +26,7 @@ const Styled = {
 			display: flex;
 			align-items: center;
 			font-size: 14px;
-			color: ${color('Green')};
+			color: ${color('green')};
 			flex: 1;
 			gap: ${PADDINGS.Small};
 			padding: ${PADDINGS.Small};

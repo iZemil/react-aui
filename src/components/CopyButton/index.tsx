@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useTheme } from 'styled-components';
 
+import { color } from '../../styles';
+import { IAUI } from '../../styles/types';
 import { copyBuffer, wait } from '../../utils';
 import { Icons } from '../icons';
-import { color } from '../../styles';
-import { ITheme } from '../../styles/theme';
 
 import Styled from './Styled';
 
@@ -16,7 +16,7 @@ export interface ICopyButtonProps {
 }
 
 export const CopyButton = ({ value, children, isShort, onCopy, ...rest }: ICopyButtonProps) => {
-	const theme = useTheme() as ITheme;
+	const theme = useTheme() as IAUI;
 	const ICON_SIZE = 18;
 	const [isCopied, copy] = useState(false);
 
@@ -45,7 +45,7 @@ export const CopyButton = ({ value, children, isShort, onCopy, ...rest }: ICopyB
 
 			<Styled.Icon.$>
 				{isCopied ? (
-					<Icons.Ok color={color('Green')({ theme })} size={ICON_SIZE} />
+					<Icons.Ok color={color('green')({ theme })} size={ICON_SIZE} />
 				) : (
 					<Icons.Copy size={ICON_SIZE} />
 				)}

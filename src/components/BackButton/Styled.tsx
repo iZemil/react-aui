@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-import { Button } from '../Button';
 import { color } from '../../styles';
+import { Button } from '../Button';
 
 export interface IStBackButtonProps {
 	left?: boolean;
 }
 export const StBackButton = styled(Button)<IStBackButtonProps>`
 	cursor: pointer;
-	color: ${color('White')};
+	color: ${color('white')};
 	width: 40px;
 	height: 40px;
 
@@ -18,7 +18,7 @@ export const StBackButton = styled(Button)<IStBackButtonProps>`
 		position: absolute;
 		left: 10px;
 		top: 10px;
-		background: ${color('Bg')(props)};
+		background: ${color('bg')(props)};
 		border-radius: 50%;
 	`}
 `;

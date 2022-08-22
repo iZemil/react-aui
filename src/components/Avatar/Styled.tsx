@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { Link } from '../Link';
 import { color, overflowedText } from '../../styles';
+import { Link } from '../Link';
 
 export interface IStAvatarProps {
 	size?: number;
@@ -23,13 +23,13 @@ const Styled = {
 		align-items: center;
 		gap: 10px;
 		font-weight: 500;
-		color: ${color('White')};
+		color: ${color('white')};
 		${({ size }) => (size ? `min-width: ${size}px` : '')};
 	`,
 	Image: {
 		$: styled.div<IStAvatarProps>`
 			border-radius: 100%;
-			background: ${(props) => (props.color ? `#${props.color}` : color('Main')(props))};
+			background: ${(props) => (props.color ? `#${props.color}` : color('main')(props))};
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -44,9 +44,9 @@ const Styled = {
 			${(props) =>
 				props.withLink
 					? `
-						color:${color('Main')(props)};`
+						color:${color('main')(props)};`
 					: `
-						color: ${color('White')(props)};
+						color: ${color('white')(props)};
 					`}
 		`,
 	},

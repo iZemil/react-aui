@@ -1,8 +1,7 @@
+import { EModal } from '.';
 import styled from 'styled-components';
 
-import { BORDER, PADDINGS, color } from '../../styles';
-
-import { EModal } from '.';
+import { PADDINGS, borderRadius, color } from '../../styles';
 
 export interface IStModalProps {
 	open: boolean;
@@ -15,7 +14,7 @@ const Styled = {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: ${color('BgWrapper')};
+		background: ${color('wrapper')};
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -35,8 +34,8 @@ const Styled = {
 			width: 100%;
 			height: auto;
 			padding: ${PADDINGS.Medium};
-			background: ${color('Bg')};
-			border-radius: ${BORDER.radius};
+			background: ${color('bg')};
+			border-radius: ${borderRadius};
 
 			${({ kind }) => {
 				if (kind === EModal.MEDIUM) {
@@ -63,7 +62,7 @@ const Styled = {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			color: ${color('Grey')};
+			color: ${color('grey')};
 			cursor: pointer;
 		`,
 	},

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BORDER, PADDINGS, color, disabledCss, inputLabelCss } from '../../styles';
+import { PADDINGS, borderRadius, color, disabledCss, inputLabelCss } from '../../styles';
 
 export interface IStInput
 	extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
@@ -16,7 +16,7 @@ const Styled = {
 	Label: {
 		$: styled.div<{ error?: string }>`
 			${inputLabelCss}
-			color: ${(props) => (props.error ? color('Red')(props) : color('Grey')(props))};
+			color: ${(props) => (props.error ? color('red')(props) : color('grey')(props))};
 		`,
 	},
 	Error: {
@@ -29,10 +29,10 @@ const Styled = {
 		$: styled.input<IStInput>`
 			height: 42px;
 			width: 100%;
-			background: ${color('Bg')};
-			color: ${color('White')};
-			border: 2px solid ${(props) => (props.error ? color('Red') : color('Grey'))};
-			border-radius: ${BORDER.radius};
+			background: ${color('bg')};
+			color: ${color('white')};
+			border: 2px solid ${(props) => (props.error ? color('red') : color('grey'))};
+			border-radius: ${borderRadius};
 			padding: 4px 10px;
 
 			${({ type }) =>

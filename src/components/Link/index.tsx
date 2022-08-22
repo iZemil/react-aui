@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { PADDINGS, color } from '../../styles';
 
 export const Link = styled(RouterLink)`
-	color: ${color('Main')};
+	color: ${color('main')};
 	text-decoration: none;
 	font-weight: 500;
 	text-overflow: ellipsis;

@@ -1,9 +1,6 @@
-export * from './border';
-export * from './colors';
 export * from './fonts';
 export * from './paddings';
-export * from './utils';
-export * from './sizes';
-export * from './theme';
-export * from './GlobalStyles';
-export * from './ThemeProvider';
+export * from './types';
+
+export { color, overflowedText, disabledCss, inputLabelCss, borderRadius } from './utils';
+export { AUIProvider } from './AUIProvider';

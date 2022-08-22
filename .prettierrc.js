@@ -7,7 +7,7 @@ module.exports = {
 	useTabs: true,
 	tabWidth: 4,
 	bracketSpacing: true,
-	importOrder: ['^@(xxx)', '^../', '^./'],
+	importOrder: ['^../', '^./'],
 	importOrderSeparation: true,
 	importOrderSortSpecifiers: true,
 };

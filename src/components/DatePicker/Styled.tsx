@@ -1,16 +1,16 @@
 import DP from 'react-datepicker';
 import styled from 'styled-components';
 
-import { BORDER, PADDINGS, color, inputLabelCss } from '../../styles';
+import { PADDINGS, borderRadius, color, inputLabelCss } from '../../styles';
 
 const Styled = {
 	$: styled(DP)`
 		height: 42px;
 		width: 100%;
-		background: ${color('Bg')};
-		color: ${color('White')};
-		border: 2px solid ${color('Grey')};
-		border-radius: ${BORDER.radius};
+		background: ${color('bg')};
+		color: ${color('white')};
+		border: 2px solid ${color('grey')};
+		border-radius: ${borderRadius};
 		padding: 4px 10px;
 	`,
 	Wrapper: {
@@ -19,25 +19,25 @@ const Styled = {
 			flex-direction: column;
 
 			.react-datepicker {
-				border: 1px solid ${color('Grey')};
-				border-radius: ${BORDER.radius};
-				background: ${color('Bg')};
-				color: ${color('White')};
+				border: 1px solid ${color('grey')};
+				border-radius: ${borderRadius};
+				background: ${color('bg')};
+				color: ${color('white')};
 
 				&__header {
-					background: ${color('Bg')};
+					background: ${color('bg')};
 				}
 
 				&__current-month {
-					color: ${color('White')};
+					color: ${color('white')};
 				}
 
 				&__day-name {
-					color: ${color('White')};
+					color: ${color('white')};
 				}
 
 				&__day {
-					color: ${color('White')};
+					color: ${color('white')};
 				}
 
 				&__triangle {
@@ -48,9 +48,9 @@ const Styled = {
 				&__month-text--keyboard-selected,
 				&__quarter-text--keyboard-selected,
 				&__year-text--keyboard-selected {
-					border-radius: ${BORDER.radius};
-					background: ${color('Bg')};
-					color: ${color('White')};
+					border-radius: ${borderRadius};
+					background: ${color('bg')};
+					color: ${color('white')};
 				}
 
 				&__day--selected,
@@ -65,25 +65,25 @@ const Styled = {
 				&__year-text--selected,
 				&__year-text--in-selecting-range,
 				&__year-text--in-range {
-					border-radius: ${BORDER.radius};
-					background: ${color('Bg')};
-					color: ${color('White')};
-					box-shadow: 0 0 0px 2px ${color('Main')};
+					border-radius: ${borderRadius};
+					background: ${color('bg')};
+					color: ${color('white')};
+					box-shadow: 0 0 0px 2px ${color('main')};
 				}
 
 				&__year-dropdown,
 				&__month-dropdown,
 				&__month-year-dropdown {
-					background: ${color('Bg')};
-					border-radius: ${BORDER.radius};
-					border: 1px solid ${color('Grey')};
+					background: ${color('bg')};
+					border-radius: ${borderRadius};
+					border: 1px solid ${color('grey')};
 				}
 
 				&__year-read-view,
 				&__month-read-view,
 				&__month-year-read-view {
 					border: 1px solid transparent;
-					border-radius: ${BORDER.radius};
+					border-radius: ${borderRadius};
 					position: relative;
 					padding: ${PADDINGS.Small} 0;
 					display: flex;
@@ -111,7 +111,7 @@ const Styled = {
 						width: 5px;
 						height: 5px;
 						border-radius: 100%;
-						background: ${color('Main')};
+						background: ${color('main')};
 					}
 				}
 
@@ -121,15 +121,15 @@ const Styled = {
 				&__month-text:hover,
 				&__quarter-text:hover,
 				&__year-text:hover {
-					border-radius: ${BORDER.radius};
-					box-shadow: 0 0 0px 2px ${color('Grey')};
+					border-radius: ${borderRadius};
+					box-shadow: 0 0 0px 2px ${color('grey')};
 					background-color: transparent;
 				}
 
 				&__year-option:hover,
 				&__month-option:hover,
 				&__month-year-option:hover {
-					background-color: ${color('Grey')};
+					background-color: ${color('grey')};
 				}
 			}
 		`,

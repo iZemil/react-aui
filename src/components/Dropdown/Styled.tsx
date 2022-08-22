@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BORDER, PADDINGS, color } from '../../styles';
+import { PADDINGS, borderRadius, color } from '../../styles';
 
 export interface IStProps {
 	position?: 'right' | 'top';
@@ -24,12 +24,12 @@ const Styled = {
 	Children: {
 		$: styled.div<IStProps>`
 			position: absolute;
-			background: ${color('Bg')};
+			background: ${color('bg')};
 			padding: ${PADDINGS.Small};
 			top: 32px;
-			border-radius: ${BORDER.radius};
+			border-radius: ${borderRadius};
 			z-index: 9;
-			border: 1px solid ${color('Grey')};
+			border: 1px solid ${color('grey')};
 			min-width: 150px;
 			display: flex;
 			flex-direction: column;
@@ -62,7 +62,7 @@ const Styled = {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: ${color('BgWrapper')};
+			background: ${color('wrapper')};
 			opacity: 0.66;
 		`,
 	},

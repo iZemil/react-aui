@@ -1,4 +1,4 @@
-export * from './Button';
+export { Button } from './Button';
 export * from './Avatar';
 export * from './BackButton';
 export * from './Burger';
@@ -21,3 +21,4 @@ export * from './Tabs';
 export * from './TextArea';
 export * from './icons';
 export * from './Snackbars';
+export { GlobalStyles } from './GlobalStyles';

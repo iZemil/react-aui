@@ -1,8 +1,10 @@
-import styled from 'styled-components';
 import * as React from 'react';
+import styled from 'styled-components';
+
+import { useSnacks } from '../../utils';
+import { Icons } from '../icons';
 
 import { Button } from './index';
-import { Icons } from '../icons';
 
 export default {
 	component: Button,
@@ -51,20 +53,22 @@ export const Color = () => {
 	return (
 		<S.Container.$ column>
 			<S.Container.$>
-				<Button color="Red">Red</Button>
-				<Button color="Green">Green</Button>
-				<Button color="Blue">Blue</Button>
+				<Button>Default</Button>
+				<Button color="red">red</Button>
+				<Button color="green">green</Button>
+				<Button color="blue">blue</Button>
 			</S.Container.$>
 
 			<S.Container.$>
-				<Button type="filled" color="Red">
-					Red
+				<Button type="filled">Default</Button>
+				<Button type="filled" color="red">
+					red
 				</Button>
-				<Button type="filled" color="Green">
-					Green
+				<Button type="filled" color="green">
+					green
 				</Button>
-				<Button type="filled" color="Blue">
-					Blue
+				<Button type="filled" color="blue">
+					blue
 				</Button>
 			</S.Container.$>
 		</S.Container.$>
@@ -107,6 +111,8 @@ export const Icon = () => {
 };
 
 export const Other = () => {
+	const { snackOk } = useSnacks();
+
 	return (
 		<S.Container.$ column>
 			<S.Container.$>
@@ -120,6 +126,17 @@ export const Other = () => {
 			<S.Container.$>
 				<Button circle>
 					<Icons.Home />
+				</Button>
+			</S.Container.$>
+
+			<S.Container.$>
+				<Button
+					onClick={() => {
+						// TODO: not working
+						snackOk('Success');
+					}}
+				>
+					On Click
 				</Button>
 			</S.Container.$>
 		</S.Container.$>

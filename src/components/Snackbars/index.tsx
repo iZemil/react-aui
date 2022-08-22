@@ -1,1 +1,1 @@
-export * from './Snackbars';
+export { SnackbarsProvider } from './Snackbars';

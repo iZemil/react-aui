@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
+import { PADDINGS, borderRadius, color } from '../../styles';
 import { Link } from '../Link';
-import { BORDER, PADDINGS, color } from '../../styles';
 
 const Styled = {
 	$: styled.div`
@@ -20,7 +20,7 @@ const Styled = {
 	RedirectLink: {
 		$: styled(Link)`
 			font-size: 18px;
-			border-radius: ${BORDER.radius};
+			border-radius: ${borderRadius};
 			border: 2px solid;
 			padding: ${PADDINGS.Medium} ${PADDINGS.Big};
 		`,
@@ -28,7 +28,7 @@ const Styled = {
 	Svg: {
 		$: styled.svg`
 			path {
-				stroke: ${color('Main')};
+				stroke: ${color('main')};
 				stroke-width: 3px;
 			}
 		`,

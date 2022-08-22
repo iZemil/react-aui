@@ -1,8 +1,8 @@
-import { color } from '.';
+import { color } from '..';
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-import { EThemeMode } from './theme';
+import { EThemeMode } from '../styles';
 
 export const GlobalStyles = createGlobalStyle`
     ${normalize}
@@ -28,14 +28,15 @@ export const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         transition: 0.5s background;
+        background: red;
         
         ${(props) => {
 			const { theme } = props;
 
 			if (theme.mode === EThemeMode.DARK) {
 				return `
-                    background-color: ${color('Bg')(props)};
-                    color: ${color('White')(props)};
+                    background-color: ${color('bg')(props)};
+                    color: ${color('white')(props)};
                 `;
 			}
 

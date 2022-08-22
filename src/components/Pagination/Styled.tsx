@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BORDER, PADDINGS, color } from '../../styles';
+import { PADDINGS, borderRadius, color } from '../../styles';
 
 const Styled = {
 	$: styled.div`
@@ -16,7 +16,7 @@ const Styled = {
 			align-items: center;
 			justify-content: center;
 			padding: ${PADDINGS.Medium};
-			border-radius: ${BORDER.radius};
+			border-radius: ${borderRadius};
 			width: 36px;
 			font-size: 14px;
 			user-select: none;
@@ -25,8 +25,8 @@ const Styled = {
 			${({ active }) =>
 				active &&
 				`
-				color: ${color('Main')};
-				background: ${color('Bg')};
+				color: ${color('main')};
+				background: ${color('bg')};
 				pointer-events: none;
 				cursor: default;
 			`}
@@ -34,7 +34,7 @@ const Styled = {
 			${(props) =>
 				props.disabled &&
 				`
-				color: ${color('Grey')(props)};
+				color: ${color('grey')(props)};
 				pointer-events: none;
 				cursor: default;
 			`}

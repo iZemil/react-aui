@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BORDER, PADDINGS, color, inputLabelCss } from '../../styles';
+import { PADDINGS, borderRadius, color, inputLabelCss } from '../../styles';
 
 const Styled = {
 	$: styled.div`
@@ -25,31 +25,31 @@ const Styled = {
 		$: styled.div`
 			display: flex;
 			align-items: center;
-			background: ${color('Bg')};
-			border-radius: ${BORDER.radius};
-			border: 3px solid ${color('Bg')};
+			background: ${color('bg')};
+			border-radius: ${borderRadius};
+			border: 3px solid ${color('bg')};
 			overflow-y: auto;
 		`,
 		Item: {
 			$: styled.div<{ active?: boolean }>`
 				padding: ${PADDINGS.Medium} ${PADDINGS.Big};
-				color: ${color('Grey')};
-				border-radius: ${BORDER.radius};
+				color: ${color('grey')};
+				border-radius: ${borderRadius};
 				cursor: pointer;
 
 				${(props) =>
 					props.active &&
 					`
-					background: ${color('Bg')(props)};
-					color: ${color('Main')(props)};
+					background: ${color('bg')(props)};
+					color: ${color('main')(props)};
 				`}
 			`,
 		},
 	},
 	Content: {
 		$: styled.div`
-			border: 2px solid ${color('Bg')};
-			border-radius: ${BORDER.radius};
+			border: 2px solid ${color('bg')};
+			border-radius: ${borderRadius};
 			padding: ${PADDINGS.Medium};
 		`,
 	},

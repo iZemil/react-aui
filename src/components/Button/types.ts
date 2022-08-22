@@ -1,14 +1,14 @@
-import { ITheme } from '../../styles';
+import { IAUI, TSize } from '../../styles';
 
-export type TButtonType = 'filled' | 'text' | 'dashed'; // | 'link';
+export type TButtonType = 'filled' | 'text' | 'dashed';
 
-export type TButtonSize = 'small' | 'medium' | 'large';
+export type TButtonSize = TSize;
 
 export interface ISButtonProps {
-	_type?: TButtonType;
+	$type?: TButtonType;
 	size: TButtonSize;
 	block: boolean;
-	color: keyof ITheme['colors'];
+	color: keyof IAUI['colors'];
 	circle: boolean;
 	disabled: boolean;
 }

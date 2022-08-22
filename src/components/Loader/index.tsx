@@ -27,13 +27,13 @@ const StLoader = styled.div`
 `;
 
 const StLoaderBar = styled.div`
-	background: ${color('Bg')};
+	background: ${color('bg')};
 	height: 100%;
 `;
 
 const StLoaderProgress = styled.div`
 	animation: loader 2s ease infinite;
-	background: ${color('Main')};
+	background: ${color('main')};
 	width: 0;
 	height: 100%;
 `;

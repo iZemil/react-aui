@@ -1,7 +1,8 @@
-import styled from 'styled-components';
 import * as React from 'react';
+import styled from 'styled-components';
 
-import { BORDER, PADDINGS, color as colorFn, disabledCss } from '../../styles';
+import { PADDINGS, borderRadius, color as colorFn, disabledCss } from '../../styles';
+
 import { IButtonProps, ISButtonProps } from './types';
 
 const S = {
@@ -11,20 +12,20 @@ const S = {
 		align-items: center;
 		justify-content: center;
 		gap: ${PADDINGS.Medium};
-		border-radius: ${BORDER.radius};
+		border-radius: ${borderRadius};
 		outline: 0;
 		transition: background-color 0.3s, color 0.3s, opacity 0.3s;
 		cursor: pointer;
 
 		${(props) => {
-			const { _type } = props;
+			const { $type } = props;
 
 			const color = colorFn(props.color)(props);
 
 			const filled = `
 				border: 2px solid ${color};
 				background: ${color};
-				color: ${colorFn('Black')(props)};
+				color: ${colorFn('black')(props)};
 
 				&:hover,
 				&:focus,
@@ -53,7 +54,7 @@ const S = {
 				border-color: transparent;
 			`;
 
-			switch (_type) {
+			switch ($type) {
 				case 'filled':
 					return filled;
 
@@ -114,6 +115,9 @@ const S = {
 	`,
 };
 
+// TODO: htmlType
+// TODO: loading
+// TODO: href, target
 export function Button(props: IButtonProps) {
 	const {
 		children,
@@ -121,7 +125,7 @@ export function Button(props: IButtonProps) {
 		type,
 		size = 'medium',
 		block = false,
-		color = 'Main',
+		color = 'main',
 		circle = false,
 		disabled = false,
 		...rest
@@ -138,7 +142,7 @@ export function Button(props: IButtonProps) {
 				}
 			}}
 			{...rest}
-			_type={type}
+			$type={type}
 			size={size}
 			block={block}
 			color={color}

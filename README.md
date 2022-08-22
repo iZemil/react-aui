@@ -10,3 +10,17 @@ React UI library [Storybook Demo](https://izemil.github.io/react-aui/)
 ## Production
 
 -   install [npm package](https://www.npmjs.com/package/react-aui) `npm i react-aui`
+-   init AUIProvider into root of your project:
+
+```jsx
+const theme: IAUI = {
+    ...yourTheme
+}
+
+// ...
+<AUIProvider theme={theme}>
+    {/* your frontend components */}
+</AUIProvider>
+```
+
+-   TODO: how to use snackbars [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)

@@ -2,7 +2,6 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Position, SpecialComponents } from 'react-markdown/lib/ast-to-react';
 import remarkGfm from 'remark-gfm';
-import { ESize } from '../../styles';
 
 import { Checkbox } from '../Checkbox';
 
@@ -10,7 +9,6 @@ import Styled from './Styled';
 
 export interface IMarkdownProps {
 	md: string;
-	size?: ESize;
 	label?: string;
 	onCheck?: (newMd: string) => void;
 }
@@ -25,14 +23,23 @@ const onChangeCheckbox = (md: string, sourcePosition: Position, checked: boolean
 export const Markdown = ({ md, label, onCheck, ...rest }: IMarkdownProps) => {
 	// !COPIED: https://github.com/remarkjs/react-markdown/issues/607#issuecomment-864361480
 	const ListWrapper: SpecialComponents['li'] = ({
-		checked,
-		index,
-		ordered,
-		node,
-		sourcePosition,
-		siblingCount,
 		className,
+		checked,
+		ordered,
+		index,
+		sourcePosition,
+		node,
+		siblingCount,
 		children,
+	}: {
+		className?: string;
+		checked: boolean | null;
+		ordered: boolean | null;
+		index: number;
+		sourcePosition?: Position;
+		node: any;
+		siblingCount?: any;
+		children: any;
 	}) => {
 		const props = { className, children };
 
@@ -58,9 +65,9 @@ export const Markdown = ({ md, label, onCheck, ...rest }: IMarkdownProps) => {
 					return (
 						<Checkbox
 							checked={child.props.checked}
-							onClick={(checked) => {
+							onClick={(_checked) => {
 								if (onCheck) {
-									const newMd = onChangeCheckbox(md, sourcePosition as Position, checked);
+									const newMd = onChangeCheckbox(md, sourcePosition as Position, _checked);
 
 									onCheck(newMd);
 								}
@@ -78,7 +85,9 @@ export const Markdown = ({ md, label, onCheck, ...rest }: IMarkdownProps) => {
 		<Styled.$ {...rest}>
 			{label && <Styled.Label.$>{label}</Styled.Label.$>}
 
-			<ReactMarkdown remarkPlugins={[remarkGfm]} components={{ li: ListWrapper }} rawSourcePos children={md} />
+			<ReactMarkdown remarkPlugins={[remarkGfm]} components={{ li: ListWrapper }} rawSourcePos>
+				{md}
+			</ReactMarkdown>
 		</Styled.$>
 	);
 };

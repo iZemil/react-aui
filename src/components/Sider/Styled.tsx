@@ -22,7 +22,7 @@ const Styled = {
 
 		${(props) =>
 			props.open
-				? `background: ${color('BgWrapper')(props)};`
+				? `background: ${color('wrapper')(props)};`
 				: `background: transparent;
                 pointer-events: none;`}
 	`,
@@ -34,7 +34,7 @@ const Styled = {
 			width: 90%;
 			max-width: ${(props) => props.$maxWidth ?? `${SIDER_DEFAULT_WIDTH}px`};
 			height: 100%;
-			background: ${color('Bg')};
+			background: ${color('bg')};
 			transition: ${menuTransition};
 			${(props) => (props.open ? `transform: none;` : `transform: translateX(100%);`)}
 		`,
