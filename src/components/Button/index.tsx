@@ -1,132 +1,151 @@
 import styled from 'styled-components';
+import * as React from 'react';
 
-import { BORDER, ESize, PADDINGS, color, disabledCss } from '../../styles';
-import { ITheme } from '../../styles/theme';
+import { BORDER, PADDINGS, color as colorFn, disabledCss } from '../../styles';
+import { IButtonProps, ISButtonProps } from './types';
 
-export interface IStButton {
-	kind?: EButton;
-	size?: ESize;
-	icon?: boolean;
-	$color?: keyof ITheme['colors'];
-	disabled?: boolean;
-}
-
-const commonKindCss = (props: any) => `
-	padding: ${PADDINGS.Medium};
-	border-radius: ${BORDER.radius};
-	border: 2px solid ${color('Main')(props)};
-	transition: background-color 0.15s,color 0.15s;
-`;
-
-const Styled = {
-	$: styled.button<IStButton>`
+const S = {
+	$: styled.button<ISButtonProps>`
 		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: ${PADDINGS.Medium};
-		color: ${color('Main')};
-		font-size: 18px;
+		border-radius: ${BORDER.radius};
 		outline: 0;
+		transition: background-color 0.3s, color 0.3s, opacity 0.3s;
 		cursor: pointer;
 
 		${(props) => {
-			const { kind } = props;
-			let styles = `
-				background: none;
-				border: 0;
+			const { _type } = props;
+
+			const color = colorFn(props.color)(props);
+
+			const filled = `
+				border: 2px solid ${color};
+				background: ${color};
+				color: ${colorFn('Black')(props)};
+
+				&:hover,
+				&:focus,
+				&:active {
+					opacity: .8;
+				}
 			`;
 
-			if (!kind) {
-				return styles;
-			}
+			const border = `
+				border: 2px solid ${color};
+				background: transparent;
+				color: ${color};
 
-			if (kind === EButton.Primary) {
-				styles = `
-					background: ${color('Main')(props)};
-					color: ${color('Black')(props)};
-					width: 100%;
-				`;
-			}
+				&:hover,
+				&:focus,
+				&:active {
+					background: ${color}20;
+				}
+			`;
 
-			if (kind === EButton.Border) {
-				styles = `
-					width: 100%;
-					background: transparent;
-				`;
-			}
+			const dashed = `
+				border-style: dashed;
+			`;
 
-			if (kind === EButton.Ghost) {
-				styles = `
-					border: 0;
-					background: transparent;
-				`;
-			}
+			const text = `
+				border-color: transparent;
+			`;
 
-			return `${commonKindCss(props)}${styles}`;
+			switch (_type) {
+				case 'filled':
+					return filled;
+
+				case 'text':
+					return border + text;
+
+				case 'dashed':
+					return border + dashed;
+
+				default:
+					return border;
+			}
 		}}
-
-		${({ icon }) =>
-			icon &&
-			`
-			height: 40px;
-			width: 40px;
-			font-size: 20px;
-		`}
 
 		${(props) => {
-			const { kind, $color } = props;
+			const { size } = props;
 
-			if ($color) {
-				const foundColor = color($color)(props);
+			const small = `
+				padding: ${PADDINGS.Small} ${PADDINGS.Medium};
+				font-size: 14px;
+			`;
 
-				if (kind === EButton.Primary) {
-					return `
-						background: ${foundColor};
-						border-color: ${foundColor};
-					`;
-				} else {
-					return `
-						color: ${foundColor};
-						border-color: ${foundColor};
-					`;
-				}
+			const medium = `
+				padding: ${PADDINGS.Medium};
+				font-size: 16px;
+			`;
+
+			const large = `
+				padding: ${PADDINGS.Medium} ${PADDINGS.Big};
+				font-size: 18px;
+			`;
+
+			switch (size) {
+				case 'small':
+					return small;
+
+				case 'medium':
+					return medium;
+
+				case 'large':
+					return large;
+
+				default:
+					return medium;
 			}
-
-			return '';
 		}}
 
-		${({ size }) => {
-			if (size === ESize.small) {
-				return `
-					font-size: 14px;
-				`;
-			}
+		${({ block }) => block && `width: 100%;`}
 
-			return '';
-		}}
+		${({ circle }) =>
+			circle &&
+			`
+			border-radius: 50%;
+			width: fit-content;
+		`}
 
 		${({ disabled }) => disabled && disabledCss(``)}
 	`,
 };
 
-export enum EButton {
-	Primary = 'PRIMARY',
-	Border = 'BORDER',
-	Ghost = 'GHOST',
-}
+export function Button(props: IButtonProps) {
+	const {
+		children,
+		onClick,
+		type,
+		size = 'medium',
+		block = false,
+		color = 'Main',
+		circle = false,
+		disabled = false,
+		...rest
+	} = props;
 
-export interface IButtonProps extends IStButton {
-	type?: 'button' | 'submit' | 'reset';
-	children: React.ReactNode;
-	className?: string;
-	onClick?: () => void;
-}
-
-export function Button({ children, onClick, type, ...rest }: IButtonProps) {
 	return (
-		<Styled.$ type={type ?? 'button'} onClick={onClick} {...rest}>
+		<S.$
+			type="button"
+			onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+				event.preventDefault();
+
+				if (onClick) {
+					onClick(event);
+				}
+			}}
+			{...rest}
+			_type={type}
+			size={size}
+			block={block}
+			color={color}
+			circle={circle}
+			disabled={disabled}
+		>
 			{children}
-		</Styled.$>
+		</S.$>
 	);
 }
