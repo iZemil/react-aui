@@ -2,11 +2,9 @@ import { IAUI, TSize } from '../../styles';
 
 export type TButtonType = 'filled' | 'text' | 'dashed';
 
-export type TButtonSize = TSize;
-
 export interface ISButtonProps {
 	$type?: TButtonType;
-	size: TButtonSize;
+	size: TSize;
 	block: boolean;
 	color: keyof IAUI['colors'];
 	circle: boolean;
@@ -14,6 +12,7 @@ export interface ISButtonProps {
 }
 
 export interface IButtonProps extends Partial<ISButtonProps> {
+	htmlType?: 'button' | 'submit';
 	type?: TButtonType;
 	disabled?: boolean;
 

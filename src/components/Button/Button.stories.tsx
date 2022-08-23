@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
 import { useSnacks } from '../../utils';
+import Container from '../Container';
 import { Icons } from '../icons';
 
 import { Button } from './index';
@@ -10,56 +10,38 @@ export default {
 	component: Button,
 };
 
-const S = {
-	Container: {
-		$: styled.div<{ column?: boolean }>`
-			display: flex;
-			gap: 20px;
-
-			${(props) =>
-				props.column
-					? `
-					flex-direction: column;
-			`
-					: `
-					align-items: center;
-			`}
-		`,
-	},
-};
-
 export const Type = () => {
 	return (
-		<S.Container.$>
+		<Container.$>
 			<Button>Default</Button>
 			<Button type="filled">Filled</Button>
 			<Button type="text">Text</Button>
 			<Button type="dashed">Dashed</Button>
-		</S.Container.$>
+		</Container.$>
 	);
 };
 
 export const Size = () => {
 	return (
-		<S.Container.$>
+		<Container.$>
 			<Button size="small">small</Button>
 			<Button size="medium">medium</Button>
 			<Button size="large">large</Button>
-		</S.Container.$>
+		</Container.$>
 	);
 };
 
 export const Color = () => {
 	return (
-		<S.Container.$ column>
-			<S.Container.$>
+		<Container.$ column>
+			<Container.$>
 				<Button>Default</Button>
 				<Button color="red">red</Button>
 				<Button color="green">green</Button>
 				<Button color="blue">blue</Button>
-			</S.Container.$>
+			</Container.$>
 
-			<S.Container.$>
+			<Container.$>
 				<Button type="filled">Default</Button>
 				<Button type="filled" color="red">
 					red
@@ -70,15 +52,15 @@ export const Color = () => {
 				<Button type="filled" color="blue">
 					blue
 				</Button>
-			</S.Container.$>
-		</S.Container.$>
+			</Container.$>
+		</Container.$>
 	);
 };
 
 export const Icon = () => {
 	return (
-		<S.Container.$ column>
-			<S.Container.$>
+		<Container.$ column>
+			<Container.$>
 				<Button>
 					<Icons.Home />
 					Home
@@ -92,9 +74,9 @@ export const Icon = () => {
 				<Button type="text" circle>
 					<Icons.Home />
 				</Button>
-			</S.Container.$>
+			</Container.$>
 
-			<S.Container.$>
+			<Container.$>
 				<Button type="filled">
 					<Icons.Home />
 					Home
@@ -105,8 +87,8 @@ export const Icon = () => {
 				<Button type="filled" circle>
 					<Icons.Home />
 				</Button>
-			</S.Container.$>
-		</S.Container.$>
+			</Container.$>
+		</Container.$>
 	);
 };
 
@@ -114,22 +96,22 @@ export const Other = () => {
 	const { snackOk } = useSnacks();
 
 	return (
-		<S.Container.$ column>
-			<S.Container.$>
+		<Container.$ column>
+			<Container.$>
 				<Button block>Block</Button>
-			</S.Container.$>
+			</Container.$>
 
-			<S.Container.$>
+			<Container.$>
 				<Button disabled>Disabled</Button>
-			</S.Container.$>
+			</Container.$>
 
-			<S.Container.$>
+			<Container.$>
 				<Button circle>
 					<Icons.Home />
 				</Button>
-			</S.Container.$>
+			</Container.$>
 
-			<S.Container.$>
+			<Container.$>
 				<Button
 					onClick={() => {
 						// TODO: not working
@@ -138,7 +120,7 @@ export const Other = () => {
 				>
 					On Click
 				</Button>
-			</S.Container.$>
-		</S.Container.$>
+			</Container.$>
+		</Container.$>
 	);
 };

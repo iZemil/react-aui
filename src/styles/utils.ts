@@ -1,11 +1,9 @@
-import { DefaultTheme } from 'styled-components';
-
 import { IAUI, TPaddings, TSize } from './types';
 
 // GOOD: https://dev.to/j3nnning/theme-setup-with-styled-components-functional-programming-4i5p
 export const color =
 	(key: keyof IAUI['colors']) =>
-	(props: { theme: DefaultTheme }): string =>
+	(props: { theme: IAUI }): string =>
 		props.theme.colors[key];
 
 export const overflowedText = () => `
@@ -45,4 +43,38 @@ export const selectPaddings = (props: { theme: IAUI }): Record<TSize, string> =>
 		medium: toPx(paddings.medium),
 		large: toPx(paddings.large),
 	};
+};
+
+export const setSize = (props: { theme: IAUI; size: TSize }) => {
+	const { size } = props;
+	const paddings = selectPaddings(props);
+
+	const small = `
+		padding: ${paddings.small} ${paddings.medium};
+		font-size: 14px;
+	`;
+
+	const medium = `
+		padding: ${paddings.medium};
+		font-size: 16px;
+	`;
+
+	const large = `
+		padding: ${paddings.medium} ${paddings.large};
+		font-size: 18px;
+	`;
+
+	switch (size) {
+		case 'small':
+			return small;
+
+		case 'medium':
+			return medium;
+
+		case 'large':
+			return large;
+
+		default:
+			return medium;
+	}
 };

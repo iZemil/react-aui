@@ -1,36 +1,48 @@
-import Styled, { IStInput } from './Styled';
+import * as React from 'react';
 
-export interface IInputProps extends Omit<IStInput, 'onChange'> {
-	value?: string | number;
-	onChange?: (value: string, e: React.ChangeEvent<HTMLInputElement>) => void;
-	className?: string;
-	label?: string | React.ReactElement;
-	error?: string;
-}
+import S from './Styled';
+import { IInputProps } from './types';
 
-export function Input({ type, className, label, value, error, placeholder, disabled, onChange }: IInputProps) {
+export function Input(props: IInputProps) {
+	const {
+		id = React.useId(),
+		className,
+		label,
+		value,
+		placeholder,
+		size = 'medium',
+		disabled = false,
+		error,
+		htmlType,
+		onChange,
+		...rest
+	} = props;
+
+	const withValue = Boolean(value);
+	const withError = Boolean(error);
+
 	return (
-		<Styled.$>
-			{label && (
-				<Styled.Label.$ error={error}>
-					{label}
-					{error && <Styled.Error.$> - {error}</Styled.Error.$>}
-				</Styled.Label.$>
-			)}
-
-			<Styled.Input.$
-				type={type}
+		<S.Wrapper.$ className={className}>
+			<S.Input.$
+				id={id}
 				placeholder={placeholder}
-				className={className}
-				value={value}
 				disabled={disabled}
+				value={value}
+				type={htmlType}
+				$error={error}
+				$size={size}
 				onChange={(e) => {
 					if (onChange) {
 						onChange(e.target.value, e);
 					}
 				}}
-				error={error}
+				{...rest}
 			/>
-		</Styled.$>
+
+			<S.Label.$ htmlFor={id} error={error} size={size} active={withValue || withError}>
+				{label}
+				{withError ? <S.Error.$>{` - ${error}`}</S.Error.$> : ''}
+			</S.Label.$>
+		</S.Wrapper.$>
 	);
 }

@@ -1,5 +1,8 @@
 {
     "name": "react-aui",
+    "author": {
+        "name": "zemil"
+    },
     "private": false,
     "main": "dist/index.js",
     "repository": {

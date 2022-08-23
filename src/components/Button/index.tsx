@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { borderRadius, color as colorFn, disabledCss, padding, selectPaddings } from '../../styles';
+import { borderRadius, color as colorFn, disabledCss, padding, setSize } from '../../styles';
 
 import { IButtonProps, ISButtonProps } from './types';
 
@@ -69,39 +69,7 @@ const S = {
 			}
 		}}
 
-		${(props) => {
-			const { size } = props;
-			const paddings = selectPaddings(props);
-
-			const small = `
-				padding: ${paddings.small} ${paddings.medium};
-				font-size: 14px;
-			`;
-
-			const medium = `
-				padding: ${paddings.medium};
-				font-size: 16px;
-			`;
-
-			const large = `
-				padding: ${paddings.medium} ${paddings.large};
-				font-size: 18px;
-			`;
-
-			switch (size) {
-				case 'small':
-					return small;
-
-				case 'medium':
-					return medium;
-
-				case 'large':
-					return large;
-
-				default:
-					return medium;
-			}
-		}}
+		${setSize}
 
 		${({ block }) => block && `width: 100%;`}
 
@@ -116,7 +84,6 @@ const S = {
 	`,
 };
 
-// TODO: htmlType
 // TODO: loading
 // TODO: href, target
 export function Button(props: IButtonProps) {
@@ -129,12 +96,13 @@ export function Button(props: IButtonProps) {
 		color = 'main',
 		circle = false,
 		disabled = false,
+		htmlType = 'button',
 		...rest
 	} = props;
 
 	return (
 		<S.$
-			type="button"
+			type={htmlType}
 			onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 				event.preventDefault();
 
