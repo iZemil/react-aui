@@ -1,9 +1,7 @@
 export * from './Burger';
 export * from './Card';
 export * from './Checkbox';
-export * from './Button/CopyButton';
 export * from './DatePicker';
-export * from './Dropdown';
 export * from './Editor';
 export * from './Link';
 export * from './Loader';
@@ -25,3 +23,6 @@ export { Input } from './Input';
 export { Button } from './Button';
 export { CopyButton } from './Button/CopyButton';
 export { BackButton } from './Button/BackButton';
+
+export { Dropdown, DefaultDropdownLabel } from './Dropdown';
+export type { IDropdownItem } from './Dropdown';
