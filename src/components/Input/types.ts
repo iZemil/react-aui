@@ -6,7 +6,7 @@ export interface ISInputProps extends React.InputHTMLAttributes<HTMLInputElement
 }
 
 export interface IInputProps {
-	htmlType?: 'password' | 'number';
+	htmlType?: 'password' | 'number' | 'email' | 'search';
 	id?: string;
 	size?: TSize;
 	placeholder?: string;

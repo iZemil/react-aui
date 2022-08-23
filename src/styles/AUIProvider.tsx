@@ -17,9 +17,10 @@ interface IAUIProviderProps {
 export const AUIProvider = ({ children, theme = {} }: IAUIProviderProps) => {
 	// TODO: may work incorect without redux-persist
 	const lsTheme = useSelector((state: { aui: DefaultTheme }) => state.aui);
+
 	const auiTheme: IAUI = {
-		mode: lsTheme.mode ?? theme.mode ?? defaultTheme.mode,
-		borderRadius: theme.borderRadius ?? defaultTheme.borderRadius,
+		mode: lsTheme?.mode ?? theme?.mode ?? defaultTheme.mode,
+		borderRadius: theme?.borderRadius ?? defaultTheme.borderRadius,
 		colors: { ...defaultTheme.colors, ...theme.colors },
 		paddings: { ...defaultTheme.paddings, ...theme.paddings },
 	};
