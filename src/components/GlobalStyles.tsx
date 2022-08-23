@@ -1,19 +1,14 @@
-import { color } from '..';
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+
+import { color as colorFn } from '../styles/utils';
 
 export const GlobalStyles = createGlobalStyle`
     ${normalize}
 
     html {
         box-sizing: border-box;
-        color-scheme: ${({ theme }) => {
-			if (theme.mode === 'dark') {
-				return 'dark';
-			}
-
-			return 'auto';
-		}};
+        color-scheme: ${({ theme }) => theme.mode};
     }
 
     *, *:before, *:after {
@@ -28,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
         transition: 0.5s background;
         
         
-        background-color: ${color('bg')};
-        color: ${color('text')};
+        background-color: ${colorFn('bg')};
+        color: ${colorFn('text')};
     }
 `;
