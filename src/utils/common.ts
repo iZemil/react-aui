@@ -17,3 +17,5 @@ export function getRandom(from: number, to: number, isInt = true): number {
 }
 
 export const wait = (ms: number): Promise<void> => new Promise((res) => setTimeout(res, ms));
+
+export const getInitials = (name: string) => `${name[0].toUpperCase()}`;

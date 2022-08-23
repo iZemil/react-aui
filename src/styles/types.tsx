@@ -29,6 +29,8 @@ export interface IAUIColors {
 	wrapper: string;
 }
 
+export type TAUIColors = keyof IAUIColors;
+
 export type TPaddings = Record<TSize, number>;
 
 export interface IAUI {

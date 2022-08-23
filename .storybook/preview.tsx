@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { DecoratorFn } from '@storybook/react';
 import * as React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import { IAUI } from '../src';
 import { AUIProvider } from '../src/styles/AUIProvider';
@@ -44,15 +45,17 @@ const withAUIProvider: DecoratorFn = (Story, context) => {
 	const globalTheme = theme === 'dark' ? darkTheme : lightTheme;
 
 	return (
-		<Provider
-			store={configureStore({
-				reducer: {},
-			})}
-		>
-			<AUIProvider theme={globalTheme}>
-				<Story />
-			</AUIProvider>
-		</Provider>
+		<BrowserRouter>
+			<Provider
+				store={configureStore({
+					reducer: {},
+				})}
+			>
+				<AUIProvider theme={globalTheme}>
+					<Story />
+				</AUIProvider>
+			</Provider>
+		</BrowserRouter>
 	);
 };
 

@@ -1,34 +1,42 @@
+import * as React from 'react';
+
+import { getFontSize } from '../../styles';
+import { getInitials } from '../../utils';
 import { Icons } from '../icons';
 
-import Styled, { IStAvatarProps } from './Styled';
+import S, { ISAvatarProps } from './Styled';
 
-interface UserResponseDto {
+interface IUser {
 	name: string;
-	id: string;
-	color?: string;
+	id: string | number | null | undefined;
 }
 
-export const userLink = (userId: string) => `/authors/${userId}`;
-
-export interface IAvatarProps extends IStAvatarProps {
-	user?: UserResponseDto;
+export interface IAvatarProps extends Partial<ISAvatarProps> {
+	user?: IUser;
 	withName?: boolean;
-	withLink?: boolean;
-	onClick?: (user: UserResponseDto) => void;
+	link?: string;
+	onClick?: (user: IUser) => void;
 }
 
-export const getInitials = (name: string) => `${name[0].toUpperCase()}`;
-
-export const Avatar = ({ user, size, withName, withLink, color, onClick, ...styledProps }: IAvatarProps) => {
+export const Avatar = ({
+	user,
+	size = getFontSize('medium'),
+	withName,
+	link = '',
+	color = 'main',
+	onClick,
+	...styledProps
+}: IAvatarProps) => {
 	if (!user) {
 		return <Icons.EmptyAvatar size={size} />;
 	}
 
 	return (
-		<Styled.$
-			title={user.name}
-			to={withLink ? userLink(user.id) : '#'}
+		<S.$
 			size={size}
+			color={color}
+			title={user.name}
+			to={link}
 			onClick={() => {
 				if (onClick) {
 					onClick(user);
@@ -36,11 +44,11 @@ export const Avatar = ({ user, size, withName, withLink, color, onClick, ...styl
 			}}
 			{...styledProps}
 		>
-			<Styled.Image.$ size={size} color={color ?? user.color}>
+			<S.Image.$ size={size} color={color}>
 				{getInitials(user.name)}
-			</Styled.Image.$>
+			</S.Image.$>
 
-			{withName && <Styled.Name.$ withLink={withLink}>{user.name}</Styled.Name.$>}
-		</Styled.$>
+			{withName && <S.Name.$ withLink={Boolean(link)}>{user.name}</S.Name.$>}
+		</S.$>
 	);
 };

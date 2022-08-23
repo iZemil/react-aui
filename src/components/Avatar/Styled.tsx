@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 
-import { color, overflowedText } from '../../styles';
+import { TAUIColors, color, overflowedText } from '../../styles';
 import { Link } from '../Link';
 
-export interface IStAvatarProps {
-	size?: number;
-	color?: string;
+export interface ISAvatarProps {
+	size: number;
+	color: TAUIColors | string;
 }
 
-const DEFAULT_ATAVAR_DIAMETER = 100;
-
-const sizable = (size = DEFAULT_ATAVAR_DIAMETER) => `
+const sizable = (size: number) => `
 	min-width: ${size}px;
 	width: ${size}px;
 	height: ${size}px;
@@ -18,18 +16,20 @@ const sizable = (size = DEFAULT_ATAVAR_DIAMETER) => `
 `;
 
 const Styled = {
-	$: styled(Link)<IStAvatarProps>`
+	$: styled(Link)<ISAvatarProps>`
 		display: flex;
 		align-items: center;
 		gap: 10px;
 		font-weight: 500;
-		color: ${color('white')};
+		color: ${color('text')};
 		${({ size }) => (size ? `min-width: ${size}px` : '')};
 	`,
+
 	Image: {
-		$: styled.div<IStAvatarProps>`
+		$: styled.div<ISAvatarProps>`
 			border-radius: 100%;
-			background: ${(props) => (props.color ? `#${props.color}` : color('main')(props))};
+			background: ${(props) =>
+				props.color ? color(props.color as TAUIColors)(props) ?? props.color : color('main')(props)};
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -37,6 +37,7 @@ const Styled = {
 			font-weight: 500;
 		`,
 	},
+
 	Name: {
 		$: styled.div<{ withLink?: boolean }>`
 			${overflowedText()}
@@ -46,7 +47,7 @@ const Styled = {
 					? `
 						color:${color('main')(props)};`
 					: `
-						color: ${color('white')(props)};
+						color: ${color('text')(props)};
 					`}
 		`,
 	},

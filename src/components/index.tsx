@@ -26,3 +26,5 @@ export { BackButton } from './Button/BackButton';
 
 export { Dropdown, DefaultDropdownLabel } from './Dropdown';
 export type { IDropdownItem } from './Dropdown';
+
+export { Avatar } from './Avatar';

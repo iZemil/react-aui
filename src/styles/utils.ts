@@ -1,8 +1,8 @@
-import { IAUI, TPaddings, TSize } from './types';
+import { IAUI, TAUIColors, TPaddings, TSize } from './types';
 
 // GOOD: https://dev.to/j3nnning/theme-setup-with-styled-components-functional-programming-4i5p
 export const color =
-	(key: keyof IAUI['colors']) =>
+	(key: TAUIColors) =>
 	(props: { theme: IAUI }): string =>
 		props.theme.colors[key];
 
