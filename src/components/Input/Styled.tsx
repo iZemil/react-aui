@@ -5,6 +5,7 @@ import { TSize, borderRadius, color as colorFn, disabledCss, padding, setSize } 
 import { ISInputProps } from './types';
 
 const activeLabelCss = `
+	font-size: 14px;
 	padding: 0;
 	transform: translateY(-100%);
 	top: 0;
@@ -66,7 +67,6 @@ const Styled = {
 	Error: {
 		$: styled.span`
 			text-transform: none;
-			font-size: 14px;
 			color: ${colorFn('red')};
 		`,
 	},

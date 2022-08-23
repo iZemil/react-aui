@@ -5,6 +5,8 @@ import { normalize } from 'styled-normalize';
 import { EThemeMode } from '../styles';
 
 export const GlobalStyles = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
     ${normalize}
 
     html {

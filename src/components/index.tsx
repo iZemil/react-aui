@@ -1,10 +1,8 @@
-export { Button } from './Button';
-export * from './Avatar';
 export * from './BackButton';
 export * from './Burger';
 export * from './Card';
 export * from './Checkbox';
-export * from './CopyButton';
+export * from './Button/CopyButton';
 export * from './DatePicker';
 export * from './Dropdown';
 export * from './Editor';
@@ -21,4 +19,8 @@ export * from './Tabs';
 export * from './TextArea';
 export * from './icons';
 export * from './Snackbars';
+
 export { GlobalStyles } from './GlobalStyles';
+
+export { Button } from './Button';
+export { CopyButton } from './Button/CopyButton';
