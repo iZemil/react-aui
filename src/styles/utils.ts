@@ -45,36 +45,53 @@ export const selectPaddings = (props: { theme: IAUI }): Record<TSize, string> =>
 	};
 };
 
+export const getFontSize = (size?: TSize): number => {
+	switch (size) {
+		case 'small':
+			return 14;
+
+		case 'medium':
+			return 16;
+
+		case 'large':
+			return 18;
+
+		default:
+			return 14;
+	}
+};
+
 export const setSize = (props: { theme: IAUI; size: TSize }) => {
 	const { size } = props;
 	const paddings = selectPaddings(props);
 
+	const fontSize = `
+		font-size: ${toPx(getFontSize(size))};
+	`;
+
 	const small = `
 		padding: ${paddings.small} ${paddings.medium};
-		font-size: 14px;
 	`;
 
 	const medium = `
 		padding: ${paddings.medium};
-		font-size: 16px;
 	`;
 
 	const large = `
 		padding: ${paddings.medium} ${paddings.large};
-		font-size: 18px;
 	`;
 
 	switch (size) {
 		case 'small':
-			return small;
+			return small + fontSize;
 
 		case 'medium':
-			return medium;
+			return medium + fontSize;
 
 		case 'large':
-			return large;
+			return large + fontSize;
 
 		default:
-			return medium;
+			return medium + fontSize;
 	}
 };

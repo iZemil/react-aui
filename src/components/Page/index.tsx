@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { padding } from '../../styles';
-import { BackButton } from '../BackButton';
+import { BackButton } from '../Button/BackButton';
 
 export const MENU_HEAD_BAR_HEIGH = 60;
 

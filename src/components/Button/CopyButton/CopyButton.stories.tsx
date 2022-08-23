@@ -7,7 +7,7 @@ export default {
 	component: CopyButton,
 };
 
-export const Type = () => {
+export const Basic = () => {
 	const currentDate = new Date().toString();
 
 	return (
