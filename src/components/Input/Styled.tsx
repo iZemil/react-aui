@@ -24,7 +24,7 @@ const Styled = {
 	Input: {
 		$: styled.input<ISInputProps>`
 			background: ${colorFn('bg')};
-			color: ${colorFn('white')};
+			color: ${colorFn('text')};
 			border-radius: ${borderRadius};
 			padding: ${padding('medium')};
 			outline: none;

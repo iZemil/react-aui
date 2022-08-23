@@ -2,17 +2,13 @@ import { color } from '..';
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-import { EThemeMode } from '../styles';
-
 export const GlobalStyles = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
     ${normalize}
 
     html {
         box-sizing: border-box;
         color-scheme: ${({ theme }) => {
-			if (theme.mode === EThemeMode.DARK) {
+			if (theme.mode === 'dark') {
 				return 'dark';
 			}
 
@@ -30,20 +26,9 @@ export const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         transition: 0.5s background;
-        background: red;
         
-        ${(props) => {
-			const { theme } = props;
-
-			if (theme.mode === EThemeMode.DARK) {
-				return `
-                    background-color: ${color('bg')(props)};
-                    color: ${color('white')(props)};
-                `;
-			}
-
-			return '';
-		}}
-
+        
+        background-color: ${color('bg')};
+        color: ${color('text')};
     }
 `;

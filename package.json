@@ -69,8 +69,7 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-simple-import-sort": "^7.0.0",
         "eslint-plugin-unused-imports": "^2.0.0",
-        "semantic-release": "^19.0.3",
-        "storybook-addon-styled-component-theme": "^2.0.0"
+        "semantic-release": "^19.0.3"
     },
     "eslintConfig": {
         "extends": [

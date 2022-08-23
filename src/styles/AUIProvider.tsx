@@ -5,11 +5,11 @@ import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { GlobalStyles, SnackbarsProvider } from '../components';
 
 import { defaultTheme } from './consts';
-import { EThemeMode, IAUI, IAUIColors, TPaddings } from './types';
+import { IAUI, IAUIColors, TPaddings, TTheme } from './types';
 
 interface IAUIProviderProps {
 	theme?: Partial<
-		{ borderRadius: number; mode: EThemeMode } & { colors: Partial<IAUIColors> } & { paddings: Partial<TPaddings> }
+		{ borderRadius: number; mode: TTheme } & { colors: Partial<IAUIColors> } & { paddings: Partial<TPaddings> }
 	>;
 	children: React.ReactNode;
 }

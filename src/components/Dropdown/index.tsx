@@ -54,7 +54,7 @@ export const Dropdown = (props: IProps) => {
 								<Button
 									key={text}
 									type="text"
-									color="white"
+									color="text"
 									onClick={() => {
 										onClose();
 

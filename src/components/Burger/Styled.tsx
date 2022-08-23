@@ -15,7 +15,7 @@ const Styled = {
 		justify-content: center;
 		border: 0;
 		background-size: cover;
-		color: ${color('white')};
+		color: ${color('text')};
 		line-height: 1.2;
 		cursor: pointer;
 		text-transform: uppercase;
@@ -26,7 +26,7 @@ const Styled = {
 		text-decoration: none !important;
 
 		&:hover {
-			background-color: ${color('white')}30;
+			background-color: ${color('text')}30;
 		}
 	`,
 	Bar: {
@@ -34,7 +34,7 @@ const Styled = {
 			width: 1.125rem;
 			height: 0.125rem;
 			border-radius: 0.125rem;
-			background-color: ${color('white')};
+			background-color: ${color('text')};
 			transition: transform 0.25s;
 			transform: rotate(0);
 			position: absolute;
@@ -47,7 +47,7 @@ const Styled = {
 				width: 1.125rem;
 				height: 0.125rem;
 				border-radius: 0.125rem;
-				background-color: ${color('white')};
+				background-color: ${color('text')};
 				transition: transform 0.25s;
 				transform: rotate(0);
 			}

@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { EThemeMode, IAUI } from '../styles/types';
+import { IAUI } from '../styles/types';
 
 type TThemeState = Partial<IAUI>;
 
 const initialState: TThemeState = {
-	mode: EThemeMode.DARK,
+	mode: 'dark',
 };
 
 export const themeSlice = createSlice({
