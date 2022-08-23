@@ -33,25 +33,27 @@ const getSizeNumber = (size?: TSize): number => {
 };
 
 export const CopyButton = (props: ICopyButtonProps) => {
-	const { value, children, isShort, ...rest } = props;
+	const { value, children, ...rest } = props;
 	const theme = useTheme() as IAUI;
 	const [isCopied, copy] = React.useState(false);
 
 	const iconSize = getSizeNumber(props.size);
 
 	const handleCopy = async () => {
-		copyBuffer(typeof value === 'string' ? value : value());
-		copy(true);
+		try {
+			await copyBuffer(JSON.stringify(typeof value === 'function' ? value() : value));
 
-		await wait(1500);
-		copy(false);
+			copy(true);
+			await wait(1500);
+			copy(false);
+		} catch (error) {
+			console.error('Copy error', error);
+		}
 	};
 
 	return (
 		<S.$
 			type="text"
-			withChildren={Boolean(children)}
-			isShort={Boolean(isShort)}
 			onClick={() => {
 				handleCopy();
 			}}

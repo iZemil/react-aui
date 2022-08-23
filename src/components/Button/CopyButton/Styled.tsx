@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { color, padding } from '../../../styles';
 
 const Styled = {
-	$: styled(Button)<{ withChildren: boolean; isShort: boolean }>`
+	$: styled(Button)`
 		width: fit-content;
 		display: flex;
 		align-items: center;
