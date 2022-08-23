@@ -28,8 +28,7 @@ const Styled = {
 	Image: {
 		$: styled.div<ISAvatarProps>`
 			border-radius: 100%;
-			background: ${(props) =>
-				props.color ? color(props.color as TAUIColors)(props) ?? props.color : color('main')(props)};
+			background: ${(props) => props.color};
 			display: flex;
 			align-items: center;
 			justify-content: center;

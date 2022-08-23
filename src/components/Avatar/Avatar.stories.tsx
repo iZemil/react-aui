@@ -20,7 +20,7 @@ export const Basic = () => {
 	);
 };
 
-export const Sizes = () => {
+export const Size = () => {
 	return (
 		<Container.$>
 			<Avatar size={getFontSize('small')} />
@@ -28,6 +28,22 @@ export const Sizes = () => {
 			<Avatar size={getFontSize('large')} />
 			<Avatar size={20} />
 			<Avatar size={50} />
+		</Container.$>
+	);
+};
+
+export const Color = () => {
+	const size = 20;
+
+	return (
+		<Container.$>
+			<Avatar size={size} color="" />
+
+			<Avatar size={size} color="red" />
+			<Avatar size={size} color="green" />
+			<Avatar size={size} color="blue" />
+
+			<Avatar size={size} color="wrong" />
 		</Container.$>
 	);
 };
