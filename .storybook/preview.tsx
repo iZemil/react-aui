@@ -10,10 +10,10 @@ import { defaultTheme } from '../src/styles/consts';
 
 export const globalTypes = {
 	theme: {
-		name: 'Theme',
 		description: 'AUI provider themes',
 		defaultValue: 'dark',
 		toolbar: {
+			title: 'theme',
 			// The icon for the toolbar item
 			icon: 'circlehollow',
 			// Array of options
@@ -21,8 +21,6 @@ export const globalTypes = {
 				{ value: 'dark', icon: 'circle', title: 'dark' },
 				{ value: 'light', icon: 'circlehollow', title: 'light' },
 			],
-			// Property that specifies if the name of the item will be displayed
-			showName: true,
 		},
 	},
 };

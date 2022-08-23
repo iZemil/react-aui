@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { TAUIColors, color, overflowedText } from '../../styles';
+import { TAUIColors, color as colorFn, overflowedText } from '../../styles';
 import { Link } from '../Link';
 
 export interface ISAvatarProps {
@@ -21,14 +21,14 @@ const Styled = {
 		align-items: center;
 		gap: 10px;
 		font-weight: 500;
-		color: ${color('text')};
+		color: ${colorFn('text')};
 		${({ size }) => (size ? `min-width: ${size}px` : '')};
 	`,
 
 	Image: {
 		$: styled.div<ISAvatarProps>`
 			border-radius: 100%;
-			background: ${(props) => props.color};
+			background: ${(props) => colorFn(props.color as TAUIColors)(props) ?? props.color};
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -44,9 +44,9 @@ const Styled = {
 			${(props) =>
 				props.withLink
 					? `
-						color:${color('main')(props)};`
+						color:${colorFn('main')(props)};`
 					: `
-						color: ${color('text')(props)};
+						color: ${colorFn('text')(props)};
 					`}
 		`,
 	},

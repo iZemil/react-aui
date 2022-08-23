@@ -4,7 +4,6 @@ export const SIZES = { small: 'small', medium: 'medium', large: 'large' } as con
 
 export const THEMES = { dark: 'dark', light: 'light' } as const;
 
-// TODO: set validator, eg because color: blue is not valid
 export const defaultTheme: IAUI = {
 	mode: 'dark',
 	colors: {

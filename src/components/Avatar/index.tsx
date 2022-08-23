@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { useTheme } from 'styled-components';
 
-import { TAUIColors, color as colorFn, getFontSize } from '../../styles';
+import { getFontSize } from '../../styles';
 import { getInitials } from '../../utils';
 import { Icons } from '../icons';
 
@@ -24,21 +23,18 @@ export const Avatar = ({
 	size = getFontSize('medium'),
 	withName,
 	link = '',
-	color,
+	color = 'main',
 	onClick,
 	...styledProps
 }: IAvatarProps) => {
-	const theme = useTheme();
-	const foundColor = color ? colorFn(color as TAUIColors)({ theme }) ?? color : colorFn('main')({ theme });
-
 	if (!user) {
-		return <Icons.EmptyAvatar color={foundColor} size={size} />;
+		return <Icons.EmptyAvatar size={size} />;
 	}
 
 	return (
 		<S.$
 			size={size}
-			color={foundColor}
+			color={color}
 			title={user.name}
 			to={link}
 			onClick={() => {
@@ -48,7 +44,7 @@ export const Avatar = ({
 			}}
 			{...styledProps}
 		>
-			<S.Image.$ size={size} color={foundColor}>
+			<S.Image.$ size={size} color={color}>
 				{getInitials(user.name)}
 			</S.Image.$>
 

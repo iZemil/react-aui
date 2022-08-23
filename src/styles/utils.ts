@@ -95,3 +95,16 @@ export const setSize = (props: { theme: IAUI; size: TSize }) => {
 			return medium + fontSize;
 	}
 };
+
+export const isValidColors = (theme: IAUI): boolean => {
+	const invalid: string[] = [];
+
+	Object.entries(theme.colors).forEach(([name, color]) => {
+		if (!CSS.supports('color', color)) {
+			invalid.push(name);
+			console.warn(`invalid color: ${name}: ${color} --> use six length format: #0f0f0f`);
+		}
+	});
+
+	return invalid.length === 0;
+};

@@ -34,16 +34,33 @@ export const Size = () => {
 
 export const Color = () => {
 	const size = 20;
+	const user = { name: 'aui', id: 1 };
 
 	return (
-		<Container.$>
-			<Avatar size={size} color="" />
+		<Container.$ column>
+			<Container.$>
+				<Avatar size={size} color="" />
 
-			<Avatar size={size} color="red" />
-			<Avatar size={size} color="green" />
-			<Avatar size={size} color="blue" />
+				<Avatar size={size} color="red" />
+				<Avatar size={size} color="green" />
+				<Avatar size={size} color="blue" />
 
-			<Avatar size={size} color="wrong" />
+				<Avatar size={size} color="#fff" />
+
+				<Avatar size={size} color="wrong" />
+			</Container.$>
+
+			<Container.$>
+				<Avatar user={user} size={size} color="" />
+
+				<Avatar user={user} size={size} color="red" />
+				<Avatar user={user} size={size} color="green" />
+				<Avatar user={user} size={size} color="blue" />
+
+				<Avatar user={user} size={size} color="#ff0" />
+
+				<Avatar user={user} size={size} color="wrong" />
+			</Container.$>
 		</Container.$>
 	);
 };

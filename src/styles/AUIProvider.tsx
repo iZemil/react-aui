@@ -6,6 +6,7 @@ import { GlobalStyles, SnackbarsProvider } from '../components';
 
 import { defaultTheme } from './consts';
 import { IAUI, IAUIColors, TPaddings, TTheme } from './types';
+import { isValidColors } from './utils';
 
 interface IAUIProviderProps {
 	theme?: Partial<
@@ -24,6 +25,10 @@ export const AUIProvider = ({ children, theme = {} }: IAUIProviderProps) => {
 		colors: { ...defaultTheme.colors, ...theme.colors },
 		paddings: { ...defaultTheme.paddings, ...theme.paddings },
 	};
+
+	React.useEffect(() => {
+		isValidColors(auiTheme);
+	}, []);
 
 	return (
 		<ThemeProvider theme={auiTheme}>
