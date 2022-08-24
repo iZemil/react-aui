@@ -38,4 +38,5 @@ export interface IAUI {
 	colors: IAUIColors;
 	borderRadius: number;
 	paddings: TPaddings;
+	globalStyles?: string;
 }

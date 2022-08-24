@@ -10,7 +10,9 @@ import { isValidColors } from './utils';
 
 interface IAUIProviderProps {
 	theme?: Partial<
-		{ borderRadius: number; mode: TTheme } & { colors: Partial<IAUIColors> } & { paddings: Partial<TPaddings> }
+		{ borderRadius: number; mode: TTheme; globalStyles: string } & { colors: Partial<IAUIColors> } & {
+			paddings: Partial<TPaddings>;
+		}
 	>;
 	children: React.ReactNode;
 }
@@ -24,6 +26,7 @@ export const AUIProvider = ({ children, theme = {} }: IAUIProviderProps) => {
 		borderRadius: theme?.borderRadius ?? defaultTheme.borderRadius,
 		colors: { ...defaultTheme.colors, ...theme.colors },
 		paddings: { ...defaultTheme.paddings, ...theme.paddings },
+		globalStyles: theme.globalStyles,
 	};
 
 	React.useEffect(() => {

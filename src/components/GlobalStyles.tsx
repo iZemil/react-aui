@@ -26,4 +26,6 @@ export const GlobalStyles = createGlobalStyle`
         background-color: ${colorFn('bg')};
         color: ${colorFn('text')};
     }
+
+    ${(props) => props.theme.globalStyles ?? ''}
 `;
