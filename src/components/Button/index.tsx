@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { borderRadius, color as colorFn, disabledCss, padding, setSize } from '../../styles';
+import { borderRadius, color as colorFn, disabledCss, getFontSize, padding, setSize } from '../../styles';
 
 import { IButtonProps, ISButtonProps } from './types';
 
@@ -71,6 +71,18 @@ const S = {
 
 		${setSize}
 
+		${(props) =>
+			props.icon &&
+			`
+				padding: ${padding(props.size)(props)};
+				border-width: 1px;
+
+				svg {
+					width: ${getFontSize(props.size) + 2}px;
+					height: ${getFontSize(props.size) + 2}px;
+				}
+		`}
+
 		${({ block }) => block && `width: 100%;`}
 
 		${({ circle }) =>
@@ -84,8 +96,6 @@ const S = {
 	`,
 };
 
-// TODO: loading
-// TODO: href, target
 export function Button(props: IButtonProps) {
 	const {
 		children,
@@ -97,11 +107,13 @@ export function Button(props: IButtonProps) {
 		circle = false,
 		disabled = false,
 		htmlType = 'button',
+		icon = false,
 		...rest
 	} = props;
 
 	return (
 		<S.$
+			$type={type}
 			type={htmlType}
 			onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 				event.preventDefault();
@@ -111,11 +123,11 @@ export function Button(props: IButtonProps) {
 				}
 			}}
 			{...rest}
-			$type={type}
 			size={size}
 			block={block}
 			color={color}
 			circle={circle}
+			icon={icon}
 			disabled={disabled}
 		>
 			{children}

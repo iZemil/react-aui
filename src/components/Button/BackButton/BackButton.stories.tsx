@@ -11,6 +11,8 @@ export const Basic = () => {
 	return (
 		<Container.$ column>
 			<BackButton />
+
+			<BackButton type="filled" />
 		</Container.$>
 	);
 };

@@ -23,10 +23,36 @@ export const Type = () => {
 
 export const Size = () => {
 	return (
-		<Container.$>
-			<Button size="small">small</Button>
-			<Button size="medium">medium</Button>
-			<Button size="large">large</Button>
+		<Container.$ column>
+			<Container.$>
+				<Button size="small">small</Button>
+				<Button size="medium">medium</Button>
+				<Button size="large">large</Button>
+			</Container.$>
+
+			<Container.$>
+				<Button icon size="small">
+					<Icons.Home />
+				</Button>
+				<Button icon size="medium">
+					<Icons.Home />
+				</Button>
+				<Button icon size="large">
+					<Icons.Home />
+				</Button>
+			</Container.$>
+
+			<Container.$>
+				<Button icon size="small" circle>
+					<Icons.Home />
+				</Button>
+				<Button icon size="medium" circle>
+					<Icons.Home />
+				</Button>
+				<Button icon size="large" circle>
+					<Icons.Home />
+				</Button>
+			</Container.$>
 		</Container.$>
 	);
 };

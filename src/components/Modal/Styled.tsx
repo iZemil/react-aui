@@ -60,13 +60,6 @@ const Styled = {
 			position: fixed;
 			top: 0;
 			right: 0;
-			padding: ${padding('large')};
-			font-size: 24px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			color: ${color('grey')};
-			cursor: pointer;
 			z-index: 9;
 		`,
 	},

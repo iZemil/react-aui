@@ -9,9 +9,10 @@ export interface ISButtonProps {
 	color: keyof IAUI['colors'];
 	circle: boolean;
 	disabled: boolean;
+	icon: boolean;
 }
 
-export interface IButtonProps extends Partial<ISButtonProps> {
+export interface IButtonProps extends Partial<Omit<ISButtonProps, '$type'>> {
 	htmlType?: 'button' | 'submit';
 	type?: TButtonType;
 	disabled?: boolean;

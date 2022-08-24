@@ -26,6 +26,9 @@ export const Modal = ({ children, open = false, size, onClose, closeButton, ...r
 					{closeButton && (
 						<S.Close.$
 							type="text"
+							icon
+							color="grey"
+							size="large"
 							onClick={() => {
 								if (onClose) {
 									onClose();

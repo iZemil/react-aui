@@ -39,6 +39,7 @@ export function BackButton(props: IProps) {
 
 	return (
 		<S.$
+			icon
 			type={props.type ?? 'text'}
 			circle
 			onClick={() => {
