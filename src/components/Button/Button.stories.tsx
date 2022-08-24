@@ -129,10 +129,8 @@ export const Other = () => {
 
 			<Container.$>
 				<Button disabled>Disabled</Button>
-			</Container.$>
 
-			<Container.$>
-				<Button circle>
+				<Button circle disabled>
 					<Icons.Home />
 				</Button>
 			</Container.$>
@@ -145,6 +143,29 @@ export const Other = () => {
 					}}
 				>
 					On Click
+				</Button>
+			</Container.$>
+
+			<Container.$>
+				<Button to="#link">Link</Button>
+
+				<Button to="#link" type="text">
+					Link
+				</Button>
+
+				<Button to="#link" type="text">
+					<Icons.Link />
+					Link
+				</Button>
+
+				<Button to="#link" type="text" size="small">
+					<Icons.Link />
+					Link
+				</Button>
+
+				<Button to="https://google.com" type="text" blank>
+					<Icons.Link />
+					Target Blank Link
 				</Button>
 			</Container.$>
 		</Container.$>

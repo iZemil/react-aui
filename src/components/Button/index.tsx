@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { borderRadius, color as colorFn, disabledCss, getFontSize, padding, setSize } from '../../styles';
+import { Link } from '../Link';
 
 import { IButtonProps, ISButtonProps } from './types';
 
@@ -108,10 +109,14 @@ export function Button(props: IButtonProps) {
 		disabled = false,
 		htmlType = 'button',
 		icon = false,
+
+		to,
+		blank = false,
+
 		...rest
 	} = props;
 
-	return (
+	const _Button = (
 		<S.$
 			$type={type}
 			type={htmlType}
@@ -133,4 +138,14 @@ export function Button(props: IButtonProps) {
 			{children}
 		</S.$>
 	);
+
+	if (to) {
+		return (
+			<Link to={to} {...(blank && { target: '_blank', rel: 'noopener noreferrer' })}>
+				{_Button}
+			</Link>
+		);
+	}
+
+	return _Button;
 }

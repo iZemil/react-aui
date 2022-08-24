@@ -20,4 +20,7 @@ export interface IButtonProps extends Partial<Omit<ISButtonProps, '$type'>> {
 	children: React.ReactNode;
 	className?: string;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+
+	to?: string;
+	blank?: boolean;
 }
