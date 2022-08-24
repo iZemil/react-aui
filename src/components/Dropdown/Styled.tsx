@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { borderRadius, color, padding } from '../../styles';
+import { Button } from '../Button';
 
 export interface ISDropdownContentProps {
 	open: boolean;
@@ -13,6 +14,7 @@ const Styled = {
 			position: relative;
 		`,
 	},
+
 	Label: {
 		$: styled.div<Pick<ISDropdownContentProps, 'open'>>`
 			position: relative;
@@ -24,6 +26,7 @@ const Styled = {
 			`}
 		`,
 	},
+
 	Content: {
 		$: styled.div<ISDropdownContentProps>`
 			position: absolute;
@@ -37,6 +40,16 @@ const Styled = {
 			z-index: 9;
 
 			${(props) => props.left && `right: 0;`}
+		`,
+	},
+
+	Item: {
+		$: styled(Button)<{ icon: boolean }>`
+			${(props) =>
+				props.icon &&
+				`
+				justify-content: flex-start;
+			`}
 		`,
 	},
 };

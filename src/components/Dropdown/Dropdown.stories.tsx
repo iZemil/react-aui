@@ -13,6 +13,7 @@ const defaultBasicState = {
 	first: false,
 	second: false,
 	third: false,
+	fourth: false,
 };
 
 export const Basic = () => {
@@ -60,6 +61,21 @@ export const Basic = () => {
 				label={<Button onClick={() => onChange('third', true)}>To left</Button>}
 				items={items}
 				left
+			/>
+
+			<Dropdown
+				open={values.fourth}
+				onClose={() => onChange('fourth', false)}
+				label={<Button onClick={() => onChange('fourth', true)}>Icons</Button>}
+				items={[
+					{ text: 'Accept', icon: <Icons.Accept /> },
+					{ text: 'Calendar', icon: <Icons.Calendar /> },
+					{
+						text: 'Edit',
+						icon: <Icons.Edit />,
+					},
+					{ text: 'Delete', icon: <Icons.Delete />, color: 'red' },
+				]}
 			/>
 		</Container.$>
 	);

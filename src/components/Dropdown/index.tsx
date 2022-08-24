@@ -51,10 +51,11 @@ export const Dropdown = (props: IProps) => {
 							const { text, onClick, icon, ...itemRest } = item;
 
 							return (
-								<Button
+								<S.Item.$
 									key={text}
 									type="text"
 									color="text"
+									icon={Boolean(icon)}
 									onClick={() => {
 										onClose();
 
@@ -66,7 +67,7 @@ export const Dropdown = (props: IProps) => {
 								>
 									{icon ?? null}
 									{text}
-								</Button>
+								</S.Item.$>
 							);
 						})}
 					</S.Content.$>
