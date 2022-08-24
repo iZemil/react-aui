@@ -5,7 +5,7 @@ import { color } from '../styles';
 
 interface IProps {
 	open: boolean;
-	onClose: () => void;
+	onClose?: () => void;
 }
 
 const S = {
@@ -26,7 +26,7 @@ export const Overlay = ({ open, onClose }: IProps) => {
 		<S.$
 			onClick={(e) => {
 				const isWrapper = e.target === e.currentTarget;
-				if (isWrapper) {
+				if (isWrapper && onClose) {
 					onClose();
 				}
 			}}

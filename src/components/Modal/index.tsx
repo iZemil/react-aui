@@ -1,40 +1,42 @@
+import * as React from 'react';
 import { BsXLg as CloseIcon } from 'react-icons/bs';
 
-import Styled, { IStModalProps } from './Styled';
+import { Overlay } from '../Overlay';
 
-export enum EModal {
-	MEDIUM = 'MEDIUM',
-}
+import S from './Styled';
+import { IModalProps } from './types';
 
-export interface IModalProps extends IStModalProps {
-	children: React.ReactNode;
-	onClose: () => void;
-	kind?: EModal;
-	withCloseBtn?: boolean;
-}
-
-export const Modal = ({ children, open, onClose, withCloseBtn, ...rest }: IModalProps) => {
+export const Modal = ({ children, open = false, size, onClose, closeButton, ...rest }: IModalProps) => {
 	return (
-		<Styled.$
-			open={open}
-			onClick={(e) => {
-				const isWrapper = e.target === e.currentTarget;
-				if (isWrapper) {
-					onClose();
-				}
-			}}
-		>
-			<Styled.Content.$ {...rest}>{children}</Styled.Content.$>
+		<>
+			<Overlay open={open} onClose={onClose} />
 
-			{withCloseBtn && (
-				<Styled.Close.$
-					onClick={() => {
-						onClose();
-					}}
-				>
-					<CloseIcon />
-				</Styled.Close.$>
+			{open && (
+				<>
+					<S.$
+						onClick={(e) => {
+							e.stopPropagation();
+						}}
+					>
+						<S.Content.$ size={size} {...rest}>
+							{children}
+						</S.Content.$>
+					</S.$>
+
+					{closeButton && (
+						<S.Close.$
+							type="text"
+							onClick={() => {
+								if (onClose) {
+									onClose();
+								}
+							}}
+						>
+							<CloseIcon />
+						</S.Close.$>
+					)}
+				</>
 			)}
-		</Styled.$>
+		</>
 	);
 };

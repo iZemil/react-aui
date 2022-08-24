@@ -1,62 +1,62 @@
-import { EModal } from '.';
 import styled from 'styled-components';
 
-import { borderRadius, color, padding, selectPaddings } from '../../styles';
+import { borderRadius, color, padding } from '../../styles';
+import { Button } from '../Button';
 
-export interface IStModalProps {
-	open: boolean;
-}
+import { ISModalProps } from './types';
 
 const Styled = {
-	$: styled.div<IStModalProps>`
+	$: styled.div`
+		pointer-events: none;
 		position: fixed;
-		top: 0;
-		left: 0;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 		width: 100%;
-		height: 100%;
-		background: ${color('wrapper')};
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		z-index: 1;
-
-		${(props) =>
-			props.open
-				? ``
-				: `
-		display: none;
-		pointer-events: none;`}
+		height: auto;
+		max-width: 100vw;
+		max-height: 100vh;
+		overflow: hidden;
+		padding: ${padding('medium')};
+		z-index: 9;
 	`,
 	Content: {
-		$: styled.div<{ kind?: EModal }>`
+		$: styled.div<ISModalProps>`
+			pointer-events: auto;
 			position: relative;
-			margin: ${padding('medium')};
-			width: 100%;
-			height: auto;
 			padding: ${padding('medium')};
+			margin: auto;
 			background: ${color('bg')};
 			border-radius: ${borderRadius};
+			transition: 0.3s;
+			max-height: calc(100vh - ${(props) => 2 * props.theme.paddings.medium}px);
+			overflow: auto;
 
 			${(props) => {
-				const { kind } = props;
-				const paddings = selectPaddings(props);
+				const { size } = props;
 
-				if (kind === EModal.MEDIUM) {
-					return `
-						max-width: 480px;
-						display: flex;
-						flex-direction: column;
-						gap: ${paddings.medium};
-						padding: ${paddings.large} ${paddings.medium};
-					`;
+				switch (size) {
+					case 'small':
+						return `
+							max-width: 300px;
+						`;
+					case 'medium':
+						return `
+							max-width: 500px;
+						`;
+					case 'large':
+						return `
+							max-width: 700px;
+						`;
+
+					default:
+						return ``;
 				}
-
-				return '';
 			}}
 		`,
 	},
 	Close: {
-		$: styled.div`
+		$: styled(Button)`
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -67,6 +67,7 @@ const Styled = {
 			justify-content: center;
 			color: ${color('grey')};
 			cursor: pointer;
+			z-index: 9;
 		`,
 	},
 };
