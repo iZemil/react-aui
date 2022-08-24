@@ -1,33 +1,48 @@
 import styled from 'styled-components';
 
-import { TSize, borderRadius, color as colorFn, disabledCss, padding, setSize } from '../../styles';
+import { TSize, borderRadius, color as colorFn, disabledCss, getFontSize, padding, setSize } from '../../styles';
 
 import { ISInputProps } from './types';
 
 const activeLabelCss = `
-	font-size: 14px;
+	font-size: ${getFontSize('small')}px;
 	padding: 0;
 	transform: translateY(-100%);
 	top: 0;
+	line-height: 1.2;
 `;
 
 const Styled = {
 	Wrapper: {
-		$: styled.div`
-			position: relative;
+		$: styled.div<{ marginTop: boolean }>`
 			display: flex;
 			width: 100%;
-			flex-direction: column;
+			flex-direction: row;
+			gap: ${padding('medium')};
+			align-items: center;
+
+			${(props) =>
+				props.marginTop &&
+				`
+				margin-top: ${getFontSize('small')}px;
+			`}
 		`,
 	},
 
 	Input: {
+		Wrapper: {
+			$: styled.div`
+				flex: 1;
+				position: relative;
+			`,
+		},
 		$: styled.input<ISInputProps>`
 			background: ${colorFn('bg')};
 			color: ${colorFn('text')};
 			border-radius: ${borderRadius};
 			padding: ${padding('medium')};
 			outline: none;
+			width: 100%;
 
 			border: 2px solid ${(props) => colorFn(props.$error ? 'red' : 'grey')(props)};
 
@@ -69,6 +84,13 @@ const Styled = {
 			text-transform: none;
 			color: ${colorFn('red')};
 		`,
+	},
+
+	Prefix: {
+		$: styled.div``,
+	},
+	Suffix: {
+		$: styled.div``,
 	},
 };
 

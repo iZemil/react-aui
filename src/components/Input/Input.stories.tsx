@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { Button } from '../Button';
 import Container from '../Container';
+import { Icons } from '../icons';
 
 export default {
 	component: Input,
@@ -13,7 +14,7 @@ export const Type = () => {
 	const [value, setValue] = useState('');
 
 	return (
-		<Container.$>
+		<Container.$ style={{ alignItems: 'flex-end' }}>
 			<Input label="Default" value={value} onChange={setValue} />
 			<Button
 				onClick={() => {
@@ -41,9 +42,44 @@ export const Size = () => {
 export const Other = () => {
 	return (
 		<Container.$ column>
-			<Input label="with error" error="some error" />
+			<Input label="email" error="some error" />
+			<Input error="without label error" />
 			<Input label="password" htmlType="password" />
 			<Input label="number" htmlType="number" />
+
+			<Input
+				label="label"
+				placeholder="prefix"
+				prefix={
+					<Button icon>
+						<Icons.Person />
+					</Button>
+				}
+			/>
+			<Input
+				label="label"
+				placeholder="suffix"
+				suffix={
+					<Button icon>
+						<Icons.Person />
+					</Button>
+				}
+			/>
+			<Input
+				label="prefix"
+				placeholder="suffix"
+				error="error"
+				prefix={
+					<Button icon>
+						<Icons.Person />
+					</Button>
+				}
+				suffix={
+					<Button icon>
+						<Icons.Hide />
+					</Button>
+				}
+			/>
 		</Container.$>
 	);
 };

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { TSize } from '../../styles';
 
 export interface ISInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -15,5 +17,7 @@ export interface IInputProps {
 	className?: string;
 	label?: string | React.ReactElement;
 	value?: string | number;
+	prefix?: React.ReactNode;
+	suffix?: React.ReactNode;
 	onChange?: (value: string, e: React.ChangeEvent<HTMLInputElement>) => void;
 }
