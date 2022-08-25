@@ -7,9 +7,10 @@ import { Icons } from '../icons';
 
 import S, { ISDropdownContentProps } from './Styled';
 
-export interface IDropdownItem extends Partial<Omit<IButtonProps, 'onClick'>> {
+export interface IDropdownItem extends Partial<Omit<IButtonProps, 'onClick' | 'icon'>> {
 	text: string;
 	onClick?: (item: IDropdownItem) => void;
+	// TODO#0: refactor maybe, Item.icon vs Button.icon => icon: React.ReactNode is more correct for button also
 	icon?: React.ReactNode;
 }
 
