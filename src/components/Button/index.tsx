@@ -121,8 +121,6 @@ export function Button(props: IButtonProps) {
 			$type={type}
 			type={htmlType}
 			onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-				event.preventDefault();
-
 				if (onClick) {
 					onClick(event);
 				}

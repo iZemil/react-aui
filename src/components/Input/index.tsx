@@ -27,7 +27,7 @@ export function Input(props: IInputProps) {
 
 	return (
 		<S.Wrapper.$ marginTop={withMarginTop} className={className}>
-			{suffix && <S.Suffix.$>{suffix}</S.Suffix.$>}
+			{prefix && <S.Prefix.$>{prefix}</S.Prefix.$>}
 
 			<S.Input.Wrapper.$>
 				<S.Input.$
@@ -52,7 +52,7 @@ export function Input(props: IInputProps) {
 				</S.Label.$>
 			</S.Input.Wrapper.$>
 
-			{prefix && <S.Prefix.$>{prefix}</S.Prefix.$>}
+			{suffix && <S.Suffix.$>{suffix}</S.Suffix.$>}
 		</S.Wrapper.$>
 	);
 }
