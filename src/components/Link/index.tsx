@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { LinkProps, Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { IAUI, color, padding } from '../../styles';
@@ -26,22 +26,26 @@ const StyledA = styled.a`
 	${styles}
 `;
 
-interface IProps {
+export interface IProps extends Partial<LinkProps> {
 	to: string;
 	children: React.ReactNode;
 	blank?: boolean;
 }
 
 export const Link = (props: IProps) => {
-	const { to, blank, children } = props;
+	const { to, blank, children, ...rest } = props;
 
 	if (blank) {
 		return (
-			<StyledA href={to} target="_blank" rel="noopener noreferrer">
+			<StyledA href={to} target="_blank" rel="noopener noreferrer" {...rest}>
 				{children}
 			</StyledA>
 		);
 	}
 
-	return <StyledRouterLink to={to}>{children}</StyledRouterLink>;
+	return (
+		<StyledRouterLink to={to} {...rest}>
+			{children}
+		</StyledRouterLink>
+	);
 };
