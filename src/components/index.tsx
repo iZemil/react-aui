@@ -28,3 +28,4 @@ export { Dropdown, DefaultDropdownLabel } from './Dropdown';
 export type { IDropdownItem } from './Dropdown';
 
 export { Avatar } from './Avatar';
+export { Divider } from './Divider';
