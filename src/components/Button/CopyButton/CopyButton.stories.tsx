@@ -14,7 +14,19 @@ export const Basic = () => {
 		<Container.$ column>
 			<CopyButton value={currentDate} />
 
-			<CopyButton value={currentDate}>With content</CopyButton>
+			<CopyButton value={currentDate}>Copy</CopyButton>
+
+			<CopyButton value="filled" type="filled">
+				filled
+			</CopyButton>
+
+			<CopyButton value="bordered" type="bordered">
+				bordered
+			</CopyButton>
+
+			<CopyButton value="color" color="blue">
+				color
+			</CopyButton>
 
 			<CopyButton value={() => Math.random()}>Dynamic value</CopyButton>
 

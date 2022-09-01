@@ -1,6 +1,6 @@
 import { IAUI, TSize } from '../../styles';
 
-export type TButtonType = 'filled' | 'text' | 'dashed';
+export type TButtonType = 'filled' | 'text' | 'bordered' | 'dashed';
 
 export interface ISButtonProps {
 	$type?: TButtonType;

@@ -1,16 +1,11 @@
 import { Button } from '..';
 import styled from 'styled-components';
 
-import { color, padding } from '../../../styles';
+import { padding } from '../../../styles';
 
 const Styled = {
 	$: styled(Button)`
 		width: fit-content;
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		background: transparent;
-		color: ${color('grey')};
 		padding: ${padding('small')};
 	`,
 

@@ -139,7 +139,7 @@ export function Button(props: IButtonProps) {
 
 	if (to) {
 		return (
-			<Link to={to} {...(blank && { target: '_blank', rel: 'noopener noreferrer' })}>
+			<Link to={to} blank={blank}>
 				{_Button}
 			</Link>
 		);

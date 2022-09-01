@@ -14,11 +14,10 @@ type TValue = string | number | null | undefined;
 
 export interface ICopyButtonProps extends Partial<IButtonProps> {
 	value: TValue | (() => TValue);
-	isShort?: boolean;
 }
 
 export const CopyButton = (props: ICopyButtonProps) => {
-	const { value, children, ...rest } = props;
+	const { value, children, type = 'text', ...rest } = props;
 	const theme = useTheme() as IAUI;
 	const [isCopied, copy] = React.useState(false);
 
@@ -37,13 +36,7 @@ export const CopyButton = (props: ICopyButtonProps) => {
 	};
 
 	return (
-		<S.$
-			type="text"
-			onClick={() => {
-				handleCopy();
-			}}
-			{...rest}
-		>
+		<S.$ type={type} onClick={handleCopy} color="grey" {...rest}>
 			{children}
 
 			<S.Icon.$>
