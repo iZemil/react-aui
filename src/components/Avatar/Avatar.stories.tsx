@@ -8,33 +8,57 @@ export default {
 	component: Avatar,
 };
 
+const username = 'aui';
+const src = 'https://mui.com/static/images/avatar/1.jpg';
+
 export const Basic = () => {
 	return (
 		<Container.$ column>
 			<Avatar />
 
-			<Avatar user={{ name: 'zemil', id: 777 }} withName />
+			<Avatar square />
 
-			<Avatar user={{ name: 'link', id: 777 }} withName link="/?path=/story/button-backbutton--basic" />
+			<Avatar src={src}>One</Avatar>
+
+			<Avatar src="https://wrong.address.1.jpg" />
+
+			<Avatar>{username}</Avatar>
 		</Container.$>
 	);
 };
 
 export const Size = () => {
+	const username = 'aui';
+
 	return (
-		<Container.$>
-			<Avatar size={getFontSize('small')} />
-			<Avatar size={getFontSize('medium')} />
-			<Avatar size={getFontSize('large')} />
-			<Avatar size={20} />
-			<Avatar size={50} />
+		<Container.$ column>
+			<Container.$>
+				<Avatar size={getFontSize('large')} />
+				<Avatar />
+				<Avatar size={50} />
+			</Container.$>
+
+			<Container.$ column>
+				<Avatar size={getFontSize('large')} src={src}>
+					{username}
+				</Avatar>
+				<Avatar src={src}>{username}</Avatar>
+				<Avatar size={50} src={src}>
+					{username}
+				</Avatar>
+			</Container.$>
+
+			<Container.$ column>
+				<Avatar size={getFontSize('large')}>{username}</Avatar>
+				<Avatar>{username}</Avatar>
+				<Avatar size={50}>{username}</Avatar>
+			</Container.$>
 		</Container.$>
 	);
 };
 
 export const Color = () => {
 	const size = 20;
-	const user = { name: 'aui', id: 1 };
 
 	return (
 		<Container.$ column>
@@ -51,15 +75,15 @@ export const Color = () => {
 			</Container.$>
 
 			<Container.$>
-				<Avatar user={user} size={size} color="" />
+				<Avatar />
 
-				<Avatar user={user} size={size} color="red" />
-				<Avatar user={user} size={size} color="green" />
-				<Avatar user={user} size={size} color="blue" />
+				<Avatar color="red" />
+				<Avatar color="green" />
+				<Avatar color="blue" />
 
-				<Avatar user={user} size={size} color="#ff0" />
+				<Avatar color="#ff0" />
 
-				<Avatar user={user} size={size} color="wrong" />
+				<Avatar color="wrong" />
 			</Container.$>
 		</Container.$>
 	);
