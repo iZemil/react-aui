@@ -1,34 +1,77 @@
-import Styled from './Styled';
+import * as React from 'react';
 
-export interface ITab {
-	id: string;
-	content: React.ReactNode;
+import { IButtonProps } from '../Button/types';
+
+import S from './Styled';
+
+export interface ITabProps extends Partial<IButtonProps> {
+	index: number;
+	content?: React.ReactNode;
+	active?: boolean;
 }
 
-export interface ITabsProps {
-	activeTab: ITab;
-	tabs: ITab[];
+export class Tab extends React.Component<ITabProps> {
+	render() {
+		const { children, active = false, ...rest } = this.props;
+
+		return (
+			<S.Tabs.Button.$ active={active} {...rest}>
+				{children}
+			</S.Tabs.Button.$>
+		);
+	}
+}
+
+export interface ITabsProps extends Partial<Pick<IButtonProps, 'size'>> {
+	onChange: (tabIndex: number) => void;
+	activeIndex?: number;
 	title?: string;
-	children: React.ReactNode;
-	onChange: (tab: ITab) => void;
+	children: React.ReactNode[];
 }
 
-export const Tabs = ({ children, tabs, activeTab, title, onChange, ...props }: ITabsProps) => {
+export const Tabs = ({ children, activeIndex, title, onChange, size, ...props }: ITabsProps) => {
+	const currentContent = React.useMemo(() => {
+		let content: ITabProps['content'] = undefined;
+
+		React.Children.forEach(children, (child) => {
+			const tab = child as unknown as Tab;
+			const { index, content: tabContent } = tab.props;
+
+			if (activeIndex === index) {
+				content = tabContent;
+			}
+		});
+
+		return content;
+	}, [children, activeIndex]);
+
 	return (
-		<Styled.$>
-			{title && <Styled.Title.$>{title}</Styled.Title.$>}
+		<S.$>
+			{title && <S.Title.$>{title}</S.Title.$>}
 
-			<Styled.Head.$ {...props}>
-				<Styled.Tabs.$>
-					{tabs.map((tab) => (
-						<Styled.Tabs.Item.$ key={tab.id} active={tab.id === activeTab.id} onClick={() => onChange(tab)}>
-							{tab.content}
-						</Styled.Tabs.Item.$>
-					))}
-				</Styled.Tabs.$>
-			</Styled.Head.$>
+			<S.Head.$ {...props}>
+				<S.Tabs.$>
+					{React.Children.map(children, (child) => {
+						const tab = child as unknown as Tab;
+						const { index } = tab.props;
 
-			<Styled.Content.$>{children}</Styled.Content.$>
-		</Styled.$>
+						return (
+							<Tab
+								key={index}
+								active={activeIndex === index}
+								onClick={() => {
+									onChange(index);
+								}}
+								type="text"
+								size={size}
+								{...tab.props}
+							/>
+						);
+					})}
+				</S.Tabs.$>
+			</S.Head.$>
+
+			{currentContent && <S.Content.$>{currentContent}</S.Content.$>}
+		</S.$>
 	);
 };

@@ -11,7 +11,6 @@ export * from './NotFound';
 export * from './Page';
 export * from './Pagination';
 export * from './Sider';
-export * from './Tabs';
 export * from './TextArea';
 export * from './icons';
 export * from './Snackbars';
@@ -24,8 +23,11 @@ export { Button } from './Button';
 export { CopyButton } from './Button/CopyButton';
 export { BackButton } from './Button/BackButton';
 
+export { Tabs, Tab } from './Tabs';
+
 export { Dropdown, DefaultDropdownLabel } from './Dropdown';
 export type { IDropdownItem } from './Dropdown';
 
 export { Avatar } from './Avatar';
+
 export { Divider } from './Divider';

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { borderRadius, color, inputLabelCss, padding } from '../../styles';
+import { Button } from '../Button';
 
 const Styled = {
 	$: styled.div`
@@ -30,8 +31,8 @@ const Styled = {
 			border: 3px solid ${color('bg')};
 			overflow-y: auto;
 		`,
-		Item: {
-			$: styled.div<{ active?: boolean }>`
+		Button: {
+			$: styled(Button)<{ active: boolean }>`
 				padding: ${padding('medium')} ${padding('large')};
 				color: ${color('grey')};
 				border-radius: ${borderRadius};
@@ -48,9 +49,7 @@ const Styled = {
 	},
 	Content: {
 		$: styled.div`
-			border: 2px solid ${color('bg')};
 			border-radius: ${borderRadius};
-			padding: ${padding('medium')};
 		`,
 	},
 };
