@@ -33,7 +33,6 @@ const Styled = {
 		`,
 		Button: {
 			$: styled(Button)<{ active: boolean }>`
-				padding: ${padding('medium')} ${padding('large')};
 				color: ${color('grey')};
 				border-radius: ${borderRadius};
 				cursor: pointer;

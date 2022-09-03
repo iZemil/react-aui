@@ -22,14 +22,14 @@ export class Tab extends React.Component<ITabProps> {
 	}
 }
 
-export interface ITabsProps extends Partial<Pick<IButtonProps, 'size'>> {
+export interface ITabsProps extends Partial<Pick<IButtonProps, 'size' | 'icon'>> {
 	onChange: (tabIndex: number) => void;
 	activeIndex?: number;
 	title?: string;
 	children: React.ReactNode[];
 }
 
-export const Tabs = ({ children, activeIndex, title, onChange, size, ...props }: ITabsProps) => {
+export const Tabs = ({ children, activeIndex, title, onChange, size, icon, ...props }: ITabsProps) => {
 	const currentContent = React.useMemo(() => {
 		let content: ITabProps['content'] = undefined;
 
@@ -64,6 +64,7 @@ export const Tabs = ({ children, activeIndex, title, onChange, size, ...props }:
 								}}
 								type="text"
 								size={size}
+								icon={icon}
 								{...tab.props}
 							/>
 						);

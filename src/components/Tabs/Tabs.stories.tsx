@@ -2,6 +2,7 @@ import { Tab, Tabs } from '.';
 import * as React from 'react';
 
 import Container from '../Container';
+import { Icons } from '../icons';
 
 export default {
 	component: Tabs,
@@ -21,6 +22,18 @@ export const Basic = () => {
 				</Tab>
 				<Tab index={2} content={<p>third content</p>}>
 					third
+				</Tab>
+			</Tabs>
+
+			<Tabs activeIndex={tabIndex} onChange={setTabIndex}>
+				<Tab index={0}>
+					<Icons.ArrowLeft />
+				</Tab>
+				<Tab index={1}>
+					<Icons.AddCode />
+				</Tab>
+				<Tab index={2}>
+					<Icons.ArrowRight />
 				</Tab>
 			</Tabs>
 		</Container.$>
