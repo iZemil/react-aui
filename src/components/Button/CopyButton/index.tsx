@@ -4,16 +4,14 @@ import { useTheme } from 'styled-components';
 import { color } from '../../../styles';
 import { IAUI } from '../../../styles/types';
 import { getFontSize } from '../../../styles/utils';
-import { copyBuffer, wait } from '../../../utils';
+import { TPrimitives, copyBuffer, wait } from '../../../utils';
 import { Icons } from '../../icons';
 import { IButtonProps } from '../types';
 
 import S from './Styled';
 
-type TValue = string | number | null | undefined;
-
 export interface ICopyButtonProps extends Partial<IButtonProps> {
-	value: TValue | (() => TValue);
+	value: TPrimitives | (() => TPrimitives);
 }
 
 export const CopyButton = (props: ICopyButtonProps) => {
@@ -25,7 +23,7 @@ export const CopyButton = (props: ICopyButtonProps) => {
 
 	const handleCopy = async () => {
 		try {
-			await copyBuffer(JSON.stringify(typeof value === 'function' ? value() : value));
+			await copyBuffer(typeof value === 'function' ? value() : value);
 
 			copy(true);
 			await wait(1500);

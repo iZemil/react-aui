@@ -1,4 +1,6 @@
-export const copyBuffer = (value: string) => navigator.clipboard.writeText(value);
+import { TPrimitives } from './types';
+
+export const copyBuffer = async (value: TPrimitives) => navigator.clipboard.writeText(value as string);
 
 /**
  * Get random number from range

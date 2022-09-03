@@ -44,3 +44,33 @@ export const Basic = () => {
 		</Container.$>
 	);
 };
+
+export const Value = () => {
+	const [value, setValue] = React.useState(
+		`function copyBuffer(value) {
+	return navigator.clipboard.writeText(value)
+}
+`
+	);
+
+	return (
+		<Container.$ column>
+			<CopyButton value={'0x70D6C988a31A0f6220903446579125A0E9F200e2'}>String</CopyButton>
+
+			<CopyButton value={Math.random()}>Number</CopyButton>
+
+			<CopyButton value={() => (Math.random() > 0.5 ? true : false)}>Boolean</CopyButton>
+
+			<CopyButton value={undefined}>undefined</CopyButton>
+
+			<CopyButton value={null}>null</CopyButton>
+
+			<CopyButton value={() => Math.random()}>Dynamic</CopyButton>
+
+			<CopyButton value={() => value} size="small">
+				Copy textarea
+			</CopyButton>
+			<textarea onChange={(e) => setValue(e.target.value)} value={value} />
+		</Container.$>
+	);
+};
