@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import { borderRadius, color, padding } from '../../styles';
+import { color, padding } from '../../styles';
+import { Button } from '../Button';
 
-const Styled = {
+export const S = {
 	$: styled.div`
 		display: flex;
 		justify-content: flex-end;
@@ -11,35 +12,16 @@ const Styled = {
 		padding: ${padding('large')} 0 ${padding('medium')};
 	`,
 	Item: {
-		$: styled.div<{ active?: boolean; disabled?: boolean }>`
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: ${padding('medium')};
-			border-radius: ${borderRadius};
-			width: 36px;
-			font-size: 14px;
+		$: styled(Button).attrs({ color: 'white', type: 'text', icon: true })<{ active?: boolean }>`
 			user-select: none;
-			cursor: pointer;
-
-			${({ active }) =>
-				active &&
-				`
-				color: ${color('main')};
-				background: ${color('bg')};
-				pointer-events: none;
-				cursor: default;
-			`}
 
 			${(props) =>
-				props.disabled &&
+				props.active &&
 				`
-				color: ${color('grey')(props)};
+				color: ${color('main')(props)};
 				pointer-events: none;
 				cursor: default;
 			`}
 		`,
 	},
 };
-
-export default Styled;

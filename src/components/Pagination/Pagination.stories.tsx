@@ -1,9 +1,12 @@
 import { Pagination } from '.';
+import * as React from 'react';
 
 export default {
 	component: Pagination,
 };
 
-export const Example = () => {
-	return <Pagination current={1} pages={10} onChange={() => {}} />;
+export const Basic = () => {
+	const [page, setPage] = React.useState(1);
+
+	return <Pagination current={page} pages={10} onChange={setPage} />;
 };

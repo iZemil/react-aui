@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
+import * as React from 'react';
 
 import { Icons } from '../icons';
-import Styled from './Styled';
+
+import { S } from './Styled';
 
 export interface IPaginationProps {
 	current: number | undefined;
@@ -14,7 +15,7 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 	const MAX_ELEMENTS = 7;
 	const TWO = 2;
 
-	const list = useMemo<number[]>(() => {
+	const list = React.useMemo<number[]>(() => {
 		if (pages <= MAX_ELEMENTS) {
 			return Array.from({ length: pages <= 0 ? 1 : pages }).map((_, index) => {
 				const page = index + 1;
@@ -85,10 +86,10 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 	}, [pages, current]);
 
 	return (
-		<Styled.$>
-			<Styled.Item.$ onClick={() => onChange(current - 1)} disabled={current <= 1}>
+		<S.$>
+			<S.Item.$ onClick={() => onChange(current - 1)} disabled={current <= 1}>
 				<Icons.ChevronLeft />
-			</Styled.Item.$>
+			</S.Item.$>
 
 			{list.map((page, index) => {
 				const active = current === page;
@@ -96,22 +97,22 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 
 				if (isDivider) {
 					return (
-						<Styled.Item.$ key={index} disabled>
+						<S.Item.$ key={index} disabled>
 							...
-						</Styled.Item.$>
+						</S.Item.$>
 					);
 				}
 
 				return (
-					<Styled.Item.$ key={index} active={active} onClick={() => onChange(page)}>
+					<S.Item.$ key={index} active={active} onClick={() => onChange(page)}>
 						{page}
-					</Styled.Item.$>
+					</S.Item.$>
 				);
 			})}
 
-			<Styled.Item.$ onClick={() => onChange(current + 1)} disabled={current >= pages}>
+			<S.Item.$ onClick={() => onChange(current + 1)} disabled={current >= pages}>
 				<Icons.ChevronRight />
-			</Styled.Item.$>
-		</Styled.$>
+			</S.Item.$>
+		</S.$>
 	);
 };
