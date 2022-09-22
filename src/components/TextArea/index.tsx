@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { IStTextArea, StTextArea, StTextAreaLabel, StTextAreaWrapper } from './Styled';
 
 export interface ITextAreaProps extends Omit<IStTextArea, 'onChange'> {

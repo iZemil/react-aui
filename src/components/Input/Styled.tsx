@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { TSize, borderRadius, color as colorFn, disabledCss, getFontSize, padding, setSize } from '../../styles';
+import { TSize, border, borderRadius, color as colorFn, disabledCss, getFontSize, padding } from '../../styles';
 
 import { ISInputProps } from './types';
 
@@ -14,19 +14,7 @@ const activeLabelCss = `
 
 const Styled = {
 	Wrapper: {
-		$: styled.div<{ marginTop: boolean }>`
-			display: flex;
-			width: 100%;
-			flex-direction: row;
-			gap: ${padding('medium')};
-			align-items: center;
-
-			${(props) =>
-				props.marginTop &&
-				`
-				margin-top: ${getFontSize('small')}px;
-			`}
-		`,
+		$: styled.div``,
 	},
 
 	Input: {
@@ -34,6 +22,9 @@ const Styled = {
 			$: styled.div`
 				flex: 1;
 				position: relative;
+				display: flex;
+				gap: ${padding('small')};
+				align-items: center;
 			`,
 		},
 		$: styled.input<ISInputProps>`
@@ -43,37 +34,24 @@ const Styled = {
 			padding: ${padding('medium')};
 			outline: none;
 			width: 100%;
-
-			border: 2px solid ${(props) => colorFn(props.$error ? 'red' : 'grey')(props)};
-
-			${(props) => setSize({ ...props, size: props.$size })}
+			border: ${(props) => border(props.$error ? 'red' : 'grey')(props)};
+			font-size: ${(props) => getFontSize(props.$size)}px;
 
 			${({ type }) => type === 'password' && ``}
 
 			${({ disabled }) => disabled && disabledCss()}
-
-			&:focus {
-				& + label {
-					${activeLabelCss}
-				}
-			}
 		`,
 	},
 
 	Label: {
-		$: styled.label<{ error?: string; size: TSize; active: boolean }>`
-			pointer-events: none;
-			position: absolute;
-			left: 0;
-			top: 50%;
-			transform: translateY(-50%);
+		$: styled.label<{ error?: string; size: TSize }>`
 			display: flex;
 			align-items: center;
 			gap: ${padding('small')};
-			transition: 0.15s;
-			${setSize}
-
-			${(props) => props.active && activeLabelCss}
+			margin-bottom: ${padding('small')};
+			line-height: ${(props) => getFontSize(props.size)}px;
+			font-size: ${(props) => getFontSize(props.size) - 4}px;
+			text-transform: uppercase;
 
 			color: ${(props) => (props.error ? colorFn('red')(props) : colorFn('grey')(props))};
 		`,

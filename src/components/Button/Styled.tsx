@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-import { borderRadius, color as colorFn, disabledCss, getFontSize, padding, setSize } from '../../styles';
+import {
+	border as borderFn,
+	borderRadius,
+	color as colorFn,
+	disabledCss,
+	getFontSize,
+	padding,
+	setSize,
+} from '../../styles';
 
 import { ISButtonProps } from './types';
 
@@ -22,7 +30,7 @@ export const S = {
 			const color = colorFn(props.color)(props);
 
 			const filled = `
-				border: 2px solid ${color};
+				border: ${borderFn(props.color)(props)};
 				background: ${color};
 				color: ${colorFn('black')(props)};
 
@@ -34,7 +42,7 @@ export const S = {
 			`;
 
 			const border = `
-				border: 2px solid ${color};
+				border: ${borderFn(props.color)(props)};
 				background: transparent;
 				color: ${color};
 

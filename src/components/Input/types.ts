@@ -14,7 +14,6 @@ export interface IInputProps {
 	placeholder?: string;
 	error?: string;
 	disabled?: boolean;
-	className?: string;
 	label?: string | React.ReactElement;
 	value?: string | number;
 	prefix?: React.ReactNode;

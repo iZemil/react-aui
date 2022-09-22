@@ -30,6 +30,11 @@ const toPx = (value: number): string => `${value}px`;
 
 export const borderRadius = (props: { theme: IAUI }): string => `${toPx(props.theme.borderRadius)}`;
 
+export const border =
+	(c: TAUIColors) =>
+	(props: { theme: IAUI }): string =>
+		`1px solid ${color(c)(props)}`;
+
 export const padding =
 	(size: TSize) =>
 	(props: { theme: IAUI }): string =>

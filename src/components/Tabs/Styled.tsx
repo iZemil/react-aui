@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { borderRadius, color, inputLabelCss, padding } from '../../styles';
+import { border, borderRadius, color, inputLabelCss, padding } from '../../styles';
 import { Button } from '../Button';
 
 const Styled = {
@@ -28,7 +28,7 @@ const Styled = {
 			align-items: center;
 			background: ${color('bg')};
 			border-radius: ${borderRadius};
-			border: 3px solid ${color('bg')};
+			border: ${border('bg')};
 			overflow-y: auto;
 		`,
 		Button: {

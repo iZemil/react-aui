@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { borderRadius, color, padding } from '../../styles';
+import { border, borderRadius, color, padding } from '../../styles';
 import { Button } from '../Button';
 
 export interface ISDropdownContentProps {
@@ -33,7 +33,7 @@ const Styled = {
 			background: ${color('bg')};
 			padding: ${padding('small')};
 			border-radius: ${borderRadius};
-			border: 1px solid ${color('grey')};
+			border: ${border('grey')};
 			display: flex;
 			flex-direction: column;
 			gap: 10px;

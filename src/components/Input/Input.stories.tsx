@@ -1,6 +1,5 @@
 import { Input } from '.';
 import * as React from 'react';
-import { useState } from 'react';
 
 import { Button } from '../Button';
 import Container from '../Container';
@@ -11,30 +10,38 @@ export default {
 };
 
 export const Type = () => {
-	const [value, setValue] = useState('');
+	const [value, setValue] = React.useState('');
 
 	return (
 		<Container.$ style={{ alignItems: 'flex-end' }}>
 			<Input label="Default" value={value} onChange={setValue} />
-			<Button
-				onClick={() => {
-					setValue('');
-				}}
-			>
-				Click
-			</Button>
 		</Container.$>
 	);
 };
 
 export const Size = () => {
-	const [value, setValue] = useState('');
+	const [value, setValue] = React.useState('');
 
 	return (
-		<Container.$>
-			<Input size="small" label={'small'} value={value} onChange={setValue} />
-			<Input size="medium" label={'medium'} value={value} onChange={setValue} />
-			<Input size="large" label={'large'} value={value} onChange={setValue} />
+		<Container.$
+			style={{
+				alignItems: 'flex-end',
+			}}
+		>
+			<Input size="small" placeholder="small" label={'small'} value={value} onChange={setValue} />
+			<Input size="medium" placeholder="medium" label={'medium'} value={value} onChange={setValue} />
+			<Input size="large" placeholder="large" label={'large'} value={value} onChange={setValue} />
+		</Container.$>
+	);
+};
+
+export const HtmlType = () => {
+	return (
+		<Container.$ column>
+			<Input label="email" htmlType="email" />
+			<Input label="password" htmlType="password" />
+			<Input label="number" htmlType="number" />
+			<Input label="search" htmlType="search" />
 		</Container.$>
 	);
 };
@@ -42,14 +49,29 @@ export const Size = () => {
 export const Other = () => {
 	return (
 		<Container.$ column>
-			<Input label="email" error="some error" />
-			<Input error="without label error" />
-			<Input label="password" htmlType="password" />
-			<Input label="number" htmlType="number" />
+			<Input placeholder="No label" />
 
 			<Input
-				label="label"
-				placeholder="prefix"
+				label={
+					<div
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							gap: '5px',
+						}}
+					>
+						<Icons.EmptyAvatar />
+						Custom label
+					</div>
+				}
+				error="Some error occurred"
+			/>
+
+			<Input error="Without label Error" />
+
+			<Input
+				label="Prefix"
+				placeholder="Write a message"
 				prefix={
 					<Button icon>
 						<Icons.Person />
@@ -57,17 +79,17 @@ export const Other = () => {
 				}
 			/>
 			<Input
-				label="label"
-				placeholder="suffix"
+				label="Suffix"
+				placeholder="Write a message"
 				suffix={
 					<Button icon>
-						<Icons.Person />
+						<Icons.Hide />
 					</Button>
 				}
 			/>
 			<Input
-				label="prefix"
-				placeholder="suffix"
+				label="Prefix/Suffix"
+				placeholder="Write a message"
 				error="error"
 				prefix={
 					<Button icon>

@@ -10,5 +10,6 @@ export {
 	selectPaddings,
 	setSize,
 	getFontSize,
+	border,
 } from './utils';
 export { AUIProvider } from './AUIProvider';

@@ -2,7 +2,7 @@ import { Modal } from '.';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { color } from '../../styles';
+import { border } from '../../styles';
 import { Button } from '../Button';
 import Container from '../Container';
 
@@ -110,7 +110,7 @@ const defaultCustomState = {
 const CustomStyledModal = styled(Modal)`
 	width: 200px;
 	height: 100%;
-	border: 2px solid ${color('blue')};
+	border: ${border('blue')};
 `;
 
 export const Custom = () => {

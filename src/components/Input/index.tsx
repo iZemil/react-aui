@@ -6,7 +6,6 @@ import { IInputProps } from './types';
 export function Input(props: IInputProps) {
 	const {
 		id = React.useId(),
-		className,
 		label,
 		value,
 		placeholder,
@@ -20,16 +19,17 @@ export function Input(props: IInputProps) {
 		...rest
 	} = props;
 
-	const withValue = Boolean(value);
 	const withError = Boolean(error);
-	const isActiveLabel = withValue || withError || Boolean(placeholder);
-	const withMarginTop = Boolean(label || error);
 
 	return (
-		<S.Wrapper.$ marginTop={withMarginTop} className={className}>
-			{prefix && <S.Prefix.$>{prefix}</S.Prefix.$>}
+		<S.Wrapper.$>
+			<S.Label.$ htmlFor={id} error={error} size={size}>
+				{label}
+				{withError ? <S.Error.$>{`${label ? ' – ' : ''}${error}`}</S.Error.$> : ''}
+			</S.Label.$>
 
 			<S.Input.Wrapper.$>
+				{prefix && <S.Prefix.$>{prefix}</S.Prefix.$>}
 				<S.Input.$
 					id={id}
 					placeholder={placeholder}
@@ -45,14 +45,8 @@ export function Input(props: IInputProps) {
 					}}
 					{...rest}
 				/>
-
-				<S.Label.$ htmlFor={id} error={error} size={size} active={isActiveLabel}>
-					{label}
-					{withError ? <S.Error.$>{`${label ? ' - ' : ''}${error}`}</S.Error.$> : ''}
-				</S.Label.$>
+				{suffix && <S.Suffix.$>{suffix}</S.Suffix.$>}
 			</S.Input.Wrapper.$>
-
-			{suffix && <S.Suffix.$>{suffix}</S.Suffix.$>}
 		</S.Wrapper.$>
 	);
 }
