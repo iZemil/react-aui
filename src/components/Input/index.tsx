@@ -1,9 +1,20 @@
 import * as React from 'react';
 
-import S from './Styled';
-import { IInputProps } from './types';
+import { S } from './Styled';
+import { InputLabelProps, InputProps } from './types';
 
-export function Input(props: IInputProps) {
+export const InputLabel = (props: InputLabelProps) => {
+	const { label, error, id, size } = props;
+
+	return label || error ? (
+		<S.Label.$ htmlFor={id} error={error} size={size}>
+			{label}
+			{error ? <S.Error.$>{`${label ? ' – ' : ''}${error}`}</S.Error.$> : ''}
+		</S.Label.$>
+	) : null;
+};
+
+export function Input(props: InputProps) {
 	const {
 		id = React.useId(),
 		label,
@@ -19,25 +30,21 @@ export function Input(props: IInputProps) {
 		...rest
 	} = props;
 
-	const withError = Boolean(error);
-
 	return (
-		<S.Wrapper.$>
-			<S.Label.$ htmlFor={id} error={error} size={size}>
-				{label}
-				{withError ? <S.Error.$>{`${label ? ' – ' : ''}${error}`}</S.Error.$> : ''}
-			</S.Label.$>
+		<S.$>
+			<InputLabel id={id} label={label} error={error} size={size} />
 
-			<S.Input.Wrapper.$>
+			<S.Value.Wrapper.$>
 				{prefix && <S.Prefix.$>{prefix}</S.Prefix.$>}
-				<S.Input.$
+				<S.Value.$
 					id={id}
 					placeholder={placeholder}
 					disabled={disabled}
 					value={value}
 					type={htmlType}
-					$error={error}
-					$size={size}
+					error={error}
+					// @ts-ignore
+					size={size}
 					onChange={(e) => {
 						if (onChange) {
 							onChange(e.target.value, e);
@@ -46,7 +53,7 @@ export function Input(props: IInputProps) {
 					{...rest}
 				/>
 				{suffix && <S.Suffix.$>{suffix}</S.Suffix.$>}
-			</S.Input.Wrapper.$>
-		</S.Wrapper.$>
+			</S.Value.Wrapper.$>
+		</S.$>
 	);
 }

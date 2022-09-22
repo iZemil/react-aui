@@ -1,26 +1,39 @@
 import * as React from 'react';
 
-import { IStTextArea, StTextArea, StTextAreaLabel, StTextAreaWrapper } from './Styled';
+import { InputLabel } from '../Input';
+import { InputLabelProps, TOmitInputProps } from '../Input/types';
 
-export interface ITextAreaProps extends Omit<IStTextArea, 'onChange'> {
-	className?: string;
-	label?: string;
+import { S } from './Styled';
+
+export type TextAreaProps = {
 	value?: string;
 	placeholder?: string;
-	onChange: (value: string, e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-}
+	hint?: React.ReactNode;
+	onChange?: (value: string, e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+} & Partial<InputLabelProps> &
+	Partial<Omit<React.HTMLProps<HTMLTextAreaElement>, TOmitInputProps>>;
 
-export function TextArea({ className, label, placeholder, value, onChange }: ITextAreaProps) {
+export function TextArea(props: TextAreaProps) {
+	const { id = React.useId(), size = 'medium', label, placeholder, value, error, onChange, hint, ...rest } = props;
+
 	return (
-		<StTextAreaWrapper>
-			{label && <StTextAreaLabel>{label}</StTextAreaLabel>}
+		<S.$>
+			<InputLabel id={id} label={label} error={error} size={size} />
 
-			<StTextArea
-				className={className}
+			<S.Value.$
+				{...rest}
+				error={error}
+				size={size}
 				value={value}
 				placeholder={placeholder}
-				onChange={(e) => onChange(e.target.value, e)}
+				onChange={(e) => {
+					if (onChange) {
+						onChange(e.target.value, e);
+					}
+				}}
 			/>
-		</StTextAreaWrapper>
+
+			{hint}
+		</S.$>
 	);
 }
