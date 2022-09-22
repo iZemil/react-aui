@@ -4,9 +4,9 @@ import { BsXLg as CloseIcon } from 'react-icons/bs';
 import { Overlay } from '../Overlay';
 
 import S from './Styled';
-import { IModalProps } from './types';
+import { ModalProps } from './types';
 
-export const Modal = ({ children, open = false, size, onClose, closeButton, ...rest }: IModalProps) => {
+export const Modal = ({ children, open = false, size, onClose, closeButton, ...rest }: ModalProps) => {
 	return (
 		<>
 			<Overlay open={open} onClose={onClose} />

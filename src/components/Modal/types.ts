@@ -1,10 +1,10 @@
 import { TSize } from '../../styles';
 
-export interface ISModalProps {
+export interface SModalProps {
 	size?: TSize;
 }
 
-export interface IModalProps extends Partial<ISModalProps> {
+export interface ModalProps extends Partial<SModalProps> {
 	children: React.ReactNode;
 	onClose?: () => void;
 	closeButton?: boolean;

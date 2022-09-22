@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { borderRadius, color, padding } from '../../styles';
 import { Button } from '../Button';
 
-import { ISModalProps } from './types';
+import { SModalProps } from './types';
 
 const Styled = {
 	$: styled.div`
@@ -21,7 +21,7 @@ const Styled = {
 		z-index: 9;
 	`,
 	Content: {
-		$: styled.div<ISModalProps>`
+		$: styled.div<SModalProps>`
 			pointer-events: auto;
 			position: relative;
 			padding: ${padding('medium')};

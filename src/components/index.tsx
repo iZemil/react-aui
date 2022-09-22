@@ -6,18 +6,18 @@ export * from './Editor';
 export * from './Link';
 export * from './Loader';
 export * from './Markdown';
-export * from './Modal';
-export * from './NotFound';
 export * from './Page';
 export * from './Pagination';
 export * from './Sider';
-export * from './TextArea';
 export * from './icons';
 export * from './Snackbars';
 
 export { GlobalStyles } from './GlobalStyles';
 
+export { Modal } from './Modal';
+
 export { Input } from './Input';
+export { TextArea } from './TextArea';
 
 export { Button } from './Button';
 export { CopyButton } from './Button/CopyButton';
