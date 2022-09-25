@@ -17,7 +17,7 @@ const S = {
 		left: ${(props) => props.x - SIZE / 2}px;
 		width: ${SIZE}px;
 		height: ${SIZE}px;
-		background: ${(props) => color('white')(props)}50;
+		background: ${(props) => color('white')(props)}30;
 		border-radius: 50%;
 		z-index: 1;
 		animation: 0.6s ease 1 forwards ripple-effect;

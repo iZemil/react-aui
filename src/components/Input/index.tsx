@@ -1,8 +1,5 @@
 import * as React from 'react';
 
-import { Ripple } from '../Ripple';
-import { useRipple } from '../Ripple/useRipple';
-
 import { S } from './Styled';
 import { InputLabelProps, InputProps } from './types';
 
@@ -32,7 +29,6 @@ export function Input(props: InputProps) {
 		onChange,
 		...rest
 	} = props;
-	const [ripple, handleRipple] = useRipple();
 
 	return (
 		<S.$>
@@ -49,9 +45,6 @@ export function Input(props: InputProps) {
 					error={error}
 					// @ts-ignore
 					size={size}
-					onClick={(e) => {
-						handleRipple(e);
-					}}
 					onChange={(e) => {
 						if (onChange) {
 							onChange(e.target.value, e);
@@ -59,7 +52,6 @@ export function Input(props: InputProps) {
 					}}
 					{...rest}
 				/>
-				<Ripple meta={ripple} />
 
 				{suffix && <S.Suffix.$>{suffix}</S.Suffix.$>}
 			</S.Value.Wrapper.$>

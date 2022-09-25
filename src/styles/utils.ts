@@ -134,7 +134,7 @@ export const clickEffect = {
 	active: () => `
 		&::after {
 			box-shadow: 0 0 0 0;
-			opacity: 1;
+			opacity: 0.8;
 			transition: 0s;
 		}
 	`,

@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { InputLabel } from '../Input';
 import { InputLabelProps, TOmitInputProps } from '../Input/types';
-import { Ripple } from '../Ripple';
-import { useRipple } from '../Ripple/useRipple';
 
 import S from './Styled';
 
@@ -17,7 +15,6 @@ export type TextAreaProps = {
 
 export function TextArea(props: TextAreaProps) {
 	const { id = React.useId(), size = 'medium', label, placeholder, value, error, onChange, hint, ...rest } = props;
-	const [ripple, handleRipple] = useRipple();
 
 	return (
 		<S.$>
@@ -30,16 +27,12 @@ export function TextArea(props: TextAreaProps) {
 					size={size}
 					value={value}
 					placeholder={placeholder}
-					onClick={(e) => {
-						handleRipple(e);
-					}}
 					onChange={(e) => {
 						if (onChange) {
 							onChange(e.target.value, e);
 						}
 					}}
 				/>
-				<Ripple meta={ripple} />
 			</S.Value.Wrapper.$>
 
 			{hint}
