@@ -1,5 +1,6 @@
 {
     "name": "react-aui",
+    "description": "All-in-one React components library to make fast UI",
     "author": {
         "name": "zemil"
     },
@@ -96,5 +97,11 @@
         "@semantic-release/github",
         "@semantic-release/npm",
         "@semantic-release/git"
+    ],
+    "keywords": [
+        "react",
+        "react-component-library",
+        "react-ui-components",
+        "react-ui-examples"
     ]
 }
