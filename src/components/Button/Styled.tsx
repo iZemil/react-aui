@@ -103,7 +103,7 @@ export const S = {
 		}}
 
 		&:active {
-			${(props) => clickEffect.active(props)}
+			${() => clickEffect.active()}
 		}
 
 		${({ disabled }) => disabled && disabledCss(``)}

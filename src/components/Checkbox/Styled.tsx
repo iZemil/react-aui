@@ -37,7 +37,7 @@ const Styled = {
 			`)}
 
 		&:active ${Icon.$} {
-			${(props) => clickEffect.active(props)}
+			${() => clickEffect.active()}
 		}
 	`,
 	Icon,

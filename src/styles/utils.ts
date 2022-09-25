@@ -130,12 +130,9 @@ export const clickEffect = {
 			transition: 0.5s;
 		}
 	`,
-	active: (props: { theme: IAUI; color: TAUIColors }) => `
-		transition: 0.5s;
-		opacity: 1;
-
+	active: () => `
 		&::after {
-			box-shadow: 0 0 0 0 ${color(props.color)(props)};
+			box-shadow: 0 0 0 0;
 			opacity: 1;
 			transition: 0s;
 		}

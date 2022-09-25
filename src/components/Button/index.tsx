@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import { Link } from '../Link';
+import { Ripple } from '../Ripple';
+import { useRipple } from '../Ripple/useRipple';
 
 import { S } from './Styled';
 import { ButtonProps } from './types';
@@ -24,15 +26,21 @@ export function Button(props: ButtonProps) {
 		...rest
 	} = props;
 
+	const [coords, handleRipple] = useRipple();
+
+	const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+		if (onClick) {
+			onClick(event);
+		}
+
+		handleRipple(event);
+	};
+
 	const _Button = (
 		<S.$
 			$type={type}
 			type={htmlType}
-			onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-				if (onClick) {
-					onClick(event);
-				}
-			}}
+			onClick={handleClick}
 			{...rest}
 			size={size}
 			block={block}
@@ -41,6 +49,8 @@ export function Button(props: ButtonProps) {
 			icon={icon}
 			disabled={disabled}
 		>
+			<Ripple coords={coords} style={{ borderRadius: circle ? '50%' : undefined }} />
+
 			{children}
 		</S.$>
 	);

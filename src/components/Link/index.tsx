@@ -8,9 +8,6 @@ const styles = (props: { theme: IAUI }) => `
 	color: ${color('main')(props)};
 	text-decoration: none;
 	font-weight: 500;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

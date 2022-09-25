@@ -14,7 +14,6 @@ export interface ISBackButtonProps {
 const S = {
 	$: styled(Button)<ISBackButtonProps>`
 		cursor: pointer;
-		color: ${color('text')};
 		width: 40px;
 		height: 40px;
 
