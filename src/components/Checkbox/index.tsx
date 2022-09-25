@@ -13,9 +13,10 @@ export interface CheckboxProps {
 	color?: TAUIColors;
 }
 
-export const Checkbox = ({ checked, disabled, children, color, onClick, ...rest }: CheckboxProps) => {
+export const Checkbox = ({ checked, disabled, children, color = 'text', onClick, ...rest }: CheckboxProps) => {
 	return (
 		<S.$
+			color={color}
 			disabled={disabled}
 			onClick={() => {
 				if (onClick) {

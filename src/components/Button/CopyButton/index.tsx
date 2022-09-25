@@ -6,11 +6,11 @@ import { IAUI } from '../../../styles/types';
 import { getFontSize } from '../../../styles/utils';
 import { TPrimitives, copyBuffer, wait } from '../../../utils';
 import { Icons } from '../../icons';
-import { IButtonProps } from '../types';
+import { ButtonProps } from '../types';
 
 import S from './Styled';
 
-export interface ICopyButtonProps extends Partial<IButtonProps> {
+export interface ICopyButtonProps extends Partial<ButtonProps> {
 	value: TPrimitives | (() => TPrimitives);
 }
 

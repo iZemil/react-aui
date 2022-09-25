@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { color } from '../../../styles';
 import { Icons } from '../../icons';
-import { IButtonProps } from '../types';
+import { ButtonProps } from '../types';
 
 export interface ISBackButtonProps {
 	left?: boolean;
@@ -30,7 +30,7 @@ const S = {
 	`,
 };
 
-type IProps = ISBackButtonProps & Partial<IButtonProps>;
+type IProps = ISBackButtonProps & Partial<ButtonProps>;
 
 // TODO#0: если открыть новую страницу и кликнуть нежелатльное поведение
 export function BackButton(props: IProps) {

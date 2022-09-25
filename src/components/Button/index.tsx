@@ -3,9 +3,9 @@ import * as React from 'react';
 import { Link } from '../Link';
 
 import { S } from './Styled';
-import { IButtonProps } from './types';
+import { ButtonProps } from './types';
 
-export function Button(props: IButtonProps) {
+export function Button(props: ButtonProps) {
 	const {
 		children,
 		onClick,

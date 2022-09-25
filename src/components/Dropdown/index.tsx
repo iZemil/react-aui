@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import { Button } from '../Button';
-import { IButtonProps } from '../Button/types';
+import { ButtonProps } from '../Button/types';
 import { Overlay } from '../Overlay';
 import { Icons } from '../icons';
 
 import S, { ISDropdownContentProps } from './Styled';
 
-export interface IDropdownItem extends Partial<Omit<IButtonProps, 'onClick' | 'icon'>> {
+export interface IDropdownItem extends Partial<Omit<ButtonProps, 'onClick' | 'icon'>> {
 	text: string;
 	onClick?: (item: IDropdownItem) => void;
 	// TODO#0: refactor maybe, Item.icon vs Button.icon => icon: React.ReactNode is more correct for button also
@@ -21,7 +21,7 @@ export interface IProps extends Partial<ISDropdownContentProps> {
 	onClose: () => void;
 }
 
-export const DefaultDropdownLabel = ({ ...rest }: Partial<IButtonProps>) => (
+export const DefaultDropdownLabel = ({ ...rest }: Partial<ButtonProps>) => (
 	<Button type="text" circle {...rest}>
 		<Icons.ThreeDots />
 	</Button>

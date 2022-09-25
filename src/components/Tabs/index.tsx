@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { IButtonProps } from '../Button/types';
+import { ButtonProps } from '../Button/types';
 
 import S from './Styled';
 
-export interface ITabProps extends Partial<IButtonProps> {
+export interface ITabProps extends Partial<ButtonProps> {
 	index: number;
 	content?: React.ReactNode;
 	active?: boolean;
@@ -22,7 +22,7 @@ export class Tab extends React.Component<ITabProps> {
 	}
 }
 
-export interface ITabsProps extends Partial<Pick<IButtonProps, 'size' | 'icon'>> {
+export interface ITabsProps extends Partial<Pick<ButtonProps, 'size' | 'icon'>> {
 	onChange: (tabIndex: number) => void;
 	activeIndex?: number;
 	title?: string;

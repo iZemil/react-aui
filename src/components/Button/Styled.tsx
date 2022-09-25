@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {
 	border as borderFn,
 	borderRadius,
+	clickEffect,
 	color as colorFn,
 	disabledCss,
 	getFontSize,
@@ -10,10 +11,10 @@ import {
 	setSize,
 } from '../../styles';
 
-import { ISButtonProps } from './types';
+import { SButtonProps } from './types';
 
 export const S = {
-	$: styled.button<ISButtonProps>`
+	$: styled.button<SButtonProps>`
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -21,8 +22,8 @@ export const S = {
 		gap: ${padding('medium')};
 		border-radius: ${borderRadius};
 		outline: 0;
-		transition: background-color 0.3s, color 0.3s, opacity 0.3s;
 		cursor: pointer;
+		user-select: none;
 
 		${(props) => {
 			const { $type } = props;
@@ -34,9 +35,7 @@ export const S = {
 				background: ${color};
 				color: ${colorFn('black')(props)};
 
-				&:hover,
-				&:focus,
-				&:active {
+				&:hover {
 					opacity: .8;
 				}
 			`;
@@ -46,9 +45,7 @@ export const S = {
 				background: transparent;
 				color: ${color};
 
-				&:hover,
-				&:focus,
-				&:active {
+				&:hover {
 					background: ${color}20;
 				}
 			`;
@@ -98,6 +95,16 @@ export const S = {
 			border-radius: 50%;
 			width: fit-content;
 		`}
+
+		${(props) => {
+			const options = props.circle ? { borderRadius: '50%' } : undefined;
+
+			return clickEffect.init(props, options);
+		}}
+
+		&:active {
+			${(props) => clickEffect.active(props)}
+		}
 
 		${({ disabled }) => disabled && disabledCss(``)}
 	`,

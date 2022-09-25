@@ -12,6 +12,8 @@ export const Basic = () => {
 
 	return (
 		<Container.$ column>
+			<Checkbox checked={checked} onClick={toggle} />
+
 			<Checkbox checked={checked} onClick={toggle}>
 				Checkbox
 			</Checkbox>

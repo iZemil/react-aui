@@ -113,3 +113,31 @@ export const isValidColors = (theme: IAUI): boolean => {
 
 	return invalid.length === 0;
 };
+
+export const clickEffect = {
+	init: (props: { theme: IAUI; color: TAUIColors }, options?: { borderRadius: string }) => `
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			border-radius: ${options?.borderRadius ?? borderRadius(props)};
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			box-shadow: 0 0 10px 5px ${color(props.color)(props)};
+			opacity: 0;
+			transition: 0.5s;
+		}
+	`,
+	active: (props: { theme: IAUI; color: TAUIColors }) => `
+		transition: 0.5s;
+		opacity: 1;
+
+		&::after {
+			box-shadow: 0 0 0 0 ${color(props.color)(props)};
+			opacity: 1;
+			transition: 0s;
+		}
+	`,
+};
