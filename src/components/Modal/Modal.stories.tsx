@@ -82,21 +82,27 @@ export const Size = () => {
 				small modal
 			</Button>
 			<Modal open={state.first} onClose={() => handleOpen('first', false)} size="small">
-				<DefaultModalContent />
+				{Array.from({ length: 20 }).map((_, index) => (
+					<DefaultModalContent key={index} />
+				))}
 			</Modal>
 
 			<Button type="text" onClick={() => handleOpen('second')} size="medium">
 				medium modal
 			</Button>
 			<Modal open={state.second} onClose={() => handleOpen('second', false)} size="medium">
-				<DefaultModalContent />
+				{Array.from({ length: 20 }).map((_, index) => (
+					<DefaultModalContent key={index} />
+				))}
 			</Modal>
 
 			<Button type="text" onClick={() => handleOpen('third')} size="large">
 				large modal
 			</Button>
 			<Modal open={state.third} onClose={() => handleOpen('third', false)} size="large">
-				<DefaultModalContent />
+				{Array.from({ length: 20 }).map((_, index) => (
+					<DefaultModalContent key={index} />
+				))}
 			</Modal>
 		</Container.$>
 	);

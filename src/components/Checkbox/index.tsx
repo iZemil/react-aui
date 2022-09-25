@@ -1,17 +1,22 @@
+import * as React from 'react';
+
+import { TAUIColors } from '../../styles';
 import { Icons } from '../icons';
 
-import Styled, { IStyledProps } from './Styled';
+import S from './Styled';
 
-export interface ICheckboxProps extends IStyledProps {
-	checked: boolean;
+export interface CheckboxProps {
+	children?: React.ReactNode;
+	checked?: boolean;
 	onClick?: (checked: boolean) => void;
-	className?: string;
+	disabled?: boolean;
+	color?: TAUIColors;
 }
 
-export const Checkbox = ({ checked, $disabled, onClick, ...rest }: ICheckboxProps) => {
+export const Checkbox = ({ checked, disabled, children, color, onClick, ...rest }: CheckboxProps) => {
 	return (
-		<Styled.$
-			$disabled={$disabled}
+		<S.$
+			disabled={disabled}
 			onClick={() => {
 				if (onClick) {
 					onClick(!checked);
@@ -19,7 +24,9 @@ export const Checkbox = ({ checked, $disabled, onClick, ...rest }: ICheckboxProp
 			}}
 			{...rest}
 		>
-			{checked ? <Icons.Checked /> : <Icons.NotChecked />}
-		</Styled.$>
+			<S.Icon.$ color={color}>{checked ? <Icons.Checked /> : <Icons.NotChecked />}</S.Icon.$>
+
+			{children}
+		</S.$>
 	);
 };
