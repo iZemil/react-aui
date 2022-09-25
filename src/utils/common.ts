@@ -18,7 +18,7 @@ export function getRandom(from: number, to: number, isInt = true): number {
 	return Math.random() * (from - to) + from;
 }
 
-export const wait = (ms: number): Promise<void> => new Promise((res) => setTimeout(res, ms));
+export const wait = (ms: number): Promise<number> => new Promise((res) => setTimeout(res, ms));
 
 export const getInitials = (name: string) => `${name[0]}`;
 

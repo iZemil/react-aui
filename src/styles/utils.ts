@@ -128,6 +128,7 @@ export const clickEffect = {
 			box-shadow: 0 0 10px 5px ${color(props.color)(props)};
 			opacity: 0;
 			transition: 0.5s;
+			pointer-events: none;
 		}
 	`,
 	active: () => `

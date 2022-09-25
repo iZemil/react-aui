@@ -1,20 +1,29 @@
-import { Coords } from '.';
+import { RippleMetaProps } from '.';
 import * as React from 'react';
 
-import { wait } from '../../utils';
+export function useRipple(): [
+	RippleMetaProps | undefined,
+	(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+] {
+	const [coords, setCoords] = React.useState<RippleMetaProps>();
+	const [timeout, refreshTimeout] = React.useState<number>();
 
-export function useRipple(): [Coords | undefined, (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void] {
-	const [coords, setCoords] = React.useState<Coords>();
-
-	async function handleClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+	const handleClick = React.useCallback(async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		const { top, left } = event.currentTarget.getBoundingClientRect();
 
-		setCoords({ x: event.clientX - left, y: event.clientY - top });
+		setCoords({ x: event.clientX - left, y: event.clientY - top, time: Date.now() });
+	}, []);
 
-		await wait(400);
+	React.useEffect(() => {
+		if (coords) {
+			refreshTimeout(setTimeout(() => setCoords(undefined), 2000) as unknown as number);
+		}
 
-		setCoords(undefined);
-	}
+		return () => {
+			refreshTimeout(undefined);
+			clearTimeout(timeout);
+		};
+	}, [coords]);
 
 	return [coords, handleClick];
 }

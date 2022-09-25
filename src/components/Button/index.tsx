@@ -26,7 +26,7 @@ export function Button(props: ButtonProps) {
 		...rest
 	} = props;
 
-	const [coords, handleRipple] = useRipple();
+	const [meta, handleRipple] = useRipple();
 
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		if (onClick) {
@@ -49,7 +49,7 @@ export function Button(props: ButtonProps) {
 			icon={icon}
 			disabled={disabled}
 		>
-			<Ripple coords={coords} style={{ borderRadius: circle ? '50%' : undefined }} />
+			<Ripple meta={meta} style={{ borderRadius: circle ? '50%' : undefined }} />
 
 			{children}
 		</S.$>

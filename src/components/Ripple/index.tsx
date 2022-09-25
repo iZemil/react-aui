@@ -3,18 +3,20 @@ import styled from 'styled-components';
 
 import { color } from '../../styles';
 
-export interface Coords {
+export interface RippleMetaProps {
 	x: number;
 	y: number;
+	time: number;
 }
 
+const SIZE = 10;
 const S = {
-	$: styled.div<Coords>`
+	$: styled.div<RippleMetaProps>`
 		position: absolute;
-		top: ${(props) => props.y}px;
-		left: ${(props) => props.x}px;
-		width: 10px;
-		height: 10px;
+		top: ${(props) => props.y - SIZE / 2}px;
+		left: ${(props) => props.x - SIZE / 2}px;
+		width: ${SIZE}px;
+		height: ${SIZE}px;
 		background: ${(props) => color('white')(props)}50;
 		border-radius: 50%;
 		z-index: -1;
@@ -45,12 +47,16 @@ const S = {
 };
 
 export interface RippleProps {
-	coords: Coords | undefined;
+	meta: RippleMetaProps | undefined;
 	style?: React.CSSProperties;
 }
 
 export const Ripple = (props: RippleProps) => {
-	const { coords, ...rest } = props;
+	const { meta, ...rest } = props;
 
-	return <S.Wrapper.$ {...rest}>{coords && <S.$ x={coords.x} y={coords.y} />}</S.Wrapper.$>;
+	return (
+		<S.Wrapper.$ {...rest} key={meta?.time}>
+			{meta ? <S.$ {...meta} /> : null}
+		</S.Wrapper.$>
+	);
 };
