@@ -19,7 +19,7 @@ const S = {
 		height: ${SIZE}px;
 		background: ${(props) => color('white')(props)}50;
 		border-radius: 50%;
-		z-index: -1;
+		z-index: 1;
 		animation: 0.6s ease 1 forwards ripple-effect;
 
 		@keyframes ripple-effect {
