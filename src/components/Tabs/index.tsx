@@ -4,13 +4,13 @@ import { ButtonProps } from '../Button/types';
 
 import S from './Styled';
 
-export interface ITabProps extends Partial<ButtonProps> {
+export interface TabProps extends Partial<ButtonProps> {
 	index: number;
 	content?: React.ReactNode;
 	active?: boolean;
 }
 
-export class Tab extends React.Component<ITabProps> {
+export class Tab extends React.Component<TabProps> {
 	render() {
 		const { children, active = false, ...rest } = this.props;
 
@@ -22,16 +22,18 @@ export class Tab extends React.Component<ITabProps> {
 	}
 }
 
-export interface ITabsProps extends Partial<Pick<ButtonProps, 'size' | 'icon'>> {
+export interface TabsProps extends Partial<Pick<ButtonProps, 'size' | 'icon'>> {
 	onChange: (tabIndex: number) => void;
 	activeIndex?: number;
 	title?: string;
 	children: React.ReactNode[];
 }
 
-export const Tabs = ({ children, activeIndex, title, onChange, size, icon, ...props }: ITabsProps) => {
+export const Tabs = (props: TabsProps) => {
+	const { children, activeIndex, title, onChange, size, icon, ...rest } = props;
+
 	const currentContent = React.useMemo(() => {
-		let content: ITabProps['content'] = undefined;
+		let content: TabProps['content'] = undefined;
 
 		React.Children.forEach(children, (child) => {
 			const tab = child as unknown as Tab;
@@ -49,7 +51,7 @@ export const Tabs = ({ children, activeIndex, title, onChange, size, icon, ...pr
 		<S.$>
 			{title && <S.Title.$>{title}</S.Title.$>}
 
-			<S.Head.$ {...props}>
+			<S.Head.$ {...rest}>
 				<S.Tabs.$>
 					{React.Children.map(children, (child) => {
 						const tab = child as unknown as Tab;

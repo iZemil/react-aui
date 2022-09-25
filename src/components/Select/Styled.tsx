@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { border, borderRadius, color, padding } from '../../styles';
 import { Button } from '../Button';
 
-export interface ISDropdownContentProps {
+export interface SSelectContentProps {
 	open: boolean;
 	left: boolean;
 }
@@ -16,7 +16,7 @@ const Styled = {
 	},
 
 	Label: {
-		$: styled.div<Pick<ISDropdownContentProps, 'open'>>`
+		$: styled.div<Pick<SSelectContentProps, 'open'>>`
 			position: relative;
 
 			${({ open }) =>
@@ -28,28 +28,42 @@ const Styled = {
 	},
 
 	Content: {
-		$: styled.div<ISDropdownContentProps>`
+		$: styled.div<SSelectContentProps>`
 			position: absolute;
+			width: 100%;
+			min-width: 120px;
 			background: ${color('bg')};
 			padding: ${padding('small')};
 			border-radius: ${borderRadius};
 			border: ${border('grey')};
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
+			gap: ${padding('small')};
 			z-index: 9;
+			transform: translateY(-8px);
+			pointer-events: none;
+			visibility: hidden;
+			overflow: hidden;
+			opacity: 0;
 
 			${(props) => props.left && `right: 0;`}
+
+			${(props) =>
+				props.open &&
+				`
+				pointer-events: auto;
+				transform: none;
+				visibility: visible;
+				opacity: 1;
+				transition: 0.2s ease-in-out;
+				transform: translateY(4px);
+			`}
 		`,
 	},
 
-	Item: {
-		$: styled(Button)<{ icon: boolean }>`
-			${(props) =>
-				props.icon &&
-				`
-				justify-content: flex-start;
-			`}
+	Option: {
+		$: styled(Button)`
+			justify-content: flex-start;
 		`,
 	},
 };
