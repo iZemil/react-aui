@@ -11,6 +11,7 @@ export interface SelectProps extends Partial<SSelectContentProps> {
 	label?: React.ReactNode;
 	children: React.ReactNode[];
 	open: boolean;
+	onChange?: (option: OptionProps) => void;
 	onClose: () => void;
 }
 
@@ -43,7 +44,7 @@ export class Option extends React.Component<OptionProps> {
 }
 
 export const Select = (props: SelectProps) => {
-	const { label = <DefaultSelectLabel />, open = false, onClose, left = false, children, ...rest } = props;
+	const { label = <DefaultSelectLabel />, open = false, onClose, left = false, children, onChange, ...rest } = props;
 
 	return (
 		<>
@@ -69,9 +70,13 @@ export const Select = (props: SelectProps) => {
 								key={index}
 								type="text"
 								color="text"
-								onClick={(...args) => {
+								onClick={(optionProps, e) => {
 									if (onClick) {
-										onClick(...args);
+										onClick(optionProps, e);
+									}
+
+									if (onChange) {
+										onChange(optionProps);
 									}
 
 									onClose();

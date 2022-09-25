@@ -11,8 +11,10 @@ import {
 	BsCalendarRange as Calendar,
 	BsChat as Chat,
 	BsFillCheckSquareFill as Checked,
+	BsChevronDown as ChevronDown,
 	BsChevronLeft as ChevronLeft,
 	BsChevronRight as ChevronRight,
+	BsChevronUp as ChevronUp,
 	BsPaperclip as Clip,
 	BsClock as Clock,
 	BsCurrencyDollar as Coin,
@@ -103,5 +105,7 @@ export const Icons = {
 	Deposit,
 	Withdraw,
 	SignOut,
+	ChevronDown,
+	ChevronUp,
 	SIZE,
 };

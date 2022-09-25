@@ -16,6 +16,7 @@ export interface ButtonProps extends Partial<Omit<SButtonProps, '$type'>> {
 	htmlType?: 'button' | 'submit';
 	type?: TButtonType;
 	disabled?: boolean;
+	style?: React.CSSProperties;
 
 	children: React.ReactNode;
 	className?: string;

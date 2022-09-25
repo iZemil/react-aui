@@ -1,4 +1,5 @@
 // import { ru } from 'date-fns/locale';
+import * as React from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import Styled from './Styled';
@@ -20,8 +21,8 @@ export const DatePicker = ({ onChange, date, label, locale }: IDatePickerProps) 
 				locale={locale}
 				dateFormat="dd MMMM yyyy"
 				selected={date}
-				showYearSelect
-				scrollableYearSelect
+				// showYearSelect
+				// scrollableYearSelect
 				onChange={(d: Date) => {
 					onChange(d);
 				}}
