@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { TAUIColors } from '../../styles';
-import { Icons } from '../icons';
+import { Icon } from '../Icon';
 
 import S from './Styled';
 
@@ -25,7 +25,9 @@ export const Checkbox = ({ checked, disabled, children, color = 'text', onClick,
 			}}
 			{...rest}
 		>
-			<S.Icon.$ color={color}>{checked ? <Icons.Checked /> : <Icons.NotChecked />}</S.Icon.$>
+			<S.Icon.$ color={color}>
+				<Icon icon={checked ? Icon.Base.Checked : Icon.Base.NotChecked} />
+			</S.Icon.$>
 
 			{children}
 		</S.$>

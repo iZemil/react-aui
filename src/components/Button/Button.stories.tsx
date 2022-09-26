@@ -2,9 +2,11 @@ import * as React from 'react';
 
 import { useSnacks } from '../../utils';
 import Container from '../Container';
-import { Icons } from '../icons';
+import { Icon as IconUI } from '../Icon';
 
 import { Button } from './index';
+
+const { Base: BaseIcon } = IconUI;
 
 export default {
 	component: Button,
@@ -32,25 +34,25 @@ export const Size = () => {
 
 			<Container.$>
 				<Button icon size="small">
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 				<Button icon size="medium">
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 				<Button icon size="large">
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 			</Container.$>
 
 			<Container.$>
 				<Button icon size="small" circle>
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 				<Button icon size="medium" circle>
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 				<Button icon size="large" circle>
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 			</Container.$>
 		</Container.$>
@@ -88,30 +90,30 @@ export const Icon = () => {
 		<Container.$ column>
 			<Container.$>
 				<Button>
-					<Icons.Home />
+					<BaseIcon.Home />
 					Home
 				</Button>
 				<Button>
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 				<Button circle>
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 				<Button type="text" circle>
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 			</Container.$>
 
 			<Container.$>
 				<Button type="filled">
-					<Icons.Home />
+					<BaseIcon.Home />
 					Home
 				</Button>
 				<Button type="filled">
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 				<Button type="filled" circle>
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 			</Container.$>
 		</Container.$>
@@ -131,7 +133,7 @@ export const Other = () => {
 				<Button disabled>Disabled</Button>
 
 				<Button circle disabled>
-					<Icons.Home />
+					<BaseIcon.Home />
 				</Button>
 			</Container.$>
 
@@ -154,17 +156,17 @@ export const Other = () => {
 				</Button>
 
 				<Button to="#link" type="text">
-					<Icons.Link />
+					<BaseIcon.Link />
 					Link
 				</Button>
 
 				<Button to="#link" type="text" size="small">
-					<Icons.Link />
+					<BaseIcon.Link />
 					Link
 				</Button>
 
 				<Button to="https://google.com" type="text" blank>
-					<Icons.Link />
+					<BaseIcon.Link />
 					Target Blank Link
 				</Button>
 			</Container.$>

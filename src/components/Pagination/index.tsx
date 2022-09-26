@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Icons } from '../icons';
+import { Icons } from '../Icon/base-icons';
 
 import { S } from './Styled';
 

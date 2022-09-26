@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { getInitials, stringToColor } from '../../utils';
-import { Icons } from '../icons';
+import { Icons } from '../Icon/base-icons';
 
 import S, { ISAvatarProps } from './Styled';
 

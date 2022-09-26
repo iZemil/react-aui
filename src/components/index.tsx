@@ -9,7 +9,6 @@ export * from './Markdown';
 export * from './Page';
 export * from './Pagination';
 export * from './Sider';
-export * from './icons';
 export * from './Snackbars';
 
 export { GlobalStyles } from './GlobalStyles';
@@ -31,3 +30,5 @@ export { Select } from './Select';
 export { Avatar } from './Avatar';
 
 export { Divider } from './Divider';
+
+export { Icon } from './Icon';

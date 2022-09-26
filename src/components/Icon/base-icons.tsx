@@ -50,13 +50,6 @@ import {
 	BsBoxArrowUpRight as Withdraw,
 } from 'react-icons/bs';
 
-// TODO: ESize
-const SIZE = {
-	SMALL: 16,
-	MEDIUM: 20,
-	BIG: 24,
-};
-
 export const Icons = {
 	Sun,
 	Moon,
@@ -107,5 +100,4 @@ export const Icons = {
 	SignOut,
 	ChevronDown,
 	ChevronUp,
-	SIZE,
 };

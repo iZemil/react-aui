@@ -1,22 +1,19 @@
 import * as React from 'react';
-import { useTheme } from 'styled-components';
 
-import { color } from '../../../styles';
-import { IAUI } from '../../../styles/types';
-import { getFontSize } from '../../../styles/utils';
+import { getFontSize } from '../../../styles';
 import { TPrimitives, copyBuffer, wait } from '../../../utils';
-import { Icons } from '../../icons';
+import { Icon } from '../../Icon';
 import { ButtonProps } from '../types';
 
 import S from './Styled';
 
 export interface ICopyButtonProps extends Partial<ButtonProps> {
 	value: TPrimitives | (() => TPrimitives);
+	withoutIcon?: boolean;
 }
 
 export const CopyButton = (props: ICopyButtonProps) => {
-	const { value, children, type = 'text', ...rest } = props;
-	const theme = useTheme() as IAUI;
+	const { value, children, withoutIcon = false, type = 'text', ...rest } = props;
 	const [isCopied, copy] = React.useState(false);
 
 	const iconSize = getFontSize(props.size);
@@ -37,13 +34,15 @@ export const CopyButton = (props: ICopyButtonProps) => {
 		<S.$ type={type} onClick={handleCopy} color="grey" {...rest}>
 			{children}
 
-			<S.Icon.$>
-				{isCopied ? (
-					<Icons.Ok color={color('green')({ theme })} size={iconSize} />
-				) : (
-					<Icons.Copy size={iconSize} />
-				)}
-			</S.Icon.$>
+			{!withoutIcon && (
+				<S.Icon.$>
+					<Icon
+						icon={isCopied ? Icon.Base.Ok : Icon.Base.Copy}
+						color={isCopied ? 'green' : undefined}
+						size={iconSize}
+					/>
+				</S.Icon.$>
+			)}
 		</S.$>
 	);
 };

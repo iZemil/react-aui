@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { Button } from '../Button';
 import Container from '../Container';
-import { Icons } from '../icons';
+import { Icons } from '../Icon/base-icons';
 
 export default {
 	component: Input,

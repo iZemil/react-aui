@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { ButtonProps } from '../Button/types';
 import { DropdownProps } from '../Dropdown';
-import { Icons } from '../icons';
+import { Icon } from '../Icon';
 
 import S from './Styled';
 
@@ -21,7 +21,7 @@ const SelectLabel = (props: SelectLabelProps) => {
 	return (
 		<S.Label.$ color="white" {...rest}>
 			{children ?? placeholder}
-			<Icons.ChevronDown />
+			<Icon.Base.ChevronDown />
 		</S.Label.$>
 	);
 };

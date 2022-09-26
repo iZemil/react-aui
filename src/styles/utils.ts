@@ -6,6 +6,22 @@ export const color =
 	(props: { theme: IAUI }): string =>
 		props.theme.colors[key];
 
+export function checkColor(theme: IAUI, color?: TAUIColors | string): color is TAUIColors {
+	if (!color) {
+		return false;
+	}
+
+	return color in theme.colors;
+}
+
+export function getAnyColor(theme: IAUI, value?: TAUIColors | string): string | undefined {
+	if (!value) {
+		return undefined;
+	}
+
+	return checkColor(theme, value) ? color(value)({ theme }) : value;
+}
+
 export const overflowedText = () => `
     text-overflow: ellipsis;
     white-space: nowrap;

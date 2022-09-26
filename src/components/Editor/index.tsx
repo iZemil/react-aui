@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Icons } from '../icons';
+import { Icon } from '../Icon';
 
 import S from './Styled';
 
@@ -14,7 +14,6 @@ export interface IEditorProps {
 
 // TODO#0: когда есть пуст. строка между чекбоксам - ненужное поведение отображения
 export const Editor = ({ label, value, onChange, placeholder, withTools, ...rest }: IEditorProps) => {
-	const ICON_SIZE = Icons.SIZE.MEDIUM;
 	const inputEl: React.RefObject<HTMLTextAreaElement> = React.useRef(null);
 
 	const handleClickBtn = (val: string) => {
@@ -48,7 +47,7 @@ export const Editor = ({ label, value, onChange, placeholder, withTools, ...rest
 								handleClickBtn(value + '``');
 							}}
 						>
-							<Icons.AddCode size={ICON_SIZE} />
+							<Icon.Base.AddCode size="medium" />
 						</S.Tools.Btn.$>
 
 						<S.Tools.Btn.$
@@ -58,7 +57,7 @@ export const Editor = ({ label, value, onChange, placeholder, withTools, ...rest
 								handleClickBtn(value + '\n- ');
 							}}
 						>
-							<Icons.AddListItem size={ICON_SIZE} />
+							<Icon.Base.AddListItem size="medium" />
 						</S.Tools.Btn.$>
 
 						<S.Tools.Btn.$
@@ -68,7 +67,7 @@ export const Editor = ({ label, value, onChange, placeholder, withTools, ...rest
 								handleClickBtn(value + '\n- [ ] ');
 							}}
 						>
-							<Icons.AddCheckbox size={ICON_SIZE} />
+							<Icon.Base.AddCheckbox size="medium" />
 						</S.Tools.Btn.$>
 					</S.Tools.$>
 				)}

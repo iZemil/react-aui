@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
 import { color } from '../../../styles';
-import { Icons } from '../../icons';
+import { Icon } from '../../Icon';
 import { ButtonProps } from '../types';
 
 export interface ISBackButtonProps {
@@ -46,7 +46,7 @@ export function BackButton(props: IProps) {
 			}}
 			left={left}
 		>
-			<Icons.BackButton />
+			<Icon.Base.BackButton />
 		</S.$>
 	);
 }

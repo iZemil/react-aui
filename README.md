@@ -1,6 +1,6 @@
 # React AUI
 
-React UI library [Storybook Demo](https://izemil.github.io/react-aui/)
+React UI library: [Storybook Components](https://izemil.github.io/react-aui/)
 
 ## Development
 
@@ -14,13 +14,13 @@ React UI library [Storybook Demo](https://izemil.github.io/react-aui/)
 
 ```jsx
 const theme: IAUI = {
-    ...yourTheme
-}
+	...yourTheme,
+};
 
 // ...
-<AUIProvider theme={theme}>
-    {/* your frontend components */}
-</AUIProvider>
+<AUIProvider theme={theme}>{/* your frontend components */}</AUIProvider>;
 ```
 
--   TODO: how to use snackbars [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)
+### Hooks
+
+-   `const { snackOk, snackError, snack } = useSnacks();` Snackbars by [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)

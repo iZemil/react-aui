@@ -2,7 +2,7 @@ import { Tab, Tabs } from '.';
 import * as React from 'react';
 
 import Container from '../Container';
-import { Icons } from '../icons';
+import { Icons } from '../Icon/base-icons';
 
 export default {
 	component: Tabs,

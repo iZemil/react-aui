@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Button } from '../Button';
 import { ButtonProps } from '../Button/types';
-import { Icons } from '../icons';
+import { Icons } from '../Icon/base-icons';
 
 import S, { SDropdownContentProps } from './Styled';
 

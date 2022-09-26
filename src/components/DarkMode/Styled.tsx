@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { padding } from '../../styles';
-import { Icons } from '../icons';
+import { Icons } from '../Icon/base-icons';
 
 const Styled = {
 	$: styled.button<{ $active: boolean }>`
