@@ -21,8 +21,8 @@ export const DatePicker = ({ onChange, date, label, locale }: IDatePickerProps) 
 				locale={locale}
 				dateFormat="dd MMMM yyyy"
 				selected={date}
-				// showYearSelect
-				// scrollableYearSelect
+				// showYearDropdown
+				// scrollableYearDropdown
 				onChange={(d: Date) => {
 					onChange(d);
 				}}

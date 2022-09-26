@@ -1,96 +1,28 @@
 import * as React from 'react';
 
-import { Button } from '../Button';
 import { ButtonProps } from '../Button/types';
-import { Overlay } from '../Overlay';
+import { DropdownProps } from '../Dropdown';
 import { Icons } from '../icons';
 
-import S, { SSelectContentProps } from './Styled';
+import S from './Styled';
 
-export interface SelectProps extends Partial<SSelectContentProps> {
-	label?: React.ReactNode;
-	children: React.ReactNode[];
-	open: boolean;
-	onChange?: (option: OptionProps) => void;
-	onClose: () => void;
-}
-
-export const DefaultSelectLabel = ({ ...rest }: Partial<ButtonProps>) => (
-	<Button type="text" circle {...rest}>
-		<Icons.ThreeDots />
-	</Button>
-);
-
-export interface OptionProps extends Partial<Omit<ButtonProps, 'onClick' | 'icon'>> {
-	onClick?: (optionProps: OptionProps, e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-}
-export class Option extends React.Component<OptionProps> {
-	render() {
-		const { children, onClick, ...rest } = this.props;
-
-		return (
-			<S.Option.$
-				{...rest}
-				onClick={(e) => {
-					if (onClick) {
-						onClick(this.props, e);
-					}
-				}}
-			>
-				{children}
-			</S.Option.$>
-		);
-	}
-}
-
+export type SelectProps = DropdownProps;
 export const Select = (props: SelectProps) => {
-	const { label = <DefaultSelectLabel />, open = false, onClose, left = false, children, onChange, ...rest } = props;
+	return <S.$ {...props} />;
+};
+
+export interface SelectLabelProps extends ButtonProps {
+	placeholder: React.ReactNode;
+}
+const SelectLabel = (props: SelectLabelProps) => {
+	const { placeholder, children, ...rest } = props;
 
 	return (
-		<>
-			<S.Wrapper.$>
-				<S.Label.$
-					open={open}
-					onClick={() => {
-						if (open) {
-							onClose();
-						}
-					}}
-				>
-					{label}
-				</S.Label.$>
-
-				<S.Content.$ open={open} left={left} {...rest}>
-					{React.Children.map(children, (child, index) => {
-						const option = child as unknown as Option;
-						const { onClick, children, ...optionRestProps } = option.props;
-
-						return (
-							<Option
-								key={index}
-								type="text"
-								color="text"
-								onClick={(optionProps, e) => {
-									if (onClick) {
-										onClick(optionProps, e);
-									}
-
-									if (onChange) {
-										onChange(optionProps);
-									}
-
-									onClose();
-								}}
-								{...optionRestProps}
-							>
-								{children}
-							</Option>
-						);
-					})}
-				</S.Content.$>
-			</S.Wrapper.$>
-
-			<Overlay open={open} onClose={onClose} />
-		</>
+		<S.Label.$ color="white" {...rest}>
+			{children ?? placeholder}
+			<Icons.ChevronDown />
+		</S.Label.$>
 	);
 };
+
+Select.Label = SelectLabel;

@@ -25,7 +25,8 @@ export { BackButton } from './Button/BackButton';
 
 export { Tabs, Tab } from './Tabs';
 
-export { Select, DefaultSelectLabel, Option } from './Select';
+export { Dropdown, Option } from './Dropdown';
+export { Select } from './Select';
 
 export { Avatar } from './Avatar';
 
