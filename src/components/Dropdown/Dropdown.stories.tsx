@@ -9,29 +9,10 @@ export default {
 	component: Dropdown,
 };
 
-const defaultBasicState = {
-	first: false,
-	second: false,
-	third: false,
-};
-
 export const Basic = () => {
-	const [values, setValues] = React.useState(defaultBasicState);
-
-	const onChange = (key: keyof typeof defaultBasicState, value: boolean) => {
-		setValues({
-			...values,
-			[key]: value,
-		});
-	};
-
 	return (
 		<Container.$>
-			<Dropdown
-				open={values.first}
-				onClose={() => onChange('first', false)}
-				label={<Dropdown.Label onClick={() => onChange('first', true)} />}
-			>
+			<Dropdown label={<Dropdown.Label />}>
 				<Option
 					onClick={(option) => {
 						console.log('option props', option);
@@ -55,10 +36,8 @@ export const Basic = () => {
 			</Dropdown>
 
 			<Dropdown
-				open={values.second}
-				onClose={() => onChange('second', false)}
 				label={
-					<Button size="small" color="blue" onClick={() => onChange('second', true)}>
+					<Button size="small" color="blue">
 						Custom label
 					</Button>
 				}
@@ -82,12 +61,7 @@ export const Basic = () => {
 				</Option>
 			</Dropdown>
 
-			<Dropdown
-				open={values.third}
-				onClose={() => onChange('third', false)}
-				label={<Button onClick={() => onChange('third', true)}>To left</Button>}
-				left
-			>
+			<Dropdown label={<Button>To left</Button>} left>
 				<Option>1111111111111111</Option>
 				<Option>2222222222222222</Option>
 				<Option>3333333333333333</Option>

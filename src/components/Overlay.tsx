@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { color } from '../styles';
 
-interface IProps {
+export interface OverlayProps {
 	open: boolean;
 	onClose?: () => void;
 }
@@ -21,7 +21,7 @@ const S = {
 	`,
 };
 
-export const Overlay = ({ open, onClose }: IProps) => {
+export const Overlay = ({ open, onClose }: OverlayProps) => {
 	return open ? (
 		<S.$
 			onClick={(e) => {

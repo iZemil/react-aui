@@ -35,7 +35,7 @@ export const Basic = () => {
 				}
 				onChange={(option) => setDropdowned(option.children as string)}
 			>
-				<Option>First</Option>
+				<Option onClick={(props) => console.log('first', props)}>First</Option>
 				<Option>Second</Option>
 				<Option disabled>Third</Option>
 				<Option>Fourth</Option>

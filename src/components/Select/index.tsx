@@ -7,6 +7,7 @@ import { Icons } from '../icons';
 import S from './Styled';
 
 export type SelectProps = DropdownProps;
+
 export const Select = (props: SelectProps) => {
 	return <S.$ {...props} />;
 };

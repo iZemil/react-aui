@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { Button } from '../Button';
 import { ButtonProps } from '../Button/types';
-import { Overlay } from '../Overlay';
 import { Icons } from '../icons';
 
 import S, { SDropdownContentProps } from './Styled';
@@ -10,9 +9,9 @@ import S, { SDropdownContentProps } from './Styled';
 export interface DropdownProps extends Partial<SDropdownContentProps> {
 	label?: React.ReactNode;
 	children: React.ReactNode[];
-	open: boolean;
+	open?: boolean;
 	onChange?: (option: OptionProps) => void;
-	onClose: () => void;
+	onClose?: () => void;
 }
 
 export interface OptionProps extends Partial<Omit<ButtonProps, 'onClick' | 'icon'>> {
@@ -44,54 +43,73 @@ const DropdownLabel = ({ ...rest }: Partial<ButtonProps>) => (
 );
 
 export const Dropdown = (props: DropdownProps) => {
-	const { label = <DropdownLabel />, open = false, onClose, left = false, children, onChange, ...rest } = props;
+	const { label = <DropdownLabel />, open: propOpen, onClose, left = false, children, onChange, ...rest } = props;
+	const [stateOpen, setStateOpen] = React.useState(false);
+	const labelRef = React.useRef(null);
+
+	const handleOpen = () => {
+		setStateOpen(true);
+	};
+	const handleClose = () => {
+		if (onClose) {
+			onClose();
+		}
+
+		setStateOpen(false);
+	};
+	const handleBlur = (e: React.FocusEvent) => {
+		if (!e.currentTarget.contains(e.relatedTarget)) {
+			handleClose();
+		}
+	};
+
+	const open = React.useMemo(() => propOpen ?? stateOpen, [propOpen, stateOpen]);
 
 	return (
-		<>
-			<S.Wrapper.$>
-				<S.Label.$
-					open={open}
-					onClick={() => {
-						if (open) {
-							onClose();
-						}
-					}}
-				>
-					{label}
-				</S.Label.$>
+		<S.Wrapper.$ onBlur={handleBlur}>
+			<S.Label.$
+				ref={labelRef}
+				open={open}
+				onClick={() => {
+					if (open) {
+						handleClose();
+					} else {
+						handleOpen();
+					}
+				}}
+			>
+				{label}
+			</S.Label.$>
 
-				<S.Content.$ open={open} left={left} {...rest}>
-					{React.Children.map(children, (child, index) => {
-						const option = child as unknown as Option;
-						const { onClick, children, ...optionRestProps } = option.props;
+			<S.Content.$ open={open} left={left} {...rest}>
+				{React.Children.map(children, (child, index) => {
+					const option = child as unknown as Option;
+					const { onClick, children, ...optionRestProps } = option.props;
 
-						return (
-							<Option
-								key={index}
-								type="text"
-								color="text"
-								onClick={(optionProps, e) => {
-									if (onClick) {
-										onClick(optionProps, e);
-									}
+					return (
+						<Option
+							key={index}
+							type="text"
+							color="text"
+							{...optionRestProps}
+							onClick={(optionProps, e) => {
+								if (onClick) {
+									onClick(optionProps, e);
+								}
 
-									if (onChange) {
-										onChange(optionProps);
-									}
+								if (onChange) {
+									onChange(optionProps);
+								}
 
-									onClose();
-								}}
-								{...optionRestProps}
-							>
-								{children}
-							</Option>
-						);
-					})}
-				</S.Content.$>
-			</S.Wrapper.$>
-
-			<Overlay open={open} onClose={onClose} />
-		</>
+								handleClose();
+							}}
+						>
+							{children}
+						</Option>
+					);
+				})}
+			</S.Content.$>
+		</S.Wrapper.$>
 	);
 };
 

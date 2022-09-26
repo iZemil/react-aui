@@ -41,7 +41,6 @@ const Styled = {
 			gap: ${padding('small')};
 			z-index: 9;
 			transform: translateY(-8px);
-			pointer-events: none;
 			visibility: hidden;
 			overflow: hidden;
 			opacity: 0;
@@ -51,7 +50,6 @@ const Styled = {
 			${(props) =>
 				props.open &&
 				`
-				pointer-events: auto;
 				transform: none;
 				visibility: visible;
 				opacity: 1;
