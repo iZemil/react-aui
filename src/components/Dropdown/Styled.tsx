@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-import { border, borderRadius, color, padding } from '../../styles';
+import { border, borderRadius, color, disabledCss, padding } from '../../styles';
 import { Button } from '../Button';
 
 export interface SDropdownContentProps {
 	open: boolean;
+	disabled: boolean;
 	left: boolean;
 }
 
@@ -16,19 +17,26 @@ const Styled = {
 	},
 
 	Label: {
-		$: styled.div<Pick<SDropdownContentProps, 'open'>>`
+		$: styled.div<Pick<SDropdownContentProps, 'open' | 'disabled'>>`
 			position: relative;
+			width: fit-content;
 
 			${({ open }) =>
 				open &&
 				`
 				z-index: 8;
 			`}
+
+			${({ disabled }) =>
+				disabled &&
+				`
+					${disabledCss()}
+				`}
 		`,
 	},
 
 	Content: {
-		$: styled.div<SDropdownContentProps>`
+		$: styled.div<Partial<SDropdownContentProps>>`
 			position: absolute;
 			width: 100%;
 			min-width: 120px;

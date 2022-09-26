@@ -8,37 +8,25 @@ export default {
 	component: Select,
 };
 
-const defaultBasicState = {
-	first: false,
-};
-
 export const Basic = () => {
-	const [values, setValues] = React.useState(defaultBasicState);
 	const [selected, setDropdowned] = React.useState<string>();
-
-	const onChange = (key: keyof typeof defaultBasicState, value: boolean) => {
-		setValues({
-			...values,
-			[key]: value,
-		});
-	};
 
 	return (
 		<Container.$>
 			<Select
-				open={values.first}
-				onClose={() => onChange('first', false)}
-				label={
-					<Select.Label placeholder="Select item" onClick={() => onChange('first', true)}>
-						{selected}
-					</Select.Label>
-				}
+				label={<Select.Label placeholder="Select item">{selected}</Select.Label>}
 				onChange={(option) => setDropdowned(option.children as string)}
 			>
 				<Option onClick={(props) => console.log('first', props)}>First</Option>
 				<Option>Second</Option>
 				<Option disabled>Third</Option>
 				<Option>Fourth</Option>
+			</Select>
+
+			<Select disabled label={<Select.Label placeholder="Disabled">{selected}</Select.Label>}>
+				<Option>1</Option>
+				<Option disabled>2</Option>
+				<Option>3</Option>
 			</Select>
 		</Container.$>
 	);

@@ -43,9 +43,17 @@ const DropdownLabel = ({ ...rest }: Partial<ButtonProps>) => (
 );
 
 export const Dropdown = (props: DropdownProps) => {
-	const { label = <DropdownLabel />, open: propOpen, onClose, left = false, children, onChange, ...rest } = props;
+	const {
+		label = <DropdownLabel />,
+		disabled,
+		open: propOpen,
+		onClose,
+		left = false,
+		children,
+		onChange,
+		...rest
+	} = props;
 	const [stateOpen, setStateOpen] = React.useState(false);
-	const labelRef = React.useRef(null);
 
 	const handleOpen = () => {
 		setStateOpen(true);
@@ -68,7 +76,7 @@ export const Dropdown = (props: DropdownProps) => {
 	return (
 		<S.Wrapper.$ onBlur={handleBlur}>
 			<S.Label.$
-				ref={labelRef}
+				disabled={Boolean(disabled)}
 				open={open}
 				onClick={() => {
 					if (open) {
