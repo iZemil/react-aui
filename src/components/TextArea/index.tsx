@@ -9,6 +9,7 @@ export type TextAreaProps = {
 	value?: string;
 	placeholder?: string;
 	hint?: React.ReactNode;
+	ref?: React.RefObject<HTMLTextAreaElement>;
 	onChange?: (value: string, e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 } & Partial<InputLabelProps> &
 	Partial<Omit<React.HTMLProps<HTMLTextAreaElement>, TOmitInputProps>>;

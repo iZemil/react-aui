@@ -12,7 +12,7 @@ export interface SButtonProps {
 	icon: boolean;
 }
 
-export interface ButtonProps extends Partial<Omit<SButtonProps, '$type'>> {
+type MainButtonProps = {
 	htmlType?: 'button' | 'submit';
 	type?: TButtonType;
 	disabled?: boolean;
@@ -22,6 +22,9 @@ export interface ButtonProps extends Partial<Omit<SButtonProps, '$type'>> {
 	className?: string;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 
+	title?: string;
 	to?: string;
 	blank?: boolean;
-}
+};
+
+export type ButtonProps = Partial<Omit<SButtonProps, '$type'>> & MainButtonProps;

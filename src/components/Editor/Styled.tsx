@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-import { borderRadius, color, inputLabelCss, padding } from '../../styles';
+import { padding } from '../../styles';
 import { Button } from '../Button';
+import { TextArea } from '../TextArea';
 
 const Styled = {
 	$: styled.div`
@@ -9,46 +10,41 @@ const Styled = {
 		height: 100%;
 		display: flex;
 		flex-direction: column;
+		gap: ${padding('small')};
 	`,
-	Wrapper: {
+	Head: {
 		$: styled.div`
+			flex: 1;
 			display: flex;
-			flex-direction: column;
 			gap: ${padding('medium')};
-			width: 100%;
-			height: 100%;
-			display: flex;
-			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
 		`,
 	},
+	Label: {
+		$: styled.div``,
+	},
 	Input: {
-		$: styled.textarea`
+		$: styled(TextArea)`
 			flex: 1;
-			border: 0;
-			padding: 0;
-			resize: none;
-			border-radius: ${borderRadius};
-			background: transparent;
-			outline: none;
-			line-height: 1.4;
-			font-size: 14px;
+			line-height: 1.6;
 		`,
 	},
 	Tools: {
 		$: styled.div`
 			display: flex;
 			align-items: center;
-			gap: 10px;
+			gap: ${padding('medium')};
 		`,
 		Btn: {
-			$: styled(Button)`
-				color: ${color('white')};
-			`,
+			$: styled(Button).attrs({ icon: true, type: 'text', size: 'small', color: 'grey' })``,
 		},
 	},
-	Label: {
+	Bottom: {
 		$: styled.div`
-			${inputLabelCss}
+			display: flex;
+			align-items: center;
+			gap: ${padding('medium')};
 		`,
 	},
 };
