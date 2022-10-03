@@ -23,6 +23,7 @@ export const S = {
 		border-radius: ${borderRadius};
 		outline: 0;
 		cursor: pointer;
+		pointer-events: auto;
 		user-select: none;
 
 		${(props) => {

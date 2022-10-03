@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { BsXLg as CloseIcon } from 'react-icons/bs';
 
+import { Icon } from '../Icon';
 import { Overlay } from '../Overlay';
 
 import S from './Styled';
@@ -11,34 +12,31 @@ export const Modal = ({ children, open = false, size, onClose, closeButton, ...r
 		<>
 			<Overlay open={open} onClose={onClose} />
 
-			{open && (
-				<>
-					<S.$
-						onClick={(e) => {
-							e.stopPropagation();
-						}}
-					>
-						<S.Content.$ size={size} {...rest}>
-							{children}
-						</S.Content.$>
-					</S.$>
+			<S.$
+				open={open}
+				onClick={(e) => {
+					e.stopPropagation();
+				}}
+			>
+				<S.Content.$ size={size} {...rest}>
+					{children}
+				</S.Content.$>
+			</S.$>
 
-					{closeButton && (
-						<S.Close.$
-							type="text"
-							icon
-							color="grey"
-							size="large"
-							onClick={() => {
-								if (onClose) {
-									onClose();
-								}
-							}}
-						>
-							<CloseIcon />
-						</S.Close.$>
-					)}
-				</>
+			{open && closeButton && (
+				<S.Close.$
+					type="text"
+					icon
+					color="grey"
+					size="large"
+					onClick={() => {
+						if (onClose) {
+							onClose();
+						}
+					}}
+				>
+					<Icon icon={CloseIcon} />
+				</S.Close.$>
 			)}
 		</>
 	);

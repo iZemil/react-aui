@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { SModalProps } from './types';
 
 const Styled = {
-	$: styled.div`
+	$: styled.div<{ open: boolean }>`
 		pointer-events: none;
 		position: fixed;
 		left: 50%;
@@ -19,6 +19,17 @@ const Styled = {
 		overflow: hidden;
 		padding: ${padding('medium')};
 		z-index: 9;
+		visibility: hidden;
+		overflow: hidden;
+		opacity: 0;
+		transition: 0.1s ease-in-out;
+
+		${(props) =>
+			props.open &&
+			`
+			visibility: visible;
+			opacity: 1;
+		`}
 	`,
 	Content: {
 		$: styled.div<SModalProps>`
