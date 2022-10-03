@@ -1,4 +1,4 @@
-# React AUI
+# React AUI &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/iZemil/react-aui/blob/master/LICENSE) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/izemil/react-aui)
 
 React UI library: [Storybook Components](https://izemil.github.io/react-aui/)
 
@@ -9,18 +9,49 @@ React UI library: [Storybook Components](https://izemil.github.io/react-aui/)
 
 ## Production
 
--   install [npm package](https://www.npmjs.com/package/react-aui) `npm i react-aui`
--   init AUIProvider into root of your project:
+-   Install [npm package](https://www.npmjs.com/package/react-aui) `npm i react-aui`
+-   Init AUIProvider into root of your project:
 
 ```jsx
-const theme: IAUI = {
-	...yourTheme,
+import { IAUI } from 'react-aui';
+
+export const theme: IAUI = {
+	mode: 'dark',
+	colors: {
+		main: '#00ff7f',
+		text: '#ffffff',
+		red: '#f6465d',
+		green: '#00e78c',
+		white: '#ffffff',
+		grey: '#888888',
+		black: '#000000',
+		orange: '#c99400',
+		blue: '#03a9f4',
+
+		bg: '#202020',
+		wrapper: '#000000c9',
+	},
+	paddings: {
+		small: 5,
+		medium: 10,
+		large: 20,
+	},
+	borderRadius: 4,
+	globalStyles: `
+		h1, h2, h3, h4 {
+			margin: 0;
+		}
+	`,
 };
 
-// ...
+// render
 <AUIProvider theme={theme}>{/* your frontend components */}</AUIProvider>;
 ```
 
 ### Hooks
 
--   `const { snackOk, snackError, snack } = useSnacks();` Snackbars by [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)
+-   Snackbars by [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)
+
+```jsx
+const { snackOk, snackError, snack } = useSnacks();
+```
