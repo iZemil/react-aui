@@ -1,6 +1,6 @@
 # React AUI &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/iZemil/react-aui/blob/master/LICENSE) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/izemil/react-aui)
 
-React UI library: [Storybook Components](https://izemil.github.io/react-aui/)
+[React AUI library Storybook Components](https://izemil.github.io/react-aui/)
 
 ## Development
 

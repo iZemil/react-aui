@@ -40,7 +40,7 @@ export const Basic = () => {
 };
 
 export const BasicSet = () => {
-	const { snackOk } = useSnacks();
+	const snack = useSnacks();
 
 	return (
 		<Container.$ column>
@@ -49,7 +49,7 @@ export const BasicSet = () => {
 					<CopyButton
 						key={name}
 						value={() => {
-							snackOk(`Copied: ${name}`);
+							snack.success(`Copied: ${name}`);
 
 							return `<Icon icon={Icon.Base.${name}} />`;
 						}}
