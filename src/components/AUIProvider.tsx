@@ -36,6 +36,13 @@ export const AUIProvider = ({ children, active = 0, themes }: AUIProviderProps) 
 		});
 	}, []);
 
+	React.useEffect(() => {
+		setContext({
+			...context,
+			active,
+		});
+	}, [active]);
+
 	const theme: IAUI = React.useMemo(() => context.themes[context.active], [context]);
 
 	return (

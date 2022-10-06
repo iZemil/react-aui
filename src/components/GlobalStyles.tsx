@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Arial', sans-serif;;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        transition: 0.5s background;
+        transition: 0.3s background;
         
         
         background-color: ${colorFn('bg')};
