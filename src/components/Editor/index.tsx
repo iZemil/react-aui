@@ -8,12 +8,12 @@ import S from './Styled';
 
 export type IEditorProps = Partial<Omit<TextAreaProps, 'onChange'>> & {
 	onChange: (md: string) => void;
-	withTools?: boolean;
+	tools?: boolean;
 	bottomBar?: React.ReactNode;
 };
 
 // TODO#0: когда есть пуст. строка между чекбоксам - ненужное поведение отображения
-export const Editor = ({ value, onChange, withTools, label, ...rest }: IEditorProps) => {
+export const Editor = ({ value, onChange, tools, label, ...rest }: IEditorProps) => {
 	// TODO: error with ref to textarea
 	// const inputEl: React.RefObject<HTMLTextAreaElement> = React.useRef(null);
 
@@ -67,7 +67,7 @@ export const Editor = ({ value, onChange, withTools, label, ...rest }: IEditorPr
 				label={
 					<S.Head.$>
 						{label ? <S.Label.$>{label}</S.Label.$> : null}
-						{withTools && (
+						{tools && (
 							<S.Tools.$>
 								<S.Tools.Btn.$ onClick={() => handleClickBtn('heading')} title="Add heading text">
 									<Icon icon={Icon.Base.AddHeading} />

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { ButtonProps } from '../Button/types';
-import { DropdownProps } from '../Dropdown';
+import { DropdownProps, Option } from '../Dropdown';
 import { Icon } from '../Icon';
 
 import S from './Styled';
@@ -27,3 +27,4 @@ const SelectLabel = (props: SelectLabelProps) => {
 };
 
 Select.Label = SelectLabel;
+Select.Option = Option;

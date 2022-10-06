@@ -1,8 +1,8 @@
-import { SIZES, THEMES } from './consts';
+import { THEMES } from './consts';
 
 type ValueOf<T> = T[keyof T];
 
-export type TSize = ValueOf<typeof SIZES>;
+export type TSize = 'small' | 'medium' | 'large';
 
 export type TTheme = ValueOf<typeof THEMES>;
 
@@ -15,6 +15,7 @@ declare module 'styled-components' {
 export interface IAUIColors {
 	main: string;
 	text: string;
+	bg: string;
 
 	white: string;
 	black: string;
@@ -24,12 +25,9 @@ export interface IAUIColors {
 	blue: string;
 	orange: string;
 	grey: string;
-
-	bg: string;
-	wrapper: string;
 }
 
-export type TAUIColors = keyof IAUIColors;
+export type TColors = keyof IAUIColors;
 
 export type TPaddings = Record<TSize, number>;
 

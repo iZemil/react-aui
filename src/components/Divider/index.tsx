@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { TAUIColors, TSize, borderRadius, color as colorFn, getFontSize, padding } from '../../styles';
+import { TColors, TSize, borderRadius, color as colorFn, getFontSize, padding } from '../../styles';
 
 export interface IDividerProps {
 	size: TSize;
-	color: TAUIColors;
+	color: TColors;
 	dashed?: boolean;
 	text?: string;
 }

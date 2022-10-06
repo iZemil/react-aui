@@ -11,6 +11,11 @@ const Styled = {
 			justify-content: space-between;
 		`,
 	},
+	Option: {
+		$: styled(Button)`
+			justify-content: flex-start;
+		`,
+	},
 };
 
 export default Styled;

@@ -34,7 +34,7 @@ export const S = {
 			const filled = `
 				border: ${borderFn(props.color)(props)};
 				background: ${color};
-				color: ${colorFn('black')(props)};
+				color: ${colorFn('white')(props)};
 
 				&:hover {
 					opacity: .8;

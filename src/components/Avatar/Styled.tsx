@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import { TAUIColors, borderRadius, color as colorFn } from '../../styles';
+import { TColors, borderRadius, color as colorFn } from '../../styles';
 
 export interface ISAvatarProps {
 	square: boolean;
 	size: number;
-	color: TAUIColors | string;
+	color: TColors | string;
 }
 
 const sizable = (size: number) => `
@@ -20,7 +20,7 @@ const Styled = {
 		align-items: center;
 		justify-content: center;
 		color: ${colorFn('text')};
-		background: ${(props) => colorFn(props.color as TAUIColors)(props) ?? props.color};
+		background: ${(props) => colorFn(props.color as TColors)(props) ?? props.color};
 		${({ size }) => sizable(size)};
 		border-radius: ${(props) => (props.square ? borderRadius(props) : '50%')};
 		text-transform: uppercase;

@@ -1,33 +1,17 @@
+import { Button } from '..';
 import styled from 'styled-components';
 
-import { color, padding } from '../../styles';
+import { color } from '../../../styles';
 
-const Styled = {
-	$: styled.button`
-		width: 2.5rem;
-		height: 2.5rem;
-		padding: ${padding('small')};
-		border-radius: 50%;
-		background-color: rgba(0, 0, 0, 0);
+export const S = {
+	$: styled(Button).attrs({ type: 'text', color: 'text', icon: true, circle: true })`
+		width: 2.5rem !important;
+		height: 2.5rem !important;
 		outline: none !important;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: 0;
-		background-size: cover;
-		color: ${color('text')};
 		line-height: 1.2;
-		cursor: pointer;
-		text-transform: uppercase;
 		flex-shrink: 0;
-		position: relative;
 		overflow: hidden;
-		transition: background-color 0.15s, color 0.15s;
 		text-decoration: none !important;
-
-		&:hover {
-			background-color: ${color('text')}30;
-		}
 	`,
 	Bar: {
 		$: styled.div`
@@ -62,5 +46,3 @@ const Styled = {
 		`,
 	},
 };
-
-export default Styled;

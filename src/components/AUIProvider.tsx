@@ -1,12 +1,13 @@
+import { GlobalStyles, SnackbarsProvider } from '.';
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
-import { GlobalStyles, SnackbarsProvider } from '../components';
+import { darkTheme } from '../styles/consts';
+import { IAUI, IAUIColors, TPaddings, TTheme } from '../styles/types';
+import { isValidColors } from '../styles/utils';
 
-import { defaultTheme } from './consts';
-import { IAUI, IAUIColors, TPaddings, TTheme } from './types';
-import { isValidColors } from './utils';
+import { OverlayProvider } from './Overlay';
 
 interface IAUIProviderProps {
 	theme?: Partial<
@@ -22,10 +23,10 @@ export const AUIProvider = ({ children, theme = {} }: IAUIProviderProps) => {
 	const lsTheme = useSelector((state: { aui: DefaultTheme }) => state.aui);
 
 	const auiTheme: IAUI = {
-		mode: lsTheme?.mode ?? theme?.mode ?? defaultTheme.mode,
-		borderRadius: theme?.borderRadius ?? defaultTheme.borderRadius,
-		colors: { ...defaultTheme.colors, ...theme.colors },
-		paddings: { ...defaultTheme.paddings, ...theme.paddings },
+		mode: lsTheme?.mode ?? theme?.mode ?? darkTheme.mode,
+		borderRadius: theme?.borderRadius ?? darkTheme.borderRadius,
+		colors: { ...darkTheme.colors, ...theme.colors },
+		paddings: { ...darkTheme.paddings, ...theme.paddings },
 		globalStyles: theme.globalStyles,
 	};
 
@@ -35,13 +36,13 @@ export const AUIProvider = ({ children, theme = {} }: IAUIProviderProps) => {
 
 	return (
 		<ThemeProvider theme={auiTheme}>
-			<>
-				{children}
-
-				<SnackbarsProvider />
-
-				<GlobalStyles />
-			</>
+			<OverlayProvider>
+				<>
+					{children}
+					<SnackbarsProvider />
+					<GlobalStyles />
+				</>
+			</OverlayProvider>
 		</ThemeProvider>
 	);
 };

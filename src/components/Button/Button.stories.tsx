@@ -121,12 +121,14 @@ export const Icon = () => {
 };
 
 export const Other = () => {
-	const { snackOk } = useSnacks();
+	const snack = useSnacks();
 
 	return (
 		<Container.$ column>
 			<Container.$>
-				<Button block>Block</Button>
+				<Button type="filled" block>
+					Block
+				</Button>
 			</Container.$>
 
 			<Container.$>
@@ -138,12 +140,7 @@ export const Other = () => {
 			</Container.$>
 
 			<Container.$>
-				<Button
-					onClick={() => {
-						// TODO: not working
-						snackOk('Success');
-					}}
-				>
+				<Button type="filled" onClick={() => snack.success('Success')}>
 					On Click
 				</Button>
 			</Container.$>

@@ -31,6 +31,7 @@ export const Basic = () => {
 				</Tab>
 				<Tab index={1}>
 					<Icons.AddCode />
+					Center
 				</Tab>
 				<Tab index={2}>
 					<Icons.ArrowRight />

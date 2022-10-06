@@ -4,6 +4,9 @@ import { Link } from '../Link';
 import { Ripple } from '../Ripple';
 import { useRipple } from '../Ripple/useRipple';
 
+import { BackButton } from './BackButton';
+import { Burger } from './Burger';
+import { CopyButton } from './CopyButton';
 import { S } from './Styled';
 import { ButtonProps } from './types';
 
@@ -65,3 +68,7 @@ export function Button(props: ButtonProps) {
 
 	return _Button;
 }
+
+Button.Copy = CopyButton;
+Button.Back = BackButton;
+Button.Burger = Burger;

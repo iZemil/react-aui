@@ -1,12 +1,12 @@
-import { IAUI, TAUIColors, TPaddings, TSize } from './types';
+import { IAUI, TColors, TPaddings, TSize } from './types';
 
 // GOOD: https://dev.to/j3nnning/theme-setup-with-styled-components-functional-programming-4i5p
 export const color =
-	(key: TAUIColors) =>
+	(key: TColors) =>
 	(props: { theme: IAUI }): string =>
 		props.theme.colors[key];
 
-export function checkColor(theme: IAUI, color?: TAUIColors | string): color is TAUIColors {
+export function checkColor(theme: IAUI, color?: TColors | string): color is TColors {
 	if (!color) {
 		return false;
 	}
@@ -14,7 +14,7 @@ export function checkColor(theme: IAUI, color?: TAUIColors | string): color is T
 	return color in theme.colors;
 }
 
-export function getAnyColor(theme: IAUI, value?: TAUIColors | string): string | undefined {
+export function getAnyColor(theme: IAUI, value?: TColors | string): string | undefined {
 	if (!value) {
 		return undefined;
 	}
@@ -29,7 +29,7 @@ export const overflowedText = () => `
 `;
 
 export const disabledCss = (extraCss = '') => `
-    opacity: 0.5;
+    opacity: 0.75;
     pointer-events: none;
     ${extraCss}
 `;
@@ -47,7 +47,7 @@ const toPx = (value: number): string => `${value}px`;
 export const borderRadius = (props: { theme: IAUI }): string => `${toPx(props.theme.borderRadius)}`;
 
 export const border =
-	(c: TAUIColors) =>
+	(c: TColors) =>
 	(props: { theme: IAUI }): string =>
 		`1px solid ${color(c)(props)}`;
 
@@ -131,7 +131,7 @@ export const isValidColors = (theme: IAUI): boolean => {
 };
 
 export const clickEffect = {
-	init: (props: { theme: IAUI; color: TAUIColors }, options?: { borderRadius: string }) => `
+	init: (props: { theme: IAUI; color: TColors }, options?: { borderRadius: string }) => `
 		&::after {
 			content: '';
 			display: block;

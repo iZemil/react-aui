@@ -18,18 +18,19 @@ import { IAUI } from 'react-aui';
 export const theme: IAUI = {
 	mode: 'dark',
 	colors: {
-		main: '#00ff7f',
+		main: '#828bf6',
 		text: '#ffffff',
-		red: '#f6465d',
-		green: '#00e78c',
-		white: '#ffffff',
-		grey: '#888888',
-		black: '#000000',
-		orange: '#c99400',
-		blue: '#03a9f4',
+		bg: '#36393f',
 
-		bg: '#202020',
-		wrapper: '#000000c9',
+		grey: '#c7c9cb',
+
+		red: '#ed4245',
+		green: '#3ba55d',
+		blue: '#00a6ff',
+		orange: '#ffbb33',
+
+		black: '#000000',
+		white: '#ffffff',
 	},
 	paddings: {
 		small: 5,
@@ -43,8 +44,7 @@ export const theme: IAUI = {
 		}
 	`,
 };
-
-// render
+/ render
 <AUIProvider theme={theme}>{/* your frontend components */}</AUIProvider>;
 ```
 

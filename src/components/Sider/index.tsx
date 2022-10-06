@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 
-import Styled, { IStSiderProps } from './Styled';
+import { Overlay } from '../Overlay';
 
-export interface ISiderProps extends IStSiderProps {
+import Styled, { SSiderProps } from './Styled';
+
+export type SiderProps = SSiderProps & {
 	children: React.ReactNode;
 	onClose: () => void;
-}
+};
 
-export const Sider = ({ children, open, onClose, ...props }: ISiderProps) => {
+export const Sider = (props: SiderProps) => {
+	const { children, open, width, onClose, ...rest } = props;
+
 	useEffect(() => {
 		return () => {
 			document.body.style.overflow = 'auto';
@@ -23,19 +27,10 @@ export const Sider = ({ children, open, onClose, ...props }: ISiderProps) => {
 	}, [open]);
 
 	return (
-		<Styled.$
-			open={open}
-			{...props}
-			onClick={(e) => {
-				const isWrapper = e.target === e.currentTarget;
-				if (isWrapper) {
-					onClose();
-				}
-			}}
-		>
-			<Styled.Content.$ open={open} {...props}>
+		<Overlay open={open} onClose={onClose}>
+			<Styled.$ width={width} open={open} {...rest}>
 				{children}
-			</Styled.Content.$>
-		</Styled.$>
+			</Styled.$>
+		</Overlay>
 	);
 };

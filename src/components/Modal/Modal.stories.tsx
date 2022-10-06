@@ -3,6 +3,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { border } from '../../styles';
+import { useModal } from '../../utils';
 import { Button } from '../Button';
 import Container from '../Container';
 
@@ -28,13 +29,26 @@ const defaultBasicState = {
 
 export const Basic = () => {
 	const [state, setOpen] = React.useState(defaultBasicState);
+	const modal1 = useModal();
 
 	const handleOpen = (key: keyof typeof defaultBasicState, value = true) => {
 		setOpen({ ...state, [key]: value });
 	};
 
 	return (
-		<Container.$ column>
+		<Container.$>
+			<Button
+				onClick={() =>
+					modal1.show(
+						<Modal open onClose={modal1.hide}>
+							<DefaultModalContent />
+						</Modal>
+					)
+				}
+			>
+				React Modal Hook
+			</Button>
+
 			<Button type="text" onClick={() => handleOpen('first')}>
 				Basic modal
 			</Button>
@@ -78,7 +92,7 @@ export const Size = () => {
 
 	return (
 		<Container.$>
-			<Button type="text" onClick={() => handleOpen('first')} size="small">
+			<Button onClick={() => handleOpen('first')} size="small">
 				small modal
 			</Button>
 			<Modal open={state.first} onClose={() => handleOpen('first', false)} size="small">
@@ -87,7 +101,7 @@ export const Size = () => {
 				))}
 			</Modal>
 
-			<Button type="text" onClick={() => handleOpen('second')} size="medium">
+			<Button onClick={() => handleOpen('second')} size="medium">
 				medium modal
 			</Button>
 			<Modal open={state.second} onClose={() => handleOpen('second', false)} size="medium">
@@ -96,7 +110,7 @@ export const Size = () => {
 				))}
 			</Modal>
 
-			<Button type="text" onClick={() => handleOpen('third')} size="large">
+			<Button onClick={() => handleOpen('third')} size="large">
 				large modal
 			</Button>
 			<Modal open={state.third} onClose={() => handleOpen('third', false)} size="large">

@@ -21,20 +21,19 @@ export function TextArea(props: TextAreaProps) {
 		<S.$>
 			<InputLabel id={id} label={label} error={error} size={size} />
 
-			<S.Value.Wrapper.$>
-				<S.Value.$
-					{...rest}
-					error={error}
-					size={size}
-					value={value}
-					placeholder={placeholder}
-					onChange={(e) => {
-						if (onChange) {
-							onChange(e.target.value, e);
-						}
-					}}
-				/>
-			</S.Value.Wrapper.$>
+			<S.Textarea.$
+				{...rest}
+				id={id}
+				error={error}
+				size={size}
+				value={value}
+				placeholder={placeholder}
+				onChange={(e) => {
+					if (onChange) {
+						onChange(e.target.value, e);
+					}
+				}}
+			/>
 
 			{hint}
 		</S.$>

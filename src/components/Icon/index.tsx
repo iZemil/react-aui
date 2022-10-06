@@ -3,7 +3,7 @@ import { IconBaseProps } from 'react-icons';
 import { IconType } from 'react-icons/lib';
 import { useTheme } from 'styled-components';
 
-import { IAUI, TAUIColors, TSize, getAnyColor, getFontSize } from '../../styles';
+import { IAUI, TColors, TSize, getAnyColor, getFontSize } from '../../styles';
 
 import { Icons } from './base-icons';
 
@@ -15,7 +15,7 @@ const BASE_SIZES = {
 
 export interface IconProps extends IconBaseProps {
 	icon: IconType;
-	color?: TAUIColors | string;
+	color?: TColors | string;
 	size?: number | string | TSize;
 }
 
@@ -33,6 +33,31 @@ export const Icon = (props: IconProps) => {
 	const resultSize = checkTSize(size) ? BASE_SIZES[size] : size;
 
 	return <IconComponent color={getAnyColor(theme, color)} size={resultSize} {...rest} />;
+};
+
+interface SvgIconProps {
+	size?: IconProps['size'];
+}
+
+/**
+ * Fn to create a svg icon
+ * @param svg
+ * @param alt alternative name
+ * @exmaple
+ *
+ * import SvgIcon from './assets/icon.svg';
+ *
+ * const Icons = {
+ *   ...appIcons,
+ *   NewIcon: svgToIcon(SvgIcon, 'new_icon'),
+ * }
+ */
+export const svgToIcon = (svg: string, alt: string) => {
+	return function SvgIcon(props: SvgIconProps) {
+		const { size } = props;
+
+		return <img src={svg} width={size} height={size} alt={alt} />;
+	};
 };
 
 Icon.Base = Icons;

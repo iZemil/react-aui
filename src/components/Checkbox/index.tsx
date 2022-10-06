@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { TAUIColors } from '../../styles';
+import { TColors } from '../../styles';
 import { Icon } from '../Icon';
 
 import S from './Styled';
@@ -10,7 +10,7 @@ export interface CheckboxProps {
 	checked?: boolean;
 	onClick?: (checked: boolean) => void;
 	disabled?: boolean;
-	color?: TAUIColors;
+	color?: TColors;
 }
 
 export const Checkbox = ({ checked, disabled, children, color = 'text', onClick, ...rest }: CheckboxProps) => {

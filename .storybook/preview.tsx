@@ -4,9 +4,8 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import { IAUI } from '../src';
-import { AUIProvider } from '../src/styles/AUIProvider';
-import { defaultTheme } from '../src/styles/consts';
+import { AUIProvider } from '../src/components';
+import { darkTheme, lightTheme } from '../src/styles/consts';
 
 export const globalTypes = {
 	theme: {
@@ -22,17 +21,6 @@ export const globalTypes = {
 				{ value: 'light', icon: 'circlehollow', title: 'light' },
 			],
 		},
-	},
-};
-
-const darkTheme: IAUI = defaultTheme;
-const lightTheme: IAUI = {
-	...defaultTheme,
-	mode: 'light',
-	colors: {
-		...defaultTheme.colors,
-		bg: '#5d6c6c',
-		text: '#121E14',
 	},
 };
 

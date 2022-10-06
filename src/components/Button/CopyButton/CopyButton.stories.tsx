@@ -1,4 +1,5 @@
 import { CopyButton } from '.';
+import { Button } from '..';
 import * as React from 'react';
 
 import Container from '../../Container';
@@ -12,7 +13,7 @@ export const Basic = () => {
 
 	return (
 		<Container.$ column>
-			<CopyButton value={currentDate} />
+			<Button.Copy value={currentDate} />
 
 			<CopyButton value={currentDate}>Copy</CopyButton>
 

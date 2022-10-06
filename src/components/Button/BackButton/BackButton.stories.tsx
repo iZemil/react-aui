@@ -1,4 +1,5 @@
 import { BackButton } from '.';
+import { Button } from '..';
 import * as React from 'react';
 
 import Container from '../../Container';
@@ -10,7 +11,7 @@ export default {
 export const Basic = () => {
 	return (
 		<Container.$ column>
-			<BackButton />
+			<Button.Back />
 
 			<BackButton type="filled" />
 		</Container.$>

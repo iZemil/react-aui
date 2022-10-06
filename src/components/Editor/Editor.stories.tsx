@@ -12,7 +12,7 @@ export const Basic = () => {
 
 	return (
 		<Container.$>
-			<Editor label="Markdown" value={value} onChange={setValue} withTools />
+			<Editor label="Markdown" value={value} onChange={setValue} tools />
 		</Container.$>
 	);
 };

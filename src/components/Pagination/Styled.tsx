@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { color, padding } from '../../styles';
+import { padding } from '../../styles';
 import { Button } from '../Button';
 
 export const S = {
@@ -12,13 +12,12 @@ export const S = {
 		padding: ${padding('large')} 0 ${padding('medium')};
 	`,
 	Item: {
-		$: styled(Button).attrs({ color: 'white', type: 'text', icon: true })<{ active?: boolean }>`
+		$: styled(Button).attrs({ icon: true })<{ active?: boolean }>`
 			user-select: none;
 
 			${(props) =>
 				props.active &&
 				`
-				color: ${color('main')(props)};
 				pointer-events: none;
 				cursor: default;
 			`}

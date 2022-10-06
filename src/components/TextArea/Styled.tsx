@@ -7,19 +7,12 @@ import { TextAreaProps } from './index';
 const S = {
 	$: styled.div``,
 
-	Value: {
+	Textarea: {
 		$: styled.textarea<Partial<Omit<TextAreaProps, 'onChange'>>>`
 			${commonInputValueCss};
 
 			${(props) => `resize: ${props.rows ? 'none' : 'vertical'};`}
 		`,
-		Wrapper: {
-			$: styled.div`
-				position: relative;
-				overflow: hidden;
-				display: flex;
-			`,
-		},
 	},
 };
 

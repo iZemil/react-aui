@@ -1,31 +1,38 @@
 import { IAUI } from './types';
 
-export const SIZES = { small: 'small', medium: 'medium', large: 'large' } as const;
-
 export const THEMES = { dark: 'dark', light: 'light' } as const;
 
-export const defaultTheme: IAUI = {
-	mode: 'dark',
+export const lightTheme: IAUI = {
+	mode: 'light',
 	colors: {
-		main: '#00ff7f',
-		text: '#ffffff',
-		bg: '#232529',
+		main: '#828bf6',
+		text: '#000000',
+		bg: '#ffffff',
+
+		grey: '#c7c9cb',
+
+		red: '#ed4245',
+		green: '#3ba55d',
+		blue: '#00a6ff',
+		orange: '#ffbb33',
 
 		black: '#000000',
 		white: '#ffffff',
-		grey: '#888888',
-
-		red: '#f6465d',
-		green: '#0ecb81',
-		blue: '#03a9f4',
-		orange: '#c99400',
-
-		wrapper: '#000000c9',
 	},
 	borderRadius: 4,
 	paddings: {
 		small: 5,
 		medium: 10,
 		large: 20,
+	},
+};
+
+export const darkTheme: IAUI = {
+	...lightTheme,
+	mode: 'dark',
+	colors: {
+		...lightTheme.colors,
+		bg: '#36393f',
+		text: '#ffffff',
 	},
 };

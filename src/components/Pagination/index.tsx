@@ -87,7 +87,7 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 
 	return (
 		<S.$>
-			<S.Item.$ onClick={() => onChange(current - 1)} disabled={current <= 1}>
+			<S.Item.$ type="text" onClick={() => onChange(current - 1)} disabled={current <= 1}>
 				<Icons.ChevronLeft />
 			</S.Item.$>
 
@@ -97,20 +97,25 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 
 				if (isDivider) {
 					return (
-						<S.Item.$ key={index} disabled>
+						<S.Item.$ type="text" key={index} disabled>
 							...
 						</S.Item.$>
 					);
 				}
 
 				return (
-					<S.Item.$ key={index} active={active} onClick={() => onChange(page)}>
+					<S.Item.$
+						key={index}
+						active={active}
+						type={active ? 'filled' : 'text'}
+						onClick={() => onChange(page)}
+					>
 						{page}
 					</S.Item.$>
 				);
 			})}
 
-			<S.Item.$ onClick={() => onChange(current + 1)} disabled={current >= pages}>
+			<S.Item.$ type="text" onClick={() => onChange(current + 1)} disabled={current >= pages}>
 				<Icons.ChevronRight />
 			</S.Item.$>
 		</S.$>
