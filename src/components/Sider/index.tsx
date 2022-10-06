@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 
 import { Overlay } from '../Overlay';
 
-import Styled, { SSiderProps } from './Styled';
+import S, { SSiderProps } from './Styled';
 
-export type SiderProps = SSiderProps & {
+export type SiderProps = Partial<SSiderProps> & {
 	children: React.ReactNode;
 	onClose: () => void;
 };
 
 export const Sider = (props: SiderProps) => {
-	const { children, open, width, onClose, ...rest } = props;
+	const { children, open = false, width = 320, onClose, position = 'right', ...rest } = props;
 
 	useEffect(() => {
 		return () => {
@@ -27,10 +27,12 @@ export const Sider = (props: SiderProps) => {
 	}, [open]);
 
 	return (
-		<Overlay open={open} onClose={onClose}>
-			<Styled.$ width={width} open={open} {...rest}>
+		<>
+			<Overlay open={open} onClose={onClose} />
+
+			<S.$ width={width} open={open} position={position} {...rest}>
 				{children}
-			</Styled.$>
-		</Overlay>
+			</S.$>
+		</>
 	);
 };

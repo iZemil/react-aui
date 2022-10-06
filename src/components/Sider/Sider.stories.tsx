@@ -9,14 +9,19 @@ export default {
 };
 
 export const Basic = () => {
-	const [open, setOpen] = React.useState(false);
+	const [left, setLeft] = React.useState(false);
+	const [right, setRight] = React.useState(false);
 
 	return (
 		<Container.$>
-			<Button.Burger onClick={() => setOpen(!open)} />
+			<Button onClick={() => setRight(true)}>Default</Button>
+			<Button.Burger onClick={() => setLeft(true)} />
 
-			<Sider open={open} onClose={() => setOpen(false)} width={320} position="right">
+			<Sider open={right} onClose={() => setRight(false)}>
 				Default
+			</Sider>
+			<Sider open={left} onClose={() => setLeft(false)} width={480} position="left">
+				Left
 			</Sider>
 		</Container.$>
 	);

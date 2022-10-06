@@ -15,8 +15,22 @@
 ```jsx
 import { IAUI, darkTheme, lightTheme } from 'react-aui';
 
-/ render
-<AUIProvider themes={[lightTheme, darkTheme]} active={1}>
-	{/* your frontend components */}
-</AUIProvider>;
+\// also you can create your own themes, see IAUI
+const theme: IAUI = {
+	...darkTheme,
+	mode: 'myTheme',
+	colors: {
+		...darkTheme.colors,
+		\// for example, change some colors
+		bg: '#36393f',
+		text: '#ffffff',
+	},
+};
+const App = () => {
+	return (
+		<AUIProvider themes={[theme, lightTheme, darkTheme]} active={0}>
+			{/* your frontend components */}
+		</AUIProvider>
+	);
+};
 ```
