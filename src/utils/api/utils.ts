@@ -1,7 +1,6 @@
+import { Dispatch } from '@reduxjs/toolkit';
 import { BaseQueryFn, FetchArgs, FetchBaseQueryError, fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { Mutex } from 'async-mutex';
-
-import { logout, setCredentials } from './authSlice';
 
 export const baseQuery = (baseUrl: string) =>
 	fetchBaseQuery({
@@ -12,7 +11,11 @@ export const baseQuery = (baseUrl: string) =>
 // https://github.com/DirtyHairy/async-mutex
 const mutex = new Mutex();
 export const baseQueryWithReauth =
-	(baseUrl: string): BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> =>
+	(
+		baseUrl: string,
+		onRefresh: (dispatch: Dispatch, refreshResponse: unknown) => void,
+		onLogout: (dispatch: Dispatch, refreshResponse: unknown) => void
+	): BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> =>
 	async (args, api, extraOptions) => {
 		// wait until the mutex is available without locking it
 		await mutex.waitForUnlock();
@@ -25,14 +28,14 @@ export const baseQueryWithReauth =
 				const release = await mutex.acquire();
 				try {
 					// try to get a new token
-					const refreshResult = await baseQuery(baseUrl)('/auth/refresh-token', api, extraOptions);
-					if (refreshResult.data) {
-						api.dispatch(setCredentials({ userId: (refreshResult.data as { id: string }).id }));
+					const refreshResponse = await baseQuery(baseUrl)('/auth/refresh-token', api, extraOptions);
+					if (refreshResponse.data) {
+						onRefresh(api.dispatch, refreshResponse);
 
 						// retry the initial query
 						result = await baseQuery(baseUrl)(args, api, extraOptions);
 					} else {
-						api.dispatch(logout());
+						onLogout(api.dispatch, refreshResponse);
 					}
 				} finally {
 					// release must be called once the mutex should be released again.

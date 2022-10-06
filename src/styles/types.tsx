@@ -1,10 +1,4 @@
-import { THEMES } from './consts';
-
-type ValueOf<T> = T[keyof T];
-
 export type TSize = 'small' | 'medium' | 'large';
-
-export type TTheme = ValueOf<typeof THEMES>;
 
 declare module 'styled-components' {
 	export interface DefaultTheme extends IAUI {
@@ -32,7 +26,7 @@ export type TColors = keyof IAUIColors;
 export type TPaddings = Record<TSize, number>;
 
 export interface IAUI {
-	mode: TTheme;
+	mode: string;
 	colors: IAUIColors;
 	borderRadius: number;
 	paddings: TPaddings;

@@ -1,7 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
 import { DecoratorFn } from '@storybook/react';
 import * as React from 'react';
-import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import { AUIProvider } from '../src/components';
@@ -28,19 +26,12 @@ export const globalTypes = {
 // find: https://app.contrast-finder.org/
 const withAUIProvider: DecoratorFn = (Story, context) => {
 	const theme = context.parameters.theme || context.globals.theme;
-	const globalTheme = theme === 'dark' ? darkTheme : lightTheme;
 
 	return (
 		<BrowserRouter>
-			<Provider
-				store={configureStore({
-					reducer: {},
-				})}
-			>
-				<AUIProvider theme={globalTheme}>
-					<Story />
-				</AUIProvider>
-			</Provider>
+			<AUIProvider themes={[lightTheme, darkTheme]} active={theme === 'light' ? 0 : 1}>
+				<Story />
+			</AUIProvider>
 		</BrowserRouter>
 	);
 };

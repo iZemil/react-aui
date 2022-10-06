@@ -1,41 +1,45 @@
 import { GlobalStyles, SnackbarsProvider } from '.';
 import * as React from 'react';
-import { useSelector } from 'react-redux';
-import { DefaultTheme, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
-import { darkTheme } from '../styles/consts';
-import { IAUI, IAUIColors, TPaddings, TTheme } from '../styles/types';
-import { isValidColors } from '../styles/utils';
+import { isValidColors } from '../styles';
+import { IAUI } from '../styles/types';
 
 import { OverlayProvider } from './Overlay';
 
-interface IAUIProviderProps {
-	theme?: Partial<
-		{ borderRadius: number; mode: TTheme; globalStyles: string } & { colors: Partial<IAUIColors> } & {
-			paddings: Partial<TPaddings>;
-		}
-	>;
+interface AUIProviderProps {
+	themes: IAUI[];
+	active?: number;
 	children: React.ReactNode;
 }
 
-export const AUIProvider = ({ children, theme = {} }: IAUIProviderProps) => {
-	// TODO: may work incorect without redux-persist
-	const lsTheme = useSelector((state: { aui: DefaultTheme }) => state.aui);
+interface IAUIContext {
+	active: number;
+	themes: IAUI[];
+}
+const defaultAUIContext: IAUIContext = {
+	active: 0,
+	themes: [],
+};
+export const AUIContext = React.createContext<IAUIContext>(defaultAUIContext);
 
-	const auiTheme: IAUI = {
-		mode: lsTheme?.mode ?? theme?.mode ?? darkTheme.mode,
-		borderRadius: theme?.borderRadius ?? darkTheme.borderRadius,
-		colors: { ...darkTheme.colors, ...theme.colors },
-		paddings: { ...darkTheme.paddings, ...theme.paddings },
-		globalStyles: theme.globalStyles,
-	};
+export const AUIProvider = ({ children, active = 0, themes }: AUIProviderProps) => {
+	const [context, setContext] = React.useState<IAUIContext>({
+		active,
+		themes,
+	});
 
+	// validate theme color props
 	React.useEffect(() => {
-		isValidColors(auiTheme);
+		context.themes.forEach((theme) => {
+			isValidColors(theme);
+		});
 	}, []);
 
+	const theme: IAUI = React.useMemo(() => context.themes[context.active], [context]);
+
 	return (
-		<ThemeProvider theme={auiTheme}>
+		<ThemeProvider theme={theme}>
 			<OverlayProvider>
 				<>
 					{children}

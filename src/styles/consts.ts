@@ -1,7 +1,5 @@
 import { IAUI } from './types';
 
-export const THEMES = { dark: 'dark', light: 'light' } as const;
-
 export const lightTheme: IAUI = {
 	mode: 'light',
 	colors: {

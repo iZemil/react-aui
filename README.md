@@ -13,45 +13,10 @@ React UI library: [Storybook Components](https://izemil.github.io/react-aui/)
 -   Init AUIProvider into root of your project:
 
 ```jsx
-import { IAUI } from 'react-aui';
+import { IAUI, darkTheme, lightTheme } from 'react-aui';
 
-export const theme: IAUI = {
-	mode: 'dark',
-	colors: {
-		main: '#828bf6',
-		text: '#ffffff',
-		bg: '#36393f',
-
-		grey: '#c7c9cb',
-
-		red: '#ed4245',
-		green: '#3ba55d',
-		blue: '#00a6ff',
-		orange: '#ffbb33',
-
-		black: '#000000',
-		white: '#ffffff',
-	},
-	paddings: {
-		small: 5,
-		medium: 10,
-		large: 20,
-	},
-	borderRadius: 4,
-	globalStyles: `
-		h1, h2, h3, h4 {
-			margin: 0;
-		}
-	`,
-};
 / render
-<AUIProvider theme={theme}>{/* your frontend components */}</AUIProvider>;
-```
-
-### Hooks
-
--   Snackbars by [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)
-
-```jsx
-const { snackOk, snackError, snack } = useSnacks();
+<AUIProvider themes={[lightTheme, darkTheme]} active={1}>
+	{/* your frontend components */}
+</AUIProvider>;
 ```

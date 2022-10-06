@@ -1,29 +1,30 @@
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { DefaultTheme } from 'styled-components';
-
-import { themeActions } from '../../utils/themeSlice';
 
 import S from './Styled';
 
 const SIZE = 20;
 
 export const DarkMode = () => {
-	const settings = useSelector((state: { theme: DefaultTheme }) => state.theme);
-	const dispatch = useDispatch();
+	// const settings = useSelector((state: { theme: DefaultTheme }) => state.theme);
+	// const dispatch = useDispatch();
 
-	const isDark = React.useMemo(() => settings.mode === 'dark', [settings.mode]);
+	// const isDark = React.useMemo(() => settings.mode === 'dark', [settings.mode]);
 
-	const toggleTheme = (): void => {
-		const mode = isDark ? 'light' : 'dark';
+	// const toggleTheme = (): void => {
+	// 	const mode = isDark ? 'light' : 'dark';
 
-		dispatch(themeActions.setTheme({ mode }));
-	};
+	// 	dispatch(themeActions.setTheme({ mode }));
+	// };
 
 	return (
-		<S.$ onClick={() => toggleTheme()} $active={isDark}>
+		<S.$
+			onClick={() => {
+				return;
+			}}
+			$active={true}
+		>
 			<S.Content.$>
-				{isDark ? (
+				{true ? (
 					<>
 						Light Mode
 						<S.Content.Sun.$ size={SIZE} />
