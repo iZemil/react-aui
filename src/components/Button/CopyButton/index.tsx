@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import { Icon } from '../..';
 import { getFontSize } from '../../../styles';
 import { TPrimitives, copyBuffer, wait } from '../../../utils';
-import { Icon } from '../../Icon';
 import { ButtonProps } from '../types';
 
 import S from './Styled';
@@ -37,7 +37,7 @@ export const CopyButton = (props: ICopyButtonProps) => {
 			{!withoutIcon && (
 				<S.Icon.$>
 					<Icon
-						icon={isCopied ? Icon.Base.Ok : Icon.Base.Copy}
+						icon={isCopied ? Icon.base.Ok : Icon.base.Copy}
 						color={isCopied ? 'green' : undefined}
 						size={iconSize}
 					/>

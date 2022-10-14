@@ -1,99 +1,118 @@
-import {
-	BsCheck as Accept,
-	BsListCheck as AddCheckbox,
-	BsCodeSlash as AddCode,
-	BsCalendarPlus as AddDate,
-	BsTypeH3 as AddHeading,
-	BsImage as AddImage,
-	BsListUl as AddListItem,
-	BsArrowLeft as ArrowLeft,
-	BsArrowRight as ArrowRight,
-	BsTypeBold as Bold,
-	BsCalendarRange as Calendar,
-	BsChat as Chat,
-	BsFillCheckSquareFill as Checked,
-	BsChevronDown as ChevronDown,
-	BsChevronLeft as ChevronLeft,
-	BsChevronRight as ChevronRight,
-	BsChevronUp as ChevronUp,
-	BsPaperclip as Clip,
-	BsClock as Clock,
-	BsFiles as Copy,
-	BsTrash as Delete,
-	BsCalendarMinus as DeleteDate,
-	BsPencil as Edit,
-	BsPersonCircle as EmptyAvatar,
-	BsEyeSlash as Hide,
-	BsHouse as Home,
-	BsQuestionCircle as Info,
-	BsTypeItalic as Italic,
-	BsLink45Deg as Link,
-	BsMarkdown as Markdown,
-	BsMoonStars as Moon,
-	BsPlusCircle as New,
-	BsSquare as NotChecked,
-	BsCheck2 as Ok,
-	BsPauseCircle as Pause,
-	BsPercent as Percent,
-	BsPerson as Person,
-	BsPinAngle as Pin,
-	BsPlayCircle as Play,
-	BsTrophy as Pro,
-	BsEyeglasses as ReadMode,
-	BsArrowReturnLeft as Return,
-	BsGear as Settings,
-	BsDoorOpen as SignOut,
-	BsStopCircle as Stop,
-	BsSun as Sun,
-	BsThreeDotsVertical as ThreeDots,
-} from 'react-icons/bs';
+import * as React from 'react';
+import type { IconType } from 'react-icons';
 
-export const Icons = {
-	Italic,
-	AddHeading,
-	Bold,
-	Markdown,
-	Sun,
-	Moon,
-	Home,
-	Link,
-	Pin,
-	Delete,
-	AddDate,
-	DeleteDate,
-	ReadMode,
-	AddCheckbox,
-	AddListItem,
-	AddImage,
-	AddCode,
-	Checked,
-	NotChecked,
-	Info,
-	Pro,
-	Calendar,
-	ChevronLeft,
-	ChevronRight,
-	Clip,
-	ThreeDots,
-	Person,
-	Percent,
-	Chat,
-	EmptyAvatar,
-	Ok,
-	Copy,
-	New,
-	Edit,
-	Play,
-	Pause,
-	Settings,
-	Hide,
-	Accept,
-	Return,
-	Clock,
-	Stop,
-	ArrowRight,
-	ArrowLeft,
-	SignOut,
-	ChevronDown,
-	ChevronUp,
-};
+import { EmptyIcon } from './EmptyIcon';
+
+type BaseIconNames =
+	| 'Accept'
+	| 'AddCheckbox'
+	| 'AddCode'
+	| 'AddDate'
+	| 'AddHeading'
+	| 'AddImage'
+	| 'AddListItem'
+	| 'ArrowLeft'
+	| 'ArrowRight'
+	| 'Bold'
+	| 'Calendar'
+	| 'Chat'
+	| 'Checked'
+	| 'ChevronDown'
+	| 'ChevronLeft'
+	| 'ChevronRight'
+	| 'ChevronUp'
+	| 'Clip'
+	| 'Clock'
+	| 'Copy'
+	| 'Delete'
+	| 'DeleteDate'
+	| 'Edit'
+	| 'EmptyAvatar'
+	| 'Hide'
+	| 'Home'
+	| 'Info'
+	| 'Italic'
+	| 'Link'
+	| 'Markdown'
+	| 'Moon'
+	| 'New'
+	| 'NotChecked'
+	| 'Ok'
+	| 'Pause'
+	| 'Percent'
+	| 'Person'
+	| 'Pin'
+	| 'Play'
+	| 'Pro'
+	| 'ReadMode'
+	| 'Settings'
+	| 'SignOut'
+	| 'Stop'
+	| 'Sun'
+	| 'ThreeDots';
+
+type BaseSet = Record<BaseIconNames, IconType>;
+
+const BASE_SET: BaseSet = new Proxy({} as BaseSet, {
+	get(icons: BaseSet, name: BaseIconNames) {
+		if (name in icons) {
+			return icons[name];
+		}
+
+		return <EmptyIcon />;
+	},
+});
+
+// link to react-icons/bs
+const BS = {};
+
+import('react-icons/bs').then((bs) => {
+	Object.assign(BS, bs);
+
+	BASE_SET.Italic = bs.BsTypeItalic;
+	BASE_SET.AddHeading = bs.BsTypeH3;
+	BASE_SET.Bold = bs.BsTypeBold;
+	BASE_SET.Markdown = bs.BsMarkdown;
+	BASE_SET.Sun = bs.BsSun;
+	BASE_SET.Moon = bs.BsMoonStars;
+	BASE_SET.Home = bs.BsHouse;
+	BASE_SET.Link = bs.BsLink45Deg;
+	BASE_SET.Pin = bs.BsPinAngle;
+	BASE_SET.Delete = bs.BsTrash;
+	BASE_SET.ReadMode = bs.BsEyeglasses;
+	BASE_SET.AddCheckbox = bs.BsListCheck;
+	BASE_SET.AddListItem = bs.BsListUl;
+	BASE_SET.AddImage = bs.BsImage;
+	BASE_SET.AddCode = bs.BsCodeSlash;
+	BASE_SET.Checked = bs.BsFillCheckSquareFill;
+	BASE_SET.NotChecked = bs.BsSquare;
+	BASE_SET.Info = bs.BsQuestionCircle;
+	BASE_SET.Pro = bs.BsTrophy;
+	BASE_SET.Calendar = bs.BsCalendarRange;
+	BASE_SET.ChevronLeft = bs.BsChevronLeft;
+	BASE_SET.ChevronRight = bs.BsChevronRight;
+	BASE_SET.Clip = bs.BsPaperclip;
+	BASE_SET.ThreeDots = bs.BsThreeDotsVertical;
+	BASE_SET.Person = bs.BsPerson;
+	BASE_SET.Percent = bs.BsPercent;
+	BASE_SET.Chat = bs.BsChat;
+	BASE_SET.EmptyAvatar = bs.BsPersonCircle;
+	BASE_SET.Ok = bs.BsCheck2;
+	BASE_SET.Copy = bs.BsFiles;
+	BASE_SET.New = bs.BsPlusCircle;
+	BASE_SET.Edit = bs.BsPencil;
+	BASE_SET.Play = bs.BsPlayCircle;
+	BASE_SET.Pause = bs.BsPauseCircle;
+	BASE_SET.Settings = bs.BsGear;
+	BASE_SET.Hide = bs.BsEyeSlash;
+	BASE_SET.Accept = bs.BsCheck;
+	BASE_SET.Clock = bs.BsClock;
+	BASE_SET.Stop = bs.BsStopCircle;
+	BASE_SET.ArrowRight = bs.BsArrowRight;
+	BASE_SET.ArrowLeft = bs.BsArrowLeft;
+	BASE_SET.SignOut = bs.BsDoorOpen;
+	BASE_SET.ChevronDown = bs.BsChevronDown;
+	BASE_SET.ChevronUp = bs.BsChevronUp;
+});
+
+export { BASE_SET, BS };

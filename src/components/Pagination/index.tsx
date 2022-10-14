@@ -1,6 +1,5 @@
+import { Icon } from '..';
 import * as React from 'react';
-
-import { Icons } from '../Icon/base-icons';
 
 import { S } from './Styled';
 
@@ -88,7 +87,7 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 	return (
 		<S.$>
 			<S.Item.$ type="text" onClick={() => onChange(current - 1)} disabled={current <= 1}>
-				<Icons.ChevronLeft />
+				<Icon.base.ChevronLeft />
 			</S.Item.$>
 
 			{list.map((page, index) => {
@@ -116,7 +115,7 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 			})}
 
 			<S.Item.$ type="text" onClick={() => onChange(current + 1)} disabled={current >= pages}>
-				<Icons.ChevronRight />
+				<Icon.base.ChevronRight />
 			</S.Item.$>
 		</S.$>
 	);

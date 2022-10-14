@@ -72,6 +72,29 @@ const Styled = {
 			top: 0;
 			right: 0;
 			z-index: 9;
+
+			span {
+				position: relative;
+				display: inline-block;
+				width: 28px;
+				height: 28px;
+
+				&::before,
+				&::after {
+					position: absolute;
+					content: '';
+					height: 100%;
+					width: 2px;
+					background: ${color('white')}30;
+				}
+
+				&::before {
+					transform: rotate(45deg);
+				}
+				&::after {
+					transform: rotate(-45deg);
+				}
+			}
 		`,
 	},
 };

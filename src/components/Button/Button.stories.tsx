@@ -1,12 +1,12 @@
+import { Icon } from '..';
 import * as React from 'react';
 
 import { useSnacks } from '../../utils';
 import Container from '../Container';
-import { Icon as IconUI } from '../Icon';
 
 import { Button } from './index';
 
-const { Base: BaseIcon } = IconUI;
+const { base: BaseIcon } = Icon;
 
 export default {
 	component: Button,
@@ -85,7 +85,7 @@ export const Color = () => {
 	);
 };
 
-export const Icon = () => {
+export const Icons = () => {
 	return (
 		<Container.$ column>
 			<Container.$>

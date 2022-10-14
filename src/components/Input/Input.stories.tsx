@@ -1,9 +1,9 @@
 import { Input } from '.';
+import { Icon } from '..';
 import * as React from 'react';
 
 import { Button } from '../Button';
 import Container from '../Container';
-import { Icons } from '../Icon/base-icons';
 
 export default {
 	component: Input,
@@ -60,7 +60,7 @@ export const Other = () => {
 							gap: '5px',
 						}}
 					>
-						<Icons.EmptyAvatar />
+						<Icon.base.EmptyAvatar />
 						Custom label
 					</div>
 				}
@@ -74,7 +74,7 @@ export const Other = () => {
 				placeholder="Write a message"
 				prefix={
 					<Button icon>
-						<Icons.Person />
+						<Icon.base.Person />
 					</Button>
 				}
 			/>
@@ -83,7 +83,7 @@ export const Other = () => {
 				placeholder="Write a message"
 				suffix={
 					<Button icon>
-						<Icons.Hide />
+						<Icon.base.Hide />
 					</Button>
 				}
 			/>
@@ -93,12 +93,12 @@ export const Other = () => {
 				error="error"
 				prefix={
 					<Button icon>
-						<Icons.Person />
+						<Icon.base.Person />
 					</Button>
 				}
 				suffix={
 					<Button icon>
-						<Icons.Hide />
+						<Icon.base.Hide />
 					</Button>
 				}
 			/>

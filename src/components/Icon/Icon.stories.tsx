@@ -1,6 +1,6 @@
 import { Icon } from '.';
 import * as React from 'react';
-import { BsQuestionCircle } from 'react-icons/bs';
+import type { IconType } from 'react-icons';
 
 import { useSnacks } from '../../utils';
 import { CopyButton } from '../Button/CopyButton';
@@ -15,25 +15,25 @@ export const Basic = () => {
 		<Container.$ column>
 			<Container.$>
 				<span>react-icons</span>
-				<Icon icon={BsQuestionCircle} />
+				<Icon icon={Icon.base.Info} />
 			</Container.$>
 			<Container.$>
 				<span>base icon set</span>
-				<Icon icon={Icon.Base.Info} />
-				<Icon.Base.Info />
+				<Icon icon={Icon.base.Info} />
+				<Icon icon={Icon.base.Info} />
 			</Container.$>
 			<Container.$>
 				<span>change color</span>
-				<Icon icon={BsQuestionCircle} color="red" />
-				<Icon icon={BsQuestionCircle} color="blue" />
-				<Icon icon={BsQuestionCircle} color="pink" />
-				<Icon icon={BsQuestionCircle} color="#00ff00" />
+				<Icon icon={Icon.base.Info} color="red" />
+				<Icon icon={Icon.base.Info} color="blue" />
+				<Icon icon={Icon.base.Info} color="pink" />
+				<Icon icon={Icon.base.Info} color="#00ff00" />
 			</Container.$>
 
 			<Container.$>
-				<Icon icon={Icon.Base.Info} size="small" />
-				<Icon icon={Icon.Base.Info} size="medium" />
-				<Icon icon={Icon.Base.Info} size="large" />
+				<Icon icon={Icon.base.Info} size="small" />
+				<Icon icon={Icon.base.Info} size="medium" />
+				<Icon icon={Icon.base.Info} size="large" />
 			</Container.$>
 		</Container.$>
 	);
@@ -45,17 +45,41 @@ export const BasicSet = () => {
 	return (
 		<Container.$ column>
 			<Container.$ style={{ flexWrap: 'wrap' }}>
-				{Object.entries(Icon.Base).map(([name, baseIcon]) => (
+				{Object.entries(Icon.base).map(([name, baseIcon]) => (
 					<CopyButton
 						key={name}
 						value={() => {
 							snack.success(`Copied: ${name}`);
 
-							return `<Icon icon={Icon.Base.${name}} />`;
+							return `<Icon icon={Icon.base.${name}} />`;
 						}}
 						withoutIcon
 					>
 						<Icon icon={baseIcon} size={20} />
+					</CopyButton>
+				))}
+			</Container.$>
+		</Container.$>
+	);
+};
+
+export const AllSet = () => {
+	const snack = useSnacks();
+
+	return (
+		<Container.$ column>
+			<Container.$ style={{ flexWrap: 'wrap' }}>
+				{Object.entries(Icon.all).map(([name, baseIcon]) => (
+					<CopyButton
+						key={name}
+						value={() => {
+							snack.success(`Copied: ${name}`);
+
+							return `<Icon icon={Icon.all.${name}} />`;
+						}}
+						withoutIcon
+					>
+						<Icon icon={baseIcon as IconType} size={20} />
 					</CopyButton>
 				))}
 			</Container.$>

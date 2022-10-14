@@ -1,7 +1,7 @@
+import { Icon } from '..';
 import styled from 'styled-components';
 
 import { padding } from '../../styles';
-import { Icons } from '../Icon/base-icons';
 
 const Styled = {
 	$: styled.button<{ $active: boolean }>`
@@ -24,12 +24,12 @@ const Styled = {
 			font-size: 14px;
 		`,
 		Sun: {
-			$: styled(Icons.Sun)`
+			$: styled(Icon.base.Sun)`
 				color: yellow;
 			`,
 		},
 		Moon: {
-			$: styled(Icons.Moon)`
+			$: styled(Icon.base.Moon)`
 				color: black;
 			`,
 		},

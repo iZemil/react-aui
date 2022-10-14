@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { BsXLg as CloseIcon } from 'react-icons/bs';
 
-import { Icon } from '../Icon';
 import { Overlay } from '../Overlay';
 
 import S from './Styled';
@@ -35,7 +33,7 @@ export const Modal = ({ children, open = false, size, onClose, closeButton, ...r
 						}
 					}}
 				>
-					<Icon icon={CloseIcon} />
+					<span />
 				</S.Close.$>
 			)}
 		</>

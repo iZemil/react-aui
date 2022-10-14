@@ -1,6 +1,5 @@
 export * from './AUIProvider';
 export * from './Card';
-export * from './DatePicker';
 export * from './Link';
 
 export * from './Page';

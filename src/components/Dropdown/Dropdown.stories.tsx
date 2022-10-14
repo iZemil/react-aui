@@ -1,9 +1,9 @@
 import { Dropdown, Option } from '.';
+import { Icon } from '..';
 import * as React from 'react';
 
 import { Button } from '../Button';
 import Container from '../Container';
-import { Icons } from '../Icon/base-icons';
 
 export default {
 	component: Dropdown,
@@ -18,19 +18,19 @@ export const Basic = () => {
 						console.log('option props', option);
 					}}
 				>
-					<Icons.Accept />
+					<Icon.base.Accept />
 					create
 				</Option>
 				<Option>
-					<Icons.Info />
+					<Icon.base.Info />
 					read
 				</Option>
 				<Option>
-					<Icons.Edit />
+					<Icon.base.Edit />
 					update
 				</Option>
 				<Option>
-					<Icons.Delete />
+					<Icon.base.Delete />
 					delete
 				</Option>
 			</Dropdown>

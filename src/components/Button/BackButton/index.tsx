@@ -2,7 +2,7 @@ import { Button } from '..';
 import * as React from 'react';
 import { useNavigate } from 'react-router';
 
-import { Icon } from '../../Icon';
+import { Icon } from '../..';
 import { ButtonProps } from '../types';
 
 type BackButtonProps = Partial<ButtonProps>;
@@ -13,7 +13,7 @@ export function BackButton(props: BackButtonProps) {
 
 	return (
 		<Button {...props} icon type={props.type ?? 'text'} circle onClick={() => navigate(-1)}>
-			<Icon.Base.ArrowLeft />
+			<Icon.base.ArrowLeft />
 		</Button>
 	);
 }

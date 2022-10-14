@@ -22,7 +22,7 @@ export const MarkdownSupport = () => {
 		<S.$>
 			<Button size="small" type="text" color="grey" to={MARKDOWN_SUPPORT_LINK} blank>
 				Styling with Markdown is supported
-				<Icon icon={Icon.Base.Markdown} size="small" />
+				<Icon icon={Icon.base.Markdown} size="small" />
 			</Button>
 		</S.$>
 	);

@@ -1,7 +1,7 @@
+import { Icon } from '..';
 import * as React from 'react';
 
 import { getInitials, stringToColor } from '../../utils';
-import { Icons } from '../Icon/base-icons';
 
 import S, { ISAvatarProps } from './Styled';
 
@@ -22,7 +22,7 @@ export const Avatar = ({
 		<S.$ size={size} color={color} title={children} square={square} {...styledProps}>
 			{src && <S.Image.$ src={src} />}
 
-			<S.Name.$>{children ? getInitials(children) : <Icons.Person />}</S.Name.$>
+			<S.Name.$>{children ? getInitials(children) : <Icon.base.Person />}</S.Name.$>
 		</S.$>
 	);
 };

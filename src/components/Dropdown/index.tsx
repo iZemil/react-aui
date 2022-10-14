@@ -1,8 +1,8 @@
+import { Icon } from '..';
 import * as React from 'react';
 
 import { Button } from '../Button';
 import { ButtonProps } from '../Button/types';
-import { Icons } from '../Icon/base-icons';
 
 import S, { SDropdownContentProps } from './Styled';
 
@@ -38,7 +38,7 @@ export class Option extends React.Component<OptionProps> {
 
 const DropdownLabel = ({ ...rest }: Partial<ButtonProps>) => (
 	<Button type="text" color="text" circle {...rest}>
-		<Icons.ThreeDots />
+		<Icon.base.ThreeDots />
 	</Button>
 );
 

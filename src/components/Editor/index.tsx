@@ -1,6 +1,6 @@
+import { Icon } from '..';
 import * as React from 'react';
 
-import { Icon } from '../Icon';
 import { MARKDOWN_SUPPORT_LINK } from '../MarkdownSupport';
 import { TextAreaProps } from '../TextArea';
 
@@ -70,28 +70,28 @@ export const Editor = ({ value, onChange, tools, label, ...rest }: IEditorProps)
 						{tools && (
 							<S.Tools.$>
 								<S.Tools.Btn.$ onClick={() => handleClickBtn('heading')} title="Add heading text">
-									<Icon icon={Icon.Base.AddHeading} />
+									<Icon icon={Icon.base.AddHeading} />
 								</S.Tools.Btn.$>
 								<S.Tools.Btn.$ onClick={() => handleClickBtn('bold')} title="Add bold text">
-									<Icon icon={Icon.Base.Bold} />
+									<Icon icon={Icon.base.Bold} />
 								</S.Tools.Btn.$>
 								<S.Tools.Btn.$ onClick={() => handleClickBtn('italic')} title="Add italic text">
-									<Icon icon={Icon.Base.Italic} />
+									<Icon icon={Icon.base.Italic} />
 								</S.Tools.Btn.$>
 								<S.Tools.Btn.$ onClick={() => handleClickBtn('list')} title="Add a list item">
-									<Icon icon={Icon.Base.AddListItem} />
+									<Icon icon={Icon.base.AddListItem} />
 								</S.Tools.Btn.$>
 								<S.Tools.Btn.$ onClick={() => handleClickBtn('link')} title="Add link">
-									<Icon icon={Icon.Base.Link} />
+									<Icon icon={Icon.base.Link} />
 								</S.Tools.Btn.$>
 								<S.Tools.Btn.$ onClick={() => handleClickBtn('code')} title="Add code">
-									<Icon icon={Icon.Base.AddCode} />
+									<Icon icon={Icon.base.AddCode} />
 								</S.Tools.Btn.$>
 								<S.Tools.Btn.$ to={MARKDOWN_SUPPORT_LINK} blank title="Markdown info">
-									<Icon icon={Icon.Base.Markdown} />
+									<Icon icon={Icon.base.Markdown} />
 								</S.Tools.Btn.$>
 								{/* <S.Tools.Btn.$ onClick={() => handleClickBtn('checkbox')}>
-									<Icon icon={Icon.Base.AddCheckbox} />
+									<Icon icon={Icon.base.AddCheckbox} />
 								</S.Tools.Btn.$> */}
 							</S.Tools.$>
 						)}

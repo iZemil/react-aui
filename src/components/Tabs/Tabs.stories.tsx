@@ -1,8 +1,8 @@
 import { Tab, Tabs } from '.';
+import { Icon } from '..';
 import * as React from 'react';
 
 import Container from '../Container';
-import { Icons } from '../Icon/base-icons';
 
 export default {
 	component: Tabs,
@@ -27,14 +27,14 @@ export const Basic = () => {
 
 			<Tabs activeIndex={tabIndex} onChange={setTabIndex}>
 				<Tab index={0}>
-					<Icons.ArrowLeft />
+					<Icon.base.ArrowLeft />
 				</Tab>
 				<Tab index={1}>
-					<Icons.AddCode />
+					<Icon.base.AddCode />
 					Center
 				</Tab>
 				<Tab index={2}>
-					<Icons.ArrowRight />
+					<Icon.base.ArrowRight />
 				</Tab>
 			</Tabs>
 		</Container.$>

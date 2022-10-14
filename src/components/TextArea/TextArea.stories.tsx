@@ -1,8 +1,8 @@
 import { TextArea } from '.';
+import { Icon } from '..';
 import * as React from 'react';
 
 import Container from '../Container';
-import { Icons } from '../Icon/base-icons';
 
 export default {
 	component: TextArea,
@@ -45,7 +45,7 @@ export const Basic = () => {
 							gap: '5px',
 						}}
 					>
-						<Icons.EmptyAvatar />
+						<Icon icon={Icon.base.EmptyAvatar} />
 						Custom label
 					</div>
 				}
