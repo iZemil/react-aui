@@ -64,7 +64,8 @@ const BASE_SET: BaseSet = new Proxy({} as BaseSet, {
 });
 
 // link to react-icons/bs
-const BS = {};
+type BSSet = Record<keyof typeof import('react-icons/bs'), IconType>;
+const BS: BSSet = {} as BSSet;
 
 import('react-icons/bs').then((bs) => {
 	Object.assign(BS, bs);

@@ -32,5 +32,6 @@ export { Avatar } from './Avatar';
 export { Divider } from './Divider';
 
 export { Icon } from './Icon';
+export { svgToIcon } from './Icon/utils';
 
 export { Loader } from './Loader';

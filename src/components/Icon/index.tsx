@@ -30,3 +30,5 @@ export class IconWrapper extends React.Component<IconProps & { theme?: IAUI }> {
 }
 
 export const Icon = withTheme(IconWrapper) as unknown as typeof IconWrapper;
+
+export type { IconType } from 'react-icons';

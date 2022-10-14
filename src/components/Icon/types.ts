@@ -1,10 +1,9 @@
 import { IconBaseProps } from 'react-icons';
-import { IconType } from 'react-icons/lib';
 
 import { TColors, TSize } from '../../styles';
 
 export interface IconProps extends IconBaseProps {
-	icon: IconType;
+	icon: (props: Partial<IconProps>) => JSX.Element;
 	color?: TColors | string;
 	size?: number | string | TSize;
 }
