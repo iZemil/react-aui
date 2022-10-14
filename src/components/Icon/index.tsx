@@ -3,9 +3,8 @@ import { withTheme } from 'styled-components';
 
 import { IAUI, TSize, getAnyColor } from '../../styles';
 
-import { BASE_SET, BS } from './base-icons';
 import { IconProps } from './types';
-import { BASE_SIZES } from './utils';
+import { BASE_SET, BASE_SIZES, BS_SET } from './utils';
 
 function checkTSize(size?: number | string): size is TSize {
 	if (!size) {
@@ -17,7 +16,7 @@ function checkTSize(size?: number | string): size is TSize {
 
 export class IconWrapper extends React.Component<IconProps & { theme?: IAUI }> {
 	public static base = BASE_SET;
-	public static all = BS;
+	public static all = BS_SET;
 
 	render() {
 		const { icon: IconComponent, color, size, ...rest } = this.props;

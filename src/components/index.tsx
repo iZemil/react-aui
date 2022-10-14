@@ -32,6 +32,7 @@ export { Avatar } from './Avatar';
 export { Divider } from './Divider';
 
 export { Icon } from './Icon';
-export { svgToIcon } from './Icon/utils';
+export { svgToIcon, createIconAliases } from './Icon/utils';
+export type { IconType } from 'react-icons';
 
 export { Loader } from './Loader';

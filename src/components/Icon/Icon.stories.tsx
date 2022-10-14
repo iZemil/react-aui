@@ -1,10 +1,11 @@
 import { Icon } from '.';
 import * as React from 'react';
-import type { IconType } from 'react-icons';
 
 import { useSnacks } from '../../utils';
 import { CopyButton } from '../Button/CopyButton';
 import Container from '../Container';
+
+import { createIconAliases } from './utils';
 
 export default {
 	component: Icon,
@@ -79,7 +80,38 @@ export const AllSet = () => {
 						}}
 						withoutIcon
 					>
-						<Icon icon={baseIcon as IconType} size={20} />
+						<Icon icon={baseIcon} size={20} />
+					</CopyButton>
+				))}
+			</Container.$>
+		</Container.$>
+	);
+};
+
+export const Aliases = () => {
+	const snack = useSnacks();
+	const iconAliases = createIconAliases((bs) => ({
+		unarchive: bs.BsFileArrowUp,
+		archive: bs.BsFileArrowDown,
+		withdraw: bs.BsCashStack,
+		pending: bs.BsClock,
+	}));
+	const aliases = Object.keys(iconAliases) as Array<keyof typeof iconAliases>;
+
+	return (
+		<Container.$ column>
+			<Container.$ style={{ flexWrap: 'wrap' }}>
+				{aliases.map((alias) => (
+					<CopyButton
+						key={alias}
+						value={() => {
+							snack.success(`Copied: ${alias}`);
+
+							return `<Icon icon={iconAliases.${alias}} />`;
+						}}
+						withoutIcon
+					>
+						<Icon icon={iconAliases[alias]} size={20} />
 					</CopyButton>
 				))}
 			</Container.$>
