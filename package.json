@@ -17,6 +17,7 @@
     "version": "1.2.1",
     "scripts": {
         "build": "tsc",
+        "build2": "node scripts/build.js",
         "test": "node scripts/test.js",
         "dev": "start-storybook",
         "serve": "node scripts/start.js",

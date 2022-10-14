@@ -43,8 +43,7 @@ export function Input(props: InputProps) {
 					value={value}
 					type={htmlType}
 					error={error}
-					// @ts-ignore
-					size={size}
+					size={size as unknown as undefined}
 					onChange={(e) => {
 						if (onChange) {
 							onChange(e.target.value, e);
