@@ -1,42 +1,4 @@
 import * as React from 'react';
-import styled from 'styled-components';
-
-import { color } from '../styles';
-
-import { Modal } from './Modal';
-
-export interface OverlayProps {
-	open: boolean;
-	onClose?: () => void;
-	children?: React.ReactElement;
-}
-
-const S = {
-	$: styled.div`
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: ${color('black')}60;
-		z-index: 1;
-	`,
-};
-
-export const Overlay = ({ open, children, onClose }: OverlayProps) => {
-	return open ? (
-		<S.$
-			onClick={(e) => {
-				const isWrapper = e.target === e.currentTarget;
-				if (isWrapper && onClose) {
-					onClose();
-				}
-			}}
-		>
-			{children}
-		</S.$>
-	) : null;
-};
 
 export type TPushComponent = (component: React.ReactElement) => void;
 export type THideComponent = (id: string) => void;
@@ -92,12 +54,6 @@ export const OverlayProvider = ({ children }: OverlayProviderProps) => {
 	return (
 		<OverlayContext.Provider value={contextValue}>
 			{children}
-
-			{context.modals.map((modal, index) => (
-				<Modal open key={index}>
-					Modal form: {modal}
-				</Modal>
-			))}
 
 			{React.Children.map(context.modals, (modal, key) => {
 				return React.cloneElement(modal, { key, ...modal.props });

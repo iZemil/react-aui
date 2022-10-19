@@ -1,6 +1,5 @@
+import { Overlay } from '..';
 import React, { useEffect } from 'react';
-
-import { Overlay } from '../Overlay';
 
 import S, { SSiderProps } from './Styled';
 

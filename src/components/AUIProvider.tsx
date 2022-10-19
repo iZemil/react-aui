@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { isValidColors } from '../styles';
 import { IAUI } from '../styles/types';
 
-import { OverlayProvider } from './Overlay';
+import { OverlayProvider } from './overlay';
 
 interface AUIProviderProps {
 	themes: IAUI[];

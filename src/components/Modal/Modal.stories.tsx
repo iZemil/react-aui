@@ -40,7 +40,7 @@ export const Basic = () => {
 			<Button
 				onClick={() =>
 					modal1.show(
-						<Modal open onClose={modal1.hide}>
+						<Modal open title={<Modal.Title>Title</Modal.Title>} onClose={modal1.hide}>
 							<DefaultModalContent />
 						</Modal>
 					)
@@ -66,12 +66,20 @@ export const Basic = () => {
 			<Button type="text" onClick={() => handleOpen('third')}>
 				Long content
 			</Button>
-			<Modal closeButton open={state.third} onClose={() => handleOpen('third', false)}>
+			<Modal
+				title={<Modal.Title>Long content</Modal.Title>}
+				closeButton
+				open={state.third}
+				onClose={() => handleOpen('third', false)}
+			>
 				<div>
 					{Array.from({ length: 20 }).map((_, index) => (
 						<DefaultModalContent key={index} />
 					))}
 				</div>
+				<Container.$>
+					<Button onClick={() => handleOpen('third', false)}>Close</Button>
+				</Container.$>
 			</Modal>
 		</Container.$>
 	);

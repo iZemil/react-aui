@@ -1,6 +1,6 @@
 import { cloneElement, useCallback, useContext, useId } from 'react';
 
-import { OverlayContext } from '../../components/Overlay';
+import { OverlayContext } from '../../components/overlay';
 
 export function useModal() {
 	const id = useId();

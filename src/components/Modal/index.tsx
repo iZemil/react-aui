@@ -1,11 +1,10 @@
+import { Overlay } from '..';
 import * as React from 'react';
-
-import { Overlay } from '../Overlay';
 
 import S from './Styled';
 import { ModalProps } from './types';
 
-export const Modal = ({ children, open = false, size, onClose, closeButton, ...rest }: ModalProps) => {
+export const Modal = ({ children, open = false, size, title = null, onClose, closeButton, ...rest }: ModalProps) => {
 	return (
 		<>
 			<Overlay open={open} onClose={onClose} />
@@ -15,10 +14,11 @@ export const Modal = ({ children, open = false, size, onClose, closeButton, ...r
 				onClick={(e) => {
 					e.stopPropagation();
 				}}
+				size={size}
+				{...rest}
 			>
-				<S.Content.$ size={size} {...rest}>
-					{children}
-				</S.Content.$>
+				{title}
+				<S.Content.$>{children}</S.Content.$>
 			</S.$>
 
 			{open && closeButton && (
@@ -39,3 +39,5 @@ export const Modal = ({ children, open = false, size, onClose, closeButton, ...r
 		</>
 	);
 };
+
+Modal.Title = S.Title.$;
