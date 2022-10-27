@@ -35,6 +35,13 @@ export const Basic = () => {
 				</Option>
 			</Dropdown>
 
+			<Dropdown label={<Button>Disabled</Button>} disabled>
+				<Option>
+					<Icon.base.Accept />
+					Value
+				</Option>
+			</Dropdown>
+
 			<Dropdown
 				label={
 					<Button size="small" color="blue">

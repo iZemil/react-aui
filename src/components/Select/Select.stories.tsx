@@ -9,13 +9,13 @@ export default {
 };
 
 export const Basic = () => {
-	const [selected, setDropdowned] = React.useState<string>();
+	const [value, setValue] = React.useState<string>();
 
 	return (
 		<Container>
 			<Select
-				label={<Select.Label placeholder="Select item">{selected}</Select.Label>}
-				onChange={(option) => setDropdowned(option.children as string)}
+				label={<Select.Label placeholder="Select item">{value}</Select.Label>}
+				onChange={(option) => setValue(option.children as string)}
 			>
 				<Option onClick={(props) => console.log('first', props)}>First</Option>
 				<Option>Second</Option>
@@ -23,7 +23,7 @@ export const Basic = () => {
 				<Option>Fourth</Option>
 			</Select>
 
-			<Select disabled label={<Select.Label placeholder="Disabled">{selected}</Select.Label>}>
+			<Select disabled label={<Select.Label placeholder="Disabled">{value}</Select.Label>}>
 				<Option>1</Option>
 				<Option disabled>2</Option>
 				<Option>3</Option>

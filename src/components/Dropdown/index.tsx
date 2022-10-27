@@ -8,7 +8,7 @@ import S, { SDropdownContentProps } from './Styled';
 
 export interface DropdownProps extends Partial<SDropdownContentProps> {
 	label?: React.ReactNode;
-	children: React.ReactNode[];
+	children: React.ReactNode;
 	open?: boolean;
 	onChange?: (option: OptionProps) => void;
 	onClose?: () => void;
@@ -79,10 +79,12 @@ export const Dropdown = (props: DropdownProps) => {
 				disabled={Boolean(disabled)}
 				open={open}
 				onClick={() => {
-					if (open) {
-						handleClose();
-					} else {
-						handleOpen();
+					if (!disabled) {
+						if (open) {
+							handleClose();
+						} else {
+							handleOpen();
+						}
 					}
 				}}
 			>
