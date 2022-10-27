@@ -20,7 +20,7 @@ export const Basic = () => {
 
 			<Avatar src={src}>One</Avatar>
 
-			<Avatar src="https://wrong.address.1.jpg" />
+			<Avatar src="https://wrong.address.or.not.found.jpg" />
 
 			<Avatar>{username}</Avatar>
 		</Container>

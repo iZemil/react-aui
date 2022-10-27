@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 import { TColors, borderRadius, color as colorFn } from '../../styles';
 
-export interface ISAvatarProps {
+export interface SAvatarProps {
 	square: boolean;
+	src?: string;
 	size: number;
 	color: TColors | string;
 }
@@ -15,12 +16,18 @@ const sizable = (size: number) => `
 `;
 
 const Styled = {
-	$: styled.div<ISAvatarProps>`
+	$: styled.div<SAvatarProps>`
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		color: ${colorFn('text')};
 		background: ${(props) => colorFn(props.color as TColors)(props) ?? props.color};
+		${(props) =>
+			props.src &&
+			`
+			background-image: url("${props.src}");
+			background-size: contain;
+		`}
 		${({ size }) => sizable(size)};
 		border-radius: ${(props) => (props.square ? borderRadius(props) : '50%')};
 		text-transform: uppercase;
@@ -29,23 +36,19 @@ const Styled = {
 		position: relative;
 	`,
 
-	Image: {
-		$: styled.img`
-			display: block;
-			width: 100%;
-			height: 100%;
-			-o-object-fit: cover;
-			object-fit: cover;
-			z-index: 1;
-		`,
-	},
-
 	Name: {
-		$: styled.div`
+		$: styled.div<Pick<SAvatarProps, 'src'>>`
 			position: absolute;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			cursor: default;
+
+			${(props) =>
+				props.src &&
+				`
+				opacity: 0;
+			`}
 		`,
 	},
 };

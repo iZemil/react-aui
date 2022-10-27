@@ -3,11 +3,10 @@ import * as React from 'react';
 
 import { getInitials, stringToColor } from '../../utils';
 
-import S, { ISAvatarProps } from './Styled';
+import S, { SAvatarProps } from './Styled';
 
-export interface IAvatarProps extends Partial<ISAvatarProps> {
+export interface AvatarProps extends Partial<SAvatarProps> {
 	children?: string;
-	src?: string;
 }
 
 export const Avatar = ({
@@ -17,12 +16,12 @@ export const Avatar = ({
 	color = stringToColor(children ?? 'anonym') ?? 'main',
 	square = false,
 	...styledProps
-}: IAvatarProps) => {
+}: AvatarProps) => {
 	return (
-		<S.$ size={size} color={color} title={children} square={square} {...styledProps}>
-			{src && <S.Image.$ src={src} />}
+		<S.$ size={size} color={color} title={children} square={square} src={src} {...styledProps}>
+			{/* {src && <S.Image.$ src={src} />} */}
 
-			<S.Name.$>{children ? getInitials(children) : <Icon.base.Person />}</S.Name.$>
+			<S.Name.$ src={src}>{children ? getInitials(children) : <Icon.base.Person />}</S.Name.$>
 		</S.$>
 	);
 };
