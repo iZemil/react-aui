@@ -10,10 +10,10 @@ export default {
 
 export const Basic = () => {
 	return (
-		<Container.$ column>
+		<Container column>
 			<Button.Back />
 
 			<BackButton type="filled" />
-		</Container.$>
+		</Container>
 	);
 };

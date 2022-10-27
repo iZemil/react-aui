@@ -12,7 +12,7 @@ export const Basic = () => {
 	const [selected, setDropdowned] = React.useState<string>();
 
 	return (
-		<Container.$>
+		<Container>
 			<Select
 				label={<Select.Label placeholder="Select item">{selected}</Select.Label>}
 				onChange={(option) => setDropdowned(option.children as string)}
@@ -28,6 +28,6 @@ export const Basic = () => {
 				<Option disabled>2</Option>
 				<Option>3</Option>
 			</Select>
-		</Container.$>
+		</Container>
 	);
 };

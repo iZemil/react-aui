@@ -11,7 +11,7 @@ const Content = () => <div>Some content</div>;
 
 export const Basic = () => {
 	return (
-		<Container.$ column style={{ gap: 0 }}>
+		<Container column style={{ gap: 0 }}>
 			<Content />
 			<Divider />
 
@@ -33,6 +33,6 @@ export const Basic = () => {
 			<Content />
 			<Divider text="blue dashed" color="blue" dashed />
 			<Content />
-		</Container.$>
+		</Container>
 	);
 };

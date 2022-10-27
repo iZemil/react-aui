@@ -12,7 +12,7 @@ export const Basic = () => {
 	const [tabIndex, setTabIndex] = React.useState(0);
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<Tabs activeIndex={tabIndex} onChange={setTabIndex}>
 				<Tab index={0} content={<p>first content</p>}>
 					first
@@ -37,7 +37,7 @@ export const Basic = () => {
 					<Icon.base.ArrowRight />
 				</Tab>
 			</Tabs>
-		</Container.$>
+		</Container>
 	);
 };
 
@@ -45,7 +45,7 @@ export const Size = () => {
 	const [tabIndex, setTabIndex] = React.useState(0);
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<Tabs activeIndex={tabIndex} onChange={setTabIndex} size="small">
 				<Tab index={0}>first</Tab>
 				<Tab index={1}>second</Tab>
@@ -63,6 +63,6 @@ export const Size = () => {
 				<Tab index={1}>second</Tab>
 				<Tab index={2}>third</Tab>
 			</Tabs>
-		</Container.$>
+		</Container>
 	);
 };

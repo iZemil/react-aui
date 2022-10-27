@@ -14,25 +14,25 @@ export default {
 
 export const Type = () => {
 	return (
-		<Container.$>
+		<Container>
 			<Button>Default</Button>
 			<Button type="filled">Filled</Button>
 			<Button type="text">Text</Button>
 			<Button type="dashed">Dashed</Button>
-		</Container.$>
+		</Container>
 	);
 };
 
 export const Size = () => {
 	return (
-		<Container.$ column>
-			<Container.$>
+		<Container column>
+			<Container>
 				<Button size="small">small</Button>
 				<Button size="medium">medium</Button>
 				<Button size="large">large</Button>
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Button icon size="small">
 					<BaseIcon.Home />
 				</Button>
@@ -42,9 +42,9 @@ export const Size = () => {
 				<Button icon size="large">
 					<BaseIcon.Home />
 				</Button>
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Button icon size="small" circle>
 					<BaseIcon.Home />
 				</Button>
@@ -54,22 +54,22 @@ export const Size = () => {
 				<Button icon size="large" circle>
 					<BaseIcon.Home />
 				</Button>
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };
 
 export const Color = () => {
 	return (
-		<Container.$ column>
-			<Container.$>
+		<Container column>
+			<Container>
 				<Button>Default</Button>
 				<Button color="red">red</Button>
 				<Button color="green">green</Button>
 				<Button color="blue">blue</Button>
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Button type="filled">Default</Button>
 				<Button type="filled" color="red">
 					red
@@ -80,15 +80,15 @@ export const Color = () => {
 				<Button type="filled" color="blue">
 					blue
 				</Button>
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };
 
 export const Icons = () => {
 	return (
-		<Container.$ column>
-			<Container.$>
+		<Container column>
+			<Container>
 				<Button>
 					<BaseIcon.Home />
 					Home
@@ -102,9 +102,9 @@ export const Icons = () => {
 				<Button type="text" circle>
 					<BaseIcon.Home />
 				</Button>
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Button type="filled">
 					<BaseIcon.Home />
 					Home
@@ -115,8 +115,8 @@ export const Icons = () => {
 				<Button type="filled" circle>
 					<BaseIcon.Home />
 				</Button>
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };
 
@@ -124,28 +124,28 @@ export const Other = () => {
 	const snack = useSnacks();
 
 	return (
-		<Container.$ column>
-			<Container.$>
+		<Container column>
+			<Container>
 				<Button type="filled" block>
 					Block
 				</Button>
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Button disabled>Disabled</Button>
 
 				<Button circle disabled>
 					<BaseIcon.Home />
 				</Button>
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Button type="filled" onClick={() => snack.success('Success')}>
 					On Click
 				</Button>
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Button to="#link">Link</Button>
 
 				<Button to="#link" type="text">
@@ -166,7 +166,7 @@ export const Other = () => {
 					<BaseIcon.Link />
 					Target Blank Link
 				</Button>
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };

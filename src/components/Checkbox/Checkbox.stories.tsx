@@ -11,7 +11,7 @@ export const Basic = () => {
 	const [checked, toggle] = React.useState(false);
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<Checkbox checked={checked} onClick={toggle} />
 
 			<Checkbox checked={checked} onClick={toggle}>
@@ -25,6 +25,6 @@ export const Basic = () => {
 			<Checkbox checked={checked} onClick={toggle} color="main">
 				Color
 			</Checkbox>
-		</Container.$>
+		</Container>
 	);
 };

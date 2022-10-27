@@ -12,7 +12,7 @@ export const Basic = () => {
 	const [value, setValue] = React.useState('');
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<TextArea label="Textarea" onChange={setValue} value={value} />
 
 			<TextArea label="Message" error="Some error" rows={1} />
@@ -55,6 +55,6 @@ export const Basic = () => {
 
 			<TextArea size="small" placeholder="small" />
 			<TextArea size="large" placeholder="large" />
-		</Container.$>
+		</Container>
 	);
 };

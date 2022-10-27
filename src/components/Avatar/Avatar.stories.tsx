@@ -13,7 +13,7 @@ const src = 'https://mui.com/static/images/avatar/1.jpg';
 
 export const Basic = () => {
 	return (
-		<Container.$ column>
+		<Container column>
 			<Avatar />
 
 			<Avatar square />
@@ -23,7 +23,7 @@ export const Basic = () => {
 			<Avatar src="https://wrong.address.1.jpg" />
 
 			<Avatar>{username}</Avatar>
-		</Container.$>
+		</Container>
 	);
 };
 
@@ -31,14 +31,14 @@ export const Size = () => {
 	const username = 'aui';
 
 	return (
-		<Container.$ column>
-			<Container.$>
+		<Container column>
+			<Container>
 				<Avatar size={getFontSize('large')} />
 				<Avatar />
 				<Avatar size={50} />
-			</Container.$>
+			</Container>
 
-			<Container.$ column>
+			<Container column>
 				<Avatar size={getFontSize('large')} src={src}>
 					{username}
 				</Avatar>
@@ -46,14 +46,14 @@ export const Size = () => {
 				<Avatar size={50} src={src}>
 					{username}
 				</Avatar>
-			</Container.$>
+			</Container>
 
-			<Container.$ column>
+			<Container column>
 				<Avatar size={getFontSize('large')}>{username}</Avatar>
 				<Avatar>{username}</Avatar>
 				<Avatar size={50}>{username}</Avatar>
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };
 
@@ -61,8 +61,8 @@ export const Color = () => {
 	const size = 20;
 
 	return (
-		<Container.$ column>
-			<Container.$>
+		<Container column>
+			<Container>
 				<Avatar size={size} color="" />
 
 				<Avatar size={size} color="red" />
@@ -72,9 +72,9 @@ export const Color = () => {
 				<Avatar size={size} color="#fff" />
 
 				<Avatar size={size} color="wrong" />
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Avatar />
 
 				<Avatar color="red" />
@@ -84,7 +84,7 @@ export const Color = () => {
 				<Avatar color="#ff0" />
 
 				<Avatar color="wrong" />
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };

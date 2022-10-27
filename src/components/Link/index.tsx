@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LinkProps, Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { IAUI, color, padding } from '../../styles';
@@ -8,7 +8,7 @@ const styles = (props: { theme: IAUI }) => `
 	color: ${color('main')(props)};
 	text-decoration: none;
 	font-weight: 500;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: ${padding('small')(props)};
@@ -23,13 +23,13 @@ const StyledA = styled.a`
 	${styles}
 `;
 
-export interface IProps extends Partial<LinkProps> {
+export interface LinkProps extends Partial<RouterLinkProps> {
 	to: string;
 	children: React.ReactNode;
 	blank?: boolean;
 }
 
-export const Link = (props: IProps) => {
+export const Link = (props: LinkProps) => {
 	const { to, blank, children, ...rest } = props;
 
 	if (blank) {

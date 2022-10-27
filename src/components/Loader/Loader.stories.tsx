@@ -10,13 +10,13 @@ export default {
 
 export const Basic = () => {
 	return (
-		<Container.$ column>
+		<Container column>
 			<Loader />
 
 			<Loader size={10} relative />
 
 			<Loader size={2} relative />
-		</Container.$>
+		</Container>
 	);
 };
 
@@ -27,7 +27,7 @@ export const Content = () => {
 		<>
 			<Button onClick={() => setLoaded(!isLoaded)}>Toggle loading</Button>
 
-			<Container.$ column>
+			<Container column>
 				<Loader active={!isLoaded}>
 					<p>First loader content</p>
 				</Loader>
@@ -45,7 +45,7 @@ export const Content = () => {
 				>
 					<p>Skeleton loader content</p>
 				</Loader>
-			</Container.$>
+			</Container>
 		</>
 	);
 };

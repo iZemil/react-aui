@@ -16,12 +16,12 @@ export const Basic = () => {
 \`const name = "Hello world";\``);
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<Editor value={md} onChange={changeMd} rows={5} tools />
 
 			<Divider dashed text="Preview" />
 
 			<Markdown value={md} />
-		</Container.$>
+		</Container>
 	);
 };

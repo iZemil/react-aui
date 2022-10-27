@@ -13,13 +13,13 @@ export const Basic = () => {
 	const { stopwatch, start, pause, isRunning } = useStopwatch();
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<Stopwatch />
 
-			<Container.$>
+			<Container>
 				{stopwatch.seconds}:{stopwatch.value / 100}
 				{isRunning ? <Button onClick={pause}>Pause</Button> : <Button onClick={start}>Start</Button>}
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };

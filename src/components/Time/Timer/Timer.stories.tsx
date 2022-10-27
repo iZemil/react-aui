@@ -16,10 +16,10 @@ export const Basic = () => {
 	});
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<Timer />
 
-			<Container.$>
+			<Container>
 				{timer.minutes}:{timer.seconds}
 				{isRunning ? (
 					<>
@@ -49,7 +49,7 @@ export const Basic = () => {
 						</Button>
 					</>
 				)}
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };

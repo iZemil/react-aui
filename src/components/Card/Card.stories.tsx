@@ -9,7 +9,7 @@ export default {
 
 export const Basic = () => {
 	return (
-		<Container.$ column>
+		<Container column>
 			<Card>
 				<div>Row</div>
 				<div>Row</div>
@@ -21,6 +21,6 @@ export const Basic = () => {
 				<div>Row</div>
 				<div>Row</div>
 			</Card>
-		</Container.$>
+		</Container>
 	);
 };

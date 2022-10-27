@@ -11,8 +11,8 @@ export const Basic = () => {
 	const [value, setValue] = React.useState('');
 
 	return (
-		<Container.$>
+		<Container>
 			<Editor label="Markdown" value={value} onChange={setValue} tools />
-		</Container.$>
+		</Container>
 	);
 };

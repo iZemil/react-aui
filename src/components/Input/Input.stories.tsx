@@ -13,9 +13,9 @@ export const Type = () => {
 	const [value, setValue] = React.useState('');
 
 	return (
-		<Container.$ style={{ alignItems: 'flex-end' }}>
+		<Container style={{ alignItems: 'flex-end' }}>
 			<Input label="Default" value={value} onChange={setValue} />
-		</Container.$>
+		</Container>
 	);
 };
 
@@ -23,7 +23,7 @@ export const Size = () => {
 	const [value, setValue] = React.useState('');
 
 	return (
-		<Container.$
+		<Container
 			style={{
 				alignItems: 'flex-end',
 			}}
@@ -31,24 +31,24 @@ export const Size = () => {
 			<Input size="small" placeholder="small" label={'small'} value={value} onChange={setValue} />
 			<Input size="medium" placeholder="medium" label={'medium'} value={value} onChange={setValue} />
 			<Input size="large" placeholder="large" label={'large'} value={value} onChange={setValue} />
-		</Container.$>
+		</Container>
 	);
 };
 
 export const HtmlType = () => {
 	return (
-		<Container.$ column>
+		<Container column>
 			<Input label="email" htmlType="email" />
 			<Input label="password" htmlType="password" />
 			<Input label="number" htmlType="number" />
 			<Input label="search" htmlType="search" />
-		</Container.$>
+		</Container>
 	);
 };
 
 export const Other = () => {
 	return (
-		<Container.$ column>
+		<Container column>
 			<Input placeholder="No label" />
 
 			<Input
@@ -102,6 +102,6 @@ export const Other = () => {
 					</Button>
 				}
 			/>
-		</Container.$>
+		</Container>
 	);
 };

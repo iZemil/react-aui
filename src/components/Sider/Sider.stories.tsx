@@ -13,7 +13,7 @@ export const Basic = () => {
 	const [right, setRight] = React.useState(false);
 
 	return (
-		<Container.$>
+		<Container>
 			<Button onClick={() => setRight(true)}>Default</Button>
 			<Button.Burger onClick={() => setLeft(true)} />
 
@@ -23,6 +23,6 @@ export const Basic = () => {
 			<Sider open={left} onClose={() => setLeft(false)} width={480} position="left">
 				Left
 			</Sider>
-		</Container.$>
+		</Container>
 	);
 };

@@ -11,7 +11,7 @@ export default {
 
 export const Basic = () => {
 	return (
-		<Container.$>
+		<Container>
 			<Dropdown label={<Dropdown.Label />}>
 				<Option
 					onClick={(option) => {
@@ -66,6 +66,6 @@ export const Basic = () => {
 				<Option>2222222222222222</Option>
 				<Option>3333333333333333</Option>
 			</Dropdown>
-		</Container.$>
+		</Container>
 	);
 };

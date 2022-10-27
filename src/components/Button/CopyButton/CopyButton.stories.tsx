@@ -12,7 +12,7 @@ export const Basic = () => {
 	const currentDate = new Date().toString();
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<Button.Copy value={currentDate} />
 
 			<CopyButton value={currentDate}>Copy</CopyButton>
@@ -31,7 +31,7 @@ export const Basic = () => {
 
 			<CopyButton value={() => Math.random()}>Dynamic value</CopyButton>
 
-			<Container.$>
+			<Container>
 				<CopyButton size="small" value={currentDate}>
 					Small
 				</CopyButton>
@@ -41,8 +41,8 @@ export const Basic = () => {
 				<CopyButton size="large" value={currentDate}>
 					Large
 				</CopyButton>
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };
 
@@ -55,7 +55,7 @@ export const Value = () => {
 	);
 
 	return (
-		<Container.$ column>
+		<Container column>
 			<CopyButton value={'0x70D6C988a31A0f6220903446579125A0E9F200e2'}>String</CopyButton>
 
 			<CopyButton value={Math.random()}>Number</CopyButton>
@@ -72,6 +72,6 @@ export const Value = () => {
 				Copy textarea
 			</CopyButton>
 			<textarea onChange={(e) => setValue(e.target.value)} value={value} />
-		</Container.$>
+		</Container>
 	);
 };

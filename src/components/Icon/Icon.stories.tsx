@@ -13,30 +13,30 @@ export default {
 
 export const Basic = () => {
 	return (
-		<Container.$ column>
-			<Container.$>
+		<Container column>
+			<Container>
 				<span>react-icons</span>
 				<Icon icon={Icon.base.Info} />
-			</Container.$>
-			<Container.$>
+			</Container>
+			<Container>
 				<span>base icon set</span>
 				<Icon icon={Icon.base.Info} />
 				<Icon icon={Icon.base.Info} />
-			</Container.$>
-			<Container.$>
+			</Container>
+			<Container>
 				<span>change color</span>
 				<Icon icon={Icon.base.Info} color="red" />
 				<Icon icon={Icon.base.Info} color="blue" />
 				<Icon icon={Icon.base.Info} color="pink" />
 				<Icon icon={Icon.base.Info} color="#00ff00" />
-			</Container.$>
+			</Container>
 
-			<Container.$>
+			<Container>
 				<Icon icon={Icon.base.Info} size="small" />
 				<Icon icon={Icon.base.Info} size="medium" />
 				<Icon icon={Icon.base.Info} size="large" />
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };
 
@@ -44,8 +44,8 @@ export const BasicSet = () => {
 	const snack = useSnacks();
 
 	return (
-		<Container.$ column>
-			<Container.$ style={{ flexWrap: 'wrap' }}>
+		<Container column>
+			<Container style={{ flexWrap: 'wrap' }}>
 				{Object.entries(Icon.base).map(([name, baseIcon]) => (
 					<CopyButton
 						key={name}
@@ -59,8 +59,8 @@ export const BasicSet = () => {
 						<Icon icon={baseIcon} size={20} />
 					</CopyButton>
 				))}
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };
 
@@ -68,8 +68,8 @@ export const AllSet = () => {
 	const snack = useSnacks();
 
 	return (
-		<Container.$ column>
-			<Container.$ style={{ flexWrap: 'wrap' }}>
+		<Container column>
+			<Container style={{ flexWrap: 'wrap' }}>
 				{Object.entries(Icon.all).map(([name, baseIcon]) => (
 					<CopyButton
 						key={name}
@@ -83,8 +83,8 @@ export const AllSet = () => {
 						<Icon icon={baseIcon} size={20} />
 					</CopyButton>
 				))}
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };
 
@@ -99,8 +99,8 @@ export const Aliases = () => {
 	const aliases = Object.keys(iconAliases) as Array<keyof typeof iconAliases>;
 
 	return (
-		<Container.$ column>
-			<Container.$ style={{ flexWrap: 'wrap' }}>
+		<Container column>
+			<Container style={{ flexWrap: 'wrap' }}>
 				{aliases.map((alias) => (
 					<CopyButton
 						key={alias}
@@ -114,7 +114,7 @@ export const Aliases = () => {
 						<Icon icon={iconAliases[alias]} size={20} />
 					</CopyButton>
 				))}
-			</Container.$>
-		</Container.$>
+			</Container>
+		</Container>
 	);
 };

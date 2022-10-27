@@ -27,7 +27,7 @@ export const Basic = () => {
 	const longContentModal = useModal();
 
 	return (
-		<Container.$>
+		<Container>
 			<Button onClick={() => setOpen(!isOpen)}>Basic component</Button>
 			<Modal open={isOpen} onClose={() => setOpen(!isOpen)}>
 				<DefaultModalContent />
@@ -74,7 +74,7 @@ export const Basic = () => {
 			>
 				Long content
 			</Button>
-		</Container.$>
+		</Container>
 	);
 };
 
@@ -92,7 +92,7 @@ export const Size = () => {
 	};
 
 	return (
-		<Container.$>
+		<Container>
 			<Button onClick={() => handleClick('small')} size="small">
 				small
 			</Button>
@@ -104,7 +104,7 @@ export const Size = () => {
 			<Button onClick={() => handleClick('large')} size="large">
 				large
 			</Button>
-		</Container.$>
+		</Container>
 	);
 };
 
@@ -120,7 +120,7 @@ export const Custom = () => {
 	`;
 
 	return (
-		<Container.$>
+		<Container>
 			<Button
 				onClick={() =>
 					customModal.show(
@@ -136,6 +136,6 @@ export const Custom = () => {
 			>
 				Custom modal
 			</Button>
-		</Container.$>
+		</Container>
 	);
 };
