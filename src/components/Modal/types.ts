@@ -5,8 +5,10 @@ export interface SModalProps {
 }
 
 export interface ModalProps extends Partial<SModalProps> {
-	children: React.ReactNode;
 	title?: React.ReactNode;
+	toolbar?: React.ReactNode;
+	children?: React.ReactNode;
+	content?: React.ReactNode;
 	onClose?: () => void;
 	closeButton?: boolean;
 	open?: boolean;

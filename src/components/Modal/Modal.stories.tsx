@@ -2,7 +2,7 @@ import { Modal } from '.';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { border } from '../../styles';
+import { TSize, border, color } from '../../styles';
 import { useModal } from '../../utils';
 import { Button } from '../Button';
 import Container from '../Container';
@@ -21,26 +21,22 @@ const DefaultModalContent = () => {
 	);
 };
 
-const defaultBasicState = {
-	first: false,
-	second: false,
-	third: false,
-} as const;
-
 export const Basic = () => {
-	const [state, setOpen] = React.useState(defaultBasicState);
-	const modal1 = useModal();
-
-	const handleOpen = (key: keyof typeof defaultBasicState, value = true) => {
-		setOpen({ ...state, [key]: value });
-	};
+	const [isOpen, setOpen] = React.useState(false);
+	const basicModal = useModal();
+	const longContentModal = useModal();
 
 	return (
 		<Container.$>
+			<Button onClick={() => setOpen(!isOpen)}>Basic component</Button>
+			<Modal open={isOpen} onClose={() => setOpen(!isOpen)}>
+				<DefaultModalContent />
+			</Modal>
+
 			<Button
 				onClick={() =>
-					modal1.show(
-						<Modal open title={<Modal.Title>Title</Modal.Title>} onClose={modal1.hide}>
+					basicModal.show(
+						<Modal open title={<Modal.Title>Title</Modal.Title>} onClose={basicModal.hide}>
 							<DefaultModalContent />
 						</Modal>
 					)
@@ -49,129 +45,97 @@ export const Basic = () => {
 				React Modal Hook
 			</Button>
 
-			<Button type="text" onClick={() => handleOpen('first')}>
-				Basic modal
-			</Button>
-			<Modal open={state.first} onClose={() => handleOpen('first', false)}>
-				<DefaultModalContent />
-			</Modal>
-
-			<Button type="text" onClick={() => handleOpen('second')}>
-				With close button
-			</Button>
-			<Modal closeButton open={state.second} onClose={() => handleOpen('second', false)}>
-				<DefaultModalContent />
-			</Modal>
-
-			<Button type="text" onClick={() => handleOpen('third')}>
+			<Button
+				onClick={() =>
+					longContentModal.show(
+						<Modal
+							open
+							onClose={longContentModal.hide}
+							closeButton
+							title={<Modal.Title>Long content</Modal.Title>}
+							content={
+								<Modal.Content>
+									<div>
+										{Array.from({ length: 20 }).map((_, index) => (
+											<DefaultModalContent key={index} />
+										))}
+									</div>
+								</Modal.Content>
+							}
+							toolbar={
+								<Modal.Toolbar>
+									<Button onClick={longContentModal.hide}>Close</Button>
+									<Button onClick={longContentModal.hide}>Ok</Button>
+								</Modal.Toolbar>
+							}
+						/>
+					)
+				}
+			>
 				Long content
 			</Button>
-			<Modal
-				title={<Modal.Title>Long content</Modal.Title>}
-				closeButton
-				open={state.third}
-				onClose={() => handleOpen('third', false)}
-			>
-				<div>
-					{Array.from({ length: 20 }).map((_, index) => (
-						<DefaultModalContent key={index} />
-					))}
-				</div>
-				<Container.$>
-					<Button onClick={() => handleOpen('third', false)}>Close</Button>
-				</Container.$>
-			</Modal>
 		</Container.$>
 	);
 };
 
-const defaultSizeState = {
-	first: false,
-	second: false,
-	third: false,
-} as const;
-
 export const Size = () => {
-	const [state, setOpen] = React.useState(defaultSizeState);
+	const sizedModal = useModal();
 
-	const handleOpen = (key: keyof typeof defaultSizeState, value = true) => {
-		setOpen({ ...state, [key]: value });
+	const handleClick = (size: TSize) => {
+		sizedModal.show(
+			<Modal open onClose={sizedModal.hide} size={size}>
+				{Array.from({ length: 20 }).map((_, index) => (
+					<DefaultModalContent key={index} />
+				))}
+			</Modal>
+		);
 	};
 
 	return (
 		<Container.$>
-			<Button onClick={() => handleOpen('first')} size="small">
-				small modal
+			<Button onClick={() => handleClick('small')} size="small">
+				small
 			</Button>
-			<Modal open={state.first} onClose={() => handleOpen('first', false)} size="small">
-				{Array.from({ length: 20 }).map((_, index) => (
-					<DefaultModalContent key={index} />
-				))}
-			</Modal>
 
-			<Button onClick={() => handleOpen('second')} size="medium">
-				medium modal
+			<Button onClick={() => handleClick('medium')} size="medium">
+				medium
 			</Button>
-			<Modal open={state.second} onClose={() => handleOpen('second', false)} size="medium">
-				{Array.from({ length: 20 }).map((_, index) => (
-					<DefaultModalContent key={index} />
-				))}
-			</Modal>
 
-			<Button onClick={() => handleOpen('third')} size="large">
-				large modal
+			<Button onClick={() => handleClick('large')} size="large">
+				large
 			</Button>
-			<Modal open={state.third} onClose={() => handleOpen('third', false)} size="large">
-				{Array.from({ length: 20 }).map((_, index) => (
-					<DefaultModalContent key={index} />
-				))}
-			</Modal>
 		</Container.$>
 	);
 };
 
-const defaultCustomState = {
-	first: false,
-	second: false,
-} as const;
-
-const CustomStyledModal = styled(Modal)`
-	width: 200px;
-	height: 100%;
-	border: ${border('blue')};
-`;
-
 export const Custom = () => {
-	const [state, setOpen] = React.useState(defaultCustomState);
-
-	const handleOpen = (key: keyof typeof defaultCustomState, value = true) => {
-		setOpen({ ...state, [key]: value });
-	};
+	const customModal = useModal();
+	const CustomStyledModal = styled(Modal)`
+		width: 200px;
+		height: 100%;
+		border: ${border('blue')};
+	`;
+	const CustomTitle = styled(Modal.Title)`
+		color: ${color('blue')};
+	`;
 
 	return (
-		<Container.$ column>
-			<Button type="text" onClick={() => handleOpen('first')}>
+		<Container.$>
+			<Button
+				onClick={() =>
+					customModal.show(
+						<CustomStyledModal
+							open
+							onClose={customModal.hide}
+							title={<CustomTitle color="blue">Title</CustomTitle>}
+						>
+							<DefaultModalContent />
+						</CustomStyledModal>
+					)
+				}
+			>
 				Custom modal
 			</Button>
-			<Modal open={state.first} onClose={() => handleOpen('first', false)} size="medium">
-				<DefaultModalContent />
-
-				<Container.$>
-					<Button type="text" block onClick={() => handleOpen('first', false)}>
-						Cancel
-					</Button>
-					<Button block onClick={() => handleOpen('first', false)}>
-						Ok
-					</Button>
-				</Container.$>
-			</Modal>
-
-			<Button type="text" onClick={() => handleOpen('second')}>
-				Custom styled modal
-			</Button>
-			<CustomStyledModal open={state.second} onClose={() => handleOpen('second', false)}>
-				<DefaultModalContent />
-			</CustomStyledModal>
 		</Container.$>
 	);
 };

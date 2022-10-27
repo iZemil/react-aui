@@ -26,6 +26,8 @@ const Styled = {
 		box-shadow: 0 0 5px 1px ${color('black')}80;
 		background: ${color('bg')};
 		pointer-events: auto;
+		display: flex;
+		flex-direction: column;
 
 		${(props) =>
 			props.open &&
@@ -59,16 +61,24 @@ const Styled = {
 	Content: {
 		$: styled.div`
 			padding: 0 ${padding('large')};
-			max-height: calc(100vh - 80px);
 			overflow: auto;
 		`,
 	},
 	Title: {
 		$: styled.div`
-			font-weight: bold;
 			padding: ${padding('large')};
+			font-weight: bold;
 			display: flex;
 			align-items: center;
+			gap: ${padding('medium')};
+		`,
+	},
+	Toolbar: {
+		$: styled.div`
+			padding: ${padding('medium')} ${padding('large')};
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
 			gap: ${padding('medium')};
 		`,
 	},

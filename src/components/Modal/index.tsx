@@ -4,7 +4,17 @@ import * as React from 'react';
 import S from './Styled';
 import { ModalProps } from './types';
 
-export const Modal = ({ children, open = false, size, title = null, onClose, closeButton, ...rest }: ModalProps) => {
+export const Modal = ({
+	children,
+	open = false,
+	size,
+	title = null,
+	toolbar = null,
+	content = null,
+	onClose,
+	closeButton,
+	...rest
+}: ModalProps) => {
 	return (
 		<>
 			<Overlay open={open} onClose={onClose} />
@@ -18,7 +28,8 @@ export const Modal = ({ children, open = false, size, title = null, onClose, clo
 				{...rest}
 			>
 				{title}
-				<S.Content.$>{children}</S.Content.$>
+				{content ?? <S.Content.$>{children}</S.Content.$>}
+				{toolbar}
 			</S.$>
 
 			{open && closeButton && (
@@ -40,4 +51,7 @@ export const Modal = ({ children, open = false, size, title = null, onClose, clo
 	);
 };
 
+// TODO?: close button prop
 Modal.Title = S.Title.$;
+Modal.Content = S.Content.$;
+Modal.Toolbar = S.Toolbar.$;

@@ -20,6 +20,7 @@ export const OverlayContext = React.createContext<IOverlayContext>(defaultOverla
 interface OverlayProviderProps {
 	children?: React.ReactElement;
 }
+// TODO?: ModalProvider, sepated provider
 export const OverlayProvider = ({ children }: OverlayProviderProps) => {
 	const [context, setContext] = React.useState(defaultOverlayContext);
 
