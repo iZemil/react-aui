@@ -29,9 +29,9 @@ interface SvgIconProps {
  */
 export const svgToIcon = (svg: string, alt: string) => {
 	return function SvgIcon(props: SvgIconProps) {
-		const { size } = props;
+		const { size, ...rest } = props;
 
-		return <img src={svg} width={size} height={size} alt={alt} />;
+		return <img {...rest} src={svg} width={size} height={size} alt={alt} />;
 	};
 };
 

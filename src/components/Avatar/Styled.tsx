@@ -10,6 +10,7 @@ export interface SAvatarProps {
 }
 
 const sizable = (size: number) => `
+	min-width: ${size}px;
 	width: ${size}px;
 	height: ${size}px;
 	font-size: ${size / 2}px;
