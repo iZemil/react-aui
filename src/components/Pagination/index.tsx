@@ -1,16 +1,21 @@
 import { Icon } from '..';
 import * as React from 'react';
 
+import { TColors, TSize } from '../../styles';
+
 import { S } from './Styled';
 
-export interface IPaginationProps {
+export interface PaginationProps {
 	current: number | undefined;
 	pages: number;
 	onChange: (page: number) => void;
+	color?: TColors;
+	size?: TSize;
 }
 
 // TODO: refactor
-export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) => {
+export const Pagination = (props: PaginationProps) => {
+	const { pages, current = 1, color, size, onChange } = props;
 	const MAX_ELEMENTS = 7;
 	const TWO = 2;
 
@@ -86,7 +91,13 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 
 	return (
 		<S.$>
-			<S.Item.$ type="text" onClick={() => onChange(current - 1)} disabled={current <= 1}>
+			<S.Item.$
+				type="text"
+				color={color}
+				size={size}
+				onClick={() => onChange(current - 1)}
+				disabled={current <= 1}
+			>
 				<Icon.base.ChevronLeft />
 			</S.Item.$>
 
@@ -96,7 +107,7 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 
 				if (isDivider) {
 					return (
-						<S.Item.$ type="text" key={index} disabled>
+						<S.Item.$ type="text" color={color} size={size} key={index} disabled>
 							...
 						</S.Item.$>
 					);
@@ -107,6 +118,8 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 						key={index}
 						active={active}
 						type={active ? 'filled' : 'text'}
+						color={color}
+						size={size}
 						onClick={() => onChange(page)}
 					>
 						{page}
@@ -114,7 +127,13 @@ export const Pagination = ({ pages, current = 1, onChange }: IPaginationProps) =
 				);
 			})}
 
-			<S.Item.$ type="text" onClick={() => onChange(current + 1)} disabled={current >= pages}>
+			<S.Item.$
+				type="text"
+				color={color}
+				size={size}
+				onClick={() => onChange(current + 1)}
+				disabled={current >= pages}
+			>
 				<Icon.base.ChevronRight />
 			</S.Item.$>
 		</S.$>
