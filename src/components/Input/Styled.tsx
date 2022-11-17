@@ -14,7 +14,7 @@ export const commonInputValueCss = (props: { theme: IAUI; error?: string; disabl
 	border: ${border(props.error ? 'red' : 'grey')(props)};
 	font-size: ${getFontSize(props.size)}px;
 
-	${props.disabled && disabledCss()}
+	${props.disabled ? disabledCss() : ''}
 `;
 
 export const S = {

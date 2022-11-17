@@ -69,6 +69,8 @@ export const Other = () => {
 
 			<Input error="Without label Error" />
 
+			<Input label="Disabled" value="Text..." disabled />
+
 			<Input
 				label="Prefix"
 				placeholder="Write a message"

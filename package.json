@@ -17,11 +17,11 @@
     "version": "1.2.1",
     "scripts": {
         "build": "tsc",
-        "build2": "node scripts/build.js",
+        "build:storybook": "build-storybook -o docs-build",
+        "build:react": "node scripts/build.js",
         "test": "node scripts/test.js",
         "dev": "start-storybook",
-        "serve": "node scripts/start.js",
-        "build-storybook": "build-storybook -o docs-build"
+        "serve": "node scripts/start.js"
     },
     "dependencies": {
         "marked": "4.0.18",

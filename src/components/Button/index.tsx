@@ -71,4 +71,5 @@ export function Button(props: ButtonProps) {
 
 Button.Copy = CopyButton;
 Button.Back = BackButton;
+// TODO: существует цикл зависимость Burget -> Button -> Burger
 Button.Burger = Burger;

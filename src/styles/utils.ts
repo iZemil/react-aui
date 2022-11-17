@@ -29,7 +29,7 @@ export const overflowedText = () => `
 `;
 
 export const disabledCss = (extraCss = '') => `
-    opacity: 0.75;
+    opacity: 0.6;
     pointer-events: none;
     ${extraCss}
 `;
