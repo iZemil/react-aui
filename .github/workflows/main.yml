@@ -11,7 +11,7 @@ jobs:
               with:
                   node-version: 14.17.6
             - name: Install dependencies
-              run: npm install
+              run: npm ci --production
             - name: Build npm package lib
               run: |
                   npm run build
