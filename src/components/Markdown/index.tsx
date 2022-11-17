@@ -85,6 +85,7 @@ export const Markdown = ({ value, label, onCheck, ...rest }: IMarkdownProps) => 
 		<Styled.$ {...rest}>
 			{label && <Styled.Label.$>{label}</Styled.Label.$>}
 
+			{/* TODO: add noopener noreferrer for links: https://github.com/remarkjs/react-markdown/issues/12#issuecomment-999426169 */}
 			<ReactMarkdown remarkPlugins={[remarkGfm]} components={{ li: ListWrapper }} rawSourcePos>
 				{value}
 			</ReactMarkdown>
