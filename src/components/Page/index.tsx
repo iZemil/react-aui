@@ -1,8 +1,6 @@
-import * as React from 'react';
 import styled from 'styled-components';
 
 import { padding } from '../../styles';
-import { BackButton } from '../Button/BackButton';
 
 export const MENU_HEAD_BAR_HEIGH = 60;
 
@@ -23,34 +21,3 @@ export const PageContent = styled.div`
 	flex: 1;
 	position: relative;
 `;
-
-interface IPageTitleProps {
-	children: React.ReactNode;
-	withBackButton?: boolean;
-}
-const StyledPageTitle = {
-	$: styled.h1`
-		display: flex;
-		align-items: center;
-		padding: ${padding('medium')} 0;
-		gap: ${padding('medium')};
-	`,
-	Children: {
-		$: styled.div`
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			font-size: 24px;
-			flex: auto;
-		`,
-	},
-};
-export const PageTitle = ({ children, withBackButton, ...rest }: IPageTitleProps) => {
-	return (
-		<StyledPageTitle.$ {...rest}>
-			{withBackButton && <BackButton />}
-
-			<StyledPageTitle.Children.$>{children}</StyledPageTitle.Children.$>
-		</StyledPageTitle.$>
-	);
-};

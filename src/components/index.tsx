@@ -38,3 +38,4 @@ export type { IconType } from 'react-icons';
 export { Loader } from './Loader';
 
 export { Overlay } from './overlay';
+export { Title } from './Title';
