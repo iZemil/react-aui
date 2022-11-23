@@ -42,7 +42,7 @@ export const inputLabelCss = (props: { theme: IAUI }) => `
     cursor: default;
 `;
 
-const toPx = (value: number): string => `${value}px`;
+export const toPx = (value: number): string => `${value}px`;
 
 export const borderRadius = (props: { theme: IAUI }): string => `${toPx(props.theme.borderRadius)}`;
 
