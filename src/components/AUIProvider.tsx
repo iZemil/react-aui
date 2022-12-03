@@ -1,4 +1,4 @@
-import { GlobalStyles, SnackbarsProvider } from '.';
+import { SnackbarsProvider } from '.';
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -51,7 +51,6 @@ export const AUIProvider = ({ children, active = 0, themes }: AUIProviderProps) 
 				<>
 					{children}
 					<SnackbarsProvider />
-					<GlobalStyles />
 				</>
 			</OverlayProvider>
 		</ThemeProvider>
