@@ -1,7 +1,6 @@
-import { Icon } from '..';
 import * as React from 'react';
 
-import { MARKDOWN_SUPPORT_LINK } from '../MarkdownSupport';
+import { MarkdownSupport } from '../MarkdownSupport';
 import { TextAreaProps } from '../TextArea';
 
 import S from './Styled';
@@ -9,7 +8,6 @@ import S from './Styled';
 export type IEditorProps = Partial<Omit<TextAreaProps, 'onChange'>> & {
 	onChange: (md: string) => void;
 	tools?: boolean;
-	bottomBar?: React.ReactNode;
 };
 
 // TODO#0: когда есть пуст. строка между чекбоксам - ненужное поведение отображения
@@ -69,7 +67,9 @@ export const Editor = ({ value, onChange, tools, label, ...rest }: IEditorProps)
 						{label ? <S.Label.$>{label}</S.Label.$> : null}
 						{tools && (
 							<S.Tools.$>
-								<S.Tools.Btn.$ onClick={() => handleClickBtn('heading')} title="Add heading text">
+								<MarkdownSupport />
+
+								{/* <S.Tools.Btn.$ onClick={() => handleClickBtn('heading')} title="Add heading text">
 									<Icon icon={Icon.base.AddHeading} />
 								</S.Tools.Btn.$>
 								<S.Tools.Btn.$ onClick={() => handleClickBtn('bold')} title="Add bold text">
@@ -89,7 +89,7 @@ export const Editor = ({ value, onChange, tools, label, ...rest }: IEditorProps)
 								</S.Tools.Btn.$>
 								<S.Tools.Btn.$ to={MARKDOWN_SUPPORT_LINK} blank title="Markdown info">
 									<Icon icon={Icon.base.Markdown} />
-								</S.Tools.Btn.$>
+								</S.Tools.Btn.$> */}
 								{/* <S.Tools.Btn.$ onClick={() => handleClickBtn('checkbox')}>
 									<Icon icon={Icon.base.AddCheckbox} />
 								</S.Tools.Btn.$> */}

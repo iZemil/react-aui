@@ -2,7 +2,7 @@ import { DecoratorFn } from '@storybook/react';
 import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { AUIProvider } from '../src/components';
+import { AUIProvider, GlobalStyles } from '../src/components';
 import { darkTheme, lightTheme } from '../src/styles/consts';
 
 export const globalTypes = {
@@ -30,6 +30,7 @@ const withAUIProvider: DecoratorFn = (Story, context) => {
 	return (
 		<BrowserRouter>
 			<AUIProvider themes={[lightTheme, darkTheme]} active={theme === 'light' ? 0 : 1}>
+				<GlobalStyles />
 				<Story />
 			</AUIProvider>
 		</BrowserRouter>

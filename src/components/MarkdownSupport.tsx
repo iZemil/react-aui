@@ -12,6 +12,10 @@ const S = {
 		gap: ${padding('medium')};
 		align-items: center;
 		justify-content: flex-end;
+
+		button {
+			font-size: 12px;
+		}
 	`,
 };
 
@@ -21,7 +25,7 @@ export const MarkdownSupport = () => {
 	return (
 		<S.$>
 			<Button size="small" type="text" color="grey" to={MARKDOWN_SUPPORT_LINK} blank>
-				Styling with Markdown is supported
+				Markdown is supported
 				<Icon icon={Icon.base.Markdown} size="small" />
 			</Button>
 		</S.$>
