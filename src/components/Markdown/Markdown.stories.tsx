@@ -19,7 +19,7 @@ export const Basic = () => {
 		<Container column>
 			<Editor value={md} onChange={changeMd} rows={5} tools />
 
-			<Divider dashed text="Preview" />
+			<Divider dashed>Preview</Divider>
 
 			<Markdown value={md} />
 		</Container>
