@@ -39,3 +39,4 @@ export { Loader } from './Loader';
 
 export { Overlay } from './overlay';
 export { Title } from './Title';
+export { Text } from './Text';
