@@ -1,6 +1,7 @@
 import { Divider } from '.';
 import * as React from 'react';
 
+import { Button } from '../Button';
 import Container from '../Container';
 
 export default {
@@ -16,22 +17,35 @@ export const Basic = () => {
 			<Divider />
 
 			<Content />
-			<Divider text="small" size="small" />
+
+			<Divider size="small" />
 
 			<Content />
-			<Divider text="medium" size="medium" />
+
+			<Divider size="medium">Medium</Divider>
 
 			<Content />
-			<Divider text="large" size="large" />
+
+			<Divider size="large">Large</Divider>
 
 			<Content />
-			<Divider text="dashed" dashed />
+
+			<Divider dashed>Dashed</Divider>
 
 			<Content />
-			<Divider text="red" color="red" />
+
+			<Divider color="red">Color: Red</Divider>
+
+			<Divider top={40} bottom={60}>
+				Top-Bottom
+			</Divider>
 
 			<Content />
-			<Divider text="blue dashed" color="blue" dashed />
+
+			<Divider color="blue" dashed>
+				<Button color="blue">Blue/Dashed</Button>
+			</Divider>
+
 			<Content />
 		</Container>
 	);
