@@ -34,21 +34,24 @@ const getAs = (...hArgs: [TH, TH, TH, TH, TH]): 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
 	return 'h1';
 };
 
-export const Title = ({
-	children,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	color = 'text',
-	justifyContent = 'left',
-	top = 0,
-	bottom = 0,
-	left = 0,
-	right = 0,
-	...rest
-}: TitleProps) => {
+export const Title = (props: TitleProps) => {
+	const {
+		children,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		color = 'text',
+		justifyContent = 'left',
+		top = 0,
+		bottom = 0,
+		left = 0,
+		right = 0,
+		vertical = 'center',
+		...rest
+	} = props;
+
 	return (
 		<S.$
 			as={getAs(h1, h2, h3, h4, h5)}
@@ -58,6 +61,7 @@ export const Title = ({
 			right={right}
 			left={left}
 			color={color}
+			vertical={vertical}
 			{...rest}
 		>
 			{children}
