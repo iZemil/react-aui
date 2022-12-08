@@ -12,8 +12,8 @@ export const Basic = () => {
 		<Container column>
 			<Text>Default Text Component</Text>
 
-			<Text size="small" color="grey">
-				Small Grey Text
+			<Text size="small" color="grey" bold italic>
+				Small Styled Text
 			</Text>
 
 			<Text>

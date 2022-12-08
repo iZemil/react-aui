@@ -8,6 +8,9 @@ interface ISProps {
 	color?: TColors;
 	size?: TSize;
 	inline: boolean;
+	bold?: boolean;
+	uppercase?: boolean;
+	italic?: boolean;
 }
 
 export type TextProps = {
@@ -22,6 +25,10 @@ const S = {
 		gap: ${padding('medium')};
 		line-height: 1.4;
 		color: ${(props) => color(props.color ?? 'text')(props)};
+
+		${(props) => (props.bold ? 'font-weight: bold;' : '')}
+		${(props) => (props.italic ? 'font-style: italic;' : '')}
+		${(props) => (props.uppercase ? 'text-transform: uppercase;' : '')}
 
 		button {
 			padding: 0 2px;
