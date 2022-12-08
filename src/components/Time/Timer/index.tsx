@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import { Markdown } from '../../Markdown';
+import { Editor } from '../../Editor';
 
 export const Timer = () => {
 	return (
-		<Markdown
+		<Editor
+			preview
 			value={`use hook to create your own Timer\n\n\`const { timer, start, ...rest } = useTimer(msValue, onFinish);\``}
 		/>
 	);

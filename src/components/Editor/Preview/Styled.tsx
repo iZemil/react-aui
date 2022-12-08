@@ -1,10 +1,10 @@
+import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
-import { inputLabelCss, padding } from '../../styles';
+import { inputLabelCss, padding } from '../../../styles';
 
-const Styled = {
-	$: styled.div`
-		font-size: 14px;
+export const S = {
+	$: styled(ReactMarkdown)`
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
@@ -56,5 +56,3 @@ const Styled = {
 		`,
 	},
 };
-
-export default Styled;

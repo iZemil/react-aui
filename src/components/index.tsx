@@ -2,8 +2,6 @@ export * from './AUIProvider';
 export * from './Card';
 export * from './Link';
 
-export * from './Page';
-
 export { SnackbarsProvider } from './Snackbars';
 
 export { GlobalStyles } from './GlobalStyles';
@@ -14,7 +12,6 @@ export { Sider } from './Sider';
 export { Input } from './Input';
 export { TextArea } from './TextArea';
 export { Editor } from './Editor';
-export { Markdown } from './Markdown';
 
 export { Button } from './Button';
 export { CopyButton } from './Button/CopyButton';

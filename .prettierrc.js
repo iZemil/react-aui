@@ -7,7 +7,7 @@ module.exports = {
 	useTabs: true,
 	tabWidth: 4,
 	bracketSpacing: true,
-	importOrder: ['^../', '^./'],
+	importOrder: ['^../', '^./', '.css$'],
 	importOrderSeparation: true,
 	importOrderSortSpecifiers: true,
 };
