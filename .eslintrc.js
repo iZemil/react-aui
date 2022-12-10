@@ -1,6 +1,7 @@
 module.exports = {
 	env: {
 		browser: true,
+		node: true,
 		es2021: true,
 	},
 	extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended'],
@@ -18,5 +19,6 @@ module.exports = {
 			'warn',
 			{ vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
 		],
+		'@typescript-eslint/no-var-requires': 0,
 	},
 };
