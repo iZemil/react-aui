@@ -1,4 +1,3 @@
-import CodeMirror from 'codemirror';
 import 'hypermd';
 import * as React from 'react';
 
@@ -34,7 +33,7 @@ const options = {
 export const Editor = (props: EditorProps) => {
 	const { value = '', onChange, preview } = props;
 
-	const handleChange = React.useCallback((value: string, viewUpdate: CodeMirror.EditorChange) => {
+	const handleChange = React.useCallback((value: string) => {
 		if (onChange) {
 			onChange(value);
 		}

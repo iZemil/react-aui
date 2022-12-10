@@ -15,6 +15,7 @@ export const DarkMode = () => {
 
 	// 	dispatch(themeActions.setTheme({ mode }));
 	// };
+	const isLight = true;
 
 	return (
 		<S.$
@@ -24,7 +25,7 @@ export const DarkMode = () => {
 			$active={true}
 		>
 			<S.Content.$>
-				{true ? (
+				{isLight ? (
 					<>
 						Light Mode
 						<S.Content.Sun.$ size={SIZE} />
