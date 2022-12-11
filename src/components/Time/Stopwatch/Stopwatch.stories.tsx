@@ -1,5 +1,4 @@
 import { Stopwatch } from '.';
-import * as React from 'react';
 
 import { useStopwatch } from '../../../utils';
 import { Button } from '../../Button';

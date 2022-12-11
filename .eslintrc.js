@@ -20,5 +20,6 @@ module.exports = {
 			{ vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
 		],
 		'@typescript-eslint/no-var-requires': 0,
+		'react/react-in-jsx-scope': 0,
 	},
 };

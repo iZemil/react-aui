@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { useSnacks } from '../../utils';
 import { Button } from '../Button';
 import Container from '../Container';

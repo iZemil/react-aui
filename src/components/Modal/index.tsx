@@ -1,5 +1,4 @@
 import { Overlay } from '..';
-import * as React from 'react';
 
 import S from './Styled';
 import { ModalProps } from './types';

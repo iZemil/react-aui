@@ -1,4 +1,3 @@
-import * as React from 'react';
 import type { IconType } from 'react-icons';
 // TODO: split react-icons
 // import('react-icons/bs').then((bs) => {

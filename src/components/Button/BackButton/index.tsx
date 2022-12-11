@@ -1,5 +1,4 @@
 import { Button } from '..';
-import * as React from 'react';
 import { useNavigate } from 'react-router';
 
 import { Icon } from '../..';

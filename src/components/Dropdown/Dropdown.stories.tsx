@@ -1,6 +1,5 @@
 import { Dropdown, Option } from '.';
 import { Icon } from '..';
-import * as React from 'react';
 
 import { Button } from '../Button';
 import Container from '../Container';

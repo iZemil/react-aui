@@ -1,6 +1,5 @@
 import { BackButton } from '.';
 import { Button } from '..';
-import * as React from 'react';
 
 import Container from '../../Container';
 

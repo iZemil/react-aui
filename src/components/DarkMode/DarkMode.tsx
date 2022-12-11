@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import S from './Styled';
 
 const SIZE = 20;

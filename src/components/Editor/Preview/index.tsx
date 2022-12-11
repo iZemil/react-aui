@@ -1,4 +1,3 @@
-import * as React from 'react';
 import remarkGfm from 'remark-gfm';
 
 import { S } from './Styled';

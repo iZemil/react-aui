@@ -1,5 +1,4 @@
 import { Text } from '.';
-import * as React from 'react';
 
 import Container from '../Container';
 

@@ -17,7 +17,8 @@
     "version": "1.2.1",
     "scripts": {
         "dev": "start-storybook",
-        "build": "node scripts/build.js",
+        "build": "tsc",
+        "build:webpack": "node scripts/build.js",
         "build:storybook": "build-storybook -o docs-build",
         "lint": "eslint src/**",
         "test": "node scripts/test.js"

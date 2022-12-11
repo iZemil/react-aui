@@ -1,5 +1,4 @@
 import { Avatar } from '.';
-import * as React from 'react';
 
 import { getFontSize } from '../../styles';
 import Container from '../Container';

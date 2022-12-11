@@ -1,5 +1,4 @@
 import { Icon } from '..';
-import * as React from 'react';
 
 import { useSnacks } from '../../utils';
 import Container from '../Container';

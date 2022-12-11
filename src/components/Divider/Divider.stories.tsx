@@ -1,5 +1,4 @@
 import { Divider } from '.';
-import * as React from 'react';
 
 import { Button } from '../Button';
 import Container from '../Container';

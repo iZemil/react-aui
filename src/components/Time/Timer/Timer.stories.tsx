@@ -1,5 +1,4 @@
 import { Timer } from '.';
-import * as React from 'react';
 
 import { useTimer } from '../../../utils';
 import { Button } from '../../Button';

@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
 		"outDir": "dist",
-		"target": "ESnext",
-		"module": "CommonJS",
+		"target": "es6",
+		"module": "esnext",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
@@ -16,7 +16,12 @@
 		"isolatedModules": true,
 		"noEmit": false,
 		"declaration": true,
-		"jsx": "react-jsx"
+		"jsx": "react-jsx",
+		"stripInternal": true,
+		"experimentalDecorators": true,
+		"noUnusedParameters": true,
+		"noUnusedLocals": true,
+		"noImplicitAny": true
 	},
 	"include": ["src"]
 }

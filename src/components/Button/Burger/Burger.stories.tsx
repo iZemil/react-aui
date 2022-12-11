@@ -1,6 +1,5 @@
 import { Burger } from '.';
 import { Button } from '..';
-import * as React from 'react';
 
 export default {
 	component: Burger,
