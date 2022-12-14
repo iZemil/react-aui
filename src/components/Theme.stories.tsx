@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { darkTheme, lightTheme } from '../styles';
 import { useColor, useTheme } from '../utils';
 

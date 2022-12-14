@@ -13,16 +13,29 @@
 -   Init AUIProvider into root of your project:
 
 ```jsx
-import { ITheme, darkTheme, lightTheme } from 'react-aui';
+import { GlobalStyles, ITheme, darkTheme, color } from 'react-aui';
 
-\// also you can create your own themes, see ITheme
 const theme: ITheme = {
-	...darkTheme,
-	// ...or your options
+	...darkTheme, / ...or your options
 };
 const App = () => {
 	return (
 		<AUIProvider theme={theme}>
+			<GlobalStyles normalize>
+				{(t) => `
+					html {
+						color-scheme: dark;
+					}
+
+					body {
+						font-family: Arial, sans-serif;
+						background-color: ${color('bg')({ theme: t })};
+						color: ${color('text')({ theme: t })};
+						transition: 0.3s background;
+					}
+				`}
+			</GlobalStyles>
+
 			{/* react components... */}
 		</AUIProvider>
 	);

@@ -35,7 +35,7 @@ const withAUIProvider: DecoratorFn = (Story, context) => {
 	return (
 		<BrowserRouter>
 			<AUIProvider theme={theme}>
-				<GlobalStyles>
+				<GlobalStyles normalize>
 					{(t) => `
 						${cssIf(
 							`
