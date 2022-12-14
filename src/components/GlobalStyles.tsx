@@ -1,31 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-import { color as colorFn } from '../styles/utils';
+import { ITheme } from '../styles';
 
-export const GlobalStyles = createGlobalStyle`
-    ${normalize}
+type Props = {
+	normalize?: boolean;
+	children?: (theme: ITheme) => string;
+} & { theme: ITheme };
 
-    html {
-        box-sizing: border-box;
-        color-scheme: ${({ theme }) => theme.mode};
-    }
+export const GlobalStyles = createGlobalStyle<Props>`
+    ${(props) => (props.normalize ?? true ? normalize : '')}
 
-    *, *:before, *:after {
-        box-sizing: inherit;
-    }
-
-    body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        transition: 0.3s background;
-        
-        
-        background-color: ${colorFn('bg')};
-        color: ${colorFn('text')};
-    }
-
-    ${(props) => props.theme.globalStyles ?? ''}
+    ${(props) => (props.children ? props.children(props.theme) : '')}
 `;

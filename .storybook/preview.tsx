@@ -3,7 +3,7 @@ import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { AUIProvider, GlobalStyles } from '../src/components';
-import { ITheme } from '../src/styles';
+import { ITheme, color, cssIf } from '../src/styles';
 import { darkTheme, lightTheme } from '../src/styles/consts';
 
 export const globalTypes = {
@@ -35,7 +35,25 @@ const withAUIProvider: DecoratorFn = (Story, context) => {
 	return (
 		<BrowserRouter>
 			<AUIProvider theme={theme}>
-				<GlobalStyles />
+				<GlobalStyles>
+					{(t) => `
+						${cssIf(
+							`
+						html {
+							color-scheme: dark;
+						}
+					`,
+							t.key === 'dark'
+						)}
+
+						body {
+							transition: 0.3s background;
+							font-family: Arial, sans-serif;
+							background-color: ${color('bg')({ theme: t })};
+							color: ${color('text')({ theme: t })};
+						}
+					`}
+				</GlobalStyles>
 
 				<Story />
 			</AUIProvider>

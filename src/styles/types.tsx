@@ -30,5 +30,4 @@ export interface ITheme {
 	colors: IThemeColors;
 	borderRadius: number;
 	paddings: TPaddings;
-	globalStyles?: string;
 }

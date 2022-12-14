@@ -155,3 +155,5 @@ export const clickEffect = {
 		}
 	`,
 };
+
+export const cssIf = (value: string, condition = false) => (condition ? value : '');

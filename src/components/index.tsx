@@ -1,10 +1,7 @@
 export * from './AUIProvider';
-export * from './Card';
-export * from './Link';
+export { GlobalStyles } from './GlobalStyles';
 
 export { SnackbarsProvider } from './Snackbars';
-
-export { GlobalStyles } from './GlobalStyles';
 
 export { Modal } from './Modal';
 export { Sider } from './Sider';
@@ -18,6 +15,10 @@ export { CopyButton } from './Button/CopyButton';
 export { BackButton } from './Button/BackButton';
 export { Checkbox } from './Checkbox';
 export { Pagination } from './Pagination';
+
+export * from './Link';
+
+export * from './Card';
 
 export { Tabs, Tab } from './Tabs';
 
