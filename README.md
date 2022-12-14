@@ -13,23 +13,17 @@
 -   Init AUIProvider into root of your project:
 
 ```jsx
-import { IAUI, darkTheme, lightTheme } from 'react-aui';
+import { ITheme, darkTheme, lightTheme } from 'react-aui';
 
-\// also you can create your own themes, see IAUI
-const theme: IAUI = {
+\// also you can create your own themes, see ITheme
+const theme: ITheme = {
 	...darkTheme,
-	mode: 'myTheme',
-	colors: {
-		...darkTheme.colors,
-		\// for example, change some colors
-		bg: '#36393f',
-		text: '#ffffff',
-	},
+	// ...or your options
 };
 const App = () => {
 	return (
-		<AUIProvider themes={[theme, lightTheme, darkTheme]} active={0}>
-			{/* your frontend components */}
+		<AUIProvider theme={theme}>
+			{/* react components... */}
 		</AUIProvider>
 	);
 };
