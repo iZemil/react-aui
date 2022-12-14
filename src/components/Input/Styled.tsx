@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { IAUI, TSize, border, borderRadius, color as colorFn, disabledCss, getFontSize, padding } from '../../styles';
+import { ITheme, TSize, border, borderRadius, color as colorFn, disabledCss, getFontSize, padding } from '../../styles';
 
 import { InputProps } from './types';
 
-export const commonInputValueCss = (props: { theme: IAUI; error?: string; disabled?: boolean; size?: TSize }) => `
+export const commonInputValueCss = (props: { theme: ITheme; error?: string; disabled?: boolean; size?: TSize }) => `
 	background: ${colorFn('bg')(props)};
 	color: ${colorFn('text')(props)};
 	border-radius: ${borderRadius(props)};

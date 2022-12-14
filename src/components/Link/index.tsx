@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { IAUI, color, padding } from '../../styles';
+import { ITheme, color, padding } from '../../styles';
 
-const styles = (props: { theme: IAUI }) => `
+const styles = (props: { theme: ITheme }) => `
 	color: ${color('main')(props)};
 	text-decoration: none;
 	font-weight: 500;

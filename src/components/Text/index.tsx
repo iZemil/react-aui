@@ -16,6 +16,7 @@ interface ISProps {
 export type TextProps = {
 	children: React.ReactNode;
 	maxLength?: number;
+	style?: React.CSSProperties;
 } & Partial<ISProps>;
 
 const S = {

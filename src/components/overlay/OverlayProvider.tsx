@@ -18,7 +18,7 @@ const defaultOverlayContext: IOverlayContext = {
 };
 export const OverlayContext = React.createContext<IOverlayContext>(defaultOverlayContext);
 interface OverlayProviderProps {
-	children?: React.ReactElement;
+	children?: React.ReactNode;
 }
 // TODO?: ModalProvider, sepated provider
 export const OverlayProvider = ({ children }: OverlayProviderProps) => {
@@ -43,7 +43,7 @@ export const OverlayProvider = ({ children }: OverlayProviderProps) => {
 		[context, setContext]
 	);
 
-	const contextValue: IOverlayContext = React.useMemo(
+	const contextData: IOverlayContext = React.useMemo(
 		() => ({
 			...context,
 			showModal,
@@ -53,12 +53,10 @@ export const OverlayProvider = ({ children }: OverlayProviderProps) => {
 	);
 
 	return (
-		<OverlayContext.Provider value={contextValue}>
+		<OverlayContext.Provider value={contextData}>
 			{children}
 
-			{React.Children.map(context.modals, (modal, key) => {
-				return React.cloneElement(modal, { key, ...modal.props });
-			})}
+			{React.Children.map(context.modals, (modal, key) => React.cloneElement(modal, { key, ...modal.props }))}
 		</OverlayContext.Provider>
 	);
 };

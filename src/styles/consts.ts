@@ -1,7 +1,7 @@
-import { IAUI } from './types';
+import { ITheme } from './types';
 
-export const lightTheme: IAUI = {
-	mode: 'light',
+export const lightTheme: ITheme = {
+	key: 'light',
 	colors: {
 		main: '#828bf6',
 		text: '#000000',
@@ -25,9 +25,9 @@ export const lightTheme: IAUI = {
 	},
 };
 
-export const darkTheme: IAUI = {
+export const darkTheme: ITheme = {
 	...lightTheme,
-	mode: 'dark',
+	key: 'dark',
 	colors: {
 		...lightTheme.colors,
 		bg: '#36393f',

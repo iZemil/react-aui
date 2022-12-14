@@ -1,12 +1,12 @@
 export type TSize = 'small' | 'medium' | 'large';
 
 declare module 'styled-components' {
-	export interface DefaultTheme extends IAUI {
+	export interface DefaultTheme extends ITheme {
 		empty?: never;
 	}
 }
 
-export interface IAUIColors {
+export interface IThemeColors {
 	main: string;
 	text: string;
 	bg: string;
@@ -21,13 +21,13 @@ export interface IAUIColors {
 	grey: string;
 }
 
-export type TColors = keyof IAUIColors;
+export type TColors = keyof IThemeColors;
 
 export type TPaddings = Record<TSize, number>;
 
-export interface IAUI {
-	mode: string;
-	colors: IAUIColors;
+export interface ITheme {
+	key: string;
+	colors: IThemeColors;
 	borderRadius: number;
 	paddings: TPaddings;
 	globalStyles?: string;

@@ -2,57 +2,72 @@ import { SnackbarsProvider } from '.';
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { isValidColors } from '../styles';
-import { IAUI } from '../styles/types';
+import { darkTheme, isValidColors } from '../styles';
+import { ITheme } from '../styles/types';
 
 import { OverlayProvider } from './overlay';
 
-interface AUIProviderProps {
-	themes: IAUI[];
-	active?: number;
-	children: React.ReactNode;
-}
-
 interface IAUIContext {
-	active: number;
-	themes: IAUI[];
+	theme: ITheme;
+	setTheme: (theme: ITheme) => void;
 }
-const defaultAUIContext: IAUIContext = {
-	active: 0,
-	themes: [],
+const defaultContext: IAUIContext = {
+	theme: darkTheme,
+	setTheme: () => {
+		return;
+	},
 };
-export const AUIContext = React.createContext<IAUIContext>(defaultAUIContext);
 
-export const AUIProvider = ({ children, active = 0, themes }: AUIProviderProps) => {
-	const [context, setContext] = React.useState<IAUIContext>({
-		active,
-		themes,
-	});
+interface AUIProviderProps {
+	children: React.ReactNode;
+	theme: ITheme;
+}
 
-	// validate theme color props
-	React.useEffect(() => {
-		context.themes.forEach((theme) => {
-			isValidColors(theme);
-		});
-	}, []);
+export const AUIContext = React.createContext<IAUIContext>(defaultContext);
+
+export const AUIProvider = (props: AUIProviderProps) => {
+	const { children } = props;
+	const [context, updateContext] = React.useState<IAUIContext>({ ...defaultContext, theme: props.theme });
 
 	React.useEffect(() => {
-		setContext({
+		updateContext({
 			...context,
-			active,
+			theme: props.theme,
 		});
-	}, [active]);
+	}, [props.theme]);
 
-	const theme: IAUI = React.useMemo(() => context.themes[context.active], [context]);
+	React.useEffect(() => {
+		// validate theme color props
+		isValidColors(context.theme);
+	}, [context.theme]);
+
+	const setTheme = React.useCallback(
+		(t: ITheme) => {
+			updateContext({
+				...context,
+				theme: t,
+			});
+		},
+		[context, updateContext]
+	);
+
+	const contextData: IAUIContext = React.useMemo(
+		() => ({
+			...context,
+			setTheme,
+		}),
+		[context, setTheme]
+	);
 
 	return (
-		<ThemeProvider theme={theme}>
-			<OverlayProvider>
-				<>
+		<AUIContext.Provider value={contextData}>
+			<ThemeProvider theme={context.theme}>
+				<OverlayProvider>
 					{children}
+
 					<SnackbarsProvider />
-				</>
-			</OverlayProvider>
-		</ThemeProvider>
+				</OverlayProvider>
+			</ThemeProvider>
+		</AUIContext.Provider>
 	);
 };

@@ -1,4 +1,4 @@
-import { IAUI, TSize } from '../../styles';
+import { ITheme, TSize } from '../../styles';
 
 export type TButtonType = 'filled' | 'text' | 'bordered' | 'dashed';
 
@@ -6,7 +6,7 @@ export interface SButtonProps {
 	$type?: TButtonType;
 	size: TSize;
 	block: boolean;
-	color: keyof IAUI['colors'];
+	color: keyof ITheme['colors'];
 	circle: boolean;
 	disabled: boolean;
 	icon: boolean;

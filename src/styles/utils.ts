@@ -1,12 +1,12 @@
-import { IAUI, TColors, TPaddings, TSize } from './types';
+import { ITheme, TColors, TPaddings, TSize } from './types';
 
 // GOOD: https://dev.to/j3nnning/theme-setup-with-styled-components-functional-programming-4i5p
 export const color =
 	(key: TColors) =>
-	(props: { theme: IAUI }): string =>
+	(props: { theme: ITheme }): string =>
 		props.theme.colors[key];
 
-export function checkColor(theme: IAUI, color?: TColors | string): color is TColors {
+export function checkColor(theme: ITheme, color?: TColors | string): color is TColors {
 	if (!color) {
 		return false;
 	}
@@ -14,7 +14,7 @@ export function checkColor(theme: IAUI, color?: TColors | string): color is TCol
 	return color in theme.colors;
 }
 
-export function getAnyColor(theme: IAUI, value?: TColors | string): string | undefined {
+export function getAnyColor(theme: ITheme, value?: TColors | string): string | undefined {
 	if (!value) {
 		return undefined;
 	}
@@ -34,7 +34,7 @@ export const disabledCss = (extraCss = '') => `
     ${extraCss}
 `;
 
-export const inputLabelCss = (props: { theme: IAUI }) => `
+export const inputLabelCss = (props: { theme: ITheme }) => `
     color: ${color('grey')(props)};
     font-weight: 500;
     text-transform: uppercase;
@@ -44,19 +44,19 @@ export const inputLabelCss = (props: { theme: IAUI }) => `
 
 export const toPx = (value: number): string => `${value}px`;
 
-export const borderRadius = (props: { theme: IAUI }): string => `${toPx(props.theme.borderRadius)}`;
+export const borderRadius = (props: { theme: ITheme }): string => `${toPx(props.theme.borderRadius)}`;
 
 export const border =
 	(c: TColors) =>
-	(props: { theme: IAUI }): string =>
+	(props: { theme: ITheme }): string =>
 		`1px solid ${color(c)(props)}`;
 
 export const padding =
 	(size: TSize) =>
-	(props: { theme: IAUI }): string =>
+	(props: { theme: ITheme }): string =>
 		`${toPx(props.theme.paddings[size])}`;
 
-export const selectPaddings = (props: { theme: IAUI }): Record<TSize, string> => {
+export const selectPaddings = (props: { theme: ITheme }): Record<TSize, string> => {
 	const paddings: TPaddings = props.theme.paddings;
 
 	return {
@@ -82,7 +82,7 @@ export const getFontSize = (size?: TSize): number => {
 	}
 };
 
-export const setSize = (props: { theme: IAUI; size: TSize }) => {
+export const setSize = (props: { theme: ITheme; size: TSize }) => {
 	const { size } = props;
 	const paddings = selectPaddings(props);
 
@@ -117,7 +117,7 @@ export const setSize = (props: { theme: IAUI; size: TSize }) => {
 	}
 };
 
-export const isValidColors = (theme: IAUI): boolean => {
+export const isValidColors = (theme: ITheme): boolean => {
 	const invalid: string[] = [];
 
 	Object.entries(theme.colors).forEach(([name, color]) => {
@@ -131,7 +131,7 @@ export const isValidColors = (theme: IAUI): boolean => {
 };
 
 export const clickEffect = {
-	init: (props: { theme: IAUI; color: TColors }, options?: { borderRadius: string }) => `
+	init: (props: { theme: ITheme; color: TColors }, options?: { borderRadius: string }) => `
 		&::after {
 			content: '';
 			display: block;

@@ -9,6 +9,7 @@ export type TitleProps = {
 	h3?: boolean;
 	h4?: boolean;
 	h5?: boolean;
+	style?: React.CSSProperties;
 } & Partial<SProps>;
 
 type TH = boolean | undefined;

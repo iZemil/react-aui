@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { IAUI, TColors, TSize, border, borderRadius, getAnyColor, padding } from '../../styles';
+import { ITheme, TColors, TSize, border, borderRadius, getAnyColor, padding } from '../../styles';
 
 export interface CardProps {
 	size?: TSize;
@@ -34,7 +34,7 @@ export const Card = styled.div<CardProps>`
 
 	${(props) => {
 		if (props.color) {
-			const theme = props.theme as IAUI;
+			const theme = props.theme as ITheme;
 			const colorVal = getAnyColor(theme, props.color);
 
 			return `

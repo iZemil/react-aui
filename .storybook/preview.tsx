@@ -3,17 +3,16 @@ import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { AUIProvider, GlobalStyles } from '../src/components';
+import { ITheme } from '../src/styles';
 import { darkTheme, lightTheme } from '../src/styles/consts';
 
 export const globalTypes = {
 	theme: {
-		description: 'AUI provider themes',
+		description: 'Themes',
 		defaultValue: 'dark',
 		toolbar: {
 			title: 'theme',
-			// The icon for the toolbar item
 			icon: 'circlehollow',
-			// Array of options
 			items: [
 				{ value: 'dark', icon: 'circle', title: 'dark' },
 				{ value: 'light', icon: 'circlehollow', title: 'light' },
@@ -25,12 +24,19 @@ export const globalTypes = {
 // GOOD: find color by color https://mycolor.space/
 // find: https://app.contrast-finder.org/
 const withAUIProvider: DecoratorFn = (Story, context) => {
-	const theme = context.parameters.theme || context.globals.theme;
+	const themeKey: ITheme['key'] = context.parameters.theme || context.globals.theme;
+
+	const theme: ITheme = React.useMemo(() => {
+		const themes = [lightTheme, darkTheme];
+
+		return themes.find((t) => t.key === themeKey) ?? themes[0];
+	}, [themeKey]);
 
 	return (
 		<BrowserRouter>
-			<AUIProvider themes={[lightTheme, darkTheme]} active={theme === 'light' ? 0 : 1}>
+			<AUIProvider theme={theme}>
 				<GlobalStyles />
+
 				<Story />
 			</AUIProvider>
 		</BrowserRouter>

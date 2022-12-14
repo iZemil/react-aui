@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withTheme } from 'styled-components';
 
-import { IAUI, TSize, getAnyColor } from '../../styles';
+import { ITheme, TSize, getAnyColor } from '../../styles';
 
 import { IconProps } from './types';
 import { BASE_SET, BASE_SIZES, BS_SET } from './utils';
@@ -14,7 +14,7 @@ function checkTSize(size?: number | string): size is TSize {
 	return size in BASE_SIZES;
 }
 
-export class IconWrapper extends React.Component<IconProps & { theme?: IAUI }> {
+export class IconWrapper extends React.Component<IconProps & { theme?: ITheme }> {
 	public static base = BASE_SET;
 	public static all = BS_SET;
 
@@ -22,7 +22,7 @@ export class IconWrapper extends React.Component<IconProps & { theme?: IAUI }> {
 		const { icon: IconComponent, color, size, ...rest } = this.props;
 		const resultSize = checkTSize(size) ? BASE_SIZES[size] : size;
 
-		const theme = this.props.theme as IAUI;
+		const theme = this.props.theme as ITheme;
 
 		return <IconComponent color={getAnyColor(theme, color)} size={resultSize} {...rest} />;
 	}
