@@ -1,4 +1,4 @@
-import 'hypermd';
+import * as hypermd from 'hypermd';
 import * as React from 'react';
 
 import { Preview } from './Preview';
@@ -39,6 +39,12 @@ export const Editor = (props: EditorProps) => {
 			onChange(value);
 		}
 	}, []);
+
+	React.useEffect(() => {
+		if (!preview) {
+			hypermd.debounce();
+		}
+	}, [preview]);
 
 	if (preview) {
 		return <Preview value={value} />;
