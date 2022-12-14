@@ -42,7 +42,9 @@ export const Editor = (props: EditorProps) => {
 
 	React.useEffect(() => {
 		if (!preview) {
-			hypermd.debounce();
+			hypermd.debounce(() => {
+				return;
+			}, 1000);
 		}
 	}, [preview]);
 
