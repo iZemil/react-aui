@@ -25,6 +25,7 @@ const options = {
 	hmdClick: true,
 	hmdHover: true,
 	hmdTableAlign: true,
+	lineWrapping: true,
 };
 
 /**

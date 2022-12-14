@@ -3,10 +3,6 @@ import styled from 'styled-components';
 
 import { borderRadius, color } from '../../styles';
 
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/monokai.css';
-import 'hypermd/mode/hypermd.css';
-
 export const S = {
 	$: styled(ReactCodeMirror)`
 		width: 100%;
@@ -20,7 +16,11 @@ export const S = {
 			color: ${color('text')};
 
 			&-cursor {
-				border-color: ${color('main')};
+				border-color: ${color('main')}90;
+			}
+
+			&-selected {
+				background: ${color('main')}30;
 			}
 
 			span.cm-link {
