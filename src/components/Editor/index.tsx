@@ -1,8 +1,11 @@
-import * as hypermd from 'hypermd';
 import * as React from 'react';
 
 import { Preview } from './Preview';
 import { S } from './Styled';
+
+if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
+	require('hypermd');
+}
 
 export type EditorProps = {
 	value?: string;
@@ -39,14 +42,6 @@ export const Editor = (props: EditorProps) => {
 			onChange(value);
 		}
 	}, []);
-
-	React.useEffect(() => {
-		if (!preview) {
-			hypermd.debounce(() => {
-				return;
-			}, 1000);
-		}
-	}, [preview]);
 
 	if (preview) {
 		return <Preview value={value} />;
