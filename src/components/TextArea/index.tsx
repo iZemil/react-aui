@@ -18,11 +18,14 @@ export type TextAreaProps = {
 export function TextArea(props: TextAreaProps) {
 	const { id = React.useId(), size = 'medium', label, placeholder, value, error, onChange, hint, ...rest } = props;
 
-	const handleChange = React.useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-		if (onChange) {
-			onChange(e.target.value, e);
-		}
-	}, []);
+	const handleChange = React.useCallback(
+		(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+			if (onChange) {
+				onChange(e.target.value, e);
+			}
+		},
+		[onChange]
+	);
 
 	return (
 		<S.$>

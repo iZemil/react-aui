@@ -30,11 +30,14 @@ export function Input(props: InputProps) {
 		...rest
 	} = props;
 
-	const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-		if (onChange) {
-			onChange(e.target.value, e);
-		}
-	}, []);
+	const handleChange = React.useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			if (onChange) {
+				onChange(e.target.value, e);
+			}
+		},
+		[onChange]
+	);
 
 	return (
 		<S.$>
