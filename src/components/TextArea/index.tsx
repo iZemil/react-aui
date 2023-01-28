@@ -10,16 +10,25 @@ export type TextAreaProps = {
 	placeholder?: string;
 	hint?: React.ReactNode;
 	ref?: React.RefObject<HTMLTextAreaElement>;
+	label?: InputLabelProps['children'];
 	onChange?: (value: string, e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-} & Partial<InputLabelProps> &
+} & Partial<Omit<InputLabelProps, 'children'>> &
 	Partial<Omit<React.HTMLProps<HTMLTextAreaElement>, TOmitInputProps>>;
 
 export function TextArea(props: TextAreaProps) {
 	const { id = React.useId(), size = 'medium', label, placeholder, value, error, onChange, hint, ...rest } = props;
 
+	const handleChange = React.useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		if (onChange) {
+			onChange(e.target.value, e);
+		}
+	}, []);
+
 	return (
 		<S.$>
-			<InputLabel id={id} label={label} error={error} size={size} />
+			<InputLabel id={id} error={error} size={size}>
+				{label}
+			</InputLabel>
 
 			<S.Textarea.$
 				{...rest}
@@ -28,11 +37,7 @@ export function TextArea(props: TextAreaProps) {
 				size={size}
 				value={value}
 				placeholder={placeholder}
-				onChange={(e) => {
-					if (onChange) {
-						onChange(e.target.value, e);
-					}
-				}}
+				onChange={handleChange}
 			/>
 
 			{hint}

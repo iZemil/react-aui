@@ -4,12 +4,12 @@ import { S } from './Styled';
 import { InputLabelProps, InputProps } from './types';
 
 export const InputLabel = (props: InputLabelProps) => {
-	const { label, error, id, size } = props;
+	const { children, error, id, size } = props;
 
-	return label || error ? (
+	return children || error ? (
 		<S.Label.$ htmlFor={id} error={error} size={size}>
-			{label}
-			{error ? <S.Error.$>{`${label ? ' – ' : ''}${error}`}</S.Error.$> : ''}
+			{children}
+			{error ? <S.Error.$>{`${children ? ' – ' : ''}${error}`}</S.Error.$> : ''}
 		</S.Label.$>
 	) : null;
 };
@@ -30,9 +30,17 @@ export function Input(props: InputProps) {
 		...rest
 	} = props;
 
+	const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		if (onChange) {
+			onChange(e.target.value, e);
+		}
+	}, []);
+
 	return (
 		<S.$>
-			<InputLabel id={id} label={label} error={error} size={size} />
+			<InputLabel id={id} error={error} size={size}>
+				{label}
+			</InputLabel>
 
 			<S.Value.Wrapper.$>
 				{prefix && <S.Prefix.$>{prefix}</S.Prefix.$>}
@@ -44,11 +52,7 @@ export function Input(props: InputProps) {
 					type={htmlType}
 					error={error}
 					size={size as unknown as undefined}
-					onChange={(e) => {
-						if (onChange) {
-							onChange(e.target.value, e);
-						}
-					}}
+					onChange={handleChange}
 					{...rest}
 				/>
 

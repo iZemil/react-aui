@@ -5,7 +5,7 @@ import { color } from '../../styles';
 
 export interface OverlayProps {
 	open: boolean;
-	onClose?: () => void;
+	onClose?: (e: React.MouseEvent) => void;
 	children?: React.ReactElement;
 }
 
@@ -24,10 +24,11 @@ const S = {
 export const Overlay = ({ open, children, onClose }: OverlayProps) => {
 	return open ? (
 		<S.$
-			onClick={(e) => {
+			onClick={(e: React.MouseEvent) => {
 				const isWrapper = e.target === e.currentTarget;
 				if (isWrapper && onClose) {
-					onClose();
+					e.stopPropagation();
+					onClose(e);
 				}
 			}}
 		>

@@ -6,7 +6,7 @@ export { SnackbarsProvider } from './Snackbars';
 export { Modal } from './Modal';
 export { Sider } from './Sider';
 
-export { Input } from './Input';
+export { Input, InputLabel } from './Input';
 export { TextArea } from './TextArea';
 export { Editor } from './Editor';
 

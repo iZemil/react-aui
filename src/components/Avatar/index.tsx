@@ -1,12 +1,14 @@
 import { Icon } from '..';
 
-import { getInitials, stringToColor } from '../../utils';
+import { stringToColor } from '../../utils';
 
 import S, { SAvatarProps } from './Styled';
 
 export interface AvatarProps extends Partial<SAvatarProps> {
 	children?: string;
 }
+
+const getInitials = (name: string) => `${name[0]}`;
 
 export const Avatar = ({
 	children,

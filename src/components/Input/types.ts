@@ -3,7 +3,7 @@ import React from 'react';
 import { TSize } from '../../styles';
 
 export interface InputLabelProps {
-	label?: React.ReactNode;
+	children?: React.ReactNode;
 	error?: string;
 	id?: string;
 	size?: TSize;
@@ -18,6 +18,7 @@ export type InputProps = {
 	value?: string | number;
 	prefix?: React.ReactNode;
 	suffix?: React.ReactNode;
+	label?: InputLabelProps['children'];
 	onChange?: (value: string, e: React.ChangeEvent<HTMLInputElement>) => void;
-} & Partial<InputLabelProps> &
+} & Partial<Omit<InputLabelProps, 'children'>> &
 	Partial<Omit<React.HTMLProps<HTMLInputElement>, TOmitInputProps>>;
