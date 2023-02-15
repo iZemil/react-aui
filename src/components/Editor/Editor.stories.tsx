@@ -1,8 +1,6 @@
 import { Editor } from '.';
 import * as React from 'react';
-import styled from 'styled-components';
 
-import { border, padding } from '../../styles';
 import { useModal } from '../../utils';
 import { Button } from '../Button';
 import Container from '../Container';
@@ -60,21 +58,13 @@ interface IDescData {
 	description: string;
 }
 
-const S = {
-	$: styled.div`
-		display: flex;
-		flex-direction: column;
-
-		.ReactCodeMirror {
-			border: ${border('grey')};
-			padding: ${padding('medium')};
-		}
-	`,
-};
 export const Description = () => {
 	const [data, updateData] = React.useState<IDescData>({ title: '', description: '' });
 
 	const handleChange = (updated: Partial<IDescData>) => updateData({ ...data, ...updated });
+	const handleClick = () => {
+		handleChange({ description: `random description value: ${Math.random().toString(32)}` });
+	};
 
 	return (
 		<Container column>
@@ -87,24 +77,24 @@ export const Description = () => {
 					})
 				}
 			/>
-			<S.$>
-				<Editor
-					label={
-						<>
-							Description
-							<MarkdownSupport />
-						</>
-					}
-					value={data.description}
-					onChange={(value) =>
-						handleChange({
-							description: value,
-						})
-					}
-				/>
-			</S.$>
+
+			<Editor
+				label={
+					<>
+						Description
+						<MarkdownSupport />
+					</>
+				}
+				value={data.description}
+				onChange={(value) =>
+					handleChange({
+						description: value,
+					})
+				}
+			/>
 
 			<p>output: {JSON.stringify(data)}</p>
+			<Button onClick={handleClick}>Change Description</Button>
 		</Container>
 	);
 };

@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
-import { padding } from '../../../styles';
+import { border, color, padding } from '../../../styles';
 
 export const S = {
 	$: styled(ReactMarkdown)`
@@ -48,6 +48,22 @@ export const S = {
 				gap: ${padding('medium')};
 				margin-left: -${padding('large')};
 			}
+		}
+
+		hr {
+			width: 100%;
+			color: ${color('grey')};
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		td,
+		th {
+			border: ${border('grey')};
+			padding: ${padding('medium')};
+			text-align: left;
 		}
 	`,
 };
