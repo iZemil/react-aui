@@ -50,7 +50,6 @@ export const Modal = ({
 	);
 };
 
-// TODO?: close button prop
 Modal.Title = S.Title.$;
 Modal.Content = S.Content.$;
 Modal.Toolbar = S.Toolbar.$;

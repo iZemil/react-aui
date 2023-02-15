@@ -9,6 +9,7 @@ export const S = {
 		height: 100%;
 		border-radius: ${borderRadius};
 		overflow: hidden;
+		box-sizing: border-box;
 
 		.CodeMirror {
 			height: 100%;
@@ -26,6 +27,15 @@ export const S = {
 			span.cm-link {
 				color: ${color('main')};
 			}
+
+			pre.HyperMD-header:after {
+				display: none;
+			}
+		}
+
+		.cm-s-hypermd-light span.cm-formatting-list {
+			color: ${color('text')};
+			font-family: inherit;
 		}
 	`,
 };

@@ -18,13 +18,18 @@ const S = {
 	`,
 };
 
-export const MARKDOWN_SUPPORT_LINK = 'https://www.markdownguide.org/basic-syntax';
+interface IProps {
+	text?: string;
+	href?: string;
+}
 
-export const MarkdownSupport = () => {
+export const MarkdownSupport = (props: IProps) => {
+	const { text = 'Markdown is supported', href = 'https://www.markdownguide.org/basic-syntax' } = props;
+
 	return (
 		<S.$>
-			<Button size="small" type="text" color="grey" to={MARKDOWN_SUPPORT_LINK} blank>
-				Markdown is supported
+			<Button size="small" type="text" color="grey" to={href} blank>
+				{text}
 				<Icon icon={Icon.base.Markdown} size="small" />
 			</Button>
 		</S.$>

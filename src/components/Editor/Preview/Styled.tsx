@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
-import { inputLabelCss, padding } from '../../../styles';
+import { padding } from '../../../styles';
 
 export const S = {
 	$: styled(ReactMarkdown)`
@@ -50,9 +50,4 @@ export const S = {
 			}
 		}
 	`,
-	Label: {
-		$: styled.div`
-			${inputLabelCss}
-		`,
-	},
 };

@@ -83,7 +83,18 @@ export const Size = () => {
 
 	const handleClick = (size: TSize) => {
 		sizedModal.show(
-			<Modal open onClose={sizedModal.hide} size={size}>
+			<Modal
+				open
+				onClose={sizedModal.hide}
+				size={size}
+				title={<Modal.Title>Size: {size}</Modal.Title>}
+				toolbar={
+					<Modal.Toolbar>
+						<Button onClick={sizedModal.hide}>Close</Button>
+						<Button onClick={sizedModal.hide}>Ok</Button>
+					</Modal.Toolbar>
+				}
+			>
 				{Array.from({ length: 20 }).map((_, index) => (
 					<DefaultModalContent key={index} />
 				))}
