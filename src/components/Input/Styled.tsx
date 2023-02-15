@@ -27,9 +27,10 @@ export const S = {
 			margin-bottom: ${padding('small')};
 			line-height: ${(props) => getFontSize(props.size)}px;
 			font-size: ${(props) => getFontSize(props.size) - 4}px;
+			font-weight: bold;
 			text-transform: uppercase;
 
-			color: ${(props) => (props.error ? colorFn('red')(props) : colorFn('grey')(props))};
+			color: ${(props) => (props.error ? colorFn('red')(props) : colorFn('text')(props))};
 		`,
 	},
 	Error: {
