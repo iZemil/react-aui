@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
-import { border, color, padding } from '../../../styles';
+import { border, borderRadius, color, padding } from '../../../styles';
 
 export const S = {
 	$: styled(ReactMarkdown)`
@@ -24,11 +24,6 @@ export const S = {
 		h6 {
 			padding: 0;
 			margin: 0;
-		}
-
-		img {
-			width: 100%;
-			height: auto;
 		}
 
 		ul,
@@ -64,6 +59,19 @@ export const S = {
 			border: ${border('grey')};
 			padding: ${padding('medium')};
 			text-align: left;
+		}
+
+		code {
+			background: ${color('black')};
+			color: ${color('white')};
+			border: ${border('grey')};
+			border-radius: ${borderRadius};
+			padding: 4px;
+		}
+
+		pre > code {
+			display: block;
+			padding: ${padding('medium')};
 		}
 	`,
 };

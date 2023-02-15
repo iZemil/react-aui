@@ -1,4 +1,6 @@
+import * as codemirror from 'codemirror';
 import * as React from 'react';
+import { IControlledCodeMirror } from 'react-codemirror2';
 
 import { InputLabel } from '../Input';
 import { InputLabelProps } from '../Input/types';
@@ -12,11 +14,11 @@ if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
 
 export type EditorProps = {
 	value?: string;
-	onChange?: (md: string) => void;
+	onChange?: (md: string, editor: codemirror.Editor, data: codemirror.EditorChange) => void;
 	preview?: boolean;
 	label?: InputLabelProps['children'];
 } & Partial<Omit<InputLabelProps, 'children'>> &
-	ReactCodeMirror.ReactCodeMirrorProps;
+	Partial<Omit<IControlledCodeMirror, 'onChange'>>;
 
 const options = {
 	mode: 'hypermd',
@@ -42,9 +44,9 @@ const options = {
 export const Editor = (props: EditorProps) => {
 	const { id = React.useId(), size = 'medium', label, error, value = '', onChange, preview, ...rest } = props;
 
-	const handleChange = (value: string) => {
+	const handleChange = (value: string, editor: codemirror.Editor, data: codemirror.EditorChange) => {
 		if (onChange) {
-			onChange(value);
+			onChange(value, editor, data);
 		}
 	};
 
@@ -58,7 +60,14 @@ export const Editor = (props: EditorProps) => {
 				{label}
 			</InputLabel>
 
-			<S.Input.$ value={value} onChange={handleChange} options={options} {...rest} />
+			<S.Input.$
+				value={value}
+				onBeforeChange={(editor, data, value) => {
+					handleChange(value, editor, data);
+				}}
+				options={options}
+				{...rest}
+			/>
 		</S.$>
 	);
 };

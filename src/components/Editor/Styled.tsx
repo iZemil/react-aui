@@ -1,4 +1,4 @@
-import ReactCodeMirror from 'react-codemirror';
+import { Controlled as CodeMirror } from 'react-codemirror2';
 import styled from 'styled-components';
 
 import { border, borderRadius, color, padding } from '../../styles';
@@ -6,7 +6,7 @@ import { border, borderRadius, color, padding } from '../../styles';
 export const S = {
 	$: styled.div``,
 	Input: {
-		$: styled(ReactCodeMirror)`
+		$: styled(CodeMirror)`
 			width: 100%;
 			height: 100%;
 			border-radius: ${borderRadius};
@@ -50,8 +50,10 @@ export const S = {
 				div.HyperMD-codeblock-bg {
 					background: transparent;
 				}
-				pre.HyperMD-codeblock {
-					color: ${color('main')};
+				pre.HyperMD-codeblock,
+				span.cm-inline-code {
+					color: ${color('white')};
+					background: ${color('black')} !important;
 					font-family: monospace;
 				}
 			}

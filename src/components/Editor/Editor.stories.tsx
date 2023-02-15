@@ -1,24 +1,24 @@
 import { Editor } from '.';
 import * as React from 'react';
 
-import { useModal } from '../../utils';
 import { Button } from '../Button';
 import Container from '../Container';
 import { Divider } from '../Divider';
 import { Input } from '../Input';
 import { MarkdownSupport } from '../MarkdownSupport';
-import { Modal } from '../Modal';
 
 export default {
 	component: Editor,
 };
 
 export const Basic = () => {
-	const modal = useModal();
 	const [value, setValue] = React.useState(
 		`# Heading
 
-Some **bold** and _italic_ text
+Some **bold** and _italic_ text \`inline code\` ~~XXX-XXX~~
+
+![some image](https://camo.githubusercontent.com/91fc3a33ec28d9a77a830176ce0fc8926714e3729b3fb1323f59e956820b7f6b/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c616e6775616765732f636f64652d73697a652f697a656d696c2f72656163742d617569)
+![Broken](/broken.jpg)
 
 By [github link](https://github.com/iZemil/react-aui)
 
@@ -32,21 +32,9 @@ function hello() {
 
 	return (
 		<Container column>
-			<Button
-				onClick={() => {
-					modal.show(
-						<Modal open title={<Modal.Title>Editor</Modal.Title>} onClose={modal.hide}>
-							<Editor value={value} onChange={setValue} />
-						</Modal>
-					);
-				}}
-			>
-				Modal
-			</Button>
+			<Editor label="Editor" value={value} onChange={setValue} />
 
-			<Editor value={value} onChange={setValue} />
-
-			<Divider color="blue">Editor preview bellow</Divider>
+			<Divider color="blue">EDITOR PREVIEW</Divider>
 
 			<Editor value={value} preview />
 		</Container>
