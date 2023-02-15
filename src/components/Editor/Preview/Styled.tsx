@@ -48,6 +48,8 @@ export const S = {
 		hr {
 			width: 100%;
 			color: ${color('grey')};
+			border: 0;
+			border-bottom: 1px solid;
 		}
 
 		table {

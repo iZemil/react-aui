@@ -4,7 +4,10 @@ import styled from 'styled-components';
 import { border, borderRadius, color, padding } from '../../styles';
 
 export const S = {
-	$: styled.div``,
+	$: styled.div`
+		display: flex;
+		flex-direction: column;
+	`,
 	Input: {
 		$: styled(CodeMirror)`
 			width: 100%;
