@@ -30,7 +30,7 @@ export const MarkdownSupport = (props: IProps) => {
 		<S.$>
 			<Button size="small" type="text" color="grey" to={href} blank>
 				{text}
-				<Icon icon={Icon.base.Markdown} size="small" />
+				<Icon.Markdown size={18} />
 			</Button>
 		</S.$>
 	);

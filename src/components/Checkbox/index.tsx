@@ -1,4 +1,3 @@
-import { Icon } from '..';
 import * as React from 'react';
 
 import { TColors } from '../../styles';
@@ -25,9 +24,7 @@ export const Checkbox = ({ checked, disabled, children, color = 'text', onClick,
 			}}
 			{...rest}
 		>
-			<S.Icon.$ color={color}>
-				<Icon icon={checked ? Icon.base.Checked : Icon.base.NotChecked} />
-			</S.Icon.$>
+			<S.Icon.$ color={color}>{checked ? 1 : 0}</S.Icon.$>
 
 			{children}
 		</S.$>

@@ -2,7 +2,6 @@ import { Title } from '.';
 
 import { Button } from '../Button';
 import Container from '../Container';
-import { Icon } from '../Icon';
 
 export default {
 	component: Title,
@@ -21,7 +20,6 @@ export const Basic = () => {
 
 			<Title color="orange">Colored</Title>
 			<Title>
-				<Icon size="small" icon={Icon.all.BsTypeH1} />
 				Any content
 				<Button.Copy value="Title" />
 			</Title>

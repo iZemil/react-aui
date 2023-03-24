@@ -32,12 +32,12 @@ export const Basic = () => {
 				<Button
 					type="filled"
 					onClick={() =>
-						snack('Icon', {
+						snack('icon', {
 							icon: '👏',
 						})
 					}
 				>
-					Icon
+					icon
 				</Button>
 
 				<Button

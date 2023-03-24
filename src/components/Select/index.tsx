@@ -21,7 +21,7 @@ const SelectLabel = (props: SelectLabelProps) => {
 	return (
 		<S.Label.$ color="white" {...rest}>
 			{children ?? placeholder}
-			<Icon.base.ChevronDown />
+			<Icon.ChevronDown />
 		</S.Label.$>
 	);
 };

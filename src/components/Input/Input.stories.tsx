@@ -1,5 +1,4 @@
 import { Input } from '.';
-import { Icon } from '..';
 import * as React from 'react';
 
 import { Button } from '../Button';
@@ -60,7 +59,7 @@ export const Other = () => {
 							gap: '5px',
 						}}
 					>
-						<Icon.base.EmptyAvatar />
+						<b>B</b>
 						Custom label
 					</div>
 				}
@@ -71,38 +70,14 @@ export const Other = () => {
 
 			<Input label="Disabled" value="Text..." disabled />
 
-			<Input
-				label="Prefix"
-				placeholder="Write a message"
-				prefix={
-					<Button icon>
-						<Icon.base.Person />
-					</Button>
-				}
-			/>
-			<Input
-				label="Suffix"
-				placeholder="Write a message"
-				suffix={
-					<Button icon>
-						<Icon.base.Hide />
-					</Button>
-				}
-			/>
+			<Input label="Prefix" placeholder="Write a message" prefix={<Button icon>A</Button>} />
+			<Input label="Suffix" placeholder="Write a message" suffix={<Button icon>i</Button>} />
 			<Input
 				label="Prefix/Suffix"
 				placeholder="Write a message"
 				error="error"
-				prefix={
-					<Button icon>
-						<Icon.base.Person />
-					</Button>
-				}
-				suffix={
-					<Button icon>
-						<Icon.base.Hide />
-					</Button>
-				}
+				prefix={<Button icon>i</Button>}
+				suffix={<Button icon>i</Button>}
 			/>
 		</Container>
 	);

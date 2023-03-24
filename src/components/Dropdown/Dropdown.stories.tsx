@@ -1,5 +1,4 @@
 import { Dropdown, Option } from '.';
-import { Icon } from '..';
 
 import { Button } from '../Button';
 import Container from '../Container';
@@ -17,28 +16,15 @@ export const Basic = () => {
 						console.log('option props', option);
 					}}
 				>
-					<Icon.base.Accept />
 					create
 				</Option>
-				<Option>
-					<Icon.base.Info />
-					read
-				</Option>
-				<Option>
-					<Icon.base.Edit />
-					update
-				</Option>
-				<Option>
-					<Icon.base.Delete />
-					delete
-				</Option>
+				<Option>read</Option>
+				<Option>update</Option>
+				<Option>delete</Option>
 			</Dropdown>
 
 			<Dropdown label={<Button>Disabled</Button>} disabled>
-				<Option>
-					<Icon.base.Accept />
-					Value
-				</Option>
+				<Option>Value</Option>
 			</Dropdown>
 
 			<Dropdown

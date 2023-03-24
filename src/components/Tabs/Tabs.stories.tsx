@@ -1,5 +1,4 @@
 import { Tab, Tabs } from '.';
-import { Icon } from '..';
 import * as React from 'react';
 
 import Container from '../Container';
@@ -26,16 +25,9 @@ export const Basic = () => {
 			</Tabs>
 
 			<Tabs activeIndex={tabIndex} onChange={setTabIndex}>
-				<Tab index={0}>
-					<Icon.base.ArrowLeft />
-				</Tab>
-				<Tab index={1}>
-					<Icon.base.AddCode />
-					Center
-				</Tab>
-				<Tab index={2}>
-					<Icon.base.ArrowRight />
-				</Tab>
+				<Tab index={0}>1</Tab>
+				<Tab index={1}>2</Tab>
+				<Tab index={2}>3</Tab>
 			</Tabs>
 		</Container>
 	);

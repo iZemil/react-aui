@@ -16,7 +16,7 @@ export const CopyButton = (props: ICopyButtonProps) => {
 	const { value, children, withoutIcon = false, type = 'text', ...rest } = props;
 	const [isCopied, copy] = React.useState(false);
 
-	const iconSize = getFontSize(props.size);
+	const size = getFontSize(props.size) + 2;
 
 	const handleCopy = async () => {
 		try {
@@ -35,13 +35,7 @@ export const CopyButton = (props: ICopyButtonProps) => {
 			{children}
 
 			{!withoutIcon && (
-				<S.Icon.$>
-					<Icon
-						icon={isCopied ? Icon.base.Ok : Icon.base.Copy}
-						color={isCopied ? 'green' : undefined}
-						size={iconSize}
-					/>
-				</S.Icon.$>
+				<S.Icon.$>{isCopied ? Icon.Check({ color: 'green', size }) : Icon.Copy({ size })}</S.Icon.$>
 			)}
 		</S.$>
 	);

@@ -3,6 +3,7 @@ export { GlobalStyles } from './GlobalStyles';
 
 export { SnackbarsProvider } from './Snackbars';
 
+export * from './Icon';
 export { Modal } from './Modal';
 export { Sider } from './Sider';
 
@@ -12,7 +13,6 @@ export { Editor } from './Editor';
 
 export { Button } from './Button';
 export { CopyButton } from './Button/CopyButton';
-export { BackButton } from './Button/BackButton';
 export { Checkbox } from './Checkbox';
 export { Pagination } from './Pagination';
 
@@ -21,20 +21,11 @@ export * from './Link';
 export * from './Card';
 
 export { Tabs, Tab } from './Tabs';
-
 export { Dropdown, Option } from './Dropdown';
 export { Select } from './Select';
-
 export { Avatar } from './Avatar';
-
 export { Divider } from './Divider';
-
-export { Icon } from './Icon';
-export { svgToIcon, createIconAliases } from './Icon/utils';
-export type { IconType } from 'react-icons';
-
 export { Loader } from './Loader';
-
 export { Overlay } from './overlay';
 export { Title } from './Title';
 export { Text } from './Text';

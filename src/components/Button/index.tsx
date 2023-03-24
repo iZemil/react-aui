@@ -4,7 +4,6 @@ import { Link } from '../Link';
 import { Ripple } from '../Ripple';
 import { useRipple } from '../Ripple/useRipple';
 
-import { BackButton } from './BackButton';
 import { Burger } from './Burger';
 import { CopyButton } from './CopyButton';
 import { S } from './Styled';
@@ -70,6 +69,5 @@ export function Button(props: ButtonProps) {
 }
 
 Button.Copy = CopyButton;
-Button.Back = BackButton;
 // TODO: существует цикл зависимость Burget -> Button -> Burger
 Button.Burger = Burger;
