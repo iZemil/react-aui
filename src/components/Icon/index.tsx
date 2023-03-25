@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { useColor } from '../../utils';
+
 export const SVG_DEF = {
 	size: 24,
 	color: '#FFFFFF',
@@ -18,19 +20,23 @@ export const Svg = ({
 	children,
 	viewBox,
 	size = SVG_DEF.size,
-	color = SVG_DEF.color,
 	className,
-}: SvgProps & { children: React.ReactNode; viewBox: string }) => (
-	<svg
-		viewBox={viewBox}
-		xmlns="http://www.w3.org/2000/svg"
-		className={className}
-		fill={color}
-		style={{ width: size, height: size, minWidth: size, ...style }}
-	>
-		{children}
-	</svg>
-);
+	...props
+}: SvgProps & { children: React.ReactNode; viewBox: string }) => {
+	const color = useColor(props.color ?? 'text');
+
+	return (
+		<svg
+			viewBox={viewBox}
+			xmlns="http://www.w3.org/2000/svg"
+			className={className}
+			fill={color}
+			style={{ width: size, height: size, minWidth: size, ...style }}
+		>
+			{children}
+		</svg>
+	);
+};
 
 const Markdown = (props: SvgProps) => (
 	<Svg viewBox="0 0 16 16" {...props}>
@@ -64,32 +70,40 @@ const ChevronRight = (p: SvgProps) => (
 	<Chevron {...p} style={{ ...p.style, transform: `${p.style?.transform ?? ''}rotate(-90deg)` }} />
 );
 
-const Dots = ({ color = SVG_DEF.color, ...props }: SvgProps) => (
-	<Svg viewBox="0 0 24 24" color="none" {...props}>
-		<path
-			fill={color}
-			d="M14 5C14 6.10457 13.1046 7 12 7C10.8954 7 10 6.10457 10 5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5Z"
-		/>
-		<path
-			fill={color}
-			d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
-		/>
-		<path
-			fill={color}
-			d="M12 21C13.1046 21 14 20.1046 14 19C14 17.8954 13.1046 17 12 17C10.8954 17 10 17.8954 10 19C10 20.1046 10.8954 21 12 21Z"
-		/>
-	</Svg>
-);
+const Dots = (props: SvgProps) => {
+	const color = useColor(props.color ?? 'text');
 
-const Copy = ({ color = SVG_DEF.color, ...props }: SvgProps) => (
-	<Svg viewBox="0 0 20 20" color="none" {...props}>
-		<path
-			fill={color}
-			fillRule="evenodd"
-			d="M4 2a2 2 0 00-2 2v9a2 2 0 002 2h2v2a2 2 0 002 2h9a2 2 0 002-2V8a2 2 0 00-2-2h-2V4a2 2 0 00-2-2H4zm9 4V4H4v9h2V8a2 2 0 012-2h5zM8 8h9v9H8V8z"
-		/>
-	</Svg>
-);
+	return (
+		<Svg viewBox="0 0 24 24" color="none" {...props}>
+			<path
+				fill={color}
+				d="M14 5C14 6.10457 13.1046 7 12 7C10.8954 7 10 6.10457 10 5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5Z"
+			/>
+			<path
+				fill={color}
+				d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+			/>
+			<path
+				fill={color}
+				d="M12 21C13.1046 21 14 20.1046 14 19C14 17.8954 13.1046 17 12 17C10.8954 17 10 17.8954 10 19C10 20.1046 10.8954 21 12 21Z"
+			/>
+		</Svg>
+	);
+};
+
+const Copy = (props: SvgProps) => {
+	const color = useColor(props.color ?? 'text');
+
+	return (
+		<Svg viewBox="0 0 20 20" color="none" {...props}>
+			<path
+				fill={color}
+				fillRule="evenodd"
+				d="M4 2a2 2 0 00-2 2v9a2 2 0 002 2h2v2a2 2 0 002 2h9a2 2 0 002-2V8a2 2 0 00-2-2h-2V4a2 2 0 00-2-2H4zm9 4V4H4v9h2V8a2 2 0 012-2h5zM8 8h9v9H8V8z"
+			/>
+		</Svg>
+	);
+};
 
 const Check = ({ ...props }: SvgProps) => (
 	<Svg viewBox="0 0 32 32" {...props}>

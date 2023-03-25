@@ -13,7 +13,7 @@ export interface CheckboxProps {
 	color?: TColors;
 }
 
-export const Checkbox = ({ value, disabled, children, color = 'black', onChange, ...rest }: CheckboxProps) => {
+export const Checkbox = ({ value, disabled, children, color = 'text', onChange, ...rest }: CheckboxProps) => {
 	return (
 		<S.$
 			color={color}

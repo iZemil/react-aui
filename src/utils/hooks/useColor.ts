@@ -2,8 +2,14 @@ import { TColors } from '../../styles';
 
 import { useTheme } from './useTheme';
 
-export function useColor(color: TColors): string {
-	const { theme } = useTheme();
+export function useColor(color: string): string {
+	const {
+		theme: { colors },
+	} = useTheme();
 
-	return theme.colors[color];
+	if (color in colors) {
+		return colors[color as TColors];
+	}
+
+	return color;
 }
