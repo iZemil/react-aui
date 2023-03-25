@@ -13,9 +13,10 @@ export const Basic = () => {
 			<Editor
 				preview
 				value={`
-    import { Svg, SvgProps } from 'react-ui';
+    import { Svg, SvgProps, useColor } from 'react-ui';
 
     // to find icons: https://www.svgrepo.com/
+    // also you can use useColor(props.color ?? 'text');
     const MyIcon = (props: SvgProps) => (
         <Svg viewBox="0 0 24 24" {...props}>
             <path

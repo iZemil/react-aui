@@ -14,7 +14,7 @@ export const LiWrapper: SpecialComponents['li'] = (_props: {
 	const props = { className, children };
 
 	if (className === 'task-list-item') {
-		return <Checkbox checked={Boolean(checked)}>{children.slice(2).join(' ')}</Checkbox>;
+		return <Checkbox value={Boolean(checked)}>{children.slice(2).join(' ')}</Checkbox>;
 	}
 
 	return React.createElement('li', props);
