@@ -23,8 +23,6 @@ type MainButtonProps = {
 	onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 
 	title?: string;
-	to?: string;
-	blank?: boolean;
 };
 
 export type ButtonProps = Partial<Omit<SButtonProps, '$type'>> & MainButtonProps;

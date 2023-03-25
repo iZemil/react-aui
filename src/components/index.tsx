@@ -16,8 +16,6 @@ export { CopyButton } from './Button/CopyButton';
 export { Checkbox } from './Checkbox';
 export { Pagination } from './Pagination';
 
-export * from './Link';
-
 export * from './Card';
 
 export { Tabs, Tab } from './Tabs';

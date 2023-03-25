@@ -141,26 +141,6 @@ export const Other = () => {
 					On Click
 				</Button>
 			</Container>
-
-			<Container>
-				<Button to="#link">Link</Button>
-
-				<Button to="#link" type="text">
-					Link
-				</Button>
-
-				<Button to="#link" type="text">
-					Link
-				</Button>
-
-				<Button to="#link" type="text" size="small">
-					Link
-				</Button>
-
-				<Button to="https://google.com" type="text" blank>
-					Target Blank Link
-				</Button>
-			</Container>
 		</Container>
 	);
 };

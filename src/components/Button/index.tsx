@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { Link } from '../Link';
 import { Ripple } from '../Ripple';
 import { useRipple } from '../Ripple/useRipple';
 
@@ -22,9 +21,6 @@ export function Button(props: ButtonProps) {
 		htmlType = 'button',
 		icon = false,
 
-		to,
-		blank = false,
-
 		...rest
 	} = props;
 
@@ -38,7 +34,7 @@ export function Button(props: ButtonProps) {
 		handleRipple(event);
 	};
 
-	const _Button = (
+	return (
 		<S.$
 			$type={type}
 			type={htmlType}
@@ -56,16 +52,6 @@ export function Button(props: ButtonProps) {
 			{children}
 		</S.$>
 	);
-
-	if (to) {
-		return (
-			<Link to={to} blank={blank}>
-				{_Button}
-			</Link>
-		);
-	}
-
-	return _Button;
 }
 
 Button.Copy = CopyButton;
