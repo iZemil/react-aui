@@ -1,5 +1,3 @@
-import { Icon } from '..';
-
 import { stringToColor } from '../../utils';
 
 import S, { SAvatarProps } from './Styled';
@@ -20,9 +18,7 @@ export const Avatar = ({
 }: AvatarProps) => {
 	return (
 		<S.$ size={size} color={color} title={children} square={square} src={src} {...styledProps}>
-			{/* {src && <S.Image.$ src={src} />} */}
-
-			<S.Name.$ src={src}>{children ? getInitials(children) : <Icon.base.Person />}</S.Name.$>
+			<S.Name.$ src={src}>{children ? getInitials(children) : null}</S.Name.$>
 		</S.$>
 	);
 };

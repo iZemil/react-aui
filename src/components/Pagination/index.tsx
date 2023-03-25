@@ -98,7 +98,7 @@ export const Pagination = (props: PaginationProps) => {
 				onClick={() => onChange(current - 1)}
 				disabled={current <= 1}
 			>
-				<Icon.base.ChevronLeft />
+				<Icon.ChevronLeft />
 			</S.Item.$>
 
 			{list.map((page, index) => {
@@ -134,7 +134,7 @@ export const Pagination = (props: PaginationProps) => {
 				onClick={() => onChange(current + 1)}
 				disabled={current >= pages}
 			>
-				<Icon.base.ChevronRight />
+				<Icon.ChevronRight />
 			</S.Item.$>
 		</S.$>
 	);

@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { TColors, TSize, color, getFontSize, padding } from '../../styles';
-import { Button } from '../Button';
 
 interface ISProps {
 	color?: TColors;
@@ -11,6 +10,7 @@ interface ISProps {
 	bold?: boolean;
 	uppercase?: boolean;
 	italic?: boolean;
+	onClick?: () => void;
 }
 
 export type TextProps = {
@@ -30,6 +30,7 @@ const S = {
 		${(props) => (props.bold ? 'font-weight: bold;' : '')}
 		${(props) => (props.italic ? 'font-style: italic;' : '')}
 		${(props) => (props.uppercase ? 'text-transform: uppercase;' : '')}
+		${(p) => (p.onClick ? 'cursor: pointer;' : '')}
 
 		button {
 			padding: 0 2px;
@@ -47,9 +48,9 @@ export const Text = (props: TextProps) => {
 		trimmed = (
 			<>
 				{children.slice(0, maxLength)}{' '}
-				<Button size={size} type="text" to="#" onClick={() => setWithMore(false)}>
-					...more
-				</Button>
+				<S.$ inline={inline} size={size} color="main" onClick={() => setWithMore(false)}>
+					more...
+				</S.$>
 			</>
 		);
 	}

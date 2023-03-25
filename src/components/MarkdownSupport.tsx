@@ -28,9 +28,9 @@ export const MarkdownSupport = (props: IProps) => {
 
 	return (
 		<S.$>
-			<Button size="small" type="text" color="grey" to={href} blank>
+			<Button size="small" type="text" color="grey" onClick={() => window.open(href)}>
 				{text}
-				<Icon icon={Icon.base.Markdown} size="small" />
+				<Icon.Markdown size={18} />
 			</Button>
 		</S.$>
 	);

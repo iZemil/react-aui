@@ -38,7 +38,7 @@ export class Option extends React.Component<OptionProps> {
 
 const DropdownLabel = ({ ...rest }: Partial<ButtonProps>) => (
 	<Button type="text" color="text" circle {...rest}>
-		<Icon.base.ThreeDots />
+		<Icon.Dots />
 	</Button>
 );
 

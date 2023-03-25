@@ -1,119 +1,33 @@
-import { Icon } from '.';
+import { Svg } from '.';
 
-import { useSnacks } from '../../utils';
-import { CopyButton } from '../Button/CopyButton';
 import Container from '../Container';
-
-import { createIconAliases } from './utils';
+import { Editor } from '../Editor';
 
 export default {
-	component: Icon,
+	component: Svg,
 };
 
 export const Basic = () => {
 	return (
 		<Container column>
-			<Container>
-				<span>react-icons</span>
-				<Icon icon={Icon.base.Info} />
-			</Container>
-			<Container>
-				<span>base icon set</span>
-				<Icon icon={Icon.base.Info} />
-				<Icon icon={Icon.base.Info} />
-			</Container>
-			<Container>
-				<span>change color</span>
-				<Icon icon={Icon.base.Info} color="red" />
-				<Icon icon={Icon.base.Info} color="blue" />
-				<Icon icon={Icon.base.Info} color="pink" />
-				<Icon icon={Icon.base.Info} color="#00ff00" />
-			</Container>
+			<Editor
+				preview
+				value={`
+    import { Svg, SvgProps, useColor } from 'react-ui';
 
-			<Container>
-				<Icon icon={Icon.base.Info} size="small" />
-				<Icon icon={Icon.base.Info} size="medium" />
-				<Icon icon={Icon.base.Info} size="large" />
-			</Container>
-		</Container>
-	);
-};
-
-export const BasicSet = () => {
-	const snack = useSnacks();
-
-	return (
-		<Container column>
-			<Container style={{ flexWrap: 'wrap' }}>
-				{Object.entries(Icon.base).map(([name, baseIcon]) => (
-					<CopyButton
-						key={name}
-						value={() => {
-							snack.success(`Copied: ${name}`);
-
-							return `<Icon icon={Icon.base.${name}} />`;
-						}}
-						withoutIcon
-					>
-						<Icon icon={baseIcon} size={20} />
-					</CopyButton>
-				))}
-			</Container>
-		</Container>
-	);
-};
-
-export const AllSet = () => {
-	const snack = useSnacks();
-
-	return (
-		<Container column>
-			<Container style={{ flexWrap: 'wrap' }}>
-				{Object.entries(Icon.all).map(([name, baseIcon]) => (
-					<CopyButton
-						key={name}
-						value={() => {
-							snack.success(`Copied: ${name}`);
-
-							return `<Icon icon={Icon.all.${name}} />`;
-						}}
-						withoutIcon
-					>
-						<Icon icon={baseIcon} size={20} />
-					</CopyButton>
-				))}
-			</Container>
-		</Container>
-	);
-};
-
-export const Aliases = () => {
-	const snack = useSnacks();
-	const iconAliases = createIconAliases((bs) => ({
-		unarchive: bs.BsFileArrowUp,
-		archive: bs.BsFileArrowDown,
-		withdraw: bs.BsCashStack,
-		pending: bs.BsClock,
-	}));
-	const aliases = Object.keys(iconAliases) as Array<keyof typeof iconAliases>;
-
-	return (
-		<Container column>
-			<Container style={{ flexWrap: 'wrap' }}>
-				{aliases.map((alias) => (
-					<CopyButton
-						key={alias}
-						value={() => {
-							snack.success(`Copied: ${alias}`);
-
-							return `<Icon icon={iconAliases.${alias}} />`;
-						}}
-						withoutIcon
-					>
-						<Icon icon={iconAliases[alias]} size={20} />
-					</CopyButton>
-				))}
-			</Container>
+    // to find icons: https://www.svgrepo.com/
+    // also you can use useColor(props.color ?? 'text');
+    const MyIcon = (props: SvgProps) => (
+        <Svg viewBox="0 0 24 24" {...props}>
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M18.601 8.39897C18.269 8.06702 17.7309 8.06702 17.3989 8.39897L12 13.7979L6.60099 8.39897C6.26904 8.06702 5.73086 8.06702 5.39891 8.39897C5.06696 8.73091 5.06696 9.2691 5.39891 9.60105L11.3989 15.601C11.7309 15.933 12.269 15.933 12.601 15.601L18.601 9.60105C18.9329 9.2691 18.9329 8.73091 18.601 8.39897Z"
+            ></path>
+        </Svg>
+    );
+            `}
+			/>
 		</Container>
 	);
 };

@@ -8,21 +8,21 @@ export default {
 };
 
 export const Basic = () => {
-	const [checked, toggle] = React.useState(false);
+	const [value, toggle] = React.useState(false);
 
 	return (
 		<Container column>
-			<Checkbox checked={checked} onClick={toggle} />
+			<Checkbox value={value} onChange={toggle} />
 
-			<Checkbox checked={checked} onClick={toggle}>
+			<Checkbox value={value} onChange={toggle}>
 				Checkbox
 			</Checkbox>
 
-			<Checkbox disabled checked={checked} onClick={toggle}>
+			<Checkbox disabled value={value} onChange={toggle}>
 				Disabled
 			</Checkbox>
 
-			<Checkbox checked={checked} onClick={toggle} color="main">
+			<Checkbox value={value} onChange={toggle} color="main">
 				Color
 			</Checkbox>
 		</Container>

@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { normalize } from 'styled-normalize';
+import { createGlobalStyle, css } from 'styled-components';
+import { normalize as normalizeCss } from 'styled-normalize';
 
 import { ITheme } from '../styles';
 
@@ -9,7 +9,26 @@ type Props = {
 } & { theme: ITheme };
 
 export const GlobalStyles = createGlobalStyle<Props>`
-    ${(props) => (props.normalize ?? true ? normalize : '')}
+    ${(p) => {
+		const { normalize = true } = p;
 
-    ${(props) => (props.children ? props.children(props.theme) : '')}
+		if (normalize) {
+			return css`
+				${normalizeCss}
+
+				html {
+					box-sizing: border-box;
+				}
+				*,
+				*:before,
+				*:after {
+					box-sizing: inherit;
+				}
+			`;
+		}
+
+		return '';
+	}}
+
+    ${(p) => (p.children ? p.children(p.theme) : '')}
 `;

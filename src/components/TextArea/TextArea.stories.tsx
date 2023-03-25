@@ -1,5 +1,4 @@
 import { TextArea } from '.';
-import { Icon } from '..';
 import * as React from 'react';
 
 import Container from '../Container';
@@ -45,8 +44,7 @@ export const Basic = () => {
 							gap: '5px',
 						}}
 					>
-						<Icon icon={Icon.base.EmptyAvatar} />
-						Custom label
+						<b>Custom</b> label
 					</div>
 				}
 				error="Some error"

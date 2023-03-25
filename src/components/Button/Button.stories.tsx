@@ -1,15 +1,13 @@
-import { Icon } from '..';
-
 import { useSnacks } from '../../utils';
 import Container from '../Container';
 
 import { Button } from './index';
 
-const { base: BaseIcon } = Icon;
-
 export default {
 	component: Button,
 };
+
+const Ico = () => <span>i</span>;
 
 export const Type = () => {
 	return (
@@ -33,25 +31,25 @@ export const Size = () => {
 
 			<Container>
 				<Button icon size="small">
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 				<Button icon size="medium">
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 				<Button icon size="large">
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 			</Container>
 
 			<Container>
 				<Button icon size="small" circle>
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 				<Button icon size="medium" circle>
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 				<Button icon size="large" circle>
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 			</Container>
 		</Container>
@@ -89,30 +87,30 @@ export const Icons = () => {
 		<Container column>
 			<Container>
 				<Button>
-					<BaseIcon.Home />
+					<Ico />
 					Home
 				</Button>
 				<Button>
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 				<Button circle>
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 				<Button type="text" circle>
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 			</Container>
 
 			<Container>
 				<Button type="filled">
-					<BaseIcon.Home />
+					<Ico />
 					Home
 				</Button>
 				<Button type="filled">
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 				<Button type="filled" circle>
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 			</Container>
 		</Container>
@@ -134,36 +132,13 @@ export const Other = () => {
 				<Button disabled>Disabled</Button>
 
 				<Button circle disabled>
-					<BaseIcon.Home />
+					<Ico />
 				</Button>
 			</Container>
 
 			<Container>
 				<Button type="filled" onClick={() => snack.success('Success')}>
 					On Click
-				</Button>
-			</Container>
-
-			<Container>
-				<Button to="#link">Link</Button>
-
-				<Button to="#link" type="text">
-					Link
-				</Button>
-
-				<Button to="#link" type="text">
-					<BaseIcon.Link />
-					Link
-				</Button>
-
-				<Button to="#link" type="text" size="small">
-					<BaseIcon.Link />
-					Link
-				</Button>
-
-				<Button to="https://google.com" type="text" blank>
-					<BaseIcon.Link />
-					Target Blank Link
 				</Button>
 			</Container>
 		</Container>
