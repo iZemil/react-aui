@@ -1,6 +1,5 @@
 import { DecoratorFn } from '@storybook/react';
 import * as React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { AUIProvider, GlobalStyles } from '../src/components';
 import { ITheme, color, cssIf } from '../src/styles';
@@ -33,10 +32,9 @@ const withAUIProvider: DecoratorFn = (Story, context) => {
 	}, [themeKey]);
 
 	return (
-		<BrowserRouter>
-			<AUIProvider theme={theme}>
-				<GlobalStyles normalize>
-					{(t) => `
+		<AUIProvider theme={theme}>
+			<GlobalStyles normalize>
+				{(t) => `
 						${cssIf(
 							`
 						html {
@@ -53,11 +51,10 @@ const withAUIProvider: DecoratorFn = (Story, context) => {
 							color: ${color('text')({ theme: t })};
 						}
 					`}
-				</GlobalStyles>
+			</GlobalStyles>
 
-				<Story />
-			</AUIProvider>
-		</BrowserRouter>
+			<Story />
+		</AUIProvider>
 	);
 };
 

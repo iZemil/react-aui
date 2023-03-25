@@ -1,13 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { borderRadius, clickEffect, color, disabledCss, padding } from '../../styles';
+import { border, borderRadius, clickEffect, color, disabledCss, padding } from '../../styles';
 
 import { CheckboxProps } from './index';
+
+export const SIZE = 18;
 
 type TIconProps = Required<Pick<CheckboxProps, 'color'>>;
 const Icon = {
 	$: styled.div<TIconProps>`
-		color: ${(props) => color(props.color)(props)};
+		color: ${(p) => color(p.color)(p)};
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -15,10 +17,22 @@ const Icon = {
 		cursor: pointer;
 		transition: 0.4s;
 
+		${() => {
+			const size = SIZE;
+
+			return css`
+				width: ${size}px;
+				height: ${size}px;
+				min-width: ${size}px;
+			`;
+		}}
+		border-radius: ${borderRadius};
+		border: ${(p) => border(p.color)(p)};
+
 		${(props) => clickEffect.init(props)}
 	`,
 };
-const Styled = {
+export const S = {
 	$: styled.div<Partial<CheckboxProps> & TIconProps>`
 		cursor: pointer;
 		display: flex;
@@ -42,5 +56,3 @@ const Styled = {
 	`,
 	Icon,
 };
-
-export default Styled;
