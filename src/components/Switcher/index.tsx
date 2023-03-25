@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { TColors, color as colorFn, padding } from '../../styles';
+import { TColors, border, color as colorFn, padding } from '../../styles';
 
-const SIZE = 18;
+const SIZE = 20;
 
 interface SProps {
 	disabled?: boolean;
@@ -32,7 +32,8 @@ const S = {
 
 	$: styled.div<SProps>`
 		position: relative;
-		margin: 0 ${padding('medium')}px;
+		margin: 0 ${padding('small')};
+		border: ${border('bg')};
 		width: ${SIZE * 1.5}px;
 		min-width: ${SIZE * 1.5}px;
 		height: ${SIZE - 2}px;
@@ -48,7 +49,7 @@ const S = {
 			position: absolute;
 			width: ${SIZE}px;
 			height: ${SIZE}px;
-			background: ${colorFn('text')};
+			background: ${colorFn('bg')};
 			border: 2px solid ${colorFn('grey')};
 			border-radius: 50%;
 			transform: translateX(-50%);

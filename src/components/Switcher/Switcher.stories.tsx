@@ -11,7 +11,7 @@ export const Basic = () => {
 	const [value, toggle] = React.useState(false);
 
 	return (
-		<Container column>
+		<Container column style={{ border: '1px dashed' }}>
 			<Switcher value={value} onChange={toggle} />
 
 			<Switcher value={value} onChange={toggle}>
