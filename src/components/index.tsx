@@ -14,6 +14,7 @@ export { Editor } from './Editor';
 export { Button } from './Button';
 export { CopyButton } from './Button/CopyButton';
 export { Checkbox } from './Checkbox';
+export { Switcher } from './Switcher';
 export { Pagination } from './Pagination';
 
 export * from './Card';
